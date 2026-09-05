@@ -1,0 +1,48 @@
+class_name EventService
+extends RefCounted
+## One pending choice at a time. All event rewards pass through domain services.
+var catalog: ContentCatalog
+var random: RandomProvider
+var config: GameConfig
+var moves: MoveService
+var pending: ActionDefinition
+var next_at: int = 0
+var processing_ms: float = 0.0
+
+func _init(content: ContentCatalog, rng: RandomProvider, game_config: GameConfig, move_service: MoveService) -> void:
+	catalog = content
+	random = rng
+	config = game_config
+	moves = move_service
+
+func schedule(now: int) -> void:
+	pending = null
+	next_at = maxi(0, now) + random.between(config.event_min_seconds, config.event_max_seconds)
+
+func poll(now: int, stream: StreamType) -> ActionDefinition:
+	if now < 0 or stream == null or pending != null or now < next_at or catalog.events.is_empty():
+		return null
+	var started: int = Time.get_ticks_usec()
+	var ids: Array = catalog.events.keys()
+	pending = catalog.events[ids[random.between(0, ids.size() - 1)]]
+	processing_ms = (Time.get_ticks_usec() - started) / 1000.0
+	return pending
+
+## Content event_multiplier scales positive event hype and viewer bonus, not costs.
+func resolve(state: PlayerState, accept: bool, now: int, stream: StreamType) -> OperationResult:
+	if state == null or stream == null or now < 0 or pending == null:
+		return OperationResult.fail(&"INVALID_ARGUMENT")
+	if not state.is_streaming:
+		return OperationResult.fail(&"NOT_STREAMING")
+	var result: OperationResult = OperationResult.new(true, &"SUCCESS", "Событие пропущено")
+	if accept:
+		if not pending.move_id.is_empty():
+			result = moves.perform(state, pending.move_id, now)
+		else:
+			var scaled: ActionDefinition = pending.duplicate() as ActionDefinition
+			scaled.hype_gain *= stream.event_multiplier
+			scaled.viewer_multiplier = 1.0 + (scaled.viewer_multiplier - 1.0) * stream.event_multiplier
+			result = moves.apply_action(state, scaled, now)
+	if result.success:
+		schedule(now)
+	return result

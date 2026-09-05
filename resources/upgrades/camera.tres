@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="UpgradeDefinition" load_steps=2 format=3]
+[ext_resource type="Script" path="res://src/domain/models/upgrade_definition.gd" id="1"]
+[resource]
+script = ExtResource("1")
+id = "camera"
+title = "Камера"
+description = "+10% хайпа за клик"
+base_cost = 25
+stat = "hype_gain"
+amount = 0.1

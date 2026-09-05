@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ActionDefinition" load_steps=2 format=3]
+[ext_resource type="Script" path="res://src/domain/models/action_definition.gd" id="1"]
+[resource]
+script = ExtResource("1")
+id = "collab_offer"
+title = "Предложили коллаб"
+description = "Пригласить гостя: −100 монет, +25 хайпа. Откат коллаба действует."
+hype_gain = 25.0
+viewer_multiplier = 1.35
+money_gain = 0
+move_id = "collab"

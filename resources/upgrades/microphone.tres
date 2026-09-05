@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="UpgradeDefinition" load_steps=2 format=3]
+[ext_resource type="Script" path="res://src/domain/models/upgrade_definition.gd" id="1"]
+[resource]
+script = ExtResource("1")
+id = "microphone"
+title = "Микрофон"
+description = "+1 к силе клика"
+base_cost = 10
+stat = "click_power"
+amount = 1.0

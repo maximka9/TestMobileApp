@@ -1,0 +1,63 @@
+class_name MoveService
+extends RefCounted
+## Owns temporary effects and cooldowns in elapsed foreground stream seconds.
+var catalog: ContentCatalog
+var upgrades: UpgradeService
+var config: GameConfig
+var cooldowns: Dictionary = {}
+var effects: Dictionary = {}
+
+func _init(content: ContentCatalog, upgrade_service: UpgradeService, game_config: GameConfig) -> void:
+	catalog = content
+	upgrades = upgrade_service
+	config = game_config
+
+func perform(state: PlayerState, id: String, now: int) -> OperationResult:
+	if state == null or now < 0 or not catalog.moves.has(id):
+		return OperationResult.fail(&"INVALID_ARGUMENT")
+	if not state.is_streaming:
+		return OperationResult.fail(&"NOT_STREAMING", "Сначала начните эфир")
+	if remaining(id, now) > 0:
+		return OperationResult.fail(&"ON_COOLDOWN", "Мув ещё восстанавливается")
+	var definition: ActionDefinition = catalog.moves[id]
+	var result: OperationResult = apply_action(state, definition, now)
+	if result.success:
+		cooldowns[id] = now + definition.cooldown
+	return result
+
+func apply_action(state: PlayerState, definition: ActionDefinition, now: int) -> OperationResult:
+	if state == null or definition == null or now < 0:
+		return OperationResult.fail(&"INVALID_ARGUMENT")
+	if definition.id.is_empty() or definition.money_cost < 0 or definition.money_gain < 0 or definition.duration < 0 or definition.cooldown < 0:
+		return OperationResult.fail(&"INVALID_ARGUMENT")
+	if not is_finite(definition.energy_cost) or definition.energy_cost < 0 or not is_finite(definition.hype_gain) or not is_finite(definition.viewer_multiplier) or definition.viewer_multiplier <= 0:
+		return OperationResult.fail(&"INVALID_ARGUMENT")
+	if not state.is_streaming:
+		return OperationResult.fail(&"NOT_STREAMING")
+	var energy_cost: float = definition.energy_cost / float(upgrades.stats(state)["max_energy"]) * config.base_energy
+	if state.money < definition.money_cost:
+		return OperationResult.fail(&"NOT_ENOUGH_MONEY", "Не хватает денег")
+	if state.energy < energy_cost:
+		return OperationResult.fail(&"NOT_ENOUGH_ENERGY", "Не хватает энергии. Отдохните между эфирами")
+	state.money += definition.money_gain - definition.money_cost
+	state.energy -= energy_cost
+	state.hype = clampf(state.hype + definition.hype_gain, 0.0, config.hype_max)
+	if definition.duration > 0:
+		effects[definition.id] = {"until": now + definition.duration, "multiplier": definition.viewer_multiplier}
+	return OperationResult.new(true, &"SUCCESS", definition.title, {"money_gain": definition.money_gain})
+
+func remaining(id: String, now: int) -> int:
+	return maxi(0, int(cooldowns.get(id, 0)) - maxi(0, now))
+
+func multiplier(now: int) -> float:
+	var value: float = 1.0
+	for id: String in effects.keys():
+		if now >= int(effects[id]["until"]):
+			effects.erase(id)
+		else:
+			value *= float(effects[id]["multiplier"])
+	return value
+
+func reset() -> void:
+	cooldowns.clear()
+	effects.clear()

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ActionDefinition" load_steps=2 format=3]
+[ext_resource type="Script" path="res://src/domain/models/action_definition.gd" id="1"]
+[resource]
+script = ExtResource("1")
+id = "clip"
+title = "Клип залетел"
+description = "Поделиться клипом: +20 хайпа, +15 монет, бонус онлайну."
+hype_gain = 20.0
+viewer_multiplier = 1.3
+money_gain = 15
+move_id = ""

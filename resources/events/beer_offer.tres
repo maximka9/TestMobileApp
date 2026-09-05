@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ActionDefinition" load_steps=2 format=3]
+[ext_resource type="Script" path="res://src/domain/models/action_definition.gd" id="1"]
+[resource]
+script = ExtResource("1")
+id = "beer_offer"
+title = "Взять пиво?"
+description = "−10 энергии, +15 хайпа. Откат мува действует."
+hype_gain = 15.0
+viewer_multiplier = 1.15
+money_gain = 0
+move_id = "beer"

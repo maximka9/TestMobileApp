@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="UpgradeDefinition" load_steps=2 format=3]
+[ext_resource type="Script" path="res://src/domain/models/upgrade_definition.gd" id="1"]
+[resource]
+script = ExtResource("1")
+id = "chair"
+title = "Кресло"
+description = "+10 к вместимости энергии"
+base_cost = 30
+stat = "max_energy"
+amount = 10.0

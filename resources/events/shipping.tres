@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ActionDefinition" load_steps=2 format=3]
+[ext_resource type="Script" path="res://src/domain/models/action_definition.gd" id="1"]
+[resource]
+script = ExtResource("1")
+id = "shipping"
+title = "Чат начал шипперить"
+description = "Подыграть чату: +18 хайпа, бонус онлайну на 20 с."
+hype_gain = 18.0
+viewer_multiplier = 1.25
+money_gain = 0
+move_id = ""

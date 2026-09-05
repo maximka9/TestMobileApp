@@ -1,0 +1,29 @@
+class_name PlayerState
+extends RefCounted
+## Persistent player data. Only domain services mutate it; sessions are transient.
+
+var level: int = 1
+var xp: int = 0
+var money: int = 0
+var viewers: int = 0
+var hype: float = 0.0
+var energy: float = 100.0
+var click_power: int = 1
+var current_stream_type_id: String = "just_chatting"
+var is_streaming: bool = false
+var total_clicks: int = 0
+var total_streams: int = 0
+var upgrades: Dictionary = {}
+var settings: Dictionary = {"reduced_motion": false}
+
+## Energy is stored as 0..100 percent. Chair capacity makes each move cost less percent.
+func normalize() -> void:
+	level = clampi(level, 1, 100000)
+	xp = maxi(0, xp)
+	money = maxi(0, money)
+	viewers = maxi(0, viewers)
+	hype = clampf(hype, 0.0, 100.0) if is_finite(hype) else 0.0
+	energy = clampf(energy, 0.0, 100.0) if is_finite(energy) else 100.0
+	click_power = maxi(1, click_power)
+	total_clicks = maxi(0, total_clicks)
+	total_streams = maxi(0, total_streams)

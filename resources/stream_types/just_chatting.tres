@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="StreamType" load_steps=2 format=3]
+[ext_resource type="Script" path="res://src/domain/models/stream_type.gd" id="1"]
+[resource]
+script = ExtResource("1")
+id = "just_chatting"
+title = "Just Chatting"
+description = "Общение с чатом. Больше хайпа от событий."
+viewer_multiplier = 1.0
+income_multiplier = 1.0
+event_multiplier = 1.2
