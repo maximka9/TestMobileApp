@@ -22,6 +22,7 @@ function Invoke-SasaCheck([string[]]$Arguments) {
 }
 Invoke-SasaCheck @('--headless', '--editor', '--path', $sasaRoot, '--quit')
 Invoke-SasaCheck @('--headless', '--path', $sasaRoot, '--script', 'tests/test_runner.gd')
+Invoke-SasaCheck @('--headless', '--path', $sasaRoot, '--script', 'tests/career_phase9.gd')
 $sasaTag = [DateTimeOffset]::UtcNow.ToUnixTimeMilliseconds().ToString()
 Invoke-SasaCheck @('--headless', '--path', $sasaRoot, '--script', 'tests/restart_probe.gd', '--', 'write', $sasaTag)
 Invoke-SasaCheck @('--headless', '--path', $sasaRoot, '--script', 'tests/restart_probe.gd', '--', 'read', $sasaTag)

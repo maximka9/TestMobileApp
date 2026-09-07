@@ -89,13 +89,15 @@ func _read_v04(data: Dictionary, state: PlayerState) -> bool:
 		return false
 	state.selected_cosplay_id = str(data["selected_cosplay_id"]) if catalog.cosplays.has(data["selected_cosplay_id"]) else ""
 	for key: String in ["unlocked_achievements", "owned_room_items", "owned_homes"]:
-		if not data.get(key) is Array:
+		if not data.get(key) is Array or data[key].size() > 10000:
 			return false
+		state.get(key).clear()
 		for id: Variant in data[key]:
-			if not id is String or id.length() > 64:
+			if not id is String or id.strip_edges().is_empty() or id.length() > 64:
 				return false
-			state.get(key).append(id)
-	if state.owned_homes.is_empty():
+			if not id in state.get(key):
+				state.get(key).append(id)
+	if not "starter_home" in state.owned_homes:
 		state.owned_homes.append("starter_home")
 	return true
 
@@ -151,7 +153,7 @@ func _read_career(data: Dictionary, state: PlayerState) -> bool:
 		for key: String in ["duration", "peak_viewers", "followers_gained", "money_gained", "timestamp"]:
 			if not _integer(entry.get(key), 0, MAX_COUNTER):
 				return false
-		if not _number(entry.get("average_viewers"), 0, float(entry["peak_viewers"])) or not _number(entry.get("novelty"), 0, 1):
+		if not _number(entry.get("average_viewers"), 0, float(entry["peak_viewers"])) or not _number(entry.get("novelty"), 0, upgrades.config.audience_multiplier_cap):
 			return false
 		state.stream_history.append(entry.duplicate(true))
 	return true

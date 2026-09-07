@@ -438,6 +438,9 @@ func _show_social_profile() -> void:
 	modal_body.add_child(SasaUI.label("Отношения, совместимость и шансы — вымышленные игровые механики. Они не описывают реальных людей и не предсказывают их поведение.", &"small", &"MutedLabel"))
 
 func _modal_feedback(result: OperationResult) -> void:
+	if result.success:
+		_refresh()
+		app.queue.request_save()
 	var message: String = result.message if not result.message.is_empty() else str(result.error_code)
 	var feedback: Label = SasaUI.label(message, &"body", &"SuccessLabel" if result.success else &"ErrorLabel")
 	modal_body.add_child(feedback)
