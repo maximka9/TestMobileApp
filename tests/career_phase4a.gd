@@ -19,9 +19,9 @@ func _run() -> void:
 
 func _test_candidates() -> void:
 	_setup()
-	check(catalog.streamers.size() == 20, "Twenty fixture profiles load")
+	check(catalog.streamers.size() >= 20, "Fixture profiles remain available in production catalog")
 	var selected: Array[String] = collabs.candidates(state)
-	check(selected.size() == 10 and selected.has("fixture_20"), "Ten candidates include aspirational author")
+	check(selected.size() == 10 and selected.any(func(id: String) -> bool: return int(catalog.streamers[id].reference_avg_viewers) >= 80000), "Ten candidates include aspirational author")
 	var small: int = 0
 	var near: int = 0
 	for id: String in selected:

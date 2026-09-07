@@ -2,8 +2,10 @@
 
 Completed 2026-09-08, branch `feature/sasaclicker-career-v0.4`.
 
-- Twenty explicitly fictional resource profiles span audience references from 5
-  to 80,000. These are balance values, not real audience statistics. No networking.
+- Phase 4A used twenty explicitly fictional fixture profiles spanning audience
+  references from 5 to 80,000. Phase 4B replaces the runtime source with a
+  bundled 500-profile JSON catalog; all references remain balance values, not
+  real audience statistics. No networking.
 - Selection prefers 2 smaller / 4 near / 3 larger / 1 aspirational candidates,
   falling back without duplicates when a group or the dataset is too small.
   Uses persistent average online, never instantaneous viewers.

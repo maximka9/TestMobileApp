@@ -1,6 +1,6 @@
 class_name StreamerDefinition
 extends Resource
-## Fictional fixture profiles. Reference audience is a game balance value, not analytics.
+## Bundled offline profile. Reference audience is a game balance value, not analytics.
 @export var id: String = ""
 @export var display_name: String = ""
 @export var reach_tier: int = 0
