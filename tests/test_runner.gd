@@ -52,7 +52,9 @@ func _run() -> void:
 	_test_retry()
 	_test_file_repository()
 	_test_flow()
+	_test_bootstrap_failures()
 	await _test_scene()
+	await _test_room_scene()
 	print("TEST RESULTS: %d passed, %d failed" % [passed, failed])
 	quit(0 if failed == 0 else 1)
 
@@ -218,6 +220,21 @@ func _test_save() -> void:
 	var malformed: Dictionary = document.duplicate(true)
 	malformed["player"]["upgrades"] = {"microphone": -1}
 	check(not saves.deserialize(malformed).success, "Reject malformed upgrades")
+	var definition: UpgradeDefinition = (catalog.upgrades["microphone"] as UpgradeDefinition).duplicate() as UpgradeDefinition
+	catalog.upgrades["microphone"] = definition
+	definition.max_level = 2
+	malformed["player"]["upgrades"] = {"microphone": 3}
+	check(saves.deserialize(malformed).error_code == &"CORRUPT_SAVE", "Reject known upgrade above its own definition cap, even below 30")
+	malformed["player"]["upgrades"] = {"microphone": 2}
+	check(saves.deserialize(malformed).success, "Accept known upgrade exactly at its definition cap")
+	definition.max_level = 40
+	malformed["player"]["upgrades"] = {"microphone": 35}
+	check(saves.deserialize(malformed).success, "Upgrade validation uses the definition instead of a global 30 cap")
+	malformed["player"]["upgrades"] = {"microphone": 2.5}
+	check(saves.deserialize(malformed).error_code == &"CORRUPT_SAVE", "Reject fractional upgrade levels")
+	malformed["player"]["upgrades"] = {"retired_upgrade": 1}
+	var retired: OperationResult = saves.deserialize(malformed)
+	check(retired.success and not (retired.context["state"] as PlayerState).upgrades.has("retired_upgrade"), "Unknown upgrade IDs preserve the v1 ignore policy")
 	malformed = document.duplicate(true)
 	malformed["version"] = 999
 	check(not saves.deserialize(malformed).success, "Reject unsupported save version")
@@ -320,9 +337,97 @@ func _test_scene() -> void:
 	game._start_content("just_chatting")
 	game._room_tapped(Vector2(100, 100))
 	check(game.app.stream.state.total_clicks > 0 and game.app.stream.state.is_streaming, "UI click dispatch reaches domain")
+	_test_room_input(game)
 	game._primary_pressed()
 	check(game.modal_kind == "summary", "UI finish displays summary")
 	game._close_modal()
 	check(game.app.stream.phase == StreamService.Phase.OFFLINE, "UI continue returns to room")
 	game.queue_free()
 	await process_frame
+
+func _test_room_input(game: MainGameController) -> void:
+	var before: int = game.app.stream.state.total_clicks
+	var touch: InputEventScreenTouch = InputEventScreenTouch.new()
+	touch.position = game.room.size * 0.5
+	touch.index = 0
+	touch.pressed = true
+	game.room._gui_input(touch)
+	check(game.app.stream.state.total_clicks == before + 1, "One native ScreenTouch press produces exactly one gameplay click")
+	var mouse: InputEventMouseButton = InputEventMouseButton.new()
+	mouse.position = touch.position
+	mouse.button_index = MOUSE_BUTTON_LEFT
+	mouse.pressed = true
+	mouse.device = InputEvent.DEVICE_ID_EMULATION
+	game.room._gui_input(mouse)
+	check(game.app.stream.state.total_clicks == before + 1, "Touch plus emulated mouse does not double the gameplay click")
+	touch.pressed = false
+	game.room._gui_input(touch)
+	mouse.pressed = false
+	game.room._gui_input(mouse)
+	mouse.device = 0
+	mouse.pressed = true
+	mouse.button_index = MOUSE_BUTTON_RIGHT
+	game.room._gui_input(mouse)
+	check(game.app.stream.state.total_clicks == before + 1, "Touch and mouse release and right-click produce no gameplay clicks")
+	mouse.button_index = MOUSE_BUTTON_LEFT
+	game.room._gui_input(mouse)
+	check(game.app.stream.state.total_clicks == before + 2, "Physical left mouse remains a single gameplay click")
+	touch.pressed = true
+	touch.index = 1
+	game.room._gui_input(touch)
+	touch.index = 2
+	game.room._gui_input(touch)
+	check(game.app.stream.state.total_clicks == before + 4, "Independent native touch presses each produce one click")
+
+func _test_room_scene() -> void:
+	var scene: PackedScene = load("res://src/features/stream/scenes/room_view.tscn") as PackedScene
+	check(scene != null, "Standalone room scene loads")
+	if scene == null:
+		return
+	var room: RoomView = scene.instantiate() as RoomView
+	check(room != null, "Standalone room scene instantiates as a typed RoomView")
+	if room == null:
+		return
+	room.set_anchors_and_offsets_preset(Control.PRESET_TOP_LEFT)
+	room.size = Vector2(336, 280)
+	root.add_child(room)
+	await process_frame
+	await process_frame
+	var pool: FloatingTextPool = room.floating_pool
+	var labels_before: Array[int] = _label_ids(pool)
+	var nodes_before: int = room.find_children("*", "", true, false).size()
+	check(labels_before.size() >= 12 and labels_before.size() <= 16, "Room preallocates a bounded 12-16 floating Label pool")
+	for index: int in range(1000):
+		room.react(Vector2(170, 160), 1.0)
+	check(_label_ids(pool) == labels_before and room.find_children("*", "", true, false).size() == nodes_before, "1000 click reactions reuse the same Labels without growing room nodes")
+	check(pool.active_count() <= 16 and pool.total_emitted == 1000, "Rapid click feedback stays bounded and accounts for every reaction")
+	pool._process(1.0)
+	check(pool.active_count() == 0 and _label_ids(pool) == labels_before, "Expired feedback returns to the pool without freeing Labels")
+	room.queue_free()
+	await process_frame
+
+func _label_ids(parent: Node) -> Array[int]:
+	var ids: Array[int] = []
+	for node: Node in parent.find_children("*", "Label", true, false):
+		ids.append(node.get_instance_id())
+	return ids
+
+func _test_bootstrap_failures() -> void:
+	var output: Array = []
+	var exit_code: int = OS.execute(OS.get_executable_path(), PackedStringArray(["--headless", "--path", ProjectSettings.globalize_path("res://"), "--script", "res://tests/bootstrap_failure_smoke.gd"]), output, true)
+	var captured: String = "\n".join(output)
+	var expected: PackedStringArray = [
+		"ERROR: SASAclicker bootstrap failed: MainGameController parent is required",
+		"ERROR: SASAclicker bootstrap failed: GameConfig resource is missing or could not be loaded",
+		"ERROR: SASAclicker bootstrap failed: Config resource must be a GameConfig",
+	]
+	for diagnostic: String in expected:
+		check(captured.count(diagnostic) == 1, "Bootstrap reports invalid dependency: " + diagnostic.get_slice("failed: ", 1))
+	var only_expected: bool = true
+	for line: String in captured.split("\n"):
+		var stripped: String = line.strip_edges()
+		if (stripped.contains("ERROR:") and not expected.has(stripped)) or stripped.contains("WARNING:") or stripped.contains("FAIL:"):
+			only_expected = false
+	check(exit_code == 0 and only_expected and captured.contains("BOOTSTRAP_FAILURE_SMOKE_PASS"), "Bootstrap failures stop processing, leave services uninitialized and log without unrelated errors")
+	if exit_code != 0 or not only_expected or not captured.contains("BOOTSTRAP_FAILURE_SMOKE_PASS"):
+		printerr(captured)

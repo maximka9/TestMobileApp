@@ -1,6 +1,9 @@
-[gd_scene load_steps=3 format=3]
+[gd_scene load_steps=5 format=3]
 [ext_resource type="Script" path="res://src/features/stream/ui/main_game_controller.gd" id="1"]
 [ext_resource type="Script" path="res://src/app/app_bootstrap.gd" id="2"]
+[ext_resource type="Theme" path="res://resources/themes/sasa_theme.tres" id="3"]
+[ext_resource type="PackedScene" path="res://src/features/stream/scenes/room_view.tscn" id="4"]
+
 [node name="MainGame" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -8,6 +11,336 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("3")
 script = ExtResource("1")
+
+[node name="Backdrop" type="ColorRect" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="SafeMargin" type="MarginContainer" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 8
+
+[node name="Layout" type="VBoxContainer" parent="SafeMargin"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="Brand" type="HBoxContainer" parent="SafeMargin/Layout"]
+layout_mode = 2
+custom_minimum_size = Vector2(0, 48)
+
+[node name="Logo" type="Label" parent="SafeMargin/Layout/Brand"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 29
+text = "SASA"
+
+[node name="Edition" type="Label" parent="SafeMargin/Layout/Brand"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 9
+text = "STREAMER LIFE\nVOL. 02"
+theme_type_variation = &"MutedLabel"
+size_flags_horizontal = 3
+
+[node name="SettingsButton" type="Button" parent="SafeMargin/Layout/Brand"]
+unique_name_in_owner = true
+layout_mode = 2
+custom_minimum_size = Vector2(48, 48)
+size_flags_horizontal = 1
+theme_type_variation = &"Button"
+text = "•••"
+
+[node name="StatsPanel" type="PanelContainer" parent="SafeMargin/Layout"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Stats" type="VBoxContainer" parent="SafeMargin/Layout/StatsPanel"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="Header" type="Label" parent="SafeMargin/Layout/StatsPanel/Stats"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 11
+text = "SASAVOT     УР. 1     XP 0 / 50"
+
+[node name="XPBar" type="ProgressBar" parent="SafeMargin/Layout/StatsPanel/Stats"]
+unique_name_in_owner = true
+layout_mode = 2
+custom_minimum_size = Vector2(0, 3)
+mouse_filter = 2
+show_percentage = false
+
+[node name="Counters" type="HBoxContainer" parent="SafeMargin/Layout/StatsPanel/Stats"]
+layout_mode = 2
+
+[node name="Viewers" type="HBoxContainer" parent="SafeMargin/Layout/StatsPanel/Stats/Counters"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Caption" type="Label" parent="SafeMargin/Layout/StatsPanel/Stats/Counters/Viewers"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 9
+text = "ОНЛАЙН"
+theme_type_variation = &"MutedLabel"
+
+[node name="ViewersValue" type="Label" parent="SafeMargin/Layout/StatsPanel/Stats/Counters/Viewers"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "0"
+
+[node name="Money" type="HBoxContainer" parent="SafeMargin/Layout/StatsPanel/Stats/Counters"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Caption" type="Label" parent="SafeMargin/Layout/StatsPanel/Stats/Counters/Money"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 9
+text = "МОНЕТЫ"
+theme_type_variation = &"MutedLabel"
+
+[node name="MoneyValue" type="Label" parent="SafeMargin/Layout/StatsPanel/Stats/Counters/Money"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "0"
+
+[node name="Meters" type="HBoxContainer" parent="SafeMargin/Layout/StatsPanel/Stats"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Hype" type="VBoxContainer" parent="SafeMargin/Layout/StatsPanel/Stats/Meters"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 4
+
+[node name="HypeLabel" type="Label" parent="SafeMargin/Layout/StatsPanel/Stats/Meters/Hype"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 9
+text = "ХАЙП  0 / 100"
+theme_type_variation = &"AccentLabel"
+
+[node name="HypeBar" type="ProgressBar" parent="SafeMargin/Layout/StatsPanel/Stats/Meters/Hype"]
+unique_name_in_owner = true
+layout_mode = 2
+custom_minimum_size = Vector2(0, 6)
+mouse_filter = 2
+theme_type_variation = &"HypeBar"
+show_percentage = false
+
+[node name="Energy" type="VBoxContainer" parent="SafeMargin/Layout/StatsPanel/Stats/Meters"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 4
+
+[node name="EnergyLabel" type="Label" parent="SafeMargin/Layout/StatsPanel/Stats/Meters/Energy"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 9
+text = "ЭНЕРГИЯ  100%"
+theme_type_variation = &"SuccessLabel"
+
+[node name="EnergyBar" type="ProgressBar" parent="SafeMargin/Layout/StatsPanel/Stats/Meters/Energy"]
+unique_name_in_owner = true
+layout_mode = 2
+custom_minimum_size = Vector2(0, 6)
+mouse_filter = 2
+theme_type_variation = &"EnergyBar"
+show_percentage = false
+
+[node name="Status" type="Label" parent="SafeMargin/Layout"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "OFFLINE  /  Just Chatting  /  00:00"
+theme_type_variation = &"MutedLabel"
+
+[node name="RoomView" parent="SafeMargin/Layout" instance=ExtResource("4")]
+unique_name_in_owner = true
+layout_mode = 2
+custom_minimum_size = Vector2(0, 210)
+size_flags_vertical = 3
+
+[node name="PrimaryButton" type="Button" parent="SafeMargin/Layout"]
+unique_name_in_owner = true
+layout_mode = 2
+custom_minimum_size = Vector2(48, 48)
+size_flags_horizontal = 1
+theme_type_variation = &"AccentButton"
+text = "НАЧАТЬ ЭФИР"
+
+[node name="Navigation" type="HBoxContainer" parent="SafeMargin/Layout"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="GamesButton" type="Button" parent="SafeMargin/Layout/Navigation"]
+unique_name_in_owner = true
+layout_mode = 2
+custom_minimum_size = Vector2(48, 48)
+size_flags_horizontal = 3
+theme_type_variation = &"NavButton"
+text = "Игры"
+
+[node name="CollabButton" type="Button" parent="SafeMargin/Layout/Navigation"]
+unique_name_in_owner = true
+layout_mode = 2
+custom_minimum_size = Vector2(48, 48)
+size_flags_horizontal = 3
+theme_type_variation = &"NavButton"
+text = "Коллаб"
+
+[node name="MovesButton" type="Button" parent="SafeMargin/Layout/Navigation"]
+unique_name_in_owner = true
+layout_mode = 2
+custom_minimum_size = Vector2(48, 48)
+size_flags_horizontal = 3
+theme_type_variation = &"NavButton"
+text = "Мувы"
+
+[node name="UpgradesButton" type="Button" parent="SafeMargin/Layout/Navigation"]
+unique_name_in_owner = true
+layout_mode = 2
+custom_minimum_size = Vector2(48, 48)
+size_flags_horizontal = 3
+theme_type_variation = &"NavButton"
+text = "Улучшения"
+
+[node name="Footer" type="VBoxContainer" parent="SafeMargin/Layout"]
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="Toast" type="Label" parent="SafeMargin/Layout/Footer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "Твой стрим. Твои правила."
+theme_type_variation = &"MutedLabel"
+custom_minimum_size = Vector2(0, 16)
+horizontal_alignment = 1
+text_overrun_behavior = 3
+
+[node name="SaveStatus" type="Label" parent="SafeMargin/Layout/Footer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "ЛОКАЛЬНЫЙ ПРОГРЕСС · АВТОСОХРАНЕНИЕ"
+theme_type_variation = &"MutedLabel"
+horizontal_alignment = 1
+text_overrun_behavior = 3
+
+[node name="DebugLabel" type="Label" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 12.0
+offset_top = -12.0
+offset_right = -12.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+theme_type_variation = &"MutedLabel"
+theme_override_font_sizes/font_size = 8
+horizontal_alignment = 1
+
+[node name="ModalLayer" type="Control" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Dim" type="ColorRect" parent="ModalLayer"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ModalMargin" type="MarginContainer" parent="ModalLayer"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="Center" type="VBoxContainer" parent="ModalLayer/ModalMargin"]
+layout_mode = 2
+alignment = 1
+
+[node name="ModalPanel" type="PanelContainer" parent="ModalLayer/ModalMargin/Center"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Content" type="VBoxContainer" parent="ModalLayer/ModalMargin/Center/ModalPanel"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="Eyebrow" type="Label" parent="ModalLayer/ModalMargin/Center/ModalPanel/Content"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 9
+text = "SASA / STREAMER LIFE"
+theme_type_variation = &"AccentLabel"
+
+[node name="ModalTitle" type="Label" parent="ModalLayer/ModalMargin/Center/ModalPanel/Content"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "СВОЙ ЭФИР"
+theme_type_variation = &"TitleLabel"
+autowrap_mode = 3
+
+[node name="ModalScroll" type="ScrollContainer" parent="ModalLayer/ModalMargin/Center/ModalPanel/Content"]
+unique_name_in_owner = true
+layout_mode = 2
+custom_minimum_size = Vector2(0, 340)
+horizontal_scroll_mode = 0
+
+[node name="ModalBody" type="VBoxContainer" parent="ModalLayer/ModalMargin/Center/ModalPanel/Content/ModalScroll"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 10
+
+[node name="ModalClose" type="Button" parent="ModalLayer/ModalMargin/Center/ModalPanel/Content"]
+unique_name_in_owner = true
+layout_mode = 2
+custom_minimum_size = Vector2(48, 48)
+size_flags_horizontal = 1
+theme_type_variation = &"Button"
+text = "Вернуться в комнату"
+
 [node name="AppBootstrap" type="Node" parent="."]
 script = ExtResource("2")

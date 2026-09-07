@@ -1,6 +1,7 @@
 class_name AppBootstrap
 extends Node
 ## Composition root and application lifecycle. No global service locator.
+@export_file("*.tres") var config_path: String = ""
 var config: GameConfig
 var logger: ILogger
 var catalog: ContentCatalog
@@ -20,7 +21,19 @@ var _metric_accumulator: float = 0.0
 var _background: bool = false
 
 func _ready() -> void:
-	config = load("res://config/dev/game_config.tres" if OS.is_debug_build() else "res://config/prod/game_config.tres") as GameConfig
+	set_process(false)
+	var controller: MainGameController = get_parent() as MainGameController
+	if controller == null:
+		_abort_startup("MainGameController parent is required")
+		return
+	var loaded_config: Resource = _load_config_resource()
+	if loaded_config == null:
+		_abort_startup("GameConfig resource is missing or could not be loaded")
+		return
+	if not loaded_config is GameConfig:
+		_abort_startup("Config resource must be a GameConfig")
+		return
+	config = loaded_config as GameConfig
 	logger = GameLogger.new(config.debug_metrics)
 	catalog = ContentCatalog.new()
 	progression = ProgressionService.new(config)
@@ -34,11 +47,26 @@ func _ready() -> void:
 	clicks = ClickHandler.new(stream)
 	metrics = GameMetrics.new(logger, config)
 	stream.changed.connect(queue.request_save)
+	Engine.max_fps = config.target_fps
 	get_tree().auto_accept_quit = false
-	var controller: MainGameController = get_parent() as MainGameController
 	controller.configure.call_deferred(self)
 	queue.request_save()
-	logger.write("INFO", "APP", "game_started", {"version": "0.1.0"})
+	set_process(true)
+	logger.write("INFO", "APP", "game_started", {"version": "0.2.0"})
+
+func _load_config_resource() -> Resource:
+	var path: String = config_path
+	if path.is_empty():
+		path = "res://config/dev/game_config.tres" if OS.is_debug_build() else "res://config/prod/game_config.tres"
+	if not ResourceLoader.exists(path):
+		return null
+	return load(path)
+
+func _abort_startup(reason: String) -> void:
+	set_process(false)
+	if logger != null:
+		logger.write("ERROR", "APP", "bootstrap_failed", {"reason": reason})
+	push_error("SASAclicker bootstrap failed: " + reason)
 
 func _process(delta: float) -> void:
 	if stream == null or _background:

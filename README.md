@@ -1,6 +1,6 @@
 # SASAclicker
 
-Мобильная 2D clicker/idle-игра про стримера SASAVOT. Версия **0.1.0**.
+Мобильная 2D clicker/idle-игра про стримера SASAVOT. Версия **0.2.0**.
 Выбирайте контент, проводите эфиры, разгоняйте хайп кликами, получайте монеты,
 покупайте оборудование и реагируйте на события чата. Всё работает локально.
 
@@ -33,7 +33,7 @@
 
 Игровой цикл:
 
-1. Нажмите «Игры» или «Выбрать игру и начать эфир» и выберите контент.
+1. Нажмите «Игры» или «Начать эфир» и выберите контент.
 2. Кликайте по комнате. Хайп повышает целевой онлайн; XP повышает уровень.
 3. Раз в 5 секунд эфира начисляется доход. Первый микрофон стоит 10 монет.
 4. Используйте «Мувы» / «Коллаб», принимайте или пропускайте события.
@@ -41,15 +41,35 @@
 6. Нажмите «Продолжить». После перезапуска сохраняются деньги, уровень,
    XP, оборудование, общая статистика, выбранный контент и настройки.
 
-Энергия восстанавливается между эфирами. В «Опциях» можно уменьшить анимацию
+Энергия восстанавливается между эфирами. Кнопка «•••» открывает настройки: можно уменьшить анимацию
 и вручную повторить сохранение после ошибки записи.
+
+## Visual design
+
+- **Red/black SASA room:** почти чёрная комната, бордовые стены, красная подсветка,
+  холодный свет мониторов. Слои комнаты находятся в `room_view.tscn`.
+- **Pixel-art character reference:** оригинальный подробный спрайт по предоставленному
+  фото: коричневые волосы, тёмные брови, чёрные наушники и свободная белая футболка.
+  Фото используется только как ориентир и не включено в игровые assets.
+- **Friday 13 homage:** собственная пиксельная интерпретация хоккейной маски и числа 13.
+- **Firefighter reference:** оригинальная рамка с пожарным шлемом и надписью «ПОЖАРНЫЙ».
+- Четыре кадра персонажа, click reaction и подсветка при высоком хайпе;
+  `reduced_motion` отключает сильные движения. Чат ограничен небольшой очередью,
+  новые сообщения появляются снизу; скорость зависит от хайпа.
+- Статический интерфейс редактируется в `main_game.tscn`, цвета и StyleBox —
+  в `resources/themes/sasa_theme.tres`. Энергия остаётся зелёной, ошибки красными.
+- Floating feedback переиспользует 16 Label. Каждый клик не создаёт новый Label/Tween.
+- `viewport + expand + fractional`, nearest и pixel snapping заполняют экран на
+  некратных разрешениях. Компромисс: физические размеры отдельных пикселей при
+  дробном масштабе могут отличаться на один экранный пиксель. [Документация Godot](https://docs.godotengine.org/en/stable/tutorials/rendering/multiple_resolutions.html).
 
 ## Architecture
 
 `app_bootstrap.gd` создаёт зависимости и управляет foreground-таймерами,
 сохранением при паузе/выходе и диагностикой. Autoload и Service Locator отсутствуют.
 
-- **Presentation:** `MainGameController`, `RoomView`, Containers/anchors.
+- **Presentation:** статические `main_game.tscn` и `room_view.tscn`,
+  `MainGameController`, `RoomView`, `FloatingTextPool`, Containers/anchors.
   Контроллеры вызывают команды сервисов, не изменяя `PlayerState` напрямую.
 - **Application:** `ClickHandler`, bootstrap и `SaveJobQueue`.
 - **Domain:** типизированный `PlayerState`, Resources, `StreamService`,
@@ -130,35 +150,57 @@ godot --path . --script tests/visual_smoke.gd --resolution 360x640
 Проверяются экономика, XP и переходы состояний, все улучшения и мувы, лимиты,
 нехватка ресурсов, seeded RNG, события, сериализация, реальные файловые операции,
 повреждённые сохранения, coalescing/retry и полный игровой цикл с нулевого баланса.
+В 0.2 добавлены строгий лимит конкретного upgrade, отказ bootstrap при неверных
+зависимостях, инстанцирование новой комнаты, нативный touch без дублирования мышью
+и ограниченный пул feedback.
 Тесты сцены используют отдельный репозиторий, не затрагивая пользовательский save.
 `test.ps1` дополнительно запускает **два отдельных процесса**, чтобы подтвердить
 сохранение прогресса после перезапуска.
 
-`visual_smoke.gd` проверяет размеры 360×640, 360×800, 540×960 и 720×1280,
-границы контролов, реальное событие мыши через viewport и формирует PNG в
-`build/checks/`. Итог проверки см. [docs/verification.md](docs/verification.md).
+`visual_smoke.gd` проверяет 360×640, 360×800, 375×812, 390×844, 393×852,
+412×915, 540×960, 720×1280 и 1080×2400. Проверяются границы контролов,
+размеры кнопок ≥48, модальные окна, смоделированные safe-area отступы,
+фактический масштаб viewport и ввод touch/mouse. PNG и измерения находятся в
+`build/checks/v0.2/`. Итог проверки — [docs/verification.md](docs/verification.md).
 
 ## Android
 
 Профиль `Android` подготовлен в `export_presets.cfg`:
 
 - Package: `com.maximka9.sasaclicker`.
-- Portrait, логическое разрешение 360×640, viewport/expand/integer, nearest.
+- Portrait, логическое разрешение 360×640, viewport/expand/fractional, nearest.
 - ARMv7 + ARM64, без разрешения Internet.
-- Mouse-from-touch позволяет использовать тот же путь обработки нажатий.
-- Safe-area отступы основной панели вычисляются из `DisplayServer`.
+- `InputEventScreenTouch` обрабатывается явно. Mouse events с
+  `InputEvent.DEVICE_ID_EMULATION` игнорируются комнатой; обычная мышь работает.
+- Safe-area отступы основной панели и модальных окон вычисляются из `DisplayServer`.
 
-В проверенном Windows-окружении найден JDK 17, но **Android SDK отсутствует**:
-нет стандартной папки SDK, `adb` и `sdkmanager`. APK не собран. SDK автоматически
-не устанавливался. Редактор может сообщить `Unable to open Android 'build-tools'
-directory.` при проверке Android-профиля; запуск игры от этого не зависит.
+Для версии 0.2 установлены локальные OpenJDK 17, Android SDK/platform-tools и
+Godot 4.7.2 export templates. Инструменты, настройки экспортера и debug-ключ
+находятся внутри игнорируемой `.tools/`; в Git они не входят.
+Воспроизводимая сборка — `tools/android-build.ps1`; текущие версии инструментов,
+проверка manifest и сведения о подключённых устройствах описаны в
+[Android verification](docs/android_verification.md).
+
+```powershell
+.\tools\android-build.ps1
+```
+
+Проверка 2026-09-07:
+
+| Проверка | Результат |
+| --- | --- |
+| APK 0.2.0 (2), подпись, portrait | PASS — `build/android/sasaclicker-debug.apk` |
+| Устройство / версия Android | Не подключено / не определена |
+| Touch / safe area | Автотесты PASS; на телефоне не проверены |
+| Сохранение после перезапуска | Desktop PASS; на телефоне не проверено |
+| FPS | Desktop 60; на телефоне не измерен |
 
 Для сборки:
 
 1. Установите Android SDK из Android Studio либо официальных command-line tools.
 2. Установите необходимые пакеты по
    [инструкции Godot для Android](https://docs.godotengine.org/en/stable/tutorials/export/exporting_for_android.html):
-   platform-tools, build-tools 35.0.1, platform android-35, command-line tools;
+   platform-tools, build-tools 36.1.0, platform android-36, command-line tools;
    при использовании Gradle также NDK 28.1.13356709 и CMake 3.10.2.4988404.
 3. В Godot **Editor Settings → Export → Android** укажите Java SDK Path и
    Android SDK Path. Через **Manage Export Templates** установите templates 4.7.2.
@@ -193,10 +235,12 @@ src/core                     — config, result, logging, metrics, save queue
 src/domain/models            — PlayerState и data Resource classes
 src/domain/services          — игровая логика и save codec
 src/domain/repositories      — persistence port
-src/features/stream          — ClickHandler, MainGame, UI и пиксельная комната
+src/features/stream          — ClickHandler, статические сцены, UI и пул feedback
 src/infrastructure           — файловое сохранение и локальные логи
 resources                    — 3 стрима, 5 upgrades, 2 мува, 5 событий
+assets/characters, room       — оригинальные небольшие PNG-спрайты
 assets/icons                 — оригинальная SVG-иконка
+resources/themes             — централизованная красно-чёрная тема
 tests                        — runner, fakes, restart probe, visual smoke
 tools                        — PowerShell запуск и проверки
 docs                         — результаты проверки
@@ -204,10 +248,9 @@ docs                         — результаты проверки
 
 ## Known limitations
 
-- Android APK и проверка на физическом телефоне ожидают установки SDK/templates.
-  60 FPS на Android — цель, а не подтверждённый результат desktop-тестов.
-- Комната — оригинальные временные pixel placeholders, нарисованные кодом;
-  портрет стримера условный. Звука и финального набора спрайтов пока нет.
+- Проверка на физическом телефоне требует подключённого и авторизованного adb-устройства.
+  Desktop FPS и автоматические input-тесты не заменяют измерения на Android.
+- Персонаж и декорации — оригинальная стилизация по референсу. Звука пока нет.
 - Баланс исходный, без длительного плейтеста. Улучшения ограничены 30 уровнями.
 - Интерфейс пока только на русском; длинные списки прокручиваются.
 - Нет backend, аккаунтов, Twitch API, рекламы, платежей, облака или телеметрии.

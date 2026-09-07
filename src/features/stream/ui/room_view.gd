@@ -1,136 +1,191 @@
 class_name RoomView
 extends Control
-## Original code-drawn pixel placeholders. No third-party graphics or network chat.
+## Layered original sprite scene. All animation is bounded and presentation-only.
 signal tapped(position: Vector2)
-const CHAT: PackedStringArray = ["user228: ХАХАХА", "anon: +", "chat_user: KEKW", "user52: КЛИП", "kot: жми жми", "viewer: отличный эфир"]
+
+const DESIGN_SIZE := Vector2(336, 250)
+const CHAT_LIMIT: int = 6
+const CHAT_NAMES: PackedStringArray = ["kot", "user52", "masha", "anon", "sanya", "viewer", "omlet", "pixel"]
+const CHAT_MESSAGES: PackedStringArray = ["жми жми", "ХАХАХ", "+", "КЛИП!", "погнали", "хорош", "KEKW", "это база"]
+const CHAT_COLORS: PackedStringArray = ["#e78f91", "#b9cbed", "#edb879", "#cdadc5"]
+
 var live: bool = false
-var chat_index: int = 0
-var chat_clock: float = 0.0
-var pulse: float = 0.0
 var reduced_motion: bool = false
+var hype: float = 0.0
+var pulse: float = 0.0
+var chat_clock: float = 0.0
+var chat_index: int = 0
+var floating_pool: FloatingTextPool
+var _idle_clock: float = 0.0
+var _chat_slide: float = 0.0
+var _category: String = ""
+var _chat_lines: PackedStringArray = []
+var _chat_rows: Array[RichTextLabel] = []
+var _touches: Dictionary[int, bool] = {}
+var _shown_live: bool = false
+
+@onready var _stage: Control = $Stage
+@onready var sasavot_sprite: Sprite2D = $Stage/Character/SasavotSprite
+@onready var _main_content: RichTextLabel = $Stage/Desk/LeftMonitor/Content
+@onready var _chat_content: Control = $Stage/Desk/RightMonitor/ChatClip
+@onready var _chat_status: Label = $Stage/Desk/RightMonitor/ChatStatus
+@onready var _hype_light: TextureRect = $Stage/AmbientLighting/HypeLight
 
 func _ready() -> void:
-	custom_minimum_size = Vector2(0, 160)
+	custom_minimum_size = Vector2(0, 210)
 	mouse_default_cursor_shape = Control.CURSOR_POINTING_HAND
 	clip_contents = true
-	resized.connect(queue_redraw)
-	gui_input.connect(_on_input)
+	_ignore_child_input(self)
+	for child: Node in _chat_content.get_children():
+		_chat_rows.append(child as RichTextLabel)
+	floating_pool = $Effects/FloatingTextPool as FloatingTextPool
+	resized.connect(_fit_stage)
+	_fit_stage()
+	for i: int in range(CHAT_LIMIT):
+		_push_chat()
+	_set_category("just_chatting")
+	_refresh_live()
+
+func present(state: PlayerState) -> void:
+	live = state.is_streaming
+	reduced_motion = bool(state.settings.get("reduced_motion", false))
+	hype = state.hype
+	if not is_node_ready():
+		return
+	_set_category(state.current_stream_type_id)
+	_refresh_live()
+	if reduced_motion:
+		pulse = 0.0
+		sasavot_sprite.frame = 0
+		sasavot_sprite.scale = Vector2.ONE
+		_chat_slide = 0.0
 
 func _process(delta: float) -> void:
-	if pulse > 0.0:
-		pulse = maxf(0.0, pulse - delta * 5.0)
-		queue_redraw()
+	if not is_node_ready():
+		return
+	_idle_clock += delta
+	pulse = maxf(0.0, pulse - delta * 5.0)
+	if reduced_motion:
+		sasavot_sprite.frame = 0
+		sasavot_sprite.scale = Vector2.ONE
+	elif pulse > 0.0:
+		sasavot_sprite.frame = 3
+		sasavot_sprite.scale = Vector2.ONE * (1.0 + pulse * 0.025)
+	else:
+		var phase: float = fmod(_idle_clock, 4.8)
+		sasavot_sprite.frame = 2 if phase > 4.60 else (1 if phase > 2.3 else 0)
+		sasavot_sprite.scale = Vector2.ONE
+	_hype_light.modulate.a = 0.30 if live and hype >= 80.0 else 0.0
+	_refresh_live()
 	if live:
 		chat_clock += delta
-		if chat_clock >= 2.5:
+		if chat_clock >= chat_interval():
 			chat_clock = 0.0
-			chat_index = (chat_index + 1) % CHAT.size()
-			queue_redraw()
+			_push_chat()
+			_chat_slide = 0.0 if reduced_motion else 8.0
+	_chat_slide = 0.0 if reduced_motion else maxf(0.0, _chat_slide - delta * 40.0)
+	for i: int in range(_chat_rows.size()):
+		_chat_rows[i].position.y = float(i * 8) + roundf(_chat_slide)
 
-func _on_input(event: InputEvent) -> void:
-	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-		tapped.emit(event.position)
+func chat_interval() -> float:
+	return 0.65 if hype > 70.0 else (3.8 if hype < 20.0 else 1.8)
+
+func _gui_input(event: InputEvent) -> void:
+	if event is InputEventScreenTouch:
+		var touch: InputEventScreenTouch = event as InputEventScreenTouch
+		if touch.pressed and not touch.canceled:
+			if not _touches.has(touch.index):
+				_touches[touch.index] = true
+				tapped.emit(touch.position)
+		else:
+			_touches.erase(touch.index)
 		accept_event()
+	elif event is InputEventMouseButton:
+		var mouse: InputEventMouseButton = event as InputEventMouseButton
+		if mouse.device == InputEvent.DEVICE_ID_EMULATION:
+			accept_event()
+			return
+		if mouse.button_index == MOUSE_BUTTON_LEFT and mouse.pressed:
+			tapped.emit(mouse.position)
+			accept_event()
+
+func _notification(what: int) -> void:
+	if what == NOTIFICATION_APPLICATION_FOCUS_OUT or what == NOTIFICATION_APPLICATION_PAUSED:
+		_touches.clear()
+
+func _input(event: InputEvent) -> void:
+	# A finger may leave the room before release or be covered by a modal.
+	# Observe global releases without consuming input owned by other controls.
+	if event is InputEventScreenTouch:
+		var touch: InputEventScreenTouch = event as InputEventScreenTouch
+		if not touch.pressed or touch.canceled:
+			_touches.erase(touch.index)
 
 func react(position_clicked: Vector2, amount: float) -> void:
 	pulse = 0.0 if reduced_motion else 1.0
-	var floating: Label = Label.new()
-	floating.text = "+%s" % (str(int(amount)) if amount == floor(amount) else "%.1f" % amount)
-	floating.add_theme_color_override("font_color", Color("c4f78d"))
-	floating.add_theme_font_size_override("font_size", 22)
-	floating.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	floating.position = Vector2(clampf(position_clicked.x, 8, size.x - 60), clampf(position_clicked.y, 30, size.y - 40))
-	add_child(floating)
-	var tween: Tween = create_tween()
-	tween.set_parallel(true)
-	if not reduced_motion:
-		tween.tween_property(floating, "position:y", floating.position.y - 35, 0.6)
-	tween.tween_property(floating, "modulate:a", 0.0, 0.6)
-	tween.chain().tween_callback(floating.queue_free)
+	if is_instance_valid(floating_pool):
+		floating_pool.emit_amount(position_clicked, amount, size, reduced_motion)
 
-func _rect(x: float, y: float, w: float, h: float, color: String) -> void:
-	draw_rect(Rect2(x, y, w, h), Color(color))
+func _fit_stage() -> void:
+	if not is_instance_valid(_stage) or size.x <= 0.0 or size.y <= 0.0:
+		return
+	var ratio: float = minf(size.x / DESIGN_SIZE.x, size.y / DESIGN_SIZE.y)
+	_stage.scale = Vector2.ONE * ratio
+	_stage.position = Vector2(roundf((size.x - DESIGN_SIZE.x * ratio) * 0.5), 0.0)
+	var extra: float = maxf(0.0, size.y / ratio - DESIGN_SIZE.y)
+	var wall_extra: float = roundf(extra * 0.65)
+	var wall_height: float = 181.0 + wall_extra
+	$Stage/AdaptiveBackdrop/WallExtension.size = Vector2(336, wall_height)
+	$Stage/AdaptiveBackdrop/LeftLED.size.y = wall_height
+	$Stage/AdaptiveBackdrop/RightLED.size.y = wall_height
+	$Stage/FurnitureBack/Shelf.position.y = 49.0 + wall_extra
+	$Stage/FurnitureBack/PC.position.y = 83.0 + wall_extra
+	$Stage/FurnitureBack/Floor.position.y = wall_height
+	$Stage/FurnitureBack/Floor.scale.y = (69.0 + extra - wall_extra) / 39.0
+	$Stage/Wall/FridayReference.position.y = 26.0 + roundf(extra * 0.18)
+	$Stage/Wall/FirefighterReference.position.y = 29.0 + roundf(extra * 0.18)
+	$Stage/Wall/FirefighterCaption.position.y = 69.0 + roundf(extra * 0.18)
+	$Stage/Desk.position.y = wall_extra
+	$Stage/Character.position.y = wall_extra
+	$Stage/Foreground.position.y = wall_extra
+	$Stage/AmbientLighting.position.y = wall_extra
 
-func _draw() -> void:
-	var ratio: float = minf(size.x / 336.0, size.y / 280.0)
-	var origin: Vector2 = Vector2((size.x - 336.0 * ratio) / 2.0, (size.y - 280.0 * ratio) / 2.0)
-	draw_rect(Rect2(Vector2.ZERO, size), Color("202039"))
-	draw_set_transform(origin, 0.0, Vector2.ONE * ratio)
-	_rect(0, 0, 336, 207, "29273e")
-	for y: int in range(16, 200, 24):
-		_rect(0, y, 336, 1, "302d47")
-	_rect(0, 207, 336, 73, "393041")
-	for x: int in range(0, 336, 42):
-		_rect(x, 207, 2, 73, "48394c")
-	_rect(16, 22, 81, 91, "141a30")
-	_rect(21, 27, 71, 81, "364768")
-	_rect(24, 52, 20, 53, "26314d")
-	_rect(54, 36, 17, 69, "273550")
-	_rect(74, 66, 15, 39, "222c46")
-	for x: int in [28, 37, 57, 65, 78]:
-		_rect(x, 74, 3, 4, "edc98f")
-	_rect(53, 27, 3, 81, "141a30")
-	_rect(21, 68, 71, 3, "141a30")
-	_rect(114, 20, 101, 30, "161b2e")
-	draw_string(ThemeDB.fallback_font, Vector2(122, 40), "SASA / ROOM", HORIZONTAL_ALIGNMENT_LEFT, -1, 12, Color("baa2f1"))
-	_rect(258, 29, 58, 6, "765a6a")
-	_rect(266, 12, 7, 17, "a688cd")
-	_rect(276, 8, 7, 21, "c9a26e")
-	_rect(287, 16, 16, 13, "708d78")
-	# Game monitor and its pixel landscape.
-	_rect(25, 119, 111, 71, "121727")
-	_rect(30, 124, 101, 59, "294659")
-	_rect(34, 165, 93, 14, "517066")
-	_rect(44, 151, 24, 14, "75865d")
-	_rect(83, 140, 20, 25, "506471")
-	_rect(65, 159, 8, 13, "d1af8c")
-	_rect(73, 190, 13, 13, "111726")
-	_rect(60, 200, 39, 5, "16192a")
-	# Chat monitor: locally rotated messages are actually drawn on its screen.
-	_rect(226, 113, 101, 77, "121727")
-	_rect(231, 118, 91, 65, "1c263a")
-	draw_string(ThemeDB.fallback_font, Vector2(235, 131), "CHAT / " + ("LIVE" if live else "OFF"), HORIZONTAL_ALIGNMENT_LEFT, 85, 9, Color("bba0ee"))
-	for i: int in range(3):
-		var line: String = CHAT[(chat_index + i) % CHAT.size()] if live else ["Эфир скоро", "Чат ждёт тебя", "...Погнали?"][i]
-		draw_string(ThemeDB.fallback_font, Vector2(235, 145 + i * 13), line, HORIZONTAL_ALIGNMENT_LEFT, 85, 8, Color("9db6c8"))
-	_rect(267, 190, 12, 13, "111726")
-	# Chair and streamer, with a brief scale response to taps.
-	var bump: float = 1.0 + pulse * 0.035
-	draw_set_transform(origin + Vector2(175, 177) * ratio, 0.0, Vector2.ONE * ratio * bump)
-	_rect(-34, -48, 64, 101, "151827")
-	_rect(-29, -42, 54, 91, "65527a")
-	_rect(-24, -37, 8, 78, "846394")
-	_rect(-21, -57, 41, 42, "dca98d")
-	_rect(-24, -65, 46, 17, "44373c")
-	_rect(-24, -52, 7, 17, "44373c")
-	_rect(16, -53, 7, 15, "44373c")
-	_rect(-14, -43, 8, 4, "29273e")
-	_rect(5, -43, 8, 4, "29273e")
-	_rect(-7, -26, 15, 3, "97695e")
-	_rect(-29, -61, 6, 30, "ad91d5")
-	_rect(22, -61, 6, 30, "ad91d5")
-	_rect(-23, -69, 46, 5, "ad91d5")
-	_rect(-28, -14, 56, 53, "a8c877")
-	_rect(-19, -7, 39, 40, "b9dc84")
-	_rect(-40, 5, 15, 31, "dca98d")
-	_rect(28, 5, 15, 31, "dca98d")
-	_rect(-17, 37, 15, 31, "25293e")
-	_rect(6, 37, 15, 31, "25293e")
-	draw_set_transform(origin, 0.0, Vector2.ONE * ratio)
-	# Desk, keyboard, PC and microphone.
-	_rect(17, 204, 309, 11, "b28a7a")
-	_rect(17, 215, 309, 8, "775b63")
-	_rect(27, 223, 10, 50, "302537")
-	_rect(302, 223, 10, 50, "302537")
-	_rect(107, 197, 80, 6, "b3a4bf")
-	_rect(230, 227, 46, 49, "161c30")
-	_rect(236, 233, 34, 7, "55637b")
-	_rect(249, 249, 12, 12, "a48ed8")
-	_rect(207, 160, 5, 43, "131827")
-	_rect(201, 151, 17, 23, "232a41")
-	_rect(204, 153, 11, 13, "899bb0")
-	_rect(199, 201, 23, 4, "131827")
-	_rect(4, 5, 4, 197, "a181d0")
-	if live:
-		_rect(310, 8, 7, 7, "f68e92")
-	draw_set_transform(Vector2.ZERO)
+func _set_category(category: String) -> void:
+	if category == _category:
+		return
+	_category = category
+	$Stage/Desk/LeftMonitor/CategoryVisual/Moba.visible = category == "dota_2"
+	$Stage/Desk/LeftMonitor/CategoryVisual/Camera.visible = category == "irl"
+	match category:
+		"dota_2":
+			_main_content.text = "[color=#d9e6ee]DOTA 2 / 12 : 8[/color]"
+		"irl":
+			_main_content.text = "[color=#d9e6ee]IRL / CAMERA[/color]"
+		_:
+			_main_content.text = "[color=#d9e6ee]JUST CHATTING[/color]\n[color=#96b0c7]  ●  SASAVOT[/color]\n[color=#cbd5df]  Привет, чат!\n  Как настроение?[/color]\n[color=#e4999d]  ♥   ♥   ♥[/color]"
+
+func _refresh_live() -> void:
+	if _shown_live == live and not _chat_status.text.is_empty():
+		return
+	_shown_live = live
+	_chat_status.text = "● LIVE / CHAT" if live else "○ OFFLINE"
+	_main_content.modulate.a = 1.0 if live else 0.65
+	$Stage/Desk/LeftMonitor/CategoryVisual.modulate.a = 1.0 if live else 0.65
+	_chat_content.modulate.a = 1.0 if live else 0.45
+
+func _push_chat() -> void:
+	var nickname: String = CHAT_NAMES[chat_index % CHAT_NAMES.size()]
+	var message: String = CHAT_MESSAGES[chat_index % CHAT_MESSAGES.size()]
+	var color: String = CHAT_COLORS[chat_index % CHAT_COLORS.size()]
+	_chat_lines.append("[color=%s]%s[/color] [color=#dddce3]%s[/color]" % [color, nickname, message])
+	if _chat_lines.size() > CHAT_LIMIT:
+		_chat_lines.remove_at(0)
+	chat_index += 1
+	for i: int in range(_chat_rows.size()):
+		_chat_rows[i].text = _chat_lines[i] if i < _chat_lines.size() else ""
+
+func _ignore_child_input(node: Node) -> void:
+	for child: Node in node.get_children():
+		if child is Control:
+			(child as Control).mouse_filter = Control.MOUSE_FILTER_IGNORE
+		_ignore_child_input(child)

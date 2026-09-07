@@ -14,7 +14,7 @@ func sample(delta: float, queue: SaveJobQueue, events: EventService) -> void:
 	if not config.debug_metrics:
 		return
 	var fps: float = Engine.get_frames_per_second()
-	snapshot = {"fps": fps, "frame_ms": Performance.get_monitor(Performance.TIME_PROCESS) * 1000.0, "save_ms": queue.service.last_duration_ms, "queue_size": int(queue.pending), "event_ms": events.processing_ms}
+	snapshot = {"fps": fps, "frame_ms": Performance.get_monitor(Performance.TIME_PROCESS) * 1000.0, "save_ms": queue.service.last_duration_ms, "queue_size": int(queue.pending), "event_ms": events.processing_ms, "nodes": int(Performance.get_monitor(Performance.OBJECT_NODE_COUNT)), "memory_bytes": int(Performance.get_monitor(Performance.MEMORY_STATIC))}
 	low_fps_seconds = low_fps_seconds + delta if fps < config.warning_fps else 0.0
 	if low_fps_seconds >= config.warning_duration:
 		logger.write("WARNING", "PERFORMANCE", "sustained_low_fps", snapshot)

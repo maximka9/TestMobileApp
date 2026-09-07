@@ -39,10 +39,16 @@ func deserialize(document: Dictionary) -> OperationResult:
 	state.energy = float(data["energy"])
 	state.current_stream_type_id = data["current_stream_type_id"] if catalog.streams.has(data["current_stream_type_id"]) else "just_chatting"
 	for id: Variant in data["upgrades"]:
-		if not id is String or not _integer(data["upgrades"][id], 0, 30):
+		if not id is String:
 			return OperationResult.fail(&"CORRUPT_SAVE")
 		if catalog.upgrades.has(id):
+			var definition: UpgradeDefinition = catalog.upgrades[id] as UpgradeDefinition
+			if definition == null or not _integer(data["upgrades"][id], 0, definition.max_level):
+				return OperationResult.fail(&"CORRUPT_SAVE")
 			state.upgrades[id] = int(data["upgrades"][id])
+		elif not _integer(data["upgrades"][id], 0, 30):
+			# Preserve the v1 policy for unknown/retired IDs: validate, then ignore.
+			return OperationResult.fail(&"CORRUPT_SAVE")
 	if data["settings"].has("reduced_motion"):
 		if not data["settings"]["reduced_motion"] is bool:
 			return OperationResult.fail(&"CORRUPT_SAVE")
