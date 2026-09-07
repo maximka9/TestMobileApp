@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ActionDefinition" load_steps=2 format=3]
+[ext_resource type="Script" path="res://src/domain/models/action_definition.gd" id="1"]
+[resource]
+script = ExtResource("1")
+id = "community_help"
+title = "Помочь соседнему каналу"
+description = "Вымышленный автор pixel_neighbor просит помочь с эфиром. +5 усталости, +2 репутации, +5 к отношениям."
+energy_cost = 5.0
+duration = 0
+social_author_id = "pixel_neighbor"
+reputation_delta = 2.0
+relationship_delta = 5.0

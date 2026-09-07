@@ -281,6 +281,7 @@ func _show_settings() -> void:
 	if app.stream.phase == StreamService.Phase.SUMMARY:
 		return
 	_open_modal("settings", "НАСТРОЙКИ")
+	modal_body.add_child(SasaUI.button("Профиль и отношения", _show_social_profile))
 	var motion: CheckButton = CheckButton.new()
 	motion.text = "Уменьшить анимацию"
 	motion.button_pressed = bool(app.stream.state.settings["reduced_motion"])
@@ -299,6 +300,16 @@ func _show_settings() -> void:
 		app.queue.retry_manually()
 		_modal_feedback(app.queue.flush())
 	))
+
+func _show_social_profile() -> void:
+	_open_modal("social_profile", "ПРОФИЛЬ")
+	modal_body.add_child(SasaUI.label("Репутация: %.0f / 100" % app.stream.state.reputation, &"heading", &"AccentLabel"))
+	modal_body.add_child(SasaUI.label("Отношения", &"heading"))
+	if app.stream.state.relationships.is_empty():
+		modal_body.add_child(SasaUI.label("Пока нет знакомств. Участвуйте в событиях сообщества.", &"body", &"MutedLabel"))
+	for id: String in app.stream.state.relationships:
+		modal_body.add_child(SasaUI.label("%s: %+.0f" % [id, float(app.stream.state.relationships[id])]))
+	modal_body.add_child(SasaUI.label("Отношения, совместимость и шансы — вымышленные игровые механики. Они не описывают реальных людей и не предсказывают их поведение.", &"small", &"MutedLabel"))
 
 func _modal_feedback(result: OperationResult) -> void:
 	var message: String = result.message if not result.message.is_empty() else str(result.error_code)

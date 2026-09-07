@@ -59,3 +59,13 @@ extends Resource
 @export var short_momentum_gains: PackedFloat32Array = PackedFloat32Array([0.0, 0.5, 2.0, 8.0, 20.0])
 @export var momentum_stream_decay: float = 0.8
 @export var momentum_audience_factor: float = 0.01
+
+@export_group("Career phase 3")
+@export_range(0, 100) var starting_reputation: float = 50.0
+@export var social_profile_limit: int = 500
+@export var social_spam_window: int = 300
+@export var social_spam_allowance: int = 2
+@export var social_spam_penalty: float = 2.0
+@export var social_rejection_penalty: float = 1.0
+@export var social_reputation_factor_min: float = 0.75
+@export var social_reputation_factor_max: float = 1.25

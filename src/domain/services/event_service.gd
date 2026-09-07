@@ -5,6 +5,7 @@ var catalog: ContentCatalog
 var random: RandomProvider
 var config: GameConfig
 var moves: MoveService
+var social: SocialService
 var pending: ActionDefinition
 var next_at: int = 0
 var processing_ms: float = 0.0
@@ -14,6 +15,7 @@ func _init(content: ContentCatalog, rng: RandomProvider, game_config: GameConfig
 	random = rng
 	config = game_config
 	moves = move_service
+	social = SocialService.new(config)
 
 func schedule(now: int) -> void:
 	pending = null
@@ -36,6 +38,8 @@ func resolve(state: PlayerState, accept: bool, now: int, stream: StreamType) -> 
 		return OperationResult.fail(&"NOT_STREAMING")
 	var result: OperationResult = OperationResult.new(true, &"SUCCESS", "Событие пропущено")
 	if accept:
+		if not social.can_change(state, pending.social_author_id, pending.reputation_delta, pending.relationship_delta):
+			return OperationResult.fail(&"INVALID_ARGUMENT")
 		if not pending.move_id.is_empty():
 			result = moves.perform(state, pending.move_id, now)
 		else:
@@ -43,6 +47,8 @@ func resolve(state: PlayerState, accept: bool, now: int, stream: StreamType) -> 
 			scaled.hype_gain *= stream.event_multiplier
 			scaled.viewer_multiplier = 1.0 + (scaled.viewer_multiplier - 1.0) * stream.event_multiplier
 			result = moves.apply_action(state, scaled, now)
+		if result.success:
+			social.change(state, pending.social_author_id, pending.reputation_delta, pending.relationship_delta)
 	if result.success:
 		schedule(now)
 	return result

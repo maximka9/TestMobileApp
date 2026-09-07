@@ -1,7 +1,7 @@
 class_name SaveService
 extends RefCounted
 ## Versioned codec with strict field validation and safe defaults on corruption.
-const VERSION: int = 3
+const VERSION: int = 4
 const MAX_COUNTER: int = 1000000000000
 var repository: SaveRepository
 var logger: ILogger
@@ -21,7 +21,7 @@ func _init(save_repository: SaveRepository, game_logger: ILogger, content: Conte
 func serialize(state: PlayerState) -> Dictionary:
 	if state == null:
 		return {}
-	return {"version": VERSION, "timestamp": int(clock.call()), "player": {"level": state.level, "xp": state.xp, "money": state.money, "fatigue": state.fatigue, "followers": state.followers, "average_online": state.average_online, "lifetime_peak_viewers": state.lifetime_peak_viewers, "lifetime_followers_gained": state.lifetime_followers_gained, "stream_history": state.stream_history.duplicate(true), "last_stream_types": state.last_stream_types.duplicate(), "growth_momentum": state.growth_momentum, "short_form_history": state.short_form_history.duplicate(), "current_location_id": state.current_location_id, "current_home_id": state.current_home_id, "was_streaming": state.is_streaming, "current_stream_type_id": state.current_stream_type_id, "total_clicks": state.total_clicks, "total_streams": state.total_streams, "upgrades": state.upgrades.duplicate(true), "settings": state.settings.duplicate(true)}}
+	return {"version": VERSION, "timestamp": int(clock.call()), "player": {"reputation": state.reputation, "relationships": state.relationships.duplicate(true), "social_requests": state.social_requests.duplicate(true), "level": state.level, "xp": state.xp, "money": state.money, "fatigue": state.fatigue, "followers": state.followers, "average_online": state.average_online, "lifetime_peak_viewers": state.lifetime_peak_viewers, "lifetime_followers_gained": state.lifetime_followers_gained, "stream_history": state.stream_history.duplicate(true), "last_stream_types": state.last_stream_types.duplicate(), "growth_momentum": state.growth_momentum, "short_form_history": state.short_form_history.duplicate(), "current_location_id": state.current_location_id, "current_home_id": state.current_home_id, "was_streaming": state.is_streaming, "current_stream_type_id": state.current_stream_type_id, "total_clicks": state.total_clicks, "total_streams": state.total_streams, "upgrades": state.upgrades.duplicate(true), "settings": state.settings.duplicate(true)}}
 
 func deserialize(document: Dictionary) -> OperationResult:
 	if not _integer(document.get("version"), 1, VERSION) or not _integer(document.get("timestamp"), 0, MAX_COUNTER) or not document.get("player") is Dictionary:
@@ -44,6 +44,8 @@ func deserialize(document: Dictionary) -> OperationResult:
 		return OperationResult.fail(&"CORRUPT_SAVE")
 	if version >= 3 and not _read_short_form(data, state):
 		return OperationResult.fail(&"CORRUPT_SAVE")
+	if version >= 4 and not _read_social(data, state):
+		return OperationResult.fail(&"CORRUPT_SAVE")
 	state.current_stream_type_id = data["current_stream_type_id"] if catalog.streams.has(data["current_stream_type_id"]) else "just_chatting"
 	for id: Variant in data["upgrades"]:
 		if not id is String:
@@ -63,6 +65,29 @@ func deserialize(document: Dictionary) -> OperationResult:
 	state.click_power = int(upgrades.stats(state)["click_power"])
 	state.normalize()
 	return OperationResult.new(true, &"SUCCESS", "", {"state": state, "saved_at": int(document["timestamp"]), "was_streaming": bool(data.get("was_streaming", false))})
+
+func _read_social(data: Dictionary, state: PlayerState) -> bool:
+	if not _number(data.get("reputation"), 0, 100):
+		return false
+	for key: String in ["relationships", "social_requests"]:
+		if not data.get(key) is Dictionary or data[key].size() > upgrades.config.social_profile_limit:
+			return false
+		for id: Variant in data[key]:
+			if not id is String or id.strip_edges().is_empty() or id.length() > 64:
+				return false
+	for id: String in data["relationships"]:
+		if not _number(data["relationships"][id], -100, 100):
+			return false
+		state.relationships[id] = float(data["relationships"][id])
+	for id: String in data["social_requests"]:
+		var window: Variant = data["social_requests"][id]
+		if not window is Dictionary or not _integer(window.get("start"), 0, MAX_COUNTER) or not _integer(window.get("last"), 0, MAX_COUNTER) or not _integer(window.get("count"), 1, 1000000):
+			return false
+		if int(window["last"]) < int(window["start"]):
+			return false
+		state.social_requests[id] = {"start": int(window["start"]), "last": int(window["last"]), "count": int(window["count"])}
+	state.reputation = float(data["reputation"])
+	return true
 
 func _read_career(data: Dictionary, state: PlayerState) -> bool:
 	for key: String in ["followers", "lifetime_peak_viewers", "lifetime_followers_gained"]:

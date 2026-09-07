@@ -10,6 +10,7 @@ func new_player() -> PlayerState:
 	var player: PlayerState = PlayerState.new()
 	player.followers = clampi(config.starting_followers, 20, 50)
 	player.fatigue = clampf(config.starting_fatigue, 0.0, 100.0)
+	player.reputation = clampf(config.starting_reputation, 0.0, 100.0)
 	return player
 
 func recover(player: PlayerState, seconds: float) -> void:

@@ -12,3 +12,7 @@ extends Resource
 @export var duration: int = 20
 @export var cooldown: int = 0
 @export var move_id: String = ""
+## Fictional event effects, not statements about public figures.
+@export var social_author_id: String = ""
+@export var reputation_delta: float = 0.0
+@export var relationship_delta: float = 0.0
