@@ -12,10 +12,18 @@ func evaluate(state: PlayerState) -> Array[String]:
 		if id in state.unlocked_achievements:
 			continue
 		var definition: AchievementDefinition = catalog.achievements[id] as AchievementDefinition
-		if definition != null and _value(state, definition.metric) >= definition.threshold:
+		if definition != null and _qualifies(state, definition):
 			state.unlocked_achievements.append(id)
 			unlocked.append(id)
 	return unlocked
+
+func _qualifies(state: PlayerState, definition: AchievementDefinition) -> bool:
+	if not definition.requirements.is_empty():
+		for metric: String in definition.requirements:
+			if _value(state, metric) < int(definition.requirements[metric]):
+				return false
+		return true
+	return _value(state, definition.metric) >= definition.threshold
 
 func _value(state: PlayerState, metric: String) -> int:
 	match metric:
@@ -30,7 +38,8 @@ func _value(state: PlayerState, metric: String) -> int:
 		"aquarium": return 1 if "aquarium" in state.owned_room_items else 0
 		"room_items": return state.owned_room_items.size()
 		"moved_home": return 1 if state.current_home_id != "starter_home" else 0
-		"slay": return 1 if state.followers >= 1000000 and state.lifetime_peak_viewers >= 50000 and state.reputation >= 80.0 and state.high_tier_collabs >= 3 and state.unlocked_achievements.size() >= 12 else 0
+		"reputation": return int(state.reputation)
+		"achievements": return state.unlocked_achievements.size()
 	return 0
 
 func _stream_count(state: PlayerState, stream_id: String) -> int:

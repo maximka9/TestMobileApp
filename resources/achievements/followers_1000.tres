@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="AchievementDefinition" load_steps=2 format=3]
+[ext_resource type="Script" path="res://src/domain/models/achievement_definition.gd" id="1"]
+[resource]
+script = ExtResource("1")
+id = "followers_1000"
+display_name = "Тысяча своих"
+category = "Карьера"
+description = "Тысяча своих · цель: 1000"
+metric = "followers"
+threshold = 1000

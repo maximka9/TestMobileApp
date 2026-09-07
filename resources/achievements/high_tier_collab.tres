@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="AchievementDefinition" load_steps=2 format=3]
+[ext_resource type="Script" path="res://src/domain/models/achievement_definition.gd" id="1"]
+[resource]
+script = ExtResource("1")
+id = "high_tier_collab"
+display_name = "На большой сцене"
+category = "Коллабы"
+description = "На большой сцене · цель: 1"
+metric = "high_tier_collabs"
+threshold = 1

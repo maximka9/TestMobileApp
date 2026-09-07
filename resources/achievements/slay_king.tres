@@ -9,3 +9,4 @@ description = "Станьте легендой платформы."
 metric = "slay"
 threshold = 1
 secret = true
+requirements = {"followers": 1000000, "peak": 50000, "reputation": 80, "high_tier_collabs": 3, "achievements": 12}

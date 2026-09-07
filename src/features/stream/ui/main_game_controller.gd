@@ -413,18 +413,20 @@ func _show_interior() -> void:
 		var item: RoomItemDefinition = app.catalog.room_items[id] as RoomItemDefinition
 		modal_body.add_child(SasaUI.label("%s · %s · %d монет" % [item.display_name, item.category, item.price], &"body", &"AccentLabel"))
 		var button: Button = SasaUI.button("Купить" if not id in app.stream.state.owned_room_items else "Куплено", func() -> void:
-			_modal_feedback(app.room_customization.purchase_item(app.stream.state, id))
-			_show_interior())
-		button.disabled = id in app.stream.state.owned_room_items
+			var result: OperationResult = app.room_customization.purchase_item(app.stream.state, id)
+			_show_interior()
+			_modal_feedback(result))
+		button.disabled = id in app.stream.state.owned_room_items or app.stream.state.money < item.price or app.stream.state.career_tier < item.required_tier
 		modal_body.add_child(button)
 	modal_body.add_child(SasaUI.label("ПЕРЕЕЗД", &"heading", &"AccentLabel"))
 	for id: String in app.catalog.homes:
 		var home: HomeDefinition = app.catalog.homes[id] as HomeDefinition
 		modal_body.add_child(SasaUI.label("%s · %d монет · тир %d" % [home.display_name, home.price, home.required_career_tier], &"small", &"MutedLabel"))
 		var move: Button = SasaUI.button("Переехать", func() -> void:
-			_modal_feedback(app.room_customization.purchase_home(app.stream.state, id))
-			_show_interior())
-		move.disabled = app.stream.state.current_home_id == id
+			var result: OperationResult = app.room_customization.purchase_home(app.stream.state, id)
+			_show_interior()
+			_modal_feedback(result))
+		move.disabled = app.stream.state.current_home_id == id or (not id in app.stream.state.owned_homes and (app.stream.state.money < home.price or app.stream.state.career_tier < home.required_career_tier))
 		modal_body.add_child(move)
 
 func _show_social_profile() -> void:

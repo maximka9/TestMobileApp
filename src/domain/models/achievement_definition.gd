@@ -8,3 +8,4 @@ extends Resource
 @export var metric: String = ""
 @export var threshold: int = 1
 @export var secret: bool = false
+@export var requirements: Dictionary = {}

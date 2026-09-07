@@ -60,7 +60,7 @@ func _ready() -> void:
 	controller.configure.call_deferred(self)
 	queue.request_save()
 	set_process(true)
-	logger.write("INFO", "APP", "game_started", {"version": "0.2.0"})
+	logger.write("INFO", "APP", "game_started", {"version": ProjectSettings.get_setting("application/config/version")})
 
 func _load_config_resource() -> Resource:
 	var path: String = config_path
