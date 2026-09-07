@@ -18,6 +18,8 @@ var upgrades: UpgradeService
 var moves: MoveService
 var events: EventService
 var logger: ILogger
+var career: CareerService
+var stream_novelty: float = 1.0
 var _viewers_float: float = 0.0
 var _viewer_sum: int = 0
 var _peak: int = 0
@@ -36,6 +38,7 @@ func _init(player: PlayerState, content: ContentCatalog, game_config: GameConfig
 	moves = move_service
 	events = event_service
 	logger = game_logger
+	career = CareerService.new(config)
 
 func select_content(id: String) -> OperationResult:
 	if phase != Phase.OFFLINE:
@@ -52,6 +55,9 @@ func current_content() -> StreamType:
 func start() -> OperationResult:
 	if phase != Phase.OFFLINE or current_content() == null:
 		return OperationResult.fail(&"INVALID_STATE")
+	if state.fatigue >= config.exhaustion_threshold:
+		return OperationResult.fail(&"EXHAUSTED", "Вы устали. Отдохните перед следующим эфиром.")
+	stream_novelty = career.novelty(state, state.current_stream_type_id)
 	phase = Phase.STREAMING
 	state.is_streaming = true
 	state.viewers = 0
@@ -74,7 +80,7 @@ func start() -> OperationResult:
 func click() -> OperationResult:
 	if phase != Phase.STREAMING:
 		return OperationResult.fail(&"NOT_STREAMING", "Выберите игру и начните эфир")
-	var gain: float = state.click_power * float(upgrades.stats(state)["hype_gain"])
+	var gain: float = state.click_power * float(upgrades.stats(state)["hype_gain"]) * career.efficiency(state)
 	state.hype = minf(config.hype_max, state.hype + gain)
 	progression.add_xp(state, 1)
 	state.total_clicks += 1
@@ -84,13 +90,14 @@ func click() -> OperationResult:
 
 func tick() -> void:
 	if phase != Phase.STREAMING:
-		state.energy = minf(config.base_energy, state.energy + config.energy_recovery)
+		career.recover(state, config.tick_seconds)
 		changed.emit()
 		return
 	elapsed += 1
+	career.exert(state, state.current_stream_type_id, config.tick_seconds)
 	state.hype = maxf(0.0, state.hype - config.hype_decay)
 	var values: Dictionary = upgrades.stats(state)
-	var target: float = (config.viewer_base + state.level * config.viewer_per_level + state.click_power * config.viewer_per_power) * current_content().viewer_multiplier * (1.0 + state.hype / config.hype_divisor) * moves.multiplier(elapsed) * float(values["viewers"])
+	var target: float = career.audience(state, current_content().viewer_multiplier * (1.0 + state.hype / config.hype_divisor) * moves.multiplier(elapsed) * float(values["viewers"]) * stream_novelty * career.efficiency(state))
 	_viewers_float = lerpf(_viewers_float, target, config.viewer_smoothing)
 	state.viewers = maxi(0, int(round(_viewers_float)))
 	_peak = maxi(_peak, state.viewers)
@@ -136,6 +143,7 @@ func finish() -> OperationResult:
 	state.total_streams += 1
 	phase = Phase.SUMMARY
 	summary = {"seconds": elapsed, "peak": _peak, "average": float(_viewer_sum) / maxi(1, elapsed), "money": _earned, "xp": _clicks, "clicks": _clicks, "best_event": _best_event}
+	summary["followers"] = career.complete(state, summary, stream_novelty, int(Time.get_unix_time_from_system()))
 	events.pending = null
 	moves.reset()
 	logger.write("INFO", "STREAM", "stream_finished", summary)

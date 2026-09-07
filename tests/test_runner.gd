@@ -115,7 +115,7 @@ func _test_stream() -> void:
 	check(state.viewers == 0 and state.hype == 0.0 and stream.phase == StreamService.Phase.OFFLINE, "Continue resets room counters")
 	state.energy = 50.0
 	stream.tick()
-	check(state.energy == 52.0, "Offline energy recovery")
+	check(is_equal_approx(state.fatigue, 50.0 - config.fatigue_recovery * config.tick_seconds), "Offline fatigue recovery replaces energy recovery")
 	stream.start()
 	for i: int in range(205):
 		stream.tick()
@@ -316,6 +316,12 @@ func _test_flow() -> void:
 			stream.resolve_event(false)
 	check(state.money >= 100 and state.level > 1 and state.viewers > 0, "New player earns enough for collab")
 	check(stream.perform_move("beer").success and stream.perform_move("collab").success, "Flow: beer and collab")
+	# Career growth deliberately no longer grants the old level-based income spike.
+	# Earn the next purchase normally instead of assuming spare money after a collab.
+	for second: int in range(config.income_seconds * upgrades.cost(state, "microphone")):
+		if state.money >= upgrades.cost(state, "microphone"):
+			break
+		stream.tick()
 	check(stream.purchase_upgrade("microphone").success, "Flow: buy upgrade from earnings")
 	stream.finish()
 	stream.continue_to_room()

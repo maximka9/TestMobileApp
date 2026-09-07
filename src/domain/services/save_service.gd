@@ -1,7 +1,7 @@
 class_name SaveService
 extends RefCounted
 ## Versioned codec with strict field validation and safe defaults on corruption.
-const VERSION: int = 1
+const VERSION: int = 2
 const MAX_COUNTER: int = 1000000000000
 var repository: SaveRepository
 var logger: ILogger
@@ -10,6 +10,7 @@ var upgrades: UpgradeService
 var last_duration_ms: float = 0.0
 var recovered: bool = false
 var notice: String = ""
+var clock: Callable = func() -> int: return int(Time.get_unix_time_from_system())
 
 func _init(save_repository: SaveRepository, game_logger: ILogger, content: ContentCatalog, upgrade_service: UpgradeService) -> void:
 	repository = save_repository
@@ -20,23 +21,26 @@ func _init(save_repository: SaveRepository, game_logger: ILogger, content: Conte
 func serialize(state: PlayerState) -> Dictionary:
 	if state == null:
 		return {}
-	return {"version": VERSION, "timestamp": int(Time.get_unix_time_from_system()), "player": {"level": state.level, "xp": state.xp, "money": state.money, "energy": state.energy, "current_stream_type_id": state.current_stream_type_id, "total_clicks": state.total_clicks, "total_streams": state.total_streams, "upgrades": state.upgrades.duplicate(true), "settings": state.settings.duplicate(true)}}
+	return {"version": VERSION, "timestamp": int(clock.call()), "player": {"level": state.level, "xp": state.xp, "money": state.money, "fatigue": state.fatigue, "followers": state.followers, "average_online": state.average_online, "lifetime_peak_viewers": state.lifetime_peak_viewers, "lifetime_followers_gained": state.lifetime_followers_gained, "stream_history": state.stream_history.duplicate(true), "last_stream_types": state.last_stream_types.duplicate(), "current_location_id": state.current_location_id, "current_home_id": state.current_home_id, "was_streaming": state.is_streaming, "current_stream_type_id": state.current_stream_type_id, "total_clicks": state.total_clicks, "total_streams": state.total_streams, "upgrades": state.upgrades.duplicate(true), "settings": state.settings.duplicate(true)}}
 
 func deserialize(document: Dictionary) -> OperationResult:
-	if not _integer(document.get("version"), VERSION, VERSION) or not _integer(document.get("timestamp"), 0, MAX_COUNTER) or not document.get("player") is Dictionary:
+	if not _integer(document.get("version"), 1, VERSION) or not _integer(document.get("timestamp"), 0, MAX_COUNTER) or not document.get("player") is Dictionary:
 		return OperationResult.fail(&"CORRUPT_SAVE")
 	var data: Dictionary = document["player"]
 	for key: String in ["level", "xp", "money", "total_clicks", "total_streams"]:
 		if not _integer(data.get(key), 1 if key == "level" else 0, 100000 if key == "level" else MAX_COUNTER):
 			return OperationResult.fail(&"CORRUPT_SAVE")
-	if not _number(data.get("energy"), 0.0, 100.0) or not data.get("current_stream_type_id") is String:
+	var legacy: bool = int(document["version"]) == 1
+	if not _number(data.get("energy" if legacy else "fatigue"), 0.0, 100.0) or not data.get("current_stream_type_id") is String:
 		return OperationResult.fail(&"CORRUPT_SAVE")
 	if not data.get("upgrades") is Dictionary or not data.get("settings") is Dictionary:
 		return OperationResult.fail(&"CORRUPT_SAVE")
-	var state: PlayerState = PlayerState.new()
+	var state: PlayerState = CareerService.new(upgrades.config).new_player()
 	for key: String in ["level", "xp", "money", "total_clicks", "total_streams"]:
 		state.set(key, int(data[key]))
-	state.energy = float(data["energy"])
+	state.fatigue = 100.0 - float(data["energy"]) if legacy else float(data["fatigue"])
+	if not legacy and not _read_career(data, state):
+		return OperationResult.fail(&"CORRUPT_SAVE")
 	state.current_stream_type_id = data["current_stream_type_id"] if catalog.streams.has(data["current_stream_type_id"]) else "just_chatting"
 	for id: Variant in data["upgrades"]:
 		if not id is String:
@@ -55,14 +59,51 @@ func deserialize(document: Dictionary) -> OperationResult:
 		state.settings["reduced_motion"] = data["settings"]["reduced_motion"]
 	state.click_power = int(upgrades.stats(state)["click_power"])
 	state.normalize()
-	return OperationResult.new(true, &"SUCCESS", "", {"state": state})
+	return OperationResult.new(true, &"SUCCESS", "", {"state": state, "saved_at": int(document["timestamp"]), "was_streaming": bool(data.get("was_streaming", false))})
+
+func _read_career(data: Dictionary, state: PlayerState) -> bool:
+	for key: String in ["followers", "lifetime_peak_viewers", "lifetime_followers_gained"]:
+		if not _integer(data.get(key), 0, MAX_COUNTER):
+			return false
+		state.set(key, int(data[key]))
+	if not _number(data.get("average_online"), 0, MAX_COUNTER) or not data.get("was_streaming") is bool:
+		return false
+	state.average_online = float(data["average_online"])
+	for key: String in ["current_location_id", "current_home_id"]:
+		if not data.get(key) is String or data[key].is_empty() or data[key].length() > 64:
+			return false
+		state.set(key, data[key])
+	if not data.get("last_stream_types") is Array or data["last_stream_types"].size() > upgrades.config.novelty_window:
+		return false
+	for value: Variant in data["last_stream_types"]:
+		if not value is String or value.length() > 64:
+			return false
+		state.last_stream_types.append(value)
+	if not data.get("stream_history") is Array or data["stream_history"].size() > upgrades.config.history_limit:
+		return false
+	for entry: Variant in data["stream_history"]:
+		if not entry is Dictionary:
+			return false
+		for key: String in ["stream_type", "location"]:
+			if not entry.get(key) is String or entry[key].length() > 64:
+				return false
+		for key: String in ["duration", "peak_viewers", "followers_gained", "money_gained", "timestamp"]:
+			if not _integer(entry.get(key), 0, MAX_COUNTER):
+				return false
+		if not _number(entry.get("average_viewers"), 0, float(entry["peak_viewers"])) or not _number(entry.get("novelty"), 0, 1):
+			return false
+		state.stream_history.append(entry.duplicate(true))
+	return true
 
 func load_player() -> PlayerState:
 	var result: OperationResult = repository.read_save()
 	if result.success:
 		result = deserialize(result.context["document"])
 	if result.success:
-		return result.context["state"] as PlayerState
+		var player: PlayerState = result.context["state"] as PlayerState
+		if not bool(result.context["was_streaming"]):
+			CareerService.new(upgrades.config).recover_offline(player, int(result.context["saved_at"]), int(clock.call()))
+		return player
 	if result.error_code != &"NOT_FOUND":
 		recovered = true
 		notice = "Сохранение не удалось загрузить. Создан новый прогресс; повреждённый файл сохранён, если это возможно."
@@ -71,7 +112,7 @@ func load_player() -> PlayerState:
 			var backup: OperationResult = repository.quarantine()
 			if not backup.success:
 				logger.write("ERROR", "SAVE", "backup_failed", {"code": backup.error_code})
-	return PlayerState.new()
+	return CareerService.new(upgrades.config).new_player()
 
 func save(state: PlayerState) -> OperationResult:
 	if state == null:

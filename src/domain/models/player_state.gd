@@ -7,12 +7,31 @@ var xp: int = 0
 var money: int = 0
 var viewers: int = 0
 var hype: float = 0.0
-var energy: float = 100.0
+var fatigue: float = 0.0
+## Compatibility view for existing move costs; fatigue is the only stored meter.
+var energy: float:
+	get:
+		return 100.0 - fatigue
+	set(value):
+		fatigue = 100.0 - value
+var followers: int = 30
+var average_online: float = 0.0
+var lifetime_peak_viewers: int = 0
+var lifetime_followers_gained: int = 0
+var stream_history: Array[Dictionary] = []
+var last_stream_types: Array[String] = []
+var current_location_id: String = "streamer_room"
+var current_home_id: String = "starter_home"
 var click_power: int = 1
 var current_stream_type_id: String = "just_chatting"
 var is_streaming: bool = false
 var total_clicks: int = 0
 var total_streams: int = 0
+var streams_completed: int:
+	get:
+		return total_streams
+	set(value):
+		total_streams = value
 var upgrades: Dictionary = {}
 var settings: Dictionary = {"reduced_motion": false}
 
@@ -27,3 +46,7 @@ func normalize() -> void:
 	click_power = maxi(1, click_power)
 	total_clicks = maxi(0, total_clicks)
 	total_streams = maxi(0, total_streams)
+	followers = maxi(0, followers)
+	average_online = maxf(0.0, average_online) if is_finite(average_online) else 0.0
+	lifetime_peak_viewers = maxi(0, lifetime_peak_viewers)
+	lifetime_followers_gained = maxi(0, lifetime_followers_gained)

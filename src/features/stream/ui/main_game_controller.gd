@@ -76,15 +76,15 @@ func _safe_area() -> void:
 func _refresh() -> void:
 	var state: PlayerState = app.stream.state
 	var required: int = app.progression.required_xp(state.level)
-	header.text = "SASAVOT    УР. %d    XP %d / %d" % [state.level, state.xp, required]
+	header.text = "ПОДПИСЧИКИ %d · XP %d / %d" % [state.followers, state.xp, required]
 	xp_bar.max_value = required
 	xp_bar.value = state.xp
 	viewers_label.text = str(state.viewers)
 	money_label.text = str(state.money)
 	hype_label.text = "ХАЙП  %d / 100" % int(state.hype)
-	energy_label.text = "ЭНЕРГИЯ  %d%%" % int(state.energy)
+	energy_label.text = "УСТАЛОСТЬ  %d%%" % int(state.fatigue)
 	hype_bar.value = state.hype
-	energy_bar.value = state.energy
+	energy_bar.value = state.fatigue
 	var content: StreamType = app.stream.current_content()
 	status.text = "%s  /  %s  /  %s" % ["● LIVE" if state.is_streaming else "OFFLINE", content.title, _time(app.stream.elapsed)]
 	primary.text = "Завершить эфир" if state.is_streaming else "НАЧАТЬ ЭФИР"
@@ -145,6 +145,7 @@ func _show_games() -> void:
 	for id: String in app.catalog.streams:
 		var content: StreamType = app.catalog.streams[id]
 		modal_body.add_child(SasaUI.label(content.title, &"heading", &"AccentLabel"))
+		modal_body.add_child(SasaUI.label("Свежесть формата: %d%%" % int(app.stream.career.novelty(app.stream.state, id) * 100), &"small", &"MutedLabel"))
 		modal_body.add_child(SasaUI.label("%s\nОнлайн ×%.2f · доход ×%.2f\nСобытия ×%.1f" % [content.description, content.viewer_multiplier, content.income_multiplier, content.event_multiplier], &"small", &"MutedLabel"))
 		var button: Button = SasaUI.button("Начать: " + content.title, func() -> void: _start_content(id), true)
 		button.disabled = app.stream.state.is_streaming
@@ -186,7 +187,7 @@ func _show_moves(collab_only: bool) -> void:
 		move_button.set_meta("move_id", id)
 		move_button.disabled = _move_status(id) != "Готово"
 		modal_body.add_child(move_button)
-	modal_body.add_child(SasaUI.label("Энергия восстанавливается между эфирами. Вместимость: %d." % int(app.upgrades.stats(app.stream.state)["max_energy"]), &"small", &"MutedLabel"))
+	modal_body.add_child(SasaUI.label("Мувы увеличивают усталость. Отдых между эфирами восстанавливает силы.", &"small", &"MutedLabel"))
 
 func _move_status(id: String) -> String:
 	if not app.stream.state.is_streaming:
@@ -247,6 +248,7 @@ func _resolve_event(accept: bool) -> void:
 
 func _show_summary(summary: Dictionary) -> void:
 	_open_modal("summary", "СТРИМ ЗАВЕРШЁН")
+	modal_body.add_child(SasaUI.label("Новых подписчиков: +%d · средний онлайн: %.1f" % [int(summary.get("followers", 0)), app.stream.state.average_online], &"body", &"SuccessLabel"))
 	modal_body.add_child(SasaUI.label("Хороший эфир. Чат ждёт продолжения!", &"body", &"MutedLabel"))
 	for row: Array in [["Время эфира", _time(int(summary["seconds"]))], ["Пиковый онлайн", summary["peak"]], ["Средний онлайн", "%.1f" % summary["average"]], ["Заработано", "%d монет" % summary["money"]], ["Получено XP", summary["xp"]], ["Клики", summary["clicks"]], ["Лучший ивент", summary["best_event"]]]:
 		modal_body.add_child(SasaUI.label("%s\n%s" % [row[0], row[1]], &"body"))

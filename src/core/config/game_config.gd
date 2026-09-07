@@ -26,3 +26,24 @@ extends Resource
 @export var target_fps: int = 60
 @export var warning_fps: int = 40
 @export var warning_duration: float = 5.0
+
+@export_group("Career phase 1")
+@export_range(20, 50) var starting_followers: int = 30
+@export_range(0, 100) var starting_fatigue: float = 0.0
+@export var fatigue_rate: float = 0.04
+@export var fatigue_recovery: float = 0.1
+@export var exhaustion_threshold: float = 95.0
+@export var offline_recovery_cap: int = 28800
+@export var fatigue_multipliers: Dictionary = {"just_chatting": 0.8, "dota_2": 1.0, "irl": 1.4}
+@export var fatigue_steps: PackedFloat32Array = PackedFloat32Array([40, 60, 75, 90])
+@export var fatigue_efficiency: PackedFloat32Array = PackedFloat32Array([1.0, 0.95, 0.85, 0.7, 0.5])
+@export var audience_exponent: float = 0.6
+@export var audience_scale: float = 2.2
+@export var audience_soft_cap: float = 100000.0
+@export var audience_multiplier_cap: float = 8.0
+@export var follower_conversion: float = 0.0005
+@export var follower_gain_cap: int = 10000
+@export var history_limit: int = 50
+@export var average_window: int = 10
+@export var novelty_window: int = 5
+@export var novelty_penalties: PackedFloat32Array = PackedFloat32Array([1.0, 0.85, 0.7, 0.55, 0.45])
