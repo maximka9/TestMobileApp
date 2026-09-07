@@ -5,6 +5,8 @@ signal tapped(position: Vector2)
 
 const DESIGN_SIZE := Vector2(336, 250)
 const CHAT_LIMIT: int = 5
+const STARTER_TEXTURE: Texture2D = preload("res://assets/characters/sasavot_frames.png")
+const CAREER_TEXTURE: Texture2D = preload("res://assets/characters/sasavot_career_variants.png")
 const CHAT_NAMES: PackedStringArray = ["kot", "user52", "masha", "anon", "sanya", "viewer", "omlet", "pixel"]
 const CHAT_MESSAGES: PackedStringArray = ["жми жми", "ХАХАХ", "+", "КЛИП!", "погнали", "хорош", "KEKW", "это база"]
 const CHAT_COLORS: PackedStringArray = ["#e78f91", "#b9cbed", "#edb879", "#cdadc5"]
@@ -23,6 +25,8 @@ var _chat_lines: PackedStringArray = []
 var _chat_rows: Array[RichTextLabel] = []
 var _touches: Dictionary[int, bool] = {}
 var _shown_live: bool = false
+var _appearance_tier: int = -1
+var _appearance_scale: Vector2 = Vector2.ONE
 
 @onready var _stage: Control = $Stage
 @onready var sasavot_sprite: Sprite2D = $Stage/Character/SasavotSprite
@@ -53,6 +57,7 @@ func present(state: PlayerState) -> void:
 	if not is_node_ready():
 		return
 	_set_category(state.current_stream_type_id)
+	_set_appearance(state.career_tier)
 	$Stage/KitchenBackdrop.visible = state.current_location_id == "kitchen"
 	$Stage/KitchenSasavot.visible = state.current_location_id == "kitchen"
 	$Stage/Aquarium.visible = "aquarium" in state.owned_room_items
@@ -60,7 +65,7 @@ func present(state: PlayerState) -> void:
 	if reduced_motion:
 		pulse = 0.0
 		sasavot_sprite.frame = 0
-		sasavot_sprite.scale = Vector2.ONE
+		sasavot_sprite.scale = _appearance_scale
 		_chat_slide = 0.0
 
 func _process(delta: float) -> void:
@@ -70,14 +75,14 @@ func _process(delta: float) -> void:
 	pulse = maxf(0.0, pulse - delta * 5.0)
 	if reduced_motion:
 		sasavot_sprite.frame = 0
-		sasavot_sprite.scale = Vector2.ONE
+		sasavot_sprite.scale = _appearance_scale
 	elif pulse > 0.0:
-		sasavot_sprite.frame = 3
-		sasavot_sprite.scale = Vector2.ONE * (1.0 + pulse * 0.025)
+		sasavot_sprite.frame = 3 if _appearance_tier == 0 else 0
+		sasavot_sprite.scale = _appearance_scale * (1.0 + pulse * 0.025)
 	else:
 		var phase: float = fmod(_idle_clock, 4.8)
-		sasavot_sprite.frame = 2 if phase > 4.60 else (1 if phase > 2.3 else 0)
-		sasavot_sprite.scale = Vector2.ONE
+		sasavot_sprite.frame = 2 if _appearance_tier == 0 and phase > 4.60 else (1 if _appearance_tier == 0 and phase > 2.3 else 0)
+		sasavot_sprite.scale = _appearance_scale
 	_hype_light.modulate.a = 0.30 if live and hype >= 80.0 else 0.0
 	_refresh_live()
 	if live:
@@ -154,6 +159,24 @@ func _fit_stage() -> void:
 	$Stage/Character.position.y = wall_extra
 	$Stage/Foreground.position.y = wall_extra
 	$Stage/AmbientLighting.position.y = wall_extra
+
+func _set_appearance(career_tier: int) -> void:
+	var target: int = 0 if career_tier <= 0 else 1 if career_tier == 1 else 2
+	if target == _appearance_tier:
+		return
+	_appearance_tier = target
+	if target == 0:
+		sasavot_sprite.texture = STARTER_TEXTURE
+		sasavot_sprite.hframes = 4
+		_appearance_scale = Vector2.ONE
+	else:
+		var portrait: AtlasTexture = AtlasTexture.new()
+		portrait.atlas = CAREER_TEXTURE
+		portrait.region = Rect2(682 * target, 0, 682, 1024)
+		sasavot_sprite.texture = portrait
+		sasavot_sprite.hframes = 1
+		_appearance_scale = Vector2(0.13, 0.13)
+	sasavot_sprite.frame = 0
 
 func _set_category(category: String) -> void:
 	if category == _category:

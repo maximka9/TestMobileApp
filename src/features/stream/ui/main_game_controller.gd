@@ -165,7 +165,11 @@ func _start_content(id: String) -> void:
 				_show_cosplay_choice(id)
 				return
 		result = app.stream.start()
-	_feedback(result.message)
+	if result.success:
+		_close_modal()
+		_feedback("Ты в эфире! Жми на рабочее место.")
+	else:
+		_feedback(result.message)
 
 func _show_cosplay_choice(content_id: String) -> void:
 	_open_modal("cosplay", "ОБРАЗ ДЛЯ ЭФИРА")
