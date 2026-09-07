@@ -1,4 +1,7 @@
-[gd_resource type="Theme" load_steps=13 format=3]
+[gd_resource type="Theme" load_steps=15 format=3]
+
+[ext_resource type="FontFile" path="res://assets/fonts/NotoSans.ttf" id="ui"]
+[ext_resource type="FontFile" path="res://assets/fonts/RussoOne.ttf" id="display"]
 
 [sub_resource type="StyleBoxFlat" id="Panel"]
 content_margin_left = 10.0
@@ -125,13 +128,14 @@ bg_color = Color(0.91, 0.3, 0.25, 1)
 bg_color = Color(0.52, 0.72, 0.43, 1)
 
 [resource]
-default_font_size = 13
+default_font = ExtResource("ui")
+default_font_size = 14
 Button/colors/font_color = Color(0.91, 0.89, 0.89, 1)
 Button/colors/font_hover_color = Color(1, 0.96, 0.96, 1)
 Button/colors/font_pressed_color = Color(1, 0.96, 0.96, 1)
 Button/colors/font_focus_color = Color(1, 0.96, 0.96, 1)
-Button/colors/font_disabled_color = Color(0.43, 0.38, 0.4, 1)
-Button/font_sizes/font_size = 12
+Button/colors/font_disabled_color = Color(0.56, 0.53, 0.55, 1)
+Button/font_sizes/font_size = 14
 Button/styles/normal = SubResource("Button")
 Button/styles/hover = SubResource("Hover")
 Button/styles/pressed = SubResource("Pressed")
@@ -143,13 +147,13 @@ AccentButton/styles/normal = SubResource("Accent")
 AccentButton/styles/hover = SubResource("AccentHover")
 AccentButton/styles/pressed = SubResource("Pressed")
 NavButton/base_type = &"Button"
-NavButton/font_sizes/font_size = 11
+NavButton/font_sizes/font_size = 12
 PanelContainer/styles/panel = SubResource("Panel")
 Label/colors/font_color = Color(0.91, 0.89, 0.89, 1)
-Label/font_sizes/font_size = 13
+Label/font_sizes/font_size = 14
 MutedLabel/base_type = &"Label"
-MutedLabel/colors/font_color = Color(0.65, 0.59, 0.62, 1)
-MutedLabel/font_sizes/font_size = 11
+MutedLabel/colors/font_color = Color(0.76, 0.71, 0.74, 1)
+MutedLabel/font_sizes/font_size = 13
 TitleLabel/base_type = &"Label"
 TitleLabel/font_sizes/font_size = 22
 AccentLabel/base_type = &"Label"
@@ -168,9 +172,43 @@ VBoxContainer/constants/separation = 6
 HBoxContainer/constants/separation = 8
 SasaTokens/colors/background = Color(0.035, 0.028, 0.035, 1)
 SasaTokens/colors/ink = Color(0.91, 0.89, 0.89, 1)
-SasaTokens/colors/muted = Color(0.65, 0.59, 0.62, 1)
+SasaTokens/colors/muted = Color(0.76, 0.71, 0.74, 1)
 SasaTokens/colors/accent = Color(0.94, 0.37, 0.42, 1)
 SasaTokens/colors/energy = Color(0.61, 0.82, 0.51, 1)
 SasaTokens/colors/warning = Color(0.95, 0.61, 0.32, 1)
 SasaTokens/colors/error = Color(1, 0.46, 0.46, 1)
 SasaTokens/colors/overlay = Color(0.025, 0.015, 0.023, 0.94)
+
+CaptionLabel/base_type = &"Label"
+CaptionLabel/font_sizes/font_size = 12
+SmallLabel/base_type = &"Label"
+SmallLabel/font_sizes/font_size = 13
+BodyLabel/base_type = &"Label"
+BodyLabel/font_sizes/font_size = 14
+HeadingLabel/base_type = &"Label"
+HeadingLabel/font_sizes/font_size = 18
+CounterLabel/base_type = &"Label"
+CounterLabel/font_sizes/font_size = 22
+BrandLabel/base_type = &"Label"
+BrandLabel/font_sizes/font_size = 29
+EditionLabel/base_type = &"Label"
+EditionLabel/font_sizes/font_size = 10
+StatusLabel/base_type = &"Label"
+StatusLabel/font_sizes/font_size = 11
+MonitorLabel/base_type = &"Label"
+MonitorLabel/font_sizes/font_size = 8
+PropLabel/base_type = &"Label"
+PropLabel/font_sizes/font_size = 6
+TitleLabel/fonts/font = ExtResource("display")
+BrandLabel/fonts/font = ExtResource("display")
+EditionLabel/fonts/font = ExtResource("display")
+StatusLabel/fonts/font = ExtResource("display")
+Typography/font_sizes/caption = 12
+Typography/font_sizes/small = 13
+Typography/font_sizes/body = 14
+Typography/font_sizes/button = 14
+Typography/font_sizes/heading = 18
+Typography/font_sizes/title = 22
+Typography/font_sizes/counter = 22
+MonitorText/base_type = &"RichTextLabel"
+MonitorText/font_sizes/normal_font_size = 8

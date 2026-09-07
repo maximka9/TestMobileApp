@@ -27,6 +27,7 @@ var modal_kind: String = ""
 ## Optional logical insets for desktop safe-area smoke tests; mobile uses the OS.
 var safe_insets_override: Vector4i = Vector4i(-1, -1, -1, -1)
 var _toast_time: float = 0.0
+var _save_notice_time: float = 0.0
 var _debug_clock: float = 0.0
 
 func configure(bootstrap: AppBootstrap) -> void:
@@ -92,8 +93,10 @@ func _refresh() -> void:
 	if modal_kind == "moves" or modal_kind == "collab":
 		for child: Node in modal_body.get_children():
 			if child is Label and child.has_meta("cooldown_id"):
-				var remaining: int = app.moves.remaining(str(child.get_meta("cooldown_id")), app.stream.elapsed)
-				child.text = "Восстановление: %d с" % remaining if remaining > 0 else "Готово"
+				child.text = _move_status(str(child.get_meta("cooldown_id")))
+				child.theme_type_variation = &"SuccessLabel" if child.text == "Готово" else &"MutedLabel"
+			elif child is Button and child.has_meta("move_id"):
+				child.disabled = _move_status(str(child.get_meta("move_id"))) != "Готово"
 
 func _time(seconds: int) -> String:
 	return "%02d:%02d" % [int(seconds / 60.0), seconds % 60]
@@ -138,11 +141,11 @@ func _show_games() -> void:
 		return
 	_open_modal("games", "ЧТО СТРИМИМ?")
 	if app.stream.state.is_streaming:
-		modal_body.add_child(SasaUI.label("Завершите эфир, чтобы сменить контент.", 14, &"MutedLabel"))
+		modal_body.add_child(SasaUI.label("Завершите эфир, чтобы сменить контент.", &"body", &"MutedLabel"))
 	for id: String in app.catalog.streams:
 		var content: StreamType = app.catalog.streams[id]
-		modal_body.add_child(SasaUI.label(content.title, 18, &"AccentLabel"))
-		modal_body.add_child(SasaUI.label("%s\nОнлайн ×%.2f · доход ×%.2f\nСобытия ×%.1f" % [content.description, content.viewer_multiplier, content.income_multiplier, content.event_multiplier], 12, &"MutedLabel"))
+		modal_body.add_child(SasaUI.label(content.title, &"heading", &"AccentLabel"))
+		modal_body.add_child(SasaUI.label("%s\nОнлайн ×%.2f · доход ×%.2f\nСобытия ×%.1f" % [content.description, content.viewer_multiplier, content.income_multiplier, content.event_multiplier], &"small", &"MutedLabel"))
 		var button: Button = SasaUI.button("Начать: " + content.title, func() -> void: _start_content(id), true)
 		button.disabled = app.stream.state.is_streaming
 		modal_body.add_child(button)
@@ -161,33 +164,54 @@ func _show_moves(collab_only: bool) -> void:
 	if app.stream.phase == StreamService.Phase.SUMMARY:
 		return
 	_open_modal("collab" if collab_only else "moves", "КОЛЛАБ" if collab_only else "МУВЫ")
+	if not app.stream.state.is_streaming:
+		modal_body.add_child(SasaUI.label("Сначала начните эфир"))
 	for id: String in app.catalog.moves:
 		if collab_only and id != "collab":
 			continue
 		var definition: ActionDefinition = app.catalog.moves[id]
-		modal_body.add_child(SasaUI.label(definition.title, 18, &"AccentLabel"))
-		modal_body.add_child(SasaUI.label(definition.description, 13, &"MutedLabel"))
-		var left: int = app.moves.remaining(id, app.stream.elapsed)
-		var cooldown_label: Label = SasaUI.label("Восстановление: %d с" % left if left > 0 else "Готово", 12, &"SuccessLabel")
+		modal_body.add_child(SasaUI.label(definition.title, &"heading", &"AccentLabel"))
+		modal_body.add_child(SasaUI.label(definition.description, &"body", &"MutedLabel"))
+		if not app.stream.state.is_streaming:
+			modal_body.add_child(SasaUI.label("Только во время эфира", &"small", &"MutedLabel"))
+		var cooldown_label: Label = SasaUI.label(_move_status(id), &"small", &"SuccessLabel")
+		cooldown_label.theme_type_variation = &"SuccessLabel" if cooldown_label.text == "Готово" else &"MutedLabel"
 		cooldown_label.set_meta("cooldown_id", id)
 		modal_body.add_child(cooldown_label)
-		modal_body.add_child(SasaUI.button("Использовать", func() -> void:
+		var move_button: Button = SasaUI.button("Использовать", func() -> void:
 			var result: OperationResult = app.stream.perform_move(id)
 			_show_moves(collab_only)
 			_modal_feedback(result)
-		))
-	modal_body.add_child(SasaUI.label("Энергия восстанавливается между эфирами. Вместимость: %d." % int(app.upgrades.stats(app.stream.state)["max_energy"]), 12, &"MutedLabel"))
+		)
+		move_button.set_meta("move_id", id)
+		move_button.disabled = _move_status(id) != "Готово"
+		modal_body.add_child(move_button)
+	modal_body.add_child(SasaUI.label("Энергия восстанавливается между эфирами. Вместимость: %d." % int(app.upgrades.stats(app.stream.state)["max_energy"]), &"small", &"MutedLabel"))
+
+func _move_status(id: String) -> String:
+	if not app.stream.state.is_streaming:
+		return "НЕДОСТУПНО"
+	var remaining: int = app.moves.remaining(id, app.stream.elapsed)
+	if remaining > 0:
+		return "Восстановление: %d с" % remaining
+	var definition: ActionDefinition = app.catalog.moves[id]
+	if app.stream.state.money < definition.money_cost:
+		return "Не хватает монет"
+	var energy_cost: float = definition.energy_cost / float(app.upgrades.stats(app.stream.state)["max_energy"]) * app.config.base_energy
+	if app.stream.state.energy < energy_cost:
+		return "Не хватает энергии"
+	return "Готово"
 
 func _show_upgrades() -> void:
 	if app.stream.phase == StreamService.Phase.SUMMARY:
 		return
 	_open_modal("upgrades", "АПГРЕЙД КОМНАТЫ")
-	modal_body.add_child(SasaUI.label("Баланс: %d монет" % app.stream.state.money, 16, &"SuccessLabel"))
+	modal_body.add_child(SasaUI.label("Баланс: %d монет" % app.stream.state.money, &"heading", &"SuccessLabel"))
 	for id: String in app.catalog.upgrades:
 		var definition: UpgradeDefinition = app.catalog.upgrades[id]
 		var level: int = int(app.stream.state.upgrades.get(id, 0))
-		modal_body.add_child(SasaUI.label("%s  /  ур. %d" % [definition.title, level], 16, &"AccentLabel"))
-		modal_body.add_child(SasaUI.label(definition.description, 12, &"MutedLabel"))
+		modal_body.add_child(SasaUI.label("%s  /  ур. %d" % [definition.title, level], &"heading", &"AccentLabel"))
+		modal_body.add_child(SasaUI.label(definition.description, &"small", &"MutedLabel"))
 		var button: Button = SasaUI.button("Купить · %d монет" % app.upgrades.cost(app.stream.state, id), func() -> void:
 			var scroll: int = modal_scroll.scroll_vertical
 			var result: OperationResult = app.stream.purchase_upgrade(id)
@@ -195,7 +219,7 @@ func _show_upgrades() -> void:
 			modal_scroll.set_deferred("scroll_vertical", scroll)
 			_modal_feedback(result)
 		)
-		button.disabled = level >= definition.max_level
+		button.disabled = level >= definition.max_level or app.stream.state.money < app.upgrades.cost(app.stream.state, id)
 		modal_body.add_child(button)
 
 func _event_arrived(definition: ActionDefinition) -> void:
@@ -206,13 +230,14 @@ func _event_arrived(definition: ActionDefinition) -> void:
 
 func _show_event(definition: ActionDefinition) -> void:
 	_open_modal("event", "СОБЫТИЕ ЭФИРА")
-	modal_body.add_child(SasaUI.label(definition.title, 24, &"AccentLabel"))
-	modal_body.add_child(SasaUI.label(definition.description, 15))
-	modal_body.add_child(SasaUI.label("Бонусы обычных событий зависят от выбранного контента. Эфир продолжается.", 12, &"MutedLabel"))
+	modal_body.add_child(SasaUI.label(definition.title, &"heading", &"AccentLabel"))
+	modal_body.add_child(SasaUI.label(definition.description, &"body"))
+	modal_body.add_child(SasaUI.label("Бонусы обычных событий зависят от выбранного контента. Эфир продолжается.", &"small", &"MutedLabel"))
 	modal_body.add_child(SasaUI.button("Принять", func() -> void: _resolve_event(true), true))
-	modal_body.add_child(SasaUI.button("Пропустить", func() -> void: _resolve_event(false)))
 
 func _resolve_event(accept: bool) -> void:
+	if modal_kind != "event" or app.events.pending == null:
+		return
 	var result: OperationResult = app.stream.resolve_event(accept)
 	if result.success:
 		_close_modal()
@@ -222,9 +247,9 @@ func _resolve_event(accept: bool) -> void:
 
 func _show_summary(summary: Dictionary) -> void:
 	_open_modal("summary", "СТРИМ ЗАВЕРШЁН")
-	modal_body.add_child(SasaUI.label("Хороший эфир. Чат ждёт продолжения!", 14, &"MutedLabel"))
+	modal_body.add_child(SasaUI.label("Хороший эфир. Чат ждёт продолжения!", &"body", &"MutedLabel"))
 	for row: Array in [["Время эфира", _time(int(summary["seconds"]))], ["Пиковый онлайн", summary["peak"]], ["Средний онлайн", "%.1f" % summary["average"]], ["Заработано", "%d монет" % summary["money"]], ["Получено XP", summary["xp"]], ["Клики", summary["clicks"]], ["Лучший ивент", summary["best_event"]]]:
-		modal_body.add_child(SasaUI.label("%s\n%s" % [row[0], row[1]], 15))
+		modal_body.add_child(SasaUI.label("%s\n%s" % [row[0], row[1]], &"body"))
 	modal_body.add_child(SasaUI.button("Продолжить", _close_modal, true))
 
 func _show_settings() -> void:
@@ -237,7 +262,7 @@ func _show_settings() -> void:
 	motion.custom_minimum_size.y = SasaUI.TOUCH_TARGET
 	motion.toggled.connect(app.stream.set_reduced_motion)
 	modal_body.add_child(motion)
-	modal_body.add_child(SasaUI.label("Всего кликов: %d\nЗавершено эфиров: %d\nПрогресс хранится на этом устройстве." % [app.stream.state.total_clicks, app.stream.state.total_streams], 14, &"MutedLabel"))
+	modal_body.add_child(SasaUI.label("Всего кликов: %d\nЗавершено эфиров: %d\nПрогресс хранится на этом устройстве." % [app.stream.state.total_clicks, app.stream.state.total_streams], &"body", &"MutedLabel"))
 	if app.config.debug_metrics:
 		var metrics_toggle: CheckButton = CheckButton.new()
 		metrics_toggle.text = "Показывать FPS и метрики"
@@ -252,7 +277,7 @@ func _show_settings() -> void:
 
 func _modal_feedback(result: OperationResult) -> void:
 	var message: String = result.message if not result.message.is_empty() else str(result.error_code)
-	var feedback: Label = SasaUI.label(message, 13, &"SuccessLabel" if result.success else &"ErrorLabel")
+	var feedback: Label = SasaUI.label(message, &"body", &"SuccessLabel" if result.success else &"ErrorLabel")
 	modal_body.add_child(feedback)
 	modal_body.move_child(feedback, 0)
 	_feedback(message)
@@ -263,12 +288,17 @@ func _feedback(message: String) -> void:
 	_toast_time = 6.0
 
 func _save_completed(result: OperationResult) -> void:
-	save_status.text = "Прогресс сохранён" if result.success else "Ошибка сохранения · повтор в Опциях"
+	save_status.text = "Сохранено ✓" if result.success else "Ошибка сохранения · повтор в Опциях"
 	save_status.theme_type_variation = &"MutedLabel" if result.success else &"ErrorLabel"
+	_save_notice_time = 3.0 if result.success else 0.0
 
 func _process(delta: float) -> void:
 	if app == null:
 		return
+	if _save_notice_time > 0.0:
+		_save_notice_time -= delta
+		if _save_notice_time <= 0.0:
+			save_status.text = ""
 	if _toast_time > 0.0:
 		_toast_time -= delta
 		if _toast_time <= 0.0:

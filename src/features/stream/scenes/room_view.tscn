@@ -1,5 +1,6 @@
-[gd_scene load_steps=16 format=3]
+[gd_scene load_steps=17 format=3]
 
+[ext_resource type="Theme" path="res://resources/themes/sasa_theme.tres" id="theme"]
 [ext_resource type="Script" path="res://src/features/stream/ui/room_view.gd" id="1_room"]
 [ext_resource type="Script" path="res://src/features/stream/ui/floating_text_pool.gd" id="2_pool"]
 [ext_resource type="Texture2D" path="res://assets/room/wall.png" id="3_wall"]
@@ -104,7 +105,8 @@ offset_right = 295.0
 offset_bottom = 80.0
 mouse_filter = 2
 theme_override_colors/font_color = Color(0.78, 0.56, 0.54, 1)
-theme_override_font_sizes/font_size = 6
+theme = ExtResource("theme")
+theme_type_variation = &"PropLabel"
 text = "ПОЖАРНЫЙ"
 horizontal_alignment = 1
 
@@ -163,7 +165,8 @@ offset_right = 103.0
 offset_bottom = 60.0
 mouse_filter = 2
 theme_override_constants/line_separation = 0
-theme_override_font_sizes/normal_font_size = 7
+theme = ExtResource("theme")
+theme_type_variation = &"MonitorText"
 bbcode_enabled = true
 scroll_active = false
 
@@ -175,7 +178,8 @@ offset_right = 98.0
 offset_bottom = 16.0
 mouse_filter = 2
 theme_override_colors/font_color = Color(0.90, 0.32, 0.36, 1)
-theme_override_font_sizes/font_size = 7
+theme = ExtResource("theme")
+theme_type_variation = &"MonitorLabel"
 
 [node name="ChatClip" type="Control" parent="Stage/Desk/RightMonitor"]
 clip_contents = true
@@ -190,59 +194,43 @@ mouse_filter = 2
 layout_mode = 0
 offset_top = 0.0
 offset_right = 89.0
-offset_bottom = 9.0
+offset_bottom = 11.0
 mouse_filter = 2
-theme_override_font_sizes/normal_font_size = 7
+theme = ExtResource("theme")
+theme_type_variation = &"MonitorText"
 bbcode_enabled = true
 scroll_active = false
 
 [node name="Row1" type="RichTextLabel" parent="Stage/Desk/RightMonitor/ChatClip"]
 layout_mode = 0
-offset_top = 8.0
+offset_top = 11.0
 offset_right = 89.0
-offset_bottom = 17.0
+offset_bottom = 22.0
 mouse_filter = 2
-theme_override_font_sizes/normal_font_size = 7
+theme = ExtResource("theme")
+theme_type_variation = &"MonitorText"
 bbcode_enabled = true
 scroll_active = false
 
 [node name="Row2" type="RichTextLabel" parent="Stage/Desk/RightMonitor/ChatClip"]
 layout_mode = 0
-offset_top = 16.0
+offset_top = 22.0
 offset_right = 89.0
-offset_bottom = 25.0
+offset_bottom = 33.0
 mouse_filter = 2
-theme_override_font_sizes/normal_font_size = 7
+theme = ExtResource("theme")
+theme_type_variation = &"MonitorText"
 bbcode_enabled = true
 scroll_active = false
 
 [node name="Row3" type="RichTextLabel" parent="Stage/Desk/RightMonitor/ChatClip"]
 layout_mode = 0
-offset_top = 24.0
+offset_top = 33.0
 offset_right = 89.0
-offset_bottom = 33.0
+offset_bottom = 44.0
 mouse_filter = 2
-theme_override_font_sizes/normal_font_size = 7
-bbcode_enabled = true
-scroll_active = false
-
-[node name="Row4" type="RichTextLabel" parent="Stage/Desk/RightMonitor/ChatClip"]
-layout_mode = 0
-offset_top = 32.0
-offset_right = 89.0
-offset_bottom = 41.0
-mouse_filter = 2
-theme_override_font_sizes/normal_font_size = 7
-bbcode_enabled = true
-scroll_active = false
-
-[node name="Row5" type="RichTextLabel" parent="Stage/Desk/RightMonitor/ChatClip"]
-layout_mode = 0
-offset_top = 40.0
-offset_right = 89.0
-offset_bottom = 49.0
-mouse_filter = 2
-theme_override_font_sizes/normal_font_size = 7
+theme = ExtResource("theme")
+theme_type_variation = &"MonitorText"
 bbcode_enabled = true
 scroll_active = false
 
@@ -387,5 +375,6 @@ offset_right = 45.0
 offset_bottom = 13.0
 mouse_filter = 2
 theme_override_colors/font_color = Color(0.95, 0.3, 0.3, 1)
-theme_override_font_sizes/font_size = 6
+theme = ExtResource("theme")
+theme_type_variation = &"PropLabel"
 text = "● REC"

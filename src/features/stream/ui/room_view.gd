@@ -4,7 +4,7 @@ extends Control
 signal tapped(position: Vector2)
 
 const DESIGN_SIZE := Vector2(336, 250)
-const CHAT_LIMIT: int = 6
+const CHAT_LIMIT: int = 4
 const CHAT_NAMES: PackedStringArray = ["kot", "user52", "masha", "anon", "sanya", "viewer", "omlet", "pixel"]
 const CHAT_MESSAGES: PackedStringArray = ["жми жми", "ХАХАХ", "+", "КЛИП!", "погнали", "хорош", "KEKW", "это база"]
 const CHAT_COLORS: PackedStringArray = ["#e78f91", "#b9cbed", "#edb879", "#cdadc5"]
@@ -82,10 +82,10 @@ func _process(delta: float) -> void:
 		if chat_clock >= chat_interval():
 			chat_clock = 0.0
 			_push_chat()
-			_chat_slide = 0.0 if reduced_motion else 8.0
+			_chat_slide = 0.0 if reduced_motion else 11.0
 	_chat_slide = 0.0 if reduced_motion else maxf(0.0, _chat_slide - delta * 40.0)
 	for i: int in range(_chat_rows.size()):
-		_chat_rows[i].position.y = float(i * 8) + roundf(_chat_slide)
+		_chat_rows[i].position.y = float(i * 11) + roundf(_chat_slide)
 
 func chat_interval() -> float:
 	return 0.65 if hype > 70.0 else (3.8 if hype < 20.0 else 1.8)
@@ -171,7 +171,7 @@ func _refresh_live() -> void:
 	_chat_status.text = "● LIVE / CHAT" if live else "○ OFFLINE"
 	_main_content.modulate.a = 1.0 if live else 0.65
 	$Stage/Desk/LeftMonitor/CategoryVisual.modulate.a = 1.0 if live else 0.65
-	_chat_content.modulate.a = 1.0 if live else 0.45
+	_chat_content.modulate.a = 1.0 if live else 0.75
 
 func _push_chat() -> void:
 	var nickname: String = CHAT_NAMES[chat_index % CHAT_NAMES.size()]

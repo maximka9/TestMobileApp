@@ -47,15 +47,16 @@ custom_minimum_size = Vector2(0, 48)
 
 [node name="Logo" type="Label" parent="SafeMargin/Layout/Brand"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 29
 text = "SASA"
+
+theme_type_variation = &"BrandLabel"
 
 [node name="Edition" type="Label" parent="SafeMargin/Layout/Brand"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 9
 text = "STREAMER LIFE\nVOL. 02"
-theme_type_variation = &"MutedLabel"
 size_flags_horizontal = 3
+
+theme_type_variation = &"EditionLabel"
 
 [node name="SettingsButton" type="Button" parent="SafeMargin/Layout/Brand"]
 unique_name_in_owner = true
@@ -76,8 +77,9 @@ theme_override_constants/separation = 5
 [node name="Header" type="Label" parent="SafeMargin/Layout/StatsPanel/Stats"]
 unique_name_in_owner = true
 layout_mode = 2
-theme_override_font_sizes/font_size = 11
 text = "SASAVOT     УР. 1     XP 0 / 50"
+
+theme_type_variation = &"SmallLabel"
 
 [node name="XPBar" type="ProgressBar" parent="SafeMargin/Layout/StatsPanel/Stats"]
 unique_name_in_owner = true
@@ -95,15 +97,16 @@ size_flags_horizontal = 3
 
 [node name="Caption" type="Label" parent="SafeMargin/Layout/StatsPanel/Stats/Counters/Viewers"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 9
 text = "ОНЛАЙН"
-theme_type_variation = &"MutedLabel"
+
+theme_type_variation = &"CaptionLabel"
 
 [node name="ViewersValue" type="Label" parent="SafeMargin/Layout/StatsPanel/Stats/Counters/Viewers"]
 unique_name_in_owner = true
 layout_mode = 2
-theme_override_font_sizes/font_size = 20
 text = "0"
+
+theme_type_variation = &"CounterLabel"
 
 [node name="Money" type="HBoxContainer" parent="SafeMargin/Layout/StatsPanel/Stats/Counters"]
 layout_mode = 2
@@ -111,15 +114,16 @@ size_flags_horizontal = 3
 
 [node name="Caption" type="Label" parent="SafeMargin/Layout/StatsPanel/Stats/Counters/Money"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 9
 text = "МОНЕТЫ"
-theme_type_variation = &"MutedLabel"
+
+theme_type_variation = &"CaptionLabel"
 
 [node name="MoneyValue" type="Label" parent="SafeMargin/Layout/StatsPanel/Stats/Counters/Money"]
 unique_name_in_owner = true
 layout_mode = 2
-theme_override_font_sizes/font_size = 20
 text = "0"
+
+theme_type_variation = &"CounterLabel"
 
 [node name="Meters" type="HBoxContainer" parent="SafeMargin/Layout/StatsPanel/Stats"]
 layout_mode = 2
@@ -133,9 +137,9 @@ theme_override_constants/separation = 4
 [node name="HypeLabel" type="Label" parent="SafeMargin/Layout/StatsPanel/Stats/Meters/Hype"]
 unique_name_in_owner = true
 layout_mode = 2
-theme_override_font_sizes/font_size = 9
 text = "ХАЙП  0 / 100"
-theme_type_variation = &"AccentLabel"
+
+theme_type_variation = &"CaptionLabel"
 
 [node name="HypeBar" type="ProgressBar" parent="SafeMargin/Layout/StatsPanel/Stats/Meters/Hype"]
 unique_name_in_owner = true
@@ -153,9 +157,9 @@ theme_override_constants/separation = 4
 [node name="EnergyLabel" type="Label" parent="SafeMargin/Layout/StatsPanel/Stats/Meters/Energy"]
 unique_name_in_owner = true
 layout_mode = 2
-theme_override_font_sizes/font_size = 9
 text = "ЭНЕРГИЯ  100%"
-theme_type_variation = &"SuccessLabel"
+
+theme_type_variation = &"CaptionLabel"
 
 [node name="EnergyBar" type="ProgressBar" parent="SafeMargin/Layout/StatsPanel/Stats/Meters/Energy"]
 unique_name_in_owner = true
@@ -168,9 +172,9 @@ show_percentage = false
 [node name="Status" type="Label" parent="SafeMargin/Layout"]
 unique_name_in_owner = true
 layout_mode = 2
-theme_override_font_sizes/font_size = 10
 text = "OFFLINE  /  Just Chatting  /  00:00"
-theme_type_variation = &"MutedLabel"
+
+theme_type_variation = &"StatusLabel"
 
 [node name="RoomView" parent="SafeMargin/Layout" instance=ExtResource("4")]
 unique_name_in_owner = true
@@ -230,21 +234,21 @@ theme_override_constants/separation = 2
 [node name="Toast" type="Label" parent="SafeMargin/Layout/Footer"]
 unique_name_in_owner = true
 layout_mode = 2
-theme_override_font_sizes/font_size = 10
 text = "Твой стрим. Твои правила."
-theme_type_variation = &"MutedLabel"
 custom_minimum_size = Vector2(0, 16)
 horizontal_alignment = 1
 text_overrun_behavior = 3
 
+theme_type_variation = &"MutedLabel"
+
 [node name="SaveStatus" type="Label" parent="SafeMargin/Layout/Footer"]
 unique_name_in_owner = true
 layout_mode = 2
-theme_override_font_sizes/font_size = 8
-text = "ЛОКАЛЬНЫЙ ПРОГРЕСС · АВТОСОХРАНЕНИЕ"
-theme_type_variation = &"MutedLabel"
+text = ""
 horizontal_alignment = 1
 text_overrun_behavior = 3
+
+theme_type_variation = &"MutedLabel"
 
 [node name="DebugLabel" type="Label" parent="."]
 unique_name_in_owner = true
@@ -260,9 +264,9 @@ offset_right = -12.0
 grow_horizontal = 2
 grow_vertical = 0
 mouse_filter = 2
-theme_type_variation = &"MutedLabel"
-theme_override_font_sizes/font_size = 8
 horizontal_alignment = 1
+
+theme_type_variation = &"CaptionLabel"
 
 [node name="ModalLayer" type="Control" parent="."]
 unique_name_in_owner = true
@@ -310,17 +314,17 @@ theme_override_constants/separation = 12
 
 [node name="Eyebrow" type="Label" parent="ModalLayer/ModalMargin/Center/ModalPanel/Content"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 9
 text = "SASA / STREAMER LIFE"
-theme_type_variation = &"AccentLabel"
+
+theme_type_variation = &"EditionLabel"
 
 [node name="ModalTitle" type="Label" parent="ModalLayer/ModalMargin/Center/ModalPanel/Content"]
 unique_name_in_owner = true
 layout_mode = 2
-theme_override_font_sizes/font_size = 22
 text = "СВОЙ ЭФИР"
-theme_type_variation = &"TitleLabel"
 autowrap_mode = 3
+
+theme_type_variation = &"TitleLabel"
 
 [node name="ModalScroll" type="ScrollContainer" parent="ModalLayer/ModalMargin/Center/ModalPanel/Content"]
 unique_name_in_owner = true

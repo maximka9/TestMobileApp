@@ -7,11 +7,11 @@ const TOUCH_TARGET: float = 48.0
 static func color(token: StringName) -> Color:
 	return THEME.get_color(token, &"SasaTokens")
 
-static func label(text: String, font_size: int = 13, variation: StringName = &"Label") -> Label:
+static func label(text: String, role: StringName = &"body", variation: StringName = &"Label") -> Label:
 	var node: Label = Label.new()
 	node.text = text
 	node.theme_type_variation = variation
-	node.add_theme_font_size_override("font_size", font_size)
+	node.add_theme_font_size_override("font_size", THEME.get_font_size(role, &"Typography"))
 	node.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	node.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	return node
