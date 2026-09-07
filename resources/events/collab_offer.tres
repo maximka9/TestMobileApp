@@ -3,9 +3,12 @@
 [resource]
 script = ExtResource("1")
 id = "collab_offer"
-title = "Предложили коллаб"
-description = "Пригласить гостя: −100 монет, +25 хайпа. Откат коллаба действует."
-hype_gain = 25.0
-viewer_multiplier = 1.35
+title = "Знакомство в чате"
+description = "Вымышленный автор pixel_neighbor заглянул в чат. Поздороваться: +2 к отношениям. Предложить совместный эфир можно после стрима на экране коллабораций."
+hype_gain = 0.0
+viewer_multiplier = 1.0
 money_gain = 0
-move_id = "collab"
+move_id = ""
+duration = 0
+social_author_id = "pixel_neighbor"
+relationship_delta = 2.0

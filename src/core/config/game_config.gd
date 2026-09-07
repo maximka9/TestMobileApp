@@ -69,3 +69,24 @@ extends Resource
 @export var social_rejection_penalty: float = 1.0
 @export var social_reputation_factor_min: float = 0.75
 @export var social_reputation_factor_max: float = 1.25
+
+@export_group("Career phase 4A")
+@export var collab_candidate_quotas: PackedInt32Array = PackedInt32Array([2, 4, 3, 1])
+@export var collab_near_min: float = 0.5
+@export var collab_near_max: float = 2.0
+@export var collab_gap_exponent: float = 0.7
+@export var collab_interest_bonus: float = 0.4
+@export var collab_relationship_weight: float = 0.005
+@export var collab_repeat_penalty: float = 0.2
+@export var collab_momentum_weight: float = 0.01
+@export var collab_chance_min: float = 0.0001
+@export var collab_chance_max: float = 0.9
+@export var collab_chance_bands: PackedFloat32Array = PackedFloat32Array([0.05, 0.25, 0.6])
+@export var collab_cooldown_seconds: int = 600
+@export var collab_tier_cooldown_seconds: int = 300
+@export var collab_follower_scale: float = 0.5
+@export var collab_follower_cap: int = 2000
+@export var collab_reputation_gain: float = 2.0
+@export var collab_relationship_gain: float = 5.0
+@export var collab_momentum_gain: float = 10.0
+@export var collab_response_delay: float = 0.8

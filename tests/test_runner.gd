@@ -315,7 +315,7 @@ func _test_flow() -> void:
 		if events.pending != null:
 			stream.resolve_event(false)
 	check(state.money >= 100 and state.level > 1 and state.viewers > 0, "New player earns enough for collab")
-	check(stream.perform_move("beer").success and stream.perform_move("collab").success, "Flow: beer and collab")
+	check(stream.perform_move("beer").success and stream.perform_move("collab").error_code == &"RETIRED_MOVE", "Flow: beer works; legacy collab routes to new engine")
 	# Career growth deliberately no longer grants the old level-based income spike.
 	# Earn the next purchase normally instead of assuming spare money after a collab.
 	for second: int in range(config.income_seconds * upgrades.cost(state, "microphone")):

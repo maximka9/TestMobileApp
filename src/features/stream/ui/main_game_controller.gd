@@ -29,6 +29,7 @@ var safe_insets_override: Vector4i = Vector4i(-1, -1, -1, -1)
 var _toast_time: float = 0.0
 var _save_notice_time: float = 0.0
 var _debug_clock: float = 0.0
+var _collab_waiting: bool = false
 
 func configure(bootstrap: AppBootstrap) -> void:
 	app = bootstrap
@@ -42,7 +43,7 @@ func configure(bootstrap: AppBootstrap) -> void:
 	primary.pressed.connect(_primary_pressed)
 	(%GamesButton as Button).pressed.connect(_show_games)
 	(%ContentButton as Button).pressed.connect(_show_short_forms)
-	(%CollabButton as Button).pressed.connect(func() -> void: _show_moves(true))
+	(%CollabButton as Button).pressed.connect(_show_collaborations)
 	(%MovesButton as Button).pressed.connect(func() -> void: _show_moves(false))
 	(%UpgradesButton as Button).pressed.connect(_show_upgrades)
 	(%SettingsButton as Button).pressed.connect(_show_settings)
@@ -127,6 +128,8 @@ func _open_modal(kind: String, title_text: String) -> void:
 	modal_layer.show()
 
 func _close_modal() -> void:
+	if _collab_waiting:
+		return
 	if modal_kind == "summary":
 		app.stream.continue_to_room()
 	elif modal_kind == "event" and app.events.pending != null:
@@ -185,13 +188,16 @@ func _show_short_forms() -> void:
 		modal_body.add_child(publish)
 
 func _show_moves(collab_only: bool) -> void:
+	if collab_only:
+		_show_collaborations()
+		return
 	if app.stream.phase == StreamService.Phase.SUMMARY:
 		return
 	_open_modal("collab" if collab_only else "moves", "КОЛЛАБ" if collab_only else "МУВЫ")
 	if not app.stream.state.is_streaming:
 		modal_body.add_child(SasaUI.label("Сначала начните эфир"))
 	for id: String in app.catalog.moves:
-		if collab_only and id != "collab":
+		if id == "collab":
 			continue
 		var definition: ActionDefinition = app.catalog.moves[id]
 		modal_body.add_child(SasaUI.label(definition.title, &"heading", &"AccentLabel"))
@@ -211,6 +217,55 @@ func _show_moves(collab_only: bool) -> void:
 		move_button.disabled = _move_status(id) != "Готово"
 		modal_body.add_child(move_button)
 	modal_body.add_child(SasaUI.label("Мувы увеличивают усталость. Отдых между эфирами восстанавливает силы.", &"small", &"MutedLabel"))
+
+func _show_collaborations() -> void:
+	if app.stream.phase == StreamService.Phase.SUMMARY:
+		return
+	_open_modal("collaborations", "КОЛЛАБОРАЦИИ")
+	modal_body.add_child(SasaUI.label("Авторы здесь вымышлены. Отношения и шансы — игровые значения.", &"small", &"MutedLabel"))
+	if app.stream.state.is_streaming:
+		modal_body.add_child(SasaUI.label("Предлагайте коллаб между эфирами."))
+	for id: String in app.collaborations.candidates(app.stream.state):
+		var author: StreamerDefinition = app.catalog.streamers[id]
+		modal_body.add_child(SasaUI.label(author.display_name, &"heading", &"AccentLabel"))
+		modal_body.add_child(SasaUI.label("Уровень канала: %d · отношения: %+.0f" % [author.reach_tier + 1, app.collaborations.social.relationship(app.stream.state, id)], &"small", &"MutedLabel"))
+		var button: Button = SasaUI.button("Выбрать формат", func() -> void: _show_collab_formats(id))
+		button.disabled = app.stream.state.is_streaming
+		modal_body.add_child(button)
+
+func _show_collab_formats(id: String) -> void:
+	var author: StreamerDefinition = app.catalog.streamers[id]
+	_open_modal("collab_formats", author.display_name)
+	for format: String in app.collaborations.formats(id):
+		modal_body.add_child(SasaUI.button(app.catalog.streams[format].title, func() -> void: _show_collab_offer(id, format)))
+
+func _show_collab_offer(id: String, format: String) -> void:
+	_open_modal("collab_offer", app.catalog.streamers[id].display_name)
+	modal_body.add_child(SasaUI.label(app.catalog.streams[format].title, &"heading", &"AccentLabel"))
+	modal_body.add_child(SasaUI.label("Шанс: " + app.collaborations.label(app.collaborations.chance(app.stream.state, id, format))))
+	modal_body.add_child(SasaUI.label(app.collaborations.reasons(app.stream.state, id, format), &"small", &"MutedLabel"))
+	var remaining: int = app.collaborations.remaining(app.stream.state, id)
+	if remaining > 0:
+		modal_body.add_child(SasaUI.label("Попробуйте позже: %d с" % remaining, &"small", &"MutedLabel"))
+	var button: Button = SasaUI.button("Предложить коллаб", func() -> void: _send_collab(id, format), true)
+	button.disabled = remaining > 0 or app.stream.state.is_streaming
+	modal_body.add_child(button)
+
+func _send_collab(id: String, format: String) -> void:
+	if _collab_waiting or modal_kind != "collab_offer":
+		return
+	_collab_waiting = true
+	var result: OperationResult = app.collaborations.request(app.stream.state, id, format)
+	app.queue.request_save()
+	app.queue.flush()
+	_refresh()
+	_open_modal("collab_wait", "Написали…")
+	modal_close.disabled = true
+	await get_tree().create_timer(app.config.collab_response_delay).timeout
+	_collab_waiting = false
+	modal_close.disabled = false
+	_show_collab_offer(id, format)
+	_modal_feedback(result)
 
 func _move_status(id: String) -> String:
 	if not app.stream.state.is_streaming:

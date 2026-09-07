@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="StreamerDefinition" load_steps=2 format=3]
+[ext_resource type="Script" path="res://src/domain/models/streamer_definition.gd" id="1"]
+[resource]
+script = ExtResource("1")
+id = "fixture_10"
+display_name = "Полночь"
+reach_tier = 2
+reference_avg_viewers = 200
+interests = PackedStringArray("just_chatting")
+collab_formats = PackedStringArray("just_chatting", "dota_2", "irl")
+base_acceptance = 0.5
+region = "fictional"
+language = "ru"

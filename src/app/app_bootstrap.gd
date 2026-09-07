@@ -10,6 +10,7 @@ var upgrades: UpgradeService
 var moves: MoveService
 var events: EventService
 var short_forms: ShortFormService
+var collaborations: CollaborationService
 var saves: SaveService
 var queue: SaveJobQueue
 var stream: StreamService
@@ -42,6 +43,7 @@ func _ready() -> void:
 	moves = MoveService.new(catalog, upgrades, config)
 	events = EventService.new(catalog, RandomProvider.new(), config, moves)
 	short_forms = ShortFormService.new(catalog, config, RandomProvider.new())
+	collaborations = CollaborationService.new(catalog, config, RandomProvider.new())
 	saves = SaveService.new(repository_override if repository_override != null else FileSaveRepository.new(), logger, catalog, upgrades)
 	var state: PlayerState = saves.load_player()
 	queue = SaveJobQueue.new(saves, state, config)

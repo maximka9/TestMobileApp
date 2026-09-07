@@ -27,6 +27,8 @@ var reputation: float = 50.0
 var relationships: Dictionary = {}
 ## Per-author request window persists so reload cannot reset spam protection.
 var social_requests: Dictionary = {}
+var collab_cooldowns: Dictionary = {}
+var completed_collabs: int = 0
 var short_form_history: Array[String] = []
 var click_power: int = 1
 var current_stream_type_id: String = "just_chatting"

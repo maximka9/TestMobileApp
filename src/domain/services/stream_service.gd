@@ -112,6 +112,8 @@ func tick() -> void:
 	changed.emit()
 
 func perform_move(id: String) -> OperationResult:
+	if id == "collab":
+		return OperationResult.fail(&"RETIRED_MOVE", "Коллабы доступны через экран коллабораций")
 	var result: OperationResult = moves.perform(state, id, elapsed)
 	if result.success:
 		changed.emit()
