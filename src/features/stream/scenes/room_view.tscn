@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3]
+[gd_scene load_steps=18 format=3]
 
 [ext_resource type="Theme" path="res://resources/themes/sasa_theme.tres" id="theme"]
 [ext_resource type="Script" path="res://src/features/stream/ui/room_view.gd" id="1_room"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" path="res://assets/room/desk.png" id="10_desk"]
 [ext_resource type="Texture2D" path="res://assets/room/microphone.png" id="11_microphone"]
 [ext_resource type="Texture2D" path="res://assets/characters/sasavot_frames.png" id="12_character"]
+[ext_resource type="Texture2D" path="res://assets/room/kitchen_generated.png" id="13_kitchen"]
 
 [sub_resource type="Gradient" id="Gradient_hype"]
 colors = PackedColorArray(1, 0.14, 0.12, 0.7, 0.4, 0.015, 0.025, 0)
@@ -56,6 +57,47 @@ layout_mode = 0
 offset_right = 336.0
 offset_bottom = 220.0
 mouse_filter = 2
+
+[node name="KitchenBackdrop" type="TextureRect" parent="Stage"]
+visible = false
+z_index = 10
+offset_right = 336.0
+offset_bottom = 250.0
+texture = ExtResource("13_kitchen")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="KitchenSasavot" type="Sprite2D" parent="Stage"]
+visible = false
+z_index = 11
+position = Vector2(168, 154)
+texture = ExtResource("12_character")
+hframes = 4
+
+[node name="Aquarium" type="ColorRect" parent="Stage"]
+visible = false
+offset_left = 270.0
+offset_top = 112.0
+offset_right = 322.0
+offset_bottom = 154.0
+color = Color(0.05, 0.42, 0.58, 1)
+mouse_filter = 2
+
+[node name="Water" type="ColorRect" parent="Stage/Aquarium"]
+offset_left = 2.0
+offset_top = 4.0
+offset_right = 50.0
+offset_bottom = 38.0
+color = Color(0.08, 0.66, 0.77, 1)
+
+[node name="Fish" type="ColorRect" parent="Stage/Aquarium"]
+offset_left = 9.0
+offset_top = 18.0
+offset_right = 15.0
+offset_bottom = 22.0
+color = Color(1, 0.55, 0.18, 1)
+
+[node name="NormalRoom" type="Node2D" parent="Stage"]
 
 [node name="AdaptiveBackdrop" type="Node2D" parent="Stage"]
 
@@ -132,6 +174,7 @@ centered = false
 
 
 [node name="LeftMonitor" type="Control" parent="Stage/Desk"]
+visible = false
 layout_mode = 0
 offset_left = 19.0
 offset_top = 102.0
@@ -146,10 +189,10 @@ centered = false
 
 [node name="RightMonitor" type="Control" parent="Stage/Desk"]
 layout_mode = 0
-offset_left = 218.0
+offset_left = 166.0
 offset_top = 100.0
 offset_right = 322.0
-offset_bottom = 182.0
+offset_bottom = 223.0
 mouse_filter = 2
 
 [node name="Bezel" type="Sprite2D" parent="Stage/Desk/RightMonitor"]
@@ -186,8 +229,8 @@ clip_contents = true
 layout_mode = 0
 offset_left = 7.0
 offset_top = 18.0
-offset_right = 99.0
-offset_bottom = 63.0
+offset_right = 151.0
+offset_bottom = 105.0
 mouse_filter = 2
 
 [node name="Row0" type="RichTextLabel" parent="Stage/Desk/RightMonitor/ChatClip"]
@@ -228,6 +271,17 @@ layout_mode = 0
 offset_top = 33.0
 offset_right = 89.0
 offset_bottom = 44.0
+mouse_filter = 2
+theme = ExtResource("theme")
+theme_type_variation = &"MonitorText"
+bbcode_enabled = true
+scroll_active = false
+
+[node name="Row4" type="RichTextLabel" parent="Stage/Desk/RightMonitor/ChatClip"]
+layout_mode = 0
+offset_top = 36.0
+offset_right = 145.0
+offset_bottom = 45.0
 mouse_filter = 2
 theme = ExtResource("theme")
 theme_type_variation = &"MonitorText"

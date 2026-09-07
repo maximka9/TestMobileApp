@@ -34,7 +34,7 @@ extends Resource
 @export var fatigue_recovery: float = 0.1
 @export var exhaustion_threshold: float = 95.0
 @export var offline_recovery_cap: int = 28800
-@export var fatigue_multipliers: Dictionary = {"just_chatting": 0.8, "dota_2": 1.0, "irl": 1.4}
+@export var fatigue_multipliers: Dictionary = {"just_chatting": 0.8, "dota_2": 1.0, "cooking": 1.25, "irl": 1.4}
 @export var fatigue_steps: PackedFloat32Array = PackedFloat32Array([40, 60, 75, 90])
 @export var fatigue_efficiency: PackedFloat32Array = PackedFloat32Array([1.0, 0.95, 0.85, 0.7, 0.5])
 @export var audience_exponent: float = 0.6

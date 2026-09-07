@@ -4,7 +4,7 @@ extends Control
 signal tapped(position: Vector2)
 
 const DESIGN_SIZE := Vector2(336, 250)
-const CHAT_LIMIT: int = 4
+const CHAT_LIMIT: int = 5
 const CHAT_NAMES: PackedStringArray = ["kot", "user52", "masha", "anon", "sanya", "viewer", "omlet", "pixel"]
 const CHAT_MESSAGES: PackedStringArray = ["жми жми", "ХАХАХ", "+", "КЛИП!", "погнали", "хорош", "KEKW", "это база"]
 const CHAT_COLORS: PackedStringArray = ["#e78f91", "#b9cbed", "#edb879", "#cdadc5"]
@@ -53,6 +53,9 @@ func present(state: PlayerState) -> void:
 	if not is_node_ready():
 		return
 	_set_category(state.current_stream_type_id)
+	$Stage/KitchenBackdrop.visible = state.current_location_id == "kitchen"
+	$Stage/KitchenSasavot.visible = state.current_location_id == "kitchen"
+	$Stage/Aquarium.visible = "aquarium" in state.owned_room_items
 	_refresh_live()
 	if reduced_motion:
 		pulse = 0.0
@@ -85,7 +88,9 @@ func _process(delta: float) -> void:
 			_chat_slide = 0.0 if reduced_motion else 11.0
 	_chat_slide = 0.0 if reduced_motion else maxf(0.0, _chat_slide - delta * 40.0)
 	for i: int in range(_chat_rows.size()):
-		_chat_rows[i].position.y = float(i * 11) + roundf(_chat_slide)
+		_chat_rows[i].position.y = float(i * 9) + roundf(_chat_slide)
+	if $Stage/Aquarium.visible and not reduced_motion:
+		$Stage/Aquarium/Fish.position.x = 9.0 + fposmod(_idle_clock * 8.0, 34.0)
 
 func chat_interval() -> float:
 	return 0.65 if hype > 70.0 else (3.8 if hype < 20.0 else 1.8)

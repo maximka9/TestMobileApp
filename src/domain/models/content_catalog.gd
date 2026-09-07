@@ -7,6 +7,11 @@ var moves: Dictionary = {}
 var events: Dictionary = {}
 var short_forms: Dictionary = {}
 var streamers: Dictionary = {}
+var cosplays: Dictionary = {}
+var locations: Dictionary = {}
+var achievements: Dictionary = {}
+var room_items: Dictionary = {}
+var homes: Dictionary = {}
 const STREAMER_CATALOG_PATH: String = "res://resources/streamers/streamers.json"
 const MAX_STREAMERS: int = 500
 
@@ -16,6 +21,11 @@ func _init() -> void:
 	_load_folder("res://resources/moves", moves)
 	_load_folder("res://resources/events", events)
 	_load_folder("res://resources/short_forms", short_forms)
+	_load_folder("res://resources/cosplays", cosplays)
+	_load_folder("res://resources/locations", locations)
+	_load_folder("res://resources/achievements", achievements)
+	_load_folder("res://resources/room_items", room_items)
+	_load_folder("res://resources/homes", homes)
 	_load_streamer_catalog()
 
 func _load_folder(path: String, target: Dictionary) -> void:

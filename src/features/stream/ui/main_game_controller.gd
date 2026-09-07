@@ -77,6 +77,8 @@ func _safe_area() -> void:
 
 func _refresh() -> void:
 	var state: PlayerState = app.stream.state
+	if not app.achievements.evaluate(state).is_empty():
+		app.queue.request_save()
 	var required: int = app.progression.required_xp(state.level)
 	header.text = "ПОДПИСЧИКИ %d · XP %d / %d" % [state.followers, state.xp, required]
 	xp_bar.max_value = required
@@ -157,6 +159,27 @@ func _show_games() -> void:
 
 func _start_content(id: String) -> void:
 	var result: OperationResult = app.stream.select_content(id)
+	if result.success:
+		for cosplay_id: String in app.catalog.cosplays:
+			if id in (app.catalog.cosplays[cosplay_id] as CosplayDefinition).stream_tags:
+				_show_cosplay_choice(id)
+				return
+		result = app.stream.start()
+	_feedback(result.message)
+
+func _show_cosplay_choice(content_id: String) -> void:
+	_open_modal("cosplay", "ОБРАЗ ДЛЯ ЭФИРА")
+	modal_body.add_child(SasaUI.button("Без косплея", func() -> void: _start_with_cosplay(""), true))
+	for cosplay_id: String in app.catalog.cosplays:
+		var cosplay: CosplayDefinition = app.catalog.cosplays[cosplay_id] as CosplayDefinition
+		if content_id in cosplay.stream_tags:
+			modal_body.add_child(SasaUI.label("%s · +%d%% свежести · %d монет" % [cosplay.display_name, int(cosplay.novelty_bonus * 100), cosplay.money_cost], &"small", &"MutedLabel"))
+			var button: Button = SasaUI.button("Надеть: " + cosplay.display_name, func() -> void: _start_with_cosplay(cosplay_id))
+			button.disabled = app.stream.state.money < cosplay.money_cost or app.stream.state.fatigue + cosplay.fatigue_cost > 100.0
+			modal_body.add_child(button)
+
+func _start_with_cosplay(id: String) -> void:
+	var result: OperationResult = app.stream.select_cosplay(id)
 	if result.success:
 		result = app.stream.start()
 	if result.success:
@@ -336,6 +359,9 @@ func _show_settings() -> void:
 	if app.stream.phase == StreamService.Phase.SUMMARY:
 		return
 	_open_modal("settings", "НАСТРОЙКИ")
+	modal_body.add_child(SasaUI.button("Локации", _show_locations))
+	modal_body.add_child(SasaUI.button("Достижения", _show_achievements))
+	modal_body.add_child(SasaUI.button("Интерьер", _show_interior))
 	modal_body.add_child(SasaUI.button("Профиль и отношения", _show_social_profile))
 	var motion: CheckButton = CheckButton.new()
 	motion.text = "Уменьшить анимацию"
@@ -355,6 +381,47 @@ func _show_settings() -> void:
 		app.queue.retry_manually()
 		_modal_feedback(app.queue.flush())
 	))
+
+func _show_locations() -> void:
+	_open_modal("locations", "ЛОКАЦИИ")
+	for id: String in app.catalog.locations:
+		var location: LocationDefinition = app.catalog.locations[id] as LocationDefinition
+		modal_body.add_child(SasaUI.label(location.display_name + "\n" + location.description, &"body", &"MutedLabel"))
+		var button: Button = SasaUI.button("Выбрать", func() -> void:
+			app.stream.state.current_location_id = id
+			app.stream.changed.emit()
+			_show_locations())
+		button.disabled = app.stream.state.is_streaming or app.stream.state.current_location_id == id
+		modal_body.add_child(button)
+
+func _show_achievements() -> void:
+	app.achievements.evaluate(app.stream.state)
+	_open_modal("achievements", "ДОСТИЖЕНИЯ")
+	for id: String in app.catalog.achievements:
+		var item: AchievementDefinition = app.catalog.achievements[id] as AchievementDefinition
+		var unlocked: bool = id in app.stream.state.unlocked_achievements
+		modal_body.add_child(SasaUI.label((item.display_name if unlocked or not item.secret else "???") + "\n" + (item.description if unlocked or not item.secret else "Секретное достижение"), &"body", &"SuccessLabel" if unlocked else &"MutedLabel"))
+
+func _show_interior() -> void:
+	_open_modal("interior", "ИНТЕРЬЕР")
+	modal_body.add_child(SasaUI.label("Тир карьеры: %d · Монеты: %d" % [app.stream.state.career_tier, app.stream.state.money], &"body", &"MutedLabel"))
+	for id: String in app.catalog.room_items:
+		var item: RoomItemDefinition = app.catalog.room_items[id] as RoomItemDefinition
+		modal_body.add_child(SasaUI.label("%s · %s · %d монет" % [item.display_name, item.category, item.price], &"body", &"AccentLabel"))
+		var button: Button = SasaUI.button("Купить" if not id in app.stream.state.owned_room_items else "Куплено", func() -> void:
+			_modal_feedback(app.room_customization.purchase_item(app.stream.state, id))
+			_show_interior())
+		button.disabled = id in app.stream.state.owned_room_items
+		modal_body.add_child(button)
+	modal_body.add_child(SasaUI.label("ПЕРЕЕЗД", &"heading", &"AccentLabel"))
+	for id: String in app.catalog.homes:
+		var home: HomeDefinition = app.catalog.homes[id] as HomeDefinition
+		modal_body.add_child(SasaUI.label("%s · %d монет · тир %d" % [home.display_name, home.price, home.required_career_tier], &"small", &"MutedLabel"))
+		var move: Button = SasaUI.button("Переехать", func() -> void:
+			_modal_feedback(app.room_customization.purchase_home(app.stream.state, id))
+			_show_interior())
+		move.disabled = app.stream.state.current_home_id == id
+		modal_body.add_child(move)
 
 func _show_social_profile() -> void:
 	_open_modal("social_profile", "ПРОФИЛЬ")

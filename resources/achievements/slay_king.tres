@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="AchievementDefinition" load_steps=2 format=3]
+[ext_resource type="Script" path="res://src/domain/models/achievement_definition.gd" id="1"]
+[resource]
+script = ExtResource("1")
+id = "slay_king"
+display_name = "SLAY KING"
+category = "Секретные"
+description = "Станьте легендой платформы."
+metric = "slay"
+threshold = 1
+secret = true

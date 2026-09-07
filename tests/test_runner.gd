@@ -60,7 +60,7 @@ func _run() -> void:
 
 func _test_catalog() -> void:
 	_fixture()
-	check(catalog.streams.size() == 3 and catalog.upgrades.size() == 5 and catalog.events.size() == 7 and catalog.moves.size() == 2, "All content resources discovered")
+	check(catalog.streams.size() == 4 and catalog.upgrades.size() == 5 and catalog.events.size() == 13 and catalog.moves.size() == 2, "All content resources discovered")
 	check(catalog.moves["beer"].title == "Взять пиво", "Resources preserve Cyrillic")
 	check(catalog.streams["irl"].viewer_multiplier == 1.5, "IRL data coefficients")
 

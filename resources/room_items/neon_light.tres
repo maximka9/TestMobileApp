@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="RoomItemDefinition" load_steps=2 format=3]
+[ext_resource type="Script" path="res://src/domain/models/room_item_definition.gd" id="1"]
+[resource]
+script = ExtResource("1")
+id = "neon_light"
+display_name = "Красный неон"
+category = "Освещение"
+price = 120
+sprite = "neon"
+placement_slot = "WallCenter"
+required_tier = 0
+effects = {}

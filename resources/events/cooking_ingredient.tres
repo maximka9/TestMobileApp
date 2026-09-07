@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ActionDefinition" load_steps=2 format=3]
+[ext_resource type="Script" path="res://src/domain/models/action_definition.gd" id="1"]
+[resource]
+script = ExtResource("1")
+id = "cooking_ingredient"
+title = "Чат выбирает ингредиент"
+description = "Доверить следующий ингредиент зрителям."
+hype_gain = 12.0
+viewer_multiplier = 1.1
+required_stream_type_id = "cooking"

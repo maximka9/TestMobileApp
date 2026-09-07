@@ -25,7 +25,14 @@ func poll(now: int, stream: StreamType) -> ActionDefinition:
 	if now < 0 or stream == null or pending != null or now < next_at or catalog.events.is_empty():
 		return null
 	var started: int = Time.get_ticks_usec()
-	var ids: Array = catalog.events.keys()
+	var ids: Array = []
+	for id: String in catalog.events:
+		var candidate: ActionDefinition = catalog.events[id] as ActionDefinition
+		if candidate.required_stream_type_id.is_empty() or candidate.required_stream_type_id == stream.id:
+			ids.append(id)
+	if ids.is_empty():
+		schedule(now)
+		return null
 	pending = catalog.events[ids[random.between(0, ids.size() - 1)]]
 	processing_ms = (Time.get_ticks_usec() - started) / 1000.0
 	return pending

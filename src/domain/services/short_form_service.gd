@@ -30,6 +30,8 @@ func publish(state: PlayerState, id: String) -> OperationResult:
 	var outcome: int = _outcome(viral)
 	var followers: int = _followers(state, definition, outcome, novelty)
 	state.followers += followers
+	if outcome >= 3:
+		state.viral_posts += 1
 	state.lifetime_followers_gained += followers
 	state.growth_momentum = clampf(state.growth_momentum + config.short_momentum_gains[outcome], 0.0, 100.0)
 	state.short_form_history.append(id)

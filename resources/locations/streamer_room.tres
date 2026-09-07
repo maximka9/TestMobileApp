@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="LocationDefinition" load_steps=2 format=3]
+[ext_resource type="Script" path="res://src/domain/models/location_definition.gd" id="1"]
+[resource]
+script = ExtResource("1")
+id = "streamer_room"
+display_name = "Комната стримера"
+description = "Основная студия для эфиров."

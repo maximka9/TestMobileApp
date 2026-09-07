@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="StreamType" load_steps=2 format=3]
+[ext_resource type="Script" path="res://src/domain/models/stream_type.gd" id="1"]
+[resource]
+script = ExtResource("1")
+id = "cooking"
+title = "Готовка"
+description = "Готовь в прямом эфире и слушай чат."
+viewer_multiplier = 1.25
+income_multiplier = 1.05
+event_multiplier = 1.2
+required_location_id = "kitchen"

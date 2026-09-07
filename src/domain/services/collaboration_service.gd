@@ -104,6 +104,8 @@ func request(state: PlayerState, id: String, format: String) -> OperationResult:
 	state.followers += gained
 	state.lifetime_followers_gained += gained
 	state.completed_collabs += 1
+	if author.reach_tier >= 3:
+		state.high_tier_collabs += 1
 	state.growth_momentum = minf(100.0, state.growth_momentum + config.collab_momentum_gain)
 	social.change(state, id, config.collab_reputation_gain, config.collab_relationship_gain)
 	return OperationResult.new(true, &"SUCCESS", "Ответ пришёл: коллаб состоялся! +%d подписчиков, временное ускорение аудитории." % gained, {"accepted": true, "followers": gained})

@@ -16,3 +16,4 @@ extends Resource
 @export var social_author_id: String = ""
 @export var reputation_delta: float = 0.0
 @export var relationship_delta: float = 0.0
+@export var required_stream_type_id: String = ""

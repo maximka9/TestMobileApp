@@ -61,4 +61,5 @@ func complete(player: PlayerState, summary: Dictionary, stream_novelty: float, t
 	for i: int in range(player.stream_history.size() - count, player.stream_history.size()):
 		total += float(player.stream_history[i]["average_viewers"])
 	player.average_online = total / maxi(1, count)
+	player.career_tier = 0 if player.followers < 100 else 1 if player.followers < 1000 else 2 if player.followers < 10000 else 3
 	return gain

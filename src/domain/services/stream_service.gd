@@ -52,12 +52,31 @@ func select_content(id: String) -> OperationResult:
 func current_content() -> StreamType:
 	return catalog.streams.get(state.current_stream_type_id) as StreamType
 
+func select_cosplay(id: String) -> OperationResult:
+	if phase != Phase.OFFLINE or (not id.is_empty() and not catalog.cosplays.has(id)):
+		return OperationResult.fail(&"INVALID_ARGUMENT")
+	state.selected_cosplay_id = id
+	changed.emit()
+	return OperationResult.new()
+
 func start() -> OperationResult:
 	if phase != Phase.OFFLINE or current_content() == null:
 		return OperationResult.fail(&"INVALID_STATE")
 	if state.fatigue >= config.exhaustion_threshold:
 		return OperationResult.fail(&"EXHAUSTED", "Вы устали. Отдохните перед следующим эфиром.")
+	var content: StreamType = current_content()
+	if not content.required_location_id.is_empty() and state.current_location_id != content.required_location_id:
+		return OperationResult.fail(&"LOCATION_REQUIRED", "Для этого формата нужна локация: Кухня")
+	var cosplay: CosplayDefinition = catalog.cosplays.get(state.selected_cosplay_id) as CosplayDefinition
+	if cosplay != null:
+		if not state.current_stream_type_id in cosplay.stream_tags or state.money < cosplay.money_cost or state.fatigue + cosplay.fatigue_cost > 100.0:
+			return OperationResult.fail(&"COSPLAY_UNAVAILABLE", "Косплей пока недоступен")
+		state.money -= cosplay.money_cost
+		state.fatigue += cosplay.fatigue_cost
+		state.cosplay_streams += 1
 	stream_novelty = career.novelty(state, state.current_stream_type_id)
+	if cosplay != null:
+		stream_novelty *= 1.0 + cosplay.novelty_bonus
 	phase = Phase.STREAMING
 	state.is_streaming = true
 	state.viewers = 0

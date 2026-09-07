@@ -11,6 +11,8 @@ var moves: MoveService
 var events: EventService
 var short_forms: ShortFormService
 var collaborations: CollaborationService
+var achievements: AchievementService
+var room_customization: RoomCustomizationService
 var saves: SaveService
 var queue: SaveJobQueue
 var stream: StreamService
@@ -44,6 +46,8 @@ func _ready() -> void:
 	events = EventService.new(catalog, RandomProvider.new(), config, moves)
 	short_forms = ShortFormService.new(catalog, config, RandomProvider.new())
 	collaborations = CollaborationService.new(catalog, config, RandomProvider.new())
+	achievements = AchievementService.new(catalog)
+	room_customization = RoomCustomizationService.new(catalog)
 	saves = SaveService.new(repository_override if repository_override != null else FileSaveRepository.new(), logger, catalog, upgrades)
 	var state: PlayerState = saves.load_player()
 	queue = SaveJobQueue.new(saves, state, config)

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="CosplayDefinition" load_steps=2 format=3]
+[ext_resource type="Script" path="res://src/domain/models/cosplay_definition.gd" id="1"]
+[resource]
+script = ExtResource("1")
+id = "basic_cosplay"
+display_name = "Простой косплей"
+stream_tags = PackedStringArray("cooking")
+novelty_bonus = 0.25
+fatigue_cost = 4.0
+money_cost = 15
+sprite_variant = "starter_cosplay"

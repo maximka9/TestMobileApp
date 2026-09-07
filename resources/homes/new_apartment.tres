@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="HomeDefinition" load_steps=2 format=3]
+[ext_resource type="Script" path="res://src/domain/models/home_definition.gd" id="1"]
+[resource]
+script = ExtResource("1")
+id = "new_apartment"
+display_name = "Новая квартира"
+price = 1500
+required_career_tier = 2
+room_scene = "res://src/features/stream/scenes/room_view.tscn"
+available_slots = PackedStringArray("WallLeft", "WallCenter", "WallRight", "Shelf", "FloorLeft", "FloorRight")
+prestige_bonus = 2.0
