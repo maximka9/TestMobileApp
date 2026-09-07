@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ShortFormDefinition" load_steps=2 format=3]
+[ext_resource type="Script" path="res://src/domain/models/short_form_definition.gd" id="1"]
+[resource]
+script = ExtResource("1")
+id = "irl"
+display_name = "IRL"
+base_viral_chance = 1.8
+fatigue_cost = 12.0
+money_cost = 5
+follower_multiplier = 1.2
+tags = PackedStringArray("irl")

@@ -41,6 +41,7 @@ func configure(bootstrap: AppBootstrap) -> void:
 	room.tapped.connect(_room_tapped)
 	primary.pressed.connect(_primary_pressed)
 	(%GamesButton as Button).pressed.connect(_show_games)
+	(%ContentButton as Button).pressed.connect(_show_short_forms)
 	(%CollabButton as Button).pressed.connect(func() -> void: _show_moves(true))
 	(%MovesButton as Button).pressed.connect(func() -> void: _show_moves(false))
 	(%UpgradesButton as Button).pressed.connect(_show_upgrades)
@@ -160,6 +161,28 @@ func _start_content(id: String) -> void:
 		_feedback("Ты в эфире! Жми на рабочее место.")
 	else:
 		_feedback(result.message)
+
+func _show_short_forms() -> void:
+	if app.stream.phase != StreamService.Phase.OFFLINE:
+		_feedback("Ролики можно публиковать между эфирами")
+		return
+	_open_modal("short_forms", "КОНТЕНТ")
+	modal_body.add_child(SasaUI.label("📱 Короткие ролики", &"heading", &"AccentLabel"))
+	modal_body.add_child(SasaUI.label("Усталость: %d%% · ускорение: %d%%" % [int(app.stream.state.fatigue), int(app.stream.state.growth_momentum)], &"small", &"MutedLabel"))
+	for id: String in app.catalog.short_forms:
+		var definition: ShortFormDefinition = app.catalog.short_forms[id] as ShortFormDefinition
+		modal_body.add_child(SasaUI.label(definition.display_name, &"heading", &"AccentLabel"))
+		modal_body.add_child(SasaUI.label("Усталость +%d%% · базовый шанс вирусности %.1f%%" % [int(definition.fatigue_cost), definition.base_viral_chance], &"small", &"MutedLabel"))
+		var publish: Button = SasaUI.button("Опубликовать", func() -> void:
+			var result: OperationResult = app.short_forms.publish(app.stream.state, id)
+			if result.success:
+				_show_short_forms()
+				_modal_feedback(result)
+			else:
+				_modal_feedback(result)
+		)
+		publish.disabled = app.stream.state.fatigue + definition.fatigue_cost > 100.0 or app.stream.state.money < definition.money_cost
+		modal_body.add_child(publish)
 
 func _show_moves(collab_only: bool) -> void:
 	if app.stream.phase == StreamService.Phase.SUMMARY:

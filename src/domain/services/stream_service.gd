@@ -97,7 +97,7 @@ func tick() -> void:
 	career.exert(state, state.current_stream_type_id, config.tick_seconds)
 	state.hype = maxf(0.0, state.hype - config.hype_decay)
 	var values: Dictionary = upgrades.stats(state)
-	var target: float = career.audience(state, current_content().viewer_multiplier * (1.0 + state.hype / config.hype_divisor) * moves.multiplier(elapsed) * float(values["viewers"]) * stream_novelty * career.efficiency(state))
+	var target: float = career.audience(state, current_content().viewer_multiplier * (1.0 + state.hype / config.hype_divisor) * moves.multiplier(elapsed) * float(values["viewers"]) * stream_novelty * career.efficiency(state) * (1.0 + state.growth_momentum * config.momentum_audience_factor))
 	_viewers_float = lerpf(_viewers_float, target, config.viewer_smoothing)
 	state.viewers = maxi(0, int(round(_viewers_float)))
 	_peak = maxi(_peak, state.viewers)
@@ -144,6 +144,7 @@ func finish() -> OperationResult:
 	phase = Phase.SUMMARY
 	summary = {"seconds": elapsed, "peak": _peak, "average": float(_viewer_sum) / maxi(1, elapsed), "money": _earned, "xp": _clicks, "clicks": _clicks, "best_event": _best_event}
 	summary["followers"] = career.complete(state, summary, stream_novelty, int(Time.get_unix_time_from_system()))
+	state.growth_momentum *= config.momentum_stream_decay
 	events.pending = null
 	moves.reset()
 	logger.write("INFO", "STREAM", "stream_finished", summary)

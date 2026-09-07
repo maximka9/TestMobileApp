@@ -22,6 +22,8 @@ var stream_history: Array[Dictionary] = []
 var last_stream_types: Array[String] = []
 var current_location_id: String = "streamer_room"
 var current_home_id: String = "starter_home"
+var growth_momentum: float = 0.0
+var short_form_history: Array[String] = []
 var click_power: int = 1
 var current_stream_type_id: String = "just_chatting"
 var is_streaming: bool = false
@@ -50,3 +52,4 @@ func normalize() -> void:
 	average_online = maxf(0.0, average_online) if is_finite(average_online) else 0.0
 	lifetime_peak_viewers = maxi(0, lifetime_peak_viewers)
 	lifetime_followers_gained = maxi(0, lifetime_followers_gained)
+	growth_momentum = clampf(growth_momentum, 0.0, 100.0) if is_finite(growth_momentum) else 0.0

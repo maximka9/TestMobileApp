@@ -1,7 +1,7 @@
 class_name SaveService
 extends RefCounted
 ## Versioned codec with strict field validation and safe defaults on corruption.
-const VERSION: int = 2
+const VERSION: int = 3
 const MAX_COUNTER: int = 1000000000000
 var repository: SaveRepository
 var logger: ILogger
@@ -21,7 +21,7 @@ func _init(save_repository: SaveRepository, game_logger: ILogger, content: Conte
 func serialize(state: PlayerState) -> Dictionary:
 	if state == null:
 		return {}
-	return {"version": VERSION, "timestamp": int(clock.call()), "player": {"level": state.level, "xp": state.xp, "money": state.money, "fatigue": state.fatigue, "followers": state.followers, "average_online": state.average_online, "lifetime_peak_viewers": state.lifetime_peak_viewers, "lifetime_followers_gained": state.lifetime_followers_gained, "stream_history": state.stream_history.duplicate(true), "last_stream_types": state.last_stream_types.duplicate(), "current_location_id": state.current_location_id, "current_home_id": state.current_home_id, "was_streaming": state.is_streaming, "current_stream_type_id": state.current_stream_type_id, "total_clicks": state.total_clicks, "total_streams": state.total_streams, "upgrades": state.upgrades.duplicate(true), "settings": state.settings.duplicate(true)}}
+	return {"version": VERSION, "timestamp": int(clock.call()), "player": {"level": state.level, "xp": state.xp, "money": state.money, "fatigue": state.fatigue, "followers": state.followers, "average_online": state.average_online, "lifetime_peak_viewers": state.lifetime_peak_viewers, "lifetime_followers_gained": state.lifetime_followers_gained, "stream_history": state.stream_history.duplicate(true), "last_stream_types": state.last_stream_types.duplicate(), "growth_momentum": state.growth_momentum, "short_form_history": state.short_form_history.duplicate(), "current_location_id": state.current_location_id, "current_home_id": state.current_home_id, "was_streaming": state.is_streaming, "current_stream_type_id": state.current_stream_type_id, "total_clicks": state.total_clicks, "total_streams": state.total_streams, "upgrades": state.upgrades.duplicate(true), "settings": state.settings.duplicate(true)}}
 
 func deserialize(document: Dictionary) -> OperationResult:
 	if not _integer(document.get("version"), 1, VERSION) or not _integer(document.get("timestamp"), 0, MAX_COUNTER) or not document.get("player") is Dictionary:
@@ -30,7 +30,8 @@ func deserialize(document: Dictionary) -> OperationResult:
 	for key: String in ["level", "xp", "money", "total_clicks", "total_streams"]:
 		if not _integer(data.get(key), 1 if key == "level" else 0, 100000 if key == "level" else MAX_COUNTER):
 			return OperationResult.fail(&"CORRUPT_SAVE")
-	var legacy: bool = int(document["version"]) == 1
+	var version: int = int(document["version"])
+	var legacy: bool = version == 1
 	if not _number(data.get("energy" if legacy else "fatigue"), 0.0, 100.0) or not data.get("current_stream_type_id") is String:
 		return OperationResult.fail(&"CORRUPT_SAVE")
 	if not data.get("upgrades") is Dictionary or not data.get("settings") is Dictionary:
@@ -40,6 +41,8 @@ func deserialize(document: Dictionary) -> OperationResult:
 		state.set(key, int(data[key]))
 	state.fatigue = 100.0 - float(data["energy"]) if legacy else float(data["fatigue"])
 	if not legacy and not _read_career(data, state):
+		return OperationResult.fail(&"CORRUPT_SAVE")
+	if version >= 3 and not _read_short_form(data, state):
 		return OperationResult.fail(&"CORRUPT_SAVE")
 	state.current_stream_type_id = data["current_stream_type_id"] if catalog.streams.has(data["current_stream_type_id"]) else "just_chatting"
 	for id: Variant in data["upgrades"]:
@@ -93,6 +96,16 @@ func _read_career(data: Dictionary, state: PlayerState) -> bool:
 		if not _number(entry.get("average_viewers"), 0, float(entry["peak_viewers"])) or not _number(entry.get("novelty"), 0, 1):
 			return false
 		state.stream_history.append(entry.duplicate(true))
+	return true
+
+func _read_short_form(data: Dictionary, state: PlayerState) -> bool:
+	if not _number(data.get("growth_momentum"), 0.0, 100.0) or not data.get("short_form_history") is Array or data["short_form_history"].size() > upgrades.config.short_history_limit:
+		return false
+	state.growth_momentum = float(data["growth_momentum"])
+	for id: Variant in data["short_form_history"]:
+		if not id is String or not catalog.short_forms.has(id):
+			return false
+		state.short_form_history.append(id)
 	return true
 
 func load_player() -> PlayerState:

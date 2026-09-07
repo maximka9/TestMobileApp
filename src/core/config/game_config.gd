@@ -47,3 +47,15 @@ extends Resource
 @export var average_window: int = 10
 @export var novelty_window: int = 5
 @export var novelty_penalties: PackedFloat32Array = PackedFloat32Array([1.0, 0.85, 0.7, 0.55, 0.45])
+
+@export_group("Career phase 2")
+@export var short_viral_cap: float = 25.0
+@export var short_mega_share: float = 0.1
+@export var short_follower_factor_exponent: float = 0.12
+@export var short_momentum_factor: float = 0.01
+@export var short_history_limit: int = 10
+@export var short_nonviral_weights: PackedFloat32Array = PackedFloat32Array([70.0, 22.0, 6.0])
+@export var short_outcome_multipliers: PackedFloat32Array = PackedFloat32Array([0.0, 1.0, 3.0, 10.0, 30.0])
+@export var short_momentum_gains: PackedFloat32Array = PackedFloat32Array([0.0, 0.5, 2.0, 8.0, 20.0])
+@export var momentum_stream_decay: float = 0.8
+@export var momentum_audience_factor: float = 0.01
