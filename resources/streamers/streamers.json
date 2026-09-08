@@ -17,7 +17,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "dkincc"
     },
     {
       "id": "melharucos",
@@ -36,7 +39,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "melharucos"
     },
     {
       "id": "lizok_ssk",
@@ -55,7 +61,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "lizok_ssk"
     },
     {
       "id": "juice",
@@ -74,7 +83,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "juice"
     },
     {
       "id": "daxak",
@@ -93,7 +105,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "daxak"
     },
     {
       "id": "karmikkoala",
@@ -112,7 +127,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "karmikkoala"
     },
     {
       "id": "deerkufa",
@@ -131,7 +149,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "deerkufa"
     },
     {
       "id": "morphe_ya",
@@ -150,7 +171,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "morphe_ya"
     },
     {
       "id": "rostikfacekid",
@@ -169,7 +193,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "rostikfacekid"
     },
     {
       "id": "dmitry_bale",
@@ -188,7 +215,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "dmitry_bale"
     },
     {
       "id": "mokrivskyi",
@@ -207,7 +237,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "mokrivskyi"
     },
     {
       "id": "vinment",
@@ -226,7 +259,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "vinment"
     },
     {
       "id": "stariy_bog",
@@ -245,7 +281,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "stariy_bog"
     },
     {
       "id": "zakvielchannel",
@@ -264,7 +303,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "zakvielchannel"
     },
     {
       "id": "m3wsu",
@@ -283,7 +325,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "m3wsu"
     },
     {
       "id": "voodoosh",
@@ -302,7 +347,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "voodoosh"
     },
     {
       "id": "egorkreed",
@@ -321,7 +369,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "egorkreed"
     },
     {
       "id": "mazellovvv",
@@ -340,7 +391,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "mazellovvv"
     },
     {
       "id": "ybicanoooobov",
@@ -359,7 +413,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "ybicanoooobov"
     },
     {
       "id": "blackufa",
@@ -378,7 +435,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "blackufa"
     },
     {
       "id": "inkmate0",
@@ -397,7 +457,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "inkmate0"
     },
     {
       "id": "hypetried",
@@ -416,7 +479,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "hypetried"
     },
     {
       "id": "welovegames",
@@ -435,7 +501,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "welovegames"
     },
     {
       "id": "tpabomah",
@@ -454,7 +523,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "tpabomah"
     },
     {
       "id": "by_owl",
@@ -473,7 +545,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "by_owl"
     },
     {
       "id": "follentass",
@@ -492,7 +567,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "follentass"
     },
     {
       "id": "unclebjorn",
@@ -511,7 +589,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "unclebjorn"
     },
     {
       "id": "sor_ka",
@@ -530,7 +611,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "sor_ka"
     },
     {
       "id": "zuoia",
@@ -549,7 +633,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "zuoia"
     },
     {
       "id": "dota2ti_ru_2",
@@ -568,7 +655,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "dota2ti_ru_2"
     },
     {
       "id": "hooch",
@@ -587,7 +677,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "hooch"
     },
     {
       "id": "stray228",
@@ -606,7 +699,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "stray228"
     },
     {
       "id": "dyrachyo",
@@ -625,7 +721,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "dyrachyo"
     },
     {
       "id": "guit88man",
@@ -644,7 +743,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "guit88man"
     },
     {
       "id": "s_chilla",
@@ -663,7 +765,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "s_chilla"
     },
     {
       "id": "jeens",
@@ -682,7 +787,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "jeens"
     },
     {
       "id": "r2cronus",
@@ -701,7 +809,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "r2cronus"
     },
     {
       "id": "gaechkatm",
@@ -720,7 +831,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "gaechkatm"
     },
     {
       "id": "ksufee",
@@ -739,7 +853,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "ksufee"
     },
     {
       "id": "pathofexilebota",
@@ -758,7 +875,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "pathofexilebota"
     },
     {
       "id": "xah0b",
@@ -777,7 +897,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "xah0b"
     },
     {
       "id": "asiv0y",
@@ -796,7 +919,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "asiv0y"
     },
     {
       "id": "mokrivskiy192",
@@ -815,7 +941,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "mokrivskiy192"
     },
     {
       "id": "vavilon_zxc",
@@ -834,7 +963,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "vavilon_zxc"
     },
     {
       "id": "r2onlineru",
@@ -853,7 +985,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "r2onlineru"
     },
     {
       "id": "frametamer666",
@@ -872,7 +1007,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "frametamer666"
     },
     {
       "id": "whylollycry",
@@ -891,7 +1029,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "whylollycry"
     },
     {
       "id": "syslov171",
@@ -910,7 +1051,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "syslov171"
     },
     {
       "id": "etoseregga",
@@ -929,7 +1073,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "etoseregga"
     },
     {
       "id": "betboom_cs_ru2",
@@ -948,7 +1095,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "betboom_cs_ru2"
     },
     {
       "id": "skillz0r1337",
@@ -967,7 +1117,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "skillz0r1337"
     },
     {
       "id": "icebergdoto",
@@ -986,7 +1139,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "icebergdoto"
     },
     {
       "id": "exigent_wires",
@@ -1005,7 +1161,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "exigent_wires"
     },
     {
       "id": "c_a_k_e",
@@ -1024,7 +1183,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "c_a_k_e"
     },
     {
       "id": "ya4iller",
@@ -1043,7 +1205,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "ya4iller"
     },
     {
       "id": "dota2ti_ru_4",
@@ -1062,7 +1227,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "dota2ti_ru_4"
     },
     {
       "id": "9pasha",
@@ -1081,7 +1249,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "9pasha"
     },
     {
       "id": "alkat_r",
@@ -1100,7 +1271,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "alkat_r"
     },
     {
       "id": "mirwana",
@@ -1119,7 +1293,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "mirwana"
     },
     {
       "id": "wokkyflocky",
@@ -1138,7 +1315,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "wokkyflocky"
     },
     {
       "id": "guddummit",
@@ -1157,7 +1337,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "guddummit"
     },
     {
       "id": "orkpod",
@@ -1176,7 +1359,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "orkpod"
     },
     {
       "id": "mistercop",
@@ -1195,7 +1381,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "mistercop"
     },
     {
       "id": "jamside",
@@ -1214,7 +1403,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "jamside"
     },
     {
       "id": "ilame",
@@ -1233,7 +1425,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "ilame"
     },
     {
       "id": "iltw1",
@@ -1252,7 +1447,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "iltw1"
     },
     {
       "id": "banka_banana",
@@ -1271,7 +1469,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "banka_banana"
     },
     {
       "id": "heroes_hub",
@@ -1290,7 +1491,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "heroes_hub"
     },
     {
       "id": "narek_cr",
@@ -1309,7 +1513,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "narek_cr"
     },
     {
       "id": "muhanjan",
@@ -1328,7 +1535,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "muhanjan"
     },
     {
       "id": "b_komhate",
@@ -1347,7 +1557,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "b_komhate"
     },
     {
       "id": "malr1ne_dota",
@@ -1366,7 +1579,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "malr1ne_dota"
     },
     {
       "id": "uraniumrr",
@@ -1385,7 +1601,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "uraniumrr"
     },
     {
       "id": "derzko69",
@@ -1404,7 +1623,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "derzko69"
     },
     {
       "id": "tictacimus",
@@ -1423,7 +1645,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "tictacimus"
     },
     {
       "id": "cutierover",
@@ -1442,7 +1667,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "cutierover"
     },
     {
       "id": "marat_schelkovskyi",
@@ -1461,7 +1689,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "marat_schelkovskyi"
     },
     {
       "id": "elwycco",
@@ -1480,7 +1711,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "elwycco"
     },
     {
       "id": "deadp47_",
@@ -1499,7 +1733,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "deadp47_"
     },
     {
       "id": "blindzonexgod",
@@ -1518,7 +1755,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "blindzonexgod"
     },
     {
       "id": "mulder",
@@ -1537,7 +1777,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "mulder"
     },
     {
       "id": "eleezabet",
@@ -1556,7 +1799,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "eleezabet"
     },
     {
       "id": "dota2ti_ru_3",
@@ -1575,7 +1821,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "dota2ti_ru_3"
     },
     {
       "id": "snailkick",
@@ -1594,7 +1843,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "snailkick"
     },
     {
       "id": "gagik",
@@ -1613,7 +1865,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "gagik"
     },
     {
       "id": "absolut3",
@@ -1632,7 +1887,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "absolut3"
     },
     {
       "id": "des0ut",
@@ -1651,7 +1909,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "des0ut"
     },
     {
       "id": "at0m",
@@ -1670,7 +1931,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "at0m"
     },
     {
       "id": "kerimch1k",
@@ -1689,7 +1953,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "kerimch1k"
     },
     {
       "id": "gensyxa",
@@ -1708,7 +1975,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "gensyxa"
     },
     {
       "id": "madarapoe",
@@ -1727,7 +1997,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "madarapoe"
     },
     {
       "id": "mager1337",
@@ -1746,7 +2019,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "mager1337"
     },
     {
       "id": "bondarenk01",
@@ -1765,7 +2041,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "bondarenk01"
     },
     {
       "id": "kopsteep",
@@ -1784,7 +2063,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "kopsteep"
     },
     {
       "id": "renatko",
@@ -1803,7 +2085,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "renatko"
     },
     {
       "id": "starky",
@@ -1822,7 +2107,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "starky"
     },
     {
       "id": "roadhouse",
@@ -1841,7 +2129,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "roadhouse"
     },
     {
       "id": "overdrivezzz",
@@ -1860,7 +2151,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "overdrivezzz"
     },
     {
       "id": "general_hs_",
@@ -1879,7 +2173,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "general_hs_"
     },
     {
       "id": "jolygames",
@@ -1898,7 +2195,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "jolygames"
     },
     {
       "id": "fasoollka",
@@ -1917,7 +2217,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "fasoollka"
     },
     {
       "id": "megarush51",
@@ -1936,7 +2239,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "megarush51"
     },
     {
       "id": "chezw11",
@@ -1955,7 +2261,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "chezw11"
     },
     {
       "id": "vladragovsky",
@@ -1974,7 +2283,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "vladragovsky"
     },
     {
       "id": "bullseye",
@@ -1993,7 +2305,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "bullseye"
     },
     {
       "id": "vovapain",
@@ -2012,7 +2327,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "vovapain"
     },
     {
       "id": "bigrussianmum",
@@ -2031,7 +2349,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "bigrussianmum"
     },
     {
       "id": "lentbb",
@@ -2050,7 +2371,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "lentbb"
     },
     {
       "id": "keliencs",
@@ -2069,7 +2393,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "keliencs"
     },
     {
       "id": "zloyn",
@@ -2088,7 +2415,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "zloyn"
     },
     {
       "id": "cacto0o",
@@ -2107,7 +2437,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "cacto0o"
     },
     {
       "id": "yaner_4",
@@ -2126,7 +2459,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "yaner_4"
     },
     {
       "id": "paverpapa",
@@ -2145,7 +2481,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "paverpapa"
     },
     {
       "id": "iceicell",
@@ -2164,7 +2503,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "iceicell"
     },
     {
       "id": "hyver",
@@ -2183,7 +2525,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "hyver"
     },
     {
       "id": "limitlessqt",
@@ -2202,7 +2547,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "limitlessqt"
     },
     {
       "id": "creepeefemboy",
@@ -2221,7 +2569,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "creepeefemboy"
     },
     {
       "id": "erokez61",
@@ -2240,7 +2591,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "erokez61"
     },
     {
       "id": "olyashaa",
@@ -2259,7 +2613,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "olyashaa"
     },
     {
       "id": "gepscs2",
@@ -2278,7 +2635,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "gepscs2"
     },
     {
       "id": "whoplohoyparen",
@@ -2297,7 +2657,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "whoplohoyparen"
     },
     {
       "id": "makatao",
@@ -2316,7 +2679,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "makatao"
     },
     {
       "id": "casebattle_official",
@@ -2335,7 +2701,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "casebattle_official"
     },
     {
       "id": "mariachi",
@@ -2354,7 +2723,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "mariachi"
     },
     {
       "id": "little_cs",
@@ -2373,7 +2745,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "little_cs"
     },
     {
       "id": "smurf_tv",
@@ -2392,7 +2767,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "smurf_tv"
     },
     {
       "id": "skifolk",
@@ -2411,7 +2789,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "skifolk"
     },
     {
       "id": "gwinglade",
@@ -2430,7 +2811,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "gwinglade"
     },
     {
       "id": "stoun_m",
@@ -2449,7 +2833,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "stoun_m"
     },
     {
       "id": "slimenkpac",
@@ -2468,7 +2855,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "slimenkpac"
     },
     {
       "id": "lota",
@@ -2487,7 +2877,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "lota"
     },
     {
       "id": "dangar",
@@ -2506,7 +2899,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "dangar"
     },
     {
       "id": "lizabaktt",
@@ -2525,7 +2921,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "lizabaktt"
     },
     {
       "id": "ravshanbtw",
@@ -2544,7 +2943,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "ravshanbtw"
     },
     {
       "id": "korya_mc",
@@ -2563,7 +2965,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "korya_mc"
     },
     {
       "id": "smetanduck",
@@ -2582,7 +2987,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "smetanduck"
     },
     {
       "id": "betboom_dota_ru",
@@ -2601,7 +3009,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "betboom_dota_ru"
     },
     {
       "id": "lru_rose",
@@ -2620,7 +3031,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "lru_rose"
     },
     {
       "id": "rera_seal",
@@ -2639,7 +3053,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "rera_seal"
     },
     {
       "id": "stopb4n",
@@ -2658,7 +3075,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "stopb4n"
     },
     {
       "id": "azamat799",
@@ -2677,7 +3097,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "azamat799"
     },
     {
       "id": "ponyaaaa",
@@ -2696,7 +3119,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "ponyaaaa"
     },
     {
       "id": "dayneez",
@@ -2715,7 +3141,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "dayneez"
     },
     {
       "id": "bandurka",
@@ -2734,7 +3163,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "bandurka"
     },
     {
       "id": "fruktozka",
@@ -2753,7 +3185,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "fruktozka"
     },
     {
       "id": "qrushcsgo",
@@ -2772,7 +3207,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "qrushcsgo"
     },
     {
       "id": "titamin1",
@@ -2791,7 +3229,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "titamin1"
     },
     {
       "id": "abramovich",
@@ -2810,7 +3251,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "abramovich"
     },
     {
       "id": "badgetracker",
@@ -2829,7 +3273,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "badgetracker"
     },
     {
       "id": "r0xieee",
@@ -2848,7 +3295,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "r0xieee"
     },
     {
       "id": "redpandash",
@@ -2867,7 +3317,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "redpandash"
     },
     {
       "id": "off_kuka358",
@@ -2886,7 +3339,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "off_kuka358"
     },
     {
       "id": "minthon19",
@@ -2905,7 +3361,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "minthon19"
     },
     {
       "id": "rouszztrash",
@@ -2924,7 +3383,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "rouszztrash"
     },
     {
       "id": "lagoda1337",
@@ -2943,7 +3405,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "lagoda1337"
     },
     {
       "id": "reznikbtw",
@@ -2962,7 +3427,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "reznikbtw"
     },
     {
       "id": "versuta",
@@ -2981,7 +3449,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "versuta"
     },
     {
       "id": "terablade",
@@ -3000,7 +3471,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "terablade"
     },
     {
       "id": "unutcon",
@@ -3019,7 +3493,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "unutcon"
     },
     {
       "id": "toosefn",
@@ -3038,7 +3515,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "toosefn"
     },
     {
       "id": "goodoq",
@@ -3057,7 +3537,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "goodoq"
     },
     {
       "id": "nostoro",
@@ -3076,7 +3559,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "nostoro"
     },
     {
       "id": "lasqa",
@@ -3095,7 +3581,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "lasqa"
     },
     {
       "id": "del1ght",
@@ -3114,7 +3603,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "del1ght"
     },
     {
       "id": "dianarice",
@@ -3133,7 +3625,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "dianarice"
     },
     {
       "id": "lonelybaae",
@@ -3152,7 +3647,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "lonelybaae"
     },
     {
       "id": "alohadancetv",
@@ -3171,7 +3669,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "alohadancetv"
     },
     {
       "id": "awfdota",
@@ -3190,7 +3691,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "awfdota"
     },
     {
       "id": "rachelr",
@@ -3209,7 +3713,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "rachelr"
     },
     {
       "id": "hellyeahplay",
@@ -3228,7 +3735,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "hellyeahplay"
     },
     {
       "id": "liz0n",
@@ -3247,7 +3757,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "liz0n"
     },
     {
       "id": "zherarrr",
@@ -3266,7 +3779,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "zherarrr"
     },
     {
       "id": "witchblvde",
@@ -3285,7 +3801,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "witchblvde"
     },
     {
       "id": "baz1221",
@@ -3304,7 +3823,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "baz1221"
     },
     {
       "id": "gilticus",
@@ -3323,7 +3845,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "gilticus"
     },
     {
       "id": "mlbb_cis",
@@ -3342,7 +3867,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "mlbb_cis"
     },
     {
       "id": "murzofix",
@@ -3361,7 +3889,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "murzofix"
     },
     {
       "id": "99bigboy99",
@@ -3380,7 +3911,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "99bigboy99"
     },
     {
       "id": "nstvgames",
@@ -3399,7 +3933,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "nstvgames"
     },
     {
       "id": "inseq",
@@ -3418,7 +3955,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "inseq"
     },
     {
       "id": "agromorph",
@@ -3437,7 +3977,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "agromorph"
     },
     {
       "id": "browjey",
@@ -3456,7 +3999,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "browjey"
     },
     {
       "id": "sme6noy",
@@ -3475,7 +4021,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "sme6noy"
     },
     {
       "id": "tenkedzu",
@@ -3494,7 +4043,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "tenkedzu"
     },
     {
       "id": "formixyouknow",
@@ -3513,7 +4065,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "formixyouknow"
     },
     {
       "id": "drac0merald",
@@ -3532,7 +4087,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "drac0merald"
     },
     {
       "id": "mistafaker",
@@ -3551,7 +4109,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "mistafaker"
     },
     {
       "id": "rejiboi",
@@ -3570,7 +4131,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "rejiboi"
     },
     {
       "id": "blackrabbit342",
@@ -3589,7 +4153,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "blackrabbit342"
     },
     {
       "id": "es4xtank",
@@ -3608,7 +4175,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "es4xtank"
     },
     {
       "id": "arrowwoods",
@@ -3627,7 +4197,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "arrowwoods"
     },
     {
       "id": "radika1fa",
@@ -3646,7 +4219,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "radika1fa"
     },
     {
       "id": "shawdfxc",
@@ -3665,7 +4241,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "shawdfxc"
     },
     {
       "id": "arven93",
@@ -3684,7 +4263,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "arven93"
     },
     {
       "id": "pch3lk1n",
@@ -3703,7 +4285,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "pch3lk1n"
     },
     {
       "id": "crownus_gl",
@@ -3722,7 +4307,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "crownus_gl"
     },
     {
       "id": "mewendi",
@@ -3741,7 +4329,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "mewendi"
     },
     {
       "id": "cispapa",
@@ -3760,7 +4351,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "cispapa"
     },
     {
       "id": "9impulse",
@@ -3779,7 +4373,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "9impulse"
     },
     {
       "id": "tj_sk1per",
@@ -3798,7 +4395,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "tj_sk1per"
     },
     {
       "id": "pro_cast2",
@@ -3817,7 +4417,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "pro_cast2"
     },
     {
       "id": "mangekyou_14",
@@ -3836,7 +4439,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "mangekyou_14"
     },
     {
       "id": "sbolttt",
@@ -3855,7 +4461,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "sbolttt"
     },
     {
       "id": "fandercs",
@@ -3874,7 +4483,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "fandercs"
     },
     {
       "id": "dawgonosik",
@@ -3893,7 +4505,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "dawgonosik"
     },
     {
       "id": "dear_hellgirl",
@@ -3912,7 +4527,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "dear_hellgirl"
     },
     {
       "id": "sofiko_sculpts",
@@ -3931,7 +4549,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "sofiko_sculpts"
     },
     {
       "id": "spt083",
@@ -3950,7 +4571,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "spt083"
     },
     {
       "id": "b1ezzed",
@@ -3969,7 +4593,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "b1ezzed"
     },
     {
       "id": "yung777mockba",
@@ -3988,7 +4615,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "yung777mockba"
     },
     {
       "id": "sayfergoat",
@@ -4007,7 +4637,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "sayfergoat"
     },
     {
       "id": "renamid",
@@ -4026,7 +4659,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "renamid"
     },
     {
       "id": "nikitasudar",
@@ -4045,7 +4681,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "nikitasudar"
     },
     {
       "id": "baxadoto",
@@ -4064,7 +4703,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "baxadoto"
     },
     {
       "id": "c1ymba_mt",
@@ -4083,7 +4725,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "c1ymba_mt"
     },
     {
       "id": "alinarinrin",
@@ -4102,7 +4747,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "alinarinrin"
     },
     {
       "id": "alfedov",
@@ -4121,7 +4769,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "alfedov"
     },
     {
       "id": "lestakorabli",
@@ -4140,7 +4791,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "lestakorabli"
     },
     {
       "id": "andr_surov",
@@ -4159,7 +4813,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "andr_surov"
     },
     {
       "id": "dota2_paragon_ru",
@@ -4178,7 +4835,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "dota2_paragon_ru"
     },
     {
       "id": "darknikoff",
@@ -4197,7 +4857,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "darknikoff"
     },
     {
       "id": "cherepashk1n",
@@ -4216,7 +4879,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "cherepashk1n"
     },
     {
       "id": "banda_boyko",
@@ -4235,7 +4901,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "banda_boyko"
     },
     {
       "id": "zzord2001",
@@ -4254,7 +4923,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "zzord2001"
     },
     {
       "id": "ruslandvip",
@@ -4273,7 +4945,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "ruslandvip"
     },
     {
       "id": "lildjeyy1",
@@ -4292,7 +4967,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "lildjeyy1"
     },
     {
       "id": "rochersha",
@@ -4311,7 +4989,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "rochersha"
     },
     {
       "id": "legendaafk",
@@ -4330,7 +5011,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "legendaafk"
     },
     {
       "id": "snessh",
@@ -4349,7 +5033,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "snessh"
     },
     {
       "id": "babymelo_22",
@@ -4368,7 +5055,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "babymelo_22"
     },
     {
       "id": "anastaze",
@@ -4387,7 +5077,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "anastaze"
     },
     {
       "id": "ixbt_games",
@@ -4406,7 +5099,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "ixbt_games"
     },
     {
       "id": "davacimbo",
@@ -4425,7 +5121,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "davacimbo"
     },
     {
       "id": "leron_baron",
@@ -4444,7 +5143,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "leron_baron"
     },
     {
       "id": "poisonika",
@@ -4463,7 +5165,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "poisonika"
     },
     {
       "id": "gei_angel",
@@ -4482,7 +5187,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "gei_angel"
     },
     {
       "id": "welderb",
@@ -4501,7 +5209,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "welderb"
     },
     {
       "id": "murmadoll",
@@ -4520,7 +5231,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "murmadoll"
     },
     {
       "id": "sharishaxd",
@@ -4539,7 +5253,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "sharishaxd"
     },
     {
       "id": "fadivs",
@@ -4558,7 +5275,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "fadivs"
     },
     {
       "id": "zabenafff",
@@ -4577,7 +5297,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "zabenafff"
     },
     {
       "id": "tusoved",
@@ -4596,7 +5319,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "tusoved"
     },
     {
       "id": "mrmalfoy07",
@@ -4615,7 +5341,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "mrmalfoy07"
     },
     {
       "id": "cu6ickk",
@@ -4634,7 +5363,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "cu6ickk"
     },
     {
       "id": "etokeking",
@@ -4653,7 +5385,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "etokeking"
     },
     {
       "id": "quickhuntik",
@@ -4672,7 +5407,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "quickhuntik"
     },
     {
       "id": "wbcclub",
@@ -4691,7 +5429,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "wbcclub"
     },
     {
       "id": "lens_doto",
@@ -4710,7 +5451,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "lens_doto"
     },
     {
       "id": "oneshotmlbb",
@@ -4729,7 +5473,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "oneshotmlbb"
     },
     {
       "id": "exmagistr",
@@ -4748,7 +5495,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "exmagistr"
     },
     {
       "id": "lavieoubourse",
@@ -4767,7 +5517,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "lavieoubourse"
     },
     {
       "id": "friend44444",
@@ -4786,7 +5539,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "friend44444"
     },
     {
       "id": "iwaschosen66",
@@ -4805,7 +5561,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "iwaschosen66"
     },
     {
       "id": "hiltyha",
@@ -4824,7 +5583,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "hiltyha"
     },
     {
       "id": "evikey",
@@ -4843,7 +5605,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "evikey"
     },
     {
       "id": "bezbash",
@@ -4862,7 +5627,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "bezbash"
     },
     {
       "id": "j05k1y",
@@ -4881,7 +5649,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "j05k1y"
     },
     {
       "id": "cemka",
@@ -4900,7 +5671,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "cemka"
     },
     {
       "id": "thereisnofuture",
@@ -4919,7 +5693,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "thereisnofuture"
     },
     {
       "id": "mugretnug",
@@ -4938,7 +5715,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "mugretnug"
     },
     {
       "id": "1uke337",
@@ -4957,7 +5737,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "1uke337"
     },
     {
       "id": "kesikton",
@@ -4976,7 +5759,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "kesikton"
     },
     {
       "id": "lollipop21k",
@@ -4995,7 +5781,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "lollipop21k"
     },
     {
       "id": "hesoyamof1974",
@@ -5014,7 +5803,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "hesoyamof1974"
     },
     {
       "id": "shevronin",
@@ -5033,7 +5825,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "shevronin"
     },
     {
       "id": "near_you",
@@ -5052,7 +5847,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "near_you"
     },
     {
       "id": "walkonte",
@@ -5071,7 +5869,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "walkonte"
     },
     {
       "id": "nix",
@@ -5090,7 +5891,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "nix"
     },
     {
       "id": "dota2ti_ru",
@@ -5109,7 +5913,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "dota2ti_ru"
     },
     {
       "id": "shadowkekw",
@@ -5128,7 +5935,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "shadowkekw"
     },
     {
       "id": "chopperinho",
@@ -5147,7 +5957,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "chopperinho"
     },
     {
       "id": "evelone2004",
@@ -5166,7 +5979,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "evelone2004"
     },
     {
       "id": "anarabdullaev",
@@ -5185,7 +6001,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "anarabdullaev"
     },
     {
       "id": "ramzes",
@@ -5204,7 +6023,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "ramzes"
     },
     {
       "id": "buster",
@@ -5223,7 +6045,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "buster"
     },
     {
       "id": "strogo",
@@ -5242,7 +6067,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "strogo"
     },
     {
       "id": "dangerlyoha",
@@ -5261,7 +6089,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "dangerlyoha"
     },
     {
       "id": "deepins02",
@@ -5280,7 +6111,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "deepins02"
     },
     {
       "id": "leva2k",
@@ -5299,7 +6133,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "leva2k"
     },
     {
       "id": "recrent",
@@ -5318,7 +6155,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "recrent"
     },
     {
       "id": "mellstroy",
@@ -5337,7 +6177,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "mellstroy"
     },
     {
       "id": "bratishkinoff",
@@ -5356,7 +6199,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "bratishkinoff"
     },
     {
       "id": "just_ns",
@@ -5375,7 +6221,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "just_ns"
     },
     {
       "id": "betboom_cs_ru",
@@ -5394,7 +6243,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "betboom_cs_ru"
     },
     {
       "id": "solo",
@@ -5413,7 +6265,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "solo"
     },
     {
       "id": "t2x2",
@@ -5432,7 +6287,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "t2x2"
     },
     {
       "id": "deko",
@@ -5451,7 +6309,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "deko"
     },
     {
       "id": "avice",
@@ -5470,7 +6331,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "avice"
     },
     {
       "id": "rostislav_999",
@@ -5489,7 +6353,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "rostislav_999"
     },
     {
       "id": "97zoner",
@@ -5508,7 +6375,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "97zoner"
     },
     {
       "id": "skywhywalker",
@@ -5527,7 +6397,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "skywhywalker"
     },
     {
       "id": "ravshann",
@@ -5546,7 +6419,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "ravshann"
     },
     {
       "id": "sasavot",
@@ -5565,7 +6441,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "sasavot"
     },
     {
       "id": "d1pro4",
@@ -5584,7 +6463,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "d1pro4"
     },
     {
       "id": "aunkere",
@@ -5603,7 +6485,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "aunkere"
     },
     {
       "id": "lenagol0vach",
@@ -5622,7 +6507,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "lenagol0vach"
     },
     {
       "id": "aslanshukasha",
@@ -5641,7 +6529,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "aslanshukasha"
     },
     {
       "id": "olesha",
@@ -5660,7 +6551,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "olesha"
     },
     {
       "id": "koma",
@@ -5679,7 +6573,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "koma"
     },
     {
       "id": "ct0m",
@@ -5698,7 +6595,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "ct0m"
     },
     {
       "id": "silvername",
@@ -5717,7 +6617,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "silvername"
     },
     {
       "id": "stintik",
@@ -5736,7 +6639,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "stintik"
     },
     {
       "id": "nicoleheart23",
@@ -5755,7 +6661,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "nicoleheart23"
     },
     {
       "id": "edison",
@@ -5774,7 +6683,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "edison"
     },
     {
       "id": "enzzai",
@@ -5793,7 +6705,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "enzzai"
     },
     {
       "id": "dmitry_lixxx",
@@ -5812,7 +6727,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "dmitry_lixxx"
     },
     {
       "id": "rivokizbednosti",
@@ -5831,7 +6749,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "rivokizbednosti"
     },
     {
       "id": "guacamolemolly",
@@ -5850,7 +6771,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "guacamolemolly"
     },
     {
       "id": "judah_xx",
@@ -5869,7 +6793,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "judah_xx"
     },
     {
       "id": "drakeoffc",
@@ -5888,7 +6815,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "drakeoffc"
     },
     {
       "id": "sleduck",
@@ -5907,7 +6837,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "sleduck"
     },
     {
       "id": "heartdota23",
@@ -5926,7 +6859,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "heartdota23"
     },
     {
       "id": "dunduk",
@@ -5945,7 +6881,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "dunduk"
     },
     {
       "id": "mazoni",
@@ -5964,7 +6903,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "mazoni"
     },
     {
       "id": "steel",
@@ -5983,7 +6925,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "steel"
     },
     {
       "id": "danila_gorilla",
@@ -6002,7 +6947,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "danila_gorilla"
     },
     {
       "id": "n3koglai",
@@ -6021,7 +6969,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "n3koglai"
     },
     {
       "id": "jojohf",
@@ -6040,7 +6991,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "jojohf"
     },
     {
       "id": "akyuliych",
@@ -6059,7 +7013,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "akyuliych"
     },
     {
       "id": "5opka",
@@ -6078,7 +7035,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "5opka"
     },
     {
       "id": "ahrinyan",
@@ -6097,7 +7057,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "ahrinyan"
     },
     {
       "id": "ekatze007",
@@ -6116,7 +7079,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "ekatze007"
     },
     {
       "id": "hardgamechannel",
@@ -6135,7 +7101,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "hardgamechannel"
     },
     {
       "id": "fenya",
@@ -6154,7 +7123,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "fenya"
     },
     {
       "id": "dreadztv",
@@ -6173,7 +7145,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "dreadztv"
     },
     {
       "id": "yuuechka",
@@ -6192,7 +7167,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "yuuechka"
     },
     {
       "id": "poka",
@@ -6211,7 +7189,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "poka"
     },
     {
       "id": "leemodopi",
@@ -6230,7 +7211,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "leemodopi"
     },
     {
       "id": "yungfimoz",
@@ -6249,7 +7233,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "yungfimoz"
     },
     {
       "id": "archangel_hs",
@@ -6268,7 +7255,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "archangel_hs"
     },
     {
       "id": "dinablin",
@@ -6287,7 +7277,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "dinablin"
     },
     {
       "id": "modestal",
@@ -6306,7 +7299,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "modestal"
     },
     {
       "id": "tati",
@@ -6325,7 +7321,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "tati"
     },
     {
       "id": "mixazver",
@@ -6344,7 +7343,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "mixazver"
     },
     {
       "id": "dosia_csgo",
@@ -6363,7 +7365,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "dosia_csgo"
     },
     {
       "id": "pwgood",
@@ -6382,7 +7387,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "pwgood"
     },
     {
       "id": "ivanzolo578",
@@ -6401,7 +7409,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "ivanzolo578"
     },
     {
       "id": "dasha228play",
@@ -6420,7 +7431,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "dasha228play"
     },
     {
       "id": "fcsm_kefir",
@@ -6439,7 +7453,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "fcsm_kefir"
     },
     {
       "id": "igromania",
@@ -6458,7 +7475,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "igromania"
     },
     {
       "id": "gohamedia",
@@ -6477,7 +7497,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "gohamedia"
     },
     {
       "id": "cartmanzbs",
@@ -6496,7 +7519,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "cartmanzbs"
     },
     {
       "id": "ggwplanaya",
@@ -6515,7 +7541,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "ggwplanaya"
     },
     {
       "id": "rxnexus",
@@ -6534,7 +7563,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "rxnexus"
     },
     {
       "id": "seregagibon",
@@ -6553,7 +7585,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "seregagibon"
     },
     {
       "id": "gnumme",
@@ -6572,7 +7607,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "gnumme"
     },
     {
       "id": "adm1tr1pow",
@@ -6591,7 +7629,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "adm1tr1pow"
     },
     {
       "id": "zhenyalarkin",
@@ -6610,7 +7651,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "zhenyalarkin"
     },
     {
       "id": "vitecp",
@@ -6629,7 +7673,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "vitecp"
     },
     {
       "id": "chr1swave",
@@ -6648,7 +7695,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "chr1swave"
     },
     {
       "id": "zeus",
@@ -6667,7 +7717,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "zeus"
     },
     {
       "id": "morphilina",
@@ -6686,7 +7739,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "morphilina"
     },
     {
       "id": "loru77",
@@ -6705,7 +7761,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "loru77"
     },
     {
       "id": "znat51",
@@ -6724,7 +7783,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "znat51"
     },
     {
       "id": "watchfultv",
@@ -6743,7 +7805,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "watchfultv"
     },
     {
       "id": "standoff2esports_ru",
@@ -6762,7 +7827,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "standoff2esports_ru"
     },
     {
       "id": "risazatvorchestvo",
@@ -6781,7 +7849,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "risazatvorchestvo"
     },
     {
       "id": "finogenof",
@@ -6800,7 +7871,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "finogenof"
     },
     {
       "id": "torontotokyo17",
@@ -6819,7 +7893,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "torontotokyo17"
     },
     {
       "id": "abizaka",
@@ -6838,7 +7915,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "abizaka"
     },
     {
       "id": "akumaqqe",
@@ -6857,7 +7937,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "akumaqqe"
     },
     {
       "id": "followkudes",
@@ -6876,7 +7959,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "followkudes"
     },
     {
       "id": "1mpala",
@@ -6895,7 +7981,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "1mpala"
     },
     {
       "id": "i_olga",
@@ -6914,7 +8003,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "i_olga"
     },
     {
       "id": "dariapsina",
@@ -6933,7 +8025,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "dariapsina"
     },
     {
       "id": "uzorrrr",
@@ -6952,7 +8047,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "uzorrrr"
     },
     {
       "id": "nelyaray",
@@ -6971,7 +8069,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "nelyaray"
     },
     {
       "id": "b3brina",
@@ -6990,7 +8091,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "b3brina"
     },
     {
       "id": "tsar_65",
@@ -7009,7 +8113,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "tsar_65"
     },
     {
       "id": "nowkies",
@@ -7028,7 +8135,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "nowkies"
     },
     {
       "id": "pandafxfx",
@@ -7047,7 +8157,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "pandafxfx"
     },
     {
       "id": "sergeycrey",
@@ -7066,7 +8179,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "sergeycrey"
     },
     {
       "id": "vika_karter",
@@ -7085,7 +8201,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "vika_karter"
     },
     {
       "id": "l4hmadju",
@@ -7104,7 +8223,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "l4hmadju"
     },
     {
       "id": "dinicetea",
@@ -7123,7 +8245,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "dinicetea"
     },
     {
       "id": "letw1k3",
@@ -7142,7 +8267,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "letw1k3"
     },
     {
       "id": "bratiki94",
@@ -7161,7 +8289,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "bratiki94"
     },
     {
       "id": "drainys",
@@ -7180,7 +8311,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "drainys"
     },
     {
       "id": "moddychat",
@@ -7199,7 +8333,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "moddychat"
     },
     {
       "id": "bulochka",
@@ -7218,7 +8355,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "bulochka"
     },
     {
       "id": "soonvooshko",
@@ -7237,7 +8377,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "soonvooshko"
     },
     {
       "id": "inboss1k",
@@ -7256,7 +8399,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "inboss1k"
     },
     {
       "id": "freem4no",
@@ -7275,7 +8421,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "freem4no"
     },
     {
       "id": "jentteno",
@@ -7294,7 +8443,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "jentteno"
     },
     {
       "id": "ant1ka",
@@ -7313,7 +8465,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "ant1ka"
     },
     {
       "id": "qsnake",
@@ -7332,7 +8487,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "qsnake"
     },
     {
       "id": "maestro_edrak89",
@@ -7351,7 +8509,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "maestro_edrak89"
     },
     {
       "id": "firamir_tv",
@@ -7370,7 +8531,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "firamir_tv"
     },
     {
       "id": "patl4tiy",
@@ -7389,7 +8553,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "patl4tiy"
     },
     {
       "id": "gamelifeow",
@@ -7408,7 +8575,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "gamelifeow"
     },
     {
       "id": "quattroace",
@@ -7427,7 +8597,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "quattroace"
     },
     {
       "id": "7ssk7",
@@ -7446,7 +8619,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "7ssk7"
     },
     {
       "id": "acoolbek",
@@ -7465,7 +8641,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "acoolbek"
     },
     {
       "id": "alcest_m",
@@ -7484,7 +8663,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "alcest_m"
     },
     {
       "id": "misterbiznes92",
@@ -7503,7 +8685,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "misterbiznes92"
     },
     {
       "id": "anek",
@@ -7522,7 +8707,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "anek"
     },
     {
       "id": "fiveskill",
@@ -7541,7 +8729,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "fiveskill"
     },
     {
       "id": "zakharww",
@@ -7560,7 +8751,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "zakharww"
     },
     {
       "id": "7tor",
@@ -7579,7 +8773,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "7tor"
     },
     {
       "id": "everybodysosa",
@@ -7598,7 +8795,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "everybodysosa"
     },
     {
       "id": "zark",
@@ -7617,7 +8817,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "zark"
     },
     {
       "id": "semmyxhf",
@@ -7636,7 +8839,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "semmyxhf"
     },
     {
       "id": "hurma",
@@ -7655,7 +8861,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "hurma"
     },
     {
       "id": "marasshakursamp",
@@ -7674,7 +8883,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "marasshakursamp"
     },
     {
       "id": "pokamolodoy",
@@ -7693,7 +8905,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "pokamolodoy"
     },
     {
       "id": "stopgameru",
@@ -7712,7 +8927,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "stopgameru"
     },
     {
       "id": "scrnonstfu",
@@ -7731,7 +8949,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "scrnonstfu"
     },
     {
       "id": "barbiegirl",
@@ -7750,7 +8971,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "barbiegirl"
     },
     {
       "id": "forzorezor",
@@ -7769,7 +8993,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "forzorezor"
     },
     {
       "id": "trixie_vox",
@@ -7788,7 +9015,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "trixie_vox"
     },
     {
       "id": "lubricum",
@@ -7807,7 +9037,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "lubricum"
     },
     {
       "id": "halflex",
@@ -7826,7 +9059,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "halflex"
     },
     {
       "id": "banan23yt",
@@ -7845,7 +9081,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "banan23yt"
     },
     {
       "id": "shadowdr4g",
@@ -7864,7 +9103,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "shadowdr4g"
     },
     {
       "id": "gokump3",
@@ -7883,7 +9125,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "gokump3"
     },
     {
       "id": "qwinkiii",
@@ -7902,7 +9147,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "qwinkiii"
     },
     {
       "id": "dushenka",
@@ -7921,7 +9169,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "dushenka"
     },
     {
       "id": "finargot",
@@ -7940,7 +9191,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "finargot"
     },
     {
       "id": "pinkssage",
@@ -7959,7 +9213,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "pinkssage"
     },
     {
       "id": "olesyabulletka",
@@ -7978,7 +9235,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "olesyabulletka"
     },
     {
       "id": "thepadlo",
@@ -7997,7 +9257,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "thepadlo"
     },
     {
       "id": "bezt0rm0z0v",
@@ -8016,7 +9279,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "bezt0rm0z0v"
     },
     {
       "id": "ins1de1337",
@@ -8035,7 +9301,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "ins1de1337"
     },
     {
       "id": "mishura",
@@ -8054,7 +9323,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "mishura"
     },
     {
       "id": "creative7play",
@@ -8073,7 +9345,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "creative7play"
     },
     {
       "id": "toygirl",
@@ -8092,7 +9367,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "toygirl"
     },
     {
       "id": "cepreu_inq",
@@ -8111,7 +9389,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "cepreu_inq"
     },
     {
       "id": "waveafterwave2ndlife",
@@ -8130,7 +9411,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "waveafterwave2ndlife"
     },
     {
       "id": "zanuda",
@@ -8149,7 +9433,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "zanuda"
     },
     {
       "id": "grandrony",
@@ -8168,7 +9455,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "grandrony"
     },
     {
       "id": "ivzel96",
@@ -8187,7 +9477,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "ivzel96"
     },
     {
       "id": "misolo3",
@@ -8206,7 +9499,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "misolo3"
     },
     {
       "id": "flamie",
@@ -8225,7 +9521,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "flamie"
     },
     {
       "id": "hibako",
@@ -8244,7 +9543,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "hibako"
     },
     {
       "id": "tixerok",
@@ -8263,7 +9565,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "tixerok"
     },
     {
       "id": "justs_js",
@@ -8282,7 +9587,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "justs_js"
     },
     {
       "id": "evilkingmlbb",
@@ -8301,7 +9609,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "evilkingmlbb"
     },
     {
       "id": "sh4dowehhh",
@@ -8320,7 +9631,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "sh4dowehhh"
     },
     {
       "id": "gusar",
@@ -8339,7 +9653,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "gusar"
     },
     {
       "id": "fakturka",
@@ -8358,7 +9675,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "fakturka"
     },
     {
       "id": "jerry256cs2",
@@ -8377,7 +9697,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "jerry256cs2"
     },
     {
       "id": "sadpigeone",
@@ -8396,7 +9719,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "sadpigeone"
     },
     {
       "id": "beastqt",
@@ -8415,7 +9741,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "beastqt"
     },
     {
       "id": "404t4ga",
@@ -8434,7 +9763,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "404t4ga"
     },
     {
       "id": "velyalive",
@@ -8453,7 +9785,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "velyalive"
     },
     {
       "id": "ackerman_cs",
@@ -8472,7 +9807,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "ackerman_cs"
     },
     {
       "id": "sweektw",
@@ -8491,7 +9829,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "sweektw"
     },
     {
       "id": "ubica",
@@ -8510,7 +9851,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "ubica"
     },
     {
       "id": "ezik_shizik",
@@ -8529,7 +9873,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "ezik_shizik"
     },
     {
       "id": "doomst4rr",
@@ -8548,7 +9895,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "doomst4rr"
     },
     {
       "id": "kxrvinho",
@@ -8567,7 +9917,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "kxrvinho"
     },
     {
       "id": "onehend",
@@ -8586,7 +9939,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "onehend"
     },
     {
       "id": "adamsonshow",
@@ -8605,7 +9961,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "adamsonshow"
     },
     {
       "id": "float735",
@@ -8624,7 +9983,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "float735"
     },
     {
       "id": "qanteg",
@@ -8643,7 +10005,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "qanteg"
     },
     {
       "id": "stanyyy",
@@ -8662,7 +10027,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "stanyyy"
     },
     {
       "id": "taksebeyarik",
@@ -8681,7 +10049,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "taksebeyarik"
     },
     {
       "id": "zibert1715_",
@@ -8700,7 +10071,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "zibert1715_"
     },
     {
       "id": "pubg_cis",
@@ -8719,7 +10093,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "pubg_cis"
     },
     {
       "id": "tairlend",
@@ -8738,7 +10115,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "tairlend"
     },
     {
       "id": "qewbite",
@@ -8757,7 +10137,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "qewbite"
     },
     {
       "id": "raslabon3sss",
@@ -8776,7 +10159,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "raslabon3sss"
     },
     {
       "id": "deproboy",
@@ -8795,7 +10181,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "deproboy"
     },
     {
       "id": "kiryuhaa",
@@ -8814,7 +10203,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "kiryuhaa"
     },
     {
       "id": "diamondprox_lol",
@@ -8833,7 +10225,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "diamondprox_lol"
     },
     {
       "id": "evgexa",
@@ -8852,7 +10247,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "evgexa"
     },
     {
       "id": "arturchik_",
@@ -8871,7 +10269,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "arturchik_"
     },
     {
       "id": "sigaseagers",
@@ -8890,7 +10291,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "sigaseagers"
     },
     {
       "id": "ded_b_tpycax01",
@@ -8909,7 +10313,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "ded_b_tpycax01"
     },
     {
       "id": "pinlucky",
@@ -8928,7 +10335,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "pinlucky"
     },
     {
       "id": "mr_jijik",
@@ -8947,7 +10357,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "mr_jijik"
     },
     {
       "id": "korbendetka",
@@ -8966,7 +10379,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "korbendetka"
     },
     {
       "id": "warthunder_esports_ru",
@@ -8985,7 +10401,10 @@
       ],
       "base_acceptance": 0.5,
       "region": "public",
-      "language": "ru"
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "",
+      "login": "warthunder_esports_ru"
     }
   ]
 }

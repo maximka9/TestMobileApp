@@ -32,18 +32,25 @@ func refresh(force: bool = false) -> void:
 	for id: String in buttons:
 		var definition: AchievementDefinition = catalog.achievements[id]
 		var completed: bool = id in player.unlocked_achievements
+		var available: bool = true
+		for parent: String in definition.parent_ids:
+			available = available and parent in player.unlocked_achievements
 		var button: Button = buttons[id]
-		button.text = ("✓ " if completed else "◇ ") + (definition.display_name if completed or not definition.secret else "?")
+		button.text = ("✓ " if completed else "◇ " if available else "· ") + (definition.display_name if completed or not definition.secret else "?")
 		button.set_meta("completed", completed)
+		button.set_meta("state", "completed" if completed else "secret" if definition.secret else "available" if available else "locked")
+		button.tooltip_text = "Выполнено" if completed else "Доступно" if available else "Сначала выполните предыдущие достижения"
 		var box: StyleBoxFlat = StyleBoxFlat.new()
 		box.bg_color = Color("301b22") if completed else Color("141419")
-		box.border_color = COLORS[definition.tier] if completed else Color("45424a")
+		box.border_color = COLORS[definition.tier] if completed else COLORS[definition.tier].darkened(0.35) if available else Color("45424a")
 		box.set_border_width_all(3 if completed else 2)
 		box.set_corner_radius_all(8)
 		box.shadow_color = Color(0.8, 0.1, 0.2, 0.25) if completed else Color.TRANSPARENT
 		box.shadow_size = 5 if completed else 0
 		button.add_theme_stylebox_override("normal", box)
-		button.add_theme_stylebox_override("hover", box)
+		var hover: StyleBoxFlat = box.duplicate()
+		hover.bg_color = box.bg_color.lightened(0.08)
+		button.add_theme_stylebox_override("hover", hover)
 		button.add_theme_color_override("font_color", Color.WHITE if completed else Color("9994a0"))
 	queue_redraw()
 

@@ -1,0 +1,19 @@
+{
+	"player": {
+		"current_stream_type_id": "just_chatting",
+		"energy": 40.0,
+		"level": 2,
+		"money": 99,
+		"settings": {
+			"reduced_motion": true
+		},
+		"total_clicks": 10,
+		"total_streams": 4,
+		"upgrades": {
+			"microphone": 1
+		},
+		"xp": 3
+	},
+	"timestamp": 1000,
+	"version": 1
+}

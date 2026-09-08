@@ -2,6 +2,9 @@ class_name StreamerDefinition
 extends Resource
 ## Bundled offline profile. Reference audience is a game balance value, not analytics.
 @export var id: String = ""
+@export var platform: String = "twitch"
+@export var platform_user_id: String = ""
+@export var login: String = ""
 @export var display_name: String = ""
 @export var reach_tier: int = 0
 @export var reference_avg_viewers: int = 10

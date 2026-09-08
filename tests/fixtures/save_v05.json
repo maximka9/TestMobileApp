@@ -1,0 +1,63 @@
+{
+	"player": {
+		"average_online": 0.0,
+		"career_tier": 0,
+		"collab_cooldowns": {},
+		"completed_collabs": 0,
+		"content_sources": [
+			{
+				"consumed": false,
+				"created_at": 999,
+				"id": 1,
+				"source_stream_id": "4",
+				"tags": [
+					"fail"
+				]
+			}
+		],
+		"cosplay_streams": 0,
+		"current_home_id": "starter_home",
+		"current_location_id": "kitchen",
+		"current_stream_type_id": "just_chatting",
+		"fatigue": 60.0,
+		"fatigue_recovery_seconds": 0.0,
+		"fatigue_updated_at": 1000,
+		"followers": 123,
+		"growth_momentum": 0.0,
+		"high_tier_collabs": 0,
+		"last_stream_types": [],
+		"level": 2,
+		"lifetime_followers_gained": 0,
+		"lifetime_peak_viewers": 0,
+		"money": 99,
+		"owned_homes": [
+			"starter_home"
+		],
+		"owned_room_items": [],
+		"relationships": {
+			"retired_profile": 5
+		},
+		"reputation": 50.0,
+		"selected_cosplay_id": "",
+		"settings": {
+			"reduced_motion": true
+		},
+		"short_form_history": [],
+		"social_requests": {},
+		"source_sequence": 1,
+		"stream_history": [],
+		"total_clicks": 10,
+		"total_streams": 4,
+		"unlocked_achievements": [
+			"followers_100"
+		],
+		"upgrades": {
+			"microphone": 1
+		},
+		"viral_posts": 0,
+		"was_streaming": false,
+		"xp": 3
+	},
+	"timestamp": 1000,
+	"version": 9
+}

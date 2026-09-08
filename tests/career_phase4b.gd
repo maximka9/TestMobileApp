@@ -8,7 +8,7 @@ func _run() -> void:
 
 func _test_production_catalog() -> void:
 	_fixture()
-	check(catalog.streamers.size() == 500, "Production-scale catalog loads all 500 profiles")
+	check(catalog.streamers.size() == 500, "Historical test fixture loads all 500 profiles")
 	check(catalog.streamers.has("fixture_01") and catalog.streamers.has("pixel_neighbor") and catalog.streamers.has("catalog_500"), "Fixture and extended profile IDs coexist")
 	var unique_names: Dictionary = {}
 	var all_valid: bool = true

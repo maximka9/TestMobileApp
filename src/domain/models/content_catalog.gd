@@ -29,6 +29,10 @@ func _init(snapshot_path: String = STREAMER_CATALOG_PATH) -> void:
 	_load_folder("res://resources/room_items", room_items)
 	_load_folder("res://resources/homes", homes)
 	_load_streamer_catalog()
+	var graph_error: String = validate_achievement_graph(achievements)
+	if not graph_error.is_empty():
+		push_error(graph_error)
+		achievements.clear()
 
 func _load_folder(path: String, target: Dictionary) -> void:
 	for file_name: String in ResourceLoader.list_directory(path):
@@ -44,6 +48,10 @@ func _load_streamer_catalog() -> void:
 		push_error("SASAclicker streamer catalog is invalid")
 		return
 	var profiles: Array = parsed["profiles"]
+	var identity_error: String = validate_streamer_identities(profiles)
+	if not identity_error.is_empty():
+		push_error(identity_error)
+		return
 	if profiles.size() > MAX_STREAMERS:
 		push_error("SASAclicker streamer catalog exceeds profile limit")
 		return
@@ -73,6 +81,9 @@ func _streamer_from(value: Variant) -> StreamerDefinition:
 		return null
 	var profile: StreamerDefinition = StreamerDefinition.new()
 	profile.id = value["id"]
+	profile.platform = str(value.get("platform", "twitch"))
+	profile.platform_user_id = str(value.get("platform_user_id", ""))
+	profile.login = str(value.get("login", value["id"]))
 	profile.source = str(value.get("source", "test fixture"))
 	profile.source_checked_at = str(value.get("source_checked_at", ""))
 	profile.is_placeholder = bool(value.get("is_placeholder", streamer_path != STREAMER_CATALOG_PATH))
@@ -93,6 +104,69 @@ func _streamer_from(value: Variant) -> StreamerDefinition:
 
 func _number(value: Variant, minimum: float, maximum: float) -> bool:
 	return (value is int or value is float) and is_finite(float(value)) and float(value) >= minimum and float(value) <= maximum
+
+static func validate_streamer_identities(profiles: Array) -> String:
+	var ids: Dictionary = {}
+	var logins: Dictionary = {}
+	var external_ids: Dictionary = {}
+	for entry: Variant in profiles:
+		if not entry is Dictionary:
+			return "Invalid streamer record"
+		var id: String = str(entry.get("id", ""))
+		var login: String = str(entry.get("login", id)).to_lower()
+		var platform: String = str(entry.get("platform", "twitch"))
+		var external: Variant = entry.get("platform_user_id", "")
+		if id.is_empty() or login.is_empty() or ids.has(id) or logins.has(platform + ":" + login):
+			return "Duplicate or empty streamer identity"
+		if not external is String:
+			return "Invalid platform user ID"
+		if not external.is_empty():
+			if not external.is_valid_int() or int(external) <= 0 or external_ids.has(platform + ":" + external):
+				return "Duplicate or invalid platform user ID"
+			external_ids[platform + ":" + external] = true
+		if entry.has("source_checked_at") and not valid_date(str(entry["source_checked_at"])):
+			return "Invalid source observation date"
+		ids[id] = true
+		logins[platform + ":" + login] = true
+	return ""
+
+static func valid_date(value: String) -> bool:
+	var parts: PackedStringArray = value.split("-")
+	if value.length() != 10 or parts.size() != 3 or parts[0].length() != 4 or parts[1].length() != 2 or parts[2].length() != 2:
+		return false
+	for part: String in parts:
+		if not part.is_valid_int():
+			return false
+	var year: int = int(parts[0])
+	var month: int = int(parts[1])
+	var day: int = int(parts[2])
+	if year < 2000 or month < 1 or month > 12:
+		return false
+	var days: Array[int] = [31, 29 if year % 4 == 0 and (year % 100 != 0 or year % 400 == 0) else 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+	return day >= 1 and day <= days[month - 1]
+
+static func validate_achievement_graph(graph: Dictionary) -> String:
+	var marks: Dictionary = {}
+	for id: String in graph:
+		var error: String = _visit_achievement(id, graph, marks)
+		if not error.is_empty():
+			return error
+	return ""
+
+static func _visit_achievement(id: String, graph: Dictionary, marks: Dictionary) -> String:
+	if not graph.has(id):
+		return "Missing achievement parent: " + id
+	if marks.get(id, 0) == 1:
+		return "Achievement cycle: " + id
+	if marks.get(id, 0) == 2:
+		return ""
+	marks[id] = 1
+	for parent: String in (graph[id] as AchievementDefinition).parent_ids:
+		var error: String = _visit_achievement(parent, graph, marks)
+		if not error.is_empty():
+			return error
+	marks[id] = 2
+	return ""
 
 func _whole(value: Variant, minimum: int, maximum: int) -> bool:
 	return _number(value, minimum, maximum) and float(value) == floor(float(value))

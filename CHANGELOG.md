@@ -1,43 +1,27 @@
 # Changelog
 
-## [0.2.0] - 2026-09-07
+## 0.5.1 — 2026-09-09
 
-### Added
+- Complete YOUNG/CURRENT/SUCCESSFUL appearance with shared mapping for room and
+  kitchen, real PNG alpha and fixed pixel dimensions.
+- Validate achievement graph cycles/missing parents and distinguish available
+  nodes from locked descendants. Verify all nodes reachable on small portraits.
+- Validate case-insensitive streamer logins, known external IDs and calendar dates.
+  Preserve save relationship keys. Canonical catalog requirement: **400+ verified
+  profiles**, current snapshot 473; no invented external IDs or filler entries.
+- Historical save fixtures from the actual 0.3, 0.4 and 0.5 serializers; clock,
+  source lifecycle, corrupt-field and repeated migration regression checks.
+- One verification entry point with explicit process statuses and negative control.
+  Location stress checks 20 room/kitchen round trips and one gameplay click per tap.
+- Remove unreferenced generic career/kitchen artwork; reduce kitchen source size.
+- Consolidate the linear feature history into main and preserve milestones as tags.
 
-- Detailed original SASAVOT pixel-art character based on the supplied reference.
-- Layered red/black streamer room, original hockey-mask/13 and firefighter wall art.
-- Character animation, high-hype lighting and bounded animated local chat.
-- Touch-native room interaction with emulated mouse deduplication.
-- Android SDK/export tooling and reproducible debug APK build script.
-- Regression tests for dependencies, per-upgrade save limits, touch and effect pooling.
-- Renderer smoke coverage for nine resolutions, safe insets and performance metrics.
+## Historical milestones
 
-### Changed
-
-- Static main UI and room composition moved to editable `.tscn` scenes.
-- Centralized crimson/black visual theme with functional energy/error colors.
-- Fractional viewport scaling fills mobile aspect ratios without technical borders.
-- Important touch targets are at least 48 logical units.
-- Click feedback uses a fixed pool of 16 labels and no per-click tweens.
-
-### Fixed
-
-- Save validation respects each upgrade definition's maximum level.
-- Bootstrap stops safely when configuration or parent dependencies are invalid.
-- Touch plus an emulated mouse event no longer risks a duplicate gameplay click.
-- Safe-area margins apply to both the main layout and modal windows.
-
-## [0.1.0] - 2026-09-05
-
-### Added
-
-- Base clicker gameplay with typed player state and a portrait MainGame scene.
-- Three resource-driven stream types and OFFLINE / STREAMING / SUMMARY flow.
-- Viewer smoothing, hype decay, timed income, XP and level progression.
-- Five generic equipment upgrades, beer and collab moves with cooldowns.
-- Five random events with injectable deterministic RNG and local pseudochat.
-- Original code-drawn pixel room, tap reactions, floating text and modal UI.
-- Versioned local save/load, corruption backup, coalescing and bounded retries.
-- Structured logging, debug performance metrics and reduced-motion setting.
-- Domain, persistence, scene, restart and renderer smoke verification.
-- Android export preset and setup documentation; APK requires local Android SDK.
+- 0.5.0: `cc2ea43`, career sources, FAIL, minute fatigue, XP bonus, location scenes.
+- 0.4.0: `d802964`, completed career systems and integration verification.
+- 0.3.0 typography milestone: `71f7d04`, readable Cyrillic fonts and UI hierarchy.
+  Historical project.godot incorrectly retained 0.2.0; the commit diff verifies
+  the typography milestone. The annotated tag documents this metadata discrepancy.
+- 0.2.0: `9d77e92`, pixel-art room and mobile UI overhaul.
+- 0.1.0: `51129f0`, playable MVP.

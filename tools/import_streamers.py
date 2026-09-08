@@ -13,8 +13,11 @@ import urllib.parse
 import urllib.request
 
 
-def collect(fetch, limit=500):
+def collect(fetch, limit=500, previous=None):
     profiles = {}
+    previous = previous or []
+    by_external = {p["platform_user_id"]: p["id"] for p in previous if p.get("platform_user_id")}
+    by_login = {p.get("login", p["id"]).lower(): p["id"] for p in previous}
     cursor = None
     seen_cursors = set()
     observed = datetime.date.today().isoformat()
@@ -26,10 +29,13 @@ def collect(fetch, limit=500):
         page = fetch(query)
         for stream in page.get("data", []):
             login = stream["user_login"].lower()
+            external_id = stream["user_id"]
+            game_id = by_external.get(external_id, by_login.get(login, "twitch:" + external_id))
             viewers = max(0, int(stream["viewer_count"]))
             interest = tags.get(stream.get("game_name"))
-            profiles[login] = {
-                "id": login, "display_name": stream["user_name"],
+            profiles[external_id] = {
+                "id": game_id, "display_name": stream["user_name"],
+                "platform": "twitch", "platform_user_id": external_id, "login": login,
                 "source": "https://www.twitch.tv/" + login,
                 "source_checked_at": observed, "is_placeholder": False,
                 "reach_tier": sum(viewers >= v for v in [100, 1000, 5000, 15000]),
@@ -50,6 +56,7 @@ def collect(fetch, limit=500):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--output", type=Path, required=True)
+    parser.add_argument("--previous", type=Path, help="Existing snapshot, to preserve saved relationship IDs")
     args = parser.parse_args()
     client = os.environ.get("TWITCH_CLIENT_ID")
     token = os.environ.get("TWITCH_APP_TOKEN")
@@ -64,7 +71,8 @@ def main():
         with urllib.request.urlopen(request, timeout=30) as response:
             return json.load(response)
 
-    result = collect(fetch)
+    previous = json.loads(args.previous.read_text(encoding="utf-8"))["profiles"] if args.previous else []
+    result = collect(fetch, previous=previous)
     if not result["profiles"]:
         raise SystemExit("Empty snapshot; existing output preserved")
     args.output.parent.mkdir(parents=True, exist_ok=True)

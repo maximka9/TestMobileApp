@@ -9,7 +9,7 @@ spec.loader.exec_module(importer)
 
 
 def record(login, game="Dota 2"):
-    return {"user_login": login, "user_name": login, "viewer_count": 1234, "game_name": game}
+    return {"user_login": login, "user_id": str(sum(ord(c) for c in login.lower())), "user_name": login, "viewer_count": 1234, "game_name": game}
 
 
 class ImporterTests(unittest.TestCase):
@@ -23,7 +23,8 @@ class ImporterTests(unittest.TestCase):
             queries.append(query)
             return next(pages)
         profiles = importer.collect(fetch)["profiles"]
-        self.assertEqual([p["id"] for p in profiles], ["first", "second"])
+        self.assertEqual([p["login"] for p in profiles], ["first", "second"])
+        self.assertTrue(all(p["id"] == "twitch:" + p["platform_user_id"] for p in profiles))
         self.assertEqual(queries[1], {"first": 100, "language": "ru", "after": "next"})
         self.assertEqual(profiles[0]["interests"], ["dota_2"])
         self.assertEqual(profiles[1]["interests"], [])
@@ -40,6 +41,15 @@ class ImporterTests(unittest.TestCase):
     def test_limit_and_empty(self):
         self.assertEqual(len(importer.collect(lambda _: {"data": [record(str(i)) for i in range(20)]}, 5)["profiles"]), 5)
         self.assertEqual(importer.collect(lambda _: {"data": [], "pagination": {"cursor": "unused"}}), {"profiles": []})
+
+    def test_rename_keeps_relationship_key(self):
+        row = record("new_login")
+        row["user_id"] = "123"
+        old = [{"id": "old_game_key", "login": "old_login", "platform_user_id": "123"}]
+        profile = importer.collect(lambda _: {"data": [row]}, previous=old)["profiles"][0]
+        self.assertEqual((profile["id"], profile["login"]), ("old_game_key", "new_login"))
+        legacy = [{"id": "new_login", "platform_user_id": ""}]
+        self.assertEqual(importer.collect(lambda _: {"data": [row]}, previous=legacy)["profiles"][0]["id"], "new_login")
 
 
 if __name__ == "__main__":

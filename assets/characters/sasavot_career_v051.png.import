@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ckwgvu6jjiu5n"
-path="res://.godot/imported/sasavot_career_variants.png-7351b0c79682f2e4dba49247f552296a.ctex"
+uid="uid://c0c250dr8hjqg"
+path="res://.godot/imported/sasavot_career_v051.png-f6c4b8ad02d9250213442692b54fbc8e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/characters/sasavot_career_variants.png"
-dest_files=["res://.godot/imported/sasavot_career_variants.png-7351b0c79682f2e4dba49247f552296a.ctex"]
+source_file="res://assets/characters/sasavot_career_v051.png"
+dest_files=["res://.godot/imported/sasavot_career_v051.png-f6c4b8ad02d9250213442692b54fbc8e.ctex"]
 
 [params]
 
