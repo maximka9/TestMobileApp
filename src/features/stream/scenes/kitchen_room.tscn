@@ -1,22 +1,36 @@
-[gd_scene load_steps=3 format=3]
-[ext_resource type="Texture2D" path="res://assets/room/kitchen_generated.png" id="1"]
+[gd_scene load_steps=5 format=3]
+[ext_resource type="Texture2D" path="res://assets/room/kitchen_reference_v05.png" id="1"]
 [ext_resource type="Texture2D" path="res://assets/characters/sasavot_frames.png" id="2"]
-[node name="KitchenRoom" type="Control"]
+[ext_resource type="Script" path="res://src/features/stream/ui/kitchen_view.gd" id="script"]
+[ext_resource type="Script" path="res://src/features/stream/ui/floating_text_pool.gd" id="pool"]
+[node name="Kitchen" type="Control"]
+script = ExtResource("script")
+custom_minimum_size = Vector2(0, 210)
+clip_contents = true
 texture_filter = 1
-[node name="Kitchen" type="TextureRect" parent="."]
+[node name="Stage" type="Control" parent="."]
+offset_right = 336.0
+offset_bottom = 250.0
+[node name="Background" type="TextureRect" parent="Stage"]
 offset_right = 336.0
 offset_bottom = 250.0
 texture = ExtResource("1")
 expand_mode = 1
 stretch_mode = 6
-[node name="Sasavot" type="Sprite2D" parent="."]
+[node name="Character" type="Node2D" parent="Stage"]
+[node name="SasavotSprite" type="Sprite2D" parent="Stage/Character"]
 position = Vector2(168, 151)
 texture = ExtResource("2")
 hframes = 4
-[node name="LiveChat" type="Label" parent="."]
+[node name="LiveChat" type="Label" parent="Stage"]
 offset_left = 239.0
 offset_top = 55.0
 offset_right = 318.0
 offset_bottom = 110.0
 text = "● LIVE / CHAT\nкот: готовь!\nмаша: ++\nanon: рецепт?"
 theme_override_font_sizes/font_size = 7
+[node name="Effects" type="Control" parent="."]
+mouse_filter = 2
+[node name="FloatingTextPool" type="Control" parent="Effects"]
+script = ExtResource("pool")
+mouse_filter = 2

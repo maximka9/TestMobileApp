@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="CharacterAppearance" load_steps=3 format=3]
+[ext_resource type="Script" path="res://src/features/stream/ui/character_appearance.gd" id="script"]
+[ext_resource type="Texture2D" path="res://assets/characters/sasavot_frames.png" id="current"]
+[resource]
+script = ExtResource("script")
+variants = Array[Texture2D]([ExtResource("current"), ExtResource("current"), ExtResource("current")])
+frame_counts = PackedInt32Array(4, 4, 4)

@@ -20,7 +20,7 @@ func _initialize() -> void:
 
 func _fixture(rng: RandomProvider = null) -> void:
 	config = GameConfig.new()
-	catalog = ContentCatalog.new()
+	catalog = ContentCatalog.new("res://tests/fixtures/streamers.json")
 	logger = FakeLogger.new()
 	state = PlayerState.new()
 	upgrades = UpgradeService.new(catalog, config)
@@ -60,7 +60,7 @@ func _run() -> void:
 
 func _test_catalog() -> void:
 	_fixture()
-	check(catalog.streams.size() == 4 and catalog.upgrades.size() == 5 and catalog.events.size() == 13 and catalog.moves.size() == 2, "All content resources discovered")
+	check(catalog.streams.size() == 4 and catalog.upgrades.size() == 5 and catalog.events.size() == 14 and catalog.moves.size() == 2, "All content resources discovered")
 	check(catalog.moves["beer"].title == "Взять пиво", "Resources preserve Cyrillic")
 	check(catalog.streams["irl"].viewer_multiplier == 1.5, "IRL data coefficients")
 
@@ -108,14 +108,14 @@ func _test_stream() -> void:
 	check(state.money >= 1 and state.hype == 97.5, "Timed income and hype decay")
 	stream.finish()
 	check(stream.phase == StreamService.Phase.SUMMARY and not state.is_streaming and state.total_streams == 1, "Finish transitions to summary")
-	check(stream.summary["clicks"] == 151 and stream.summary["xp"] == 151 and stream.summary["seconds"] == 5, "Summary counts session activity")
+	check(stream.summary["clicks"] == 151 and stream.summary["xp"] == 159 and stream.summary["seconds"] == 5, "Summary counts session activity including high-hype XP")
 	check(stream.summary["peak"] >= stream.summary["average"] and stream.summary["average"] > 0, "Summary viewer statistics")
 	check(not stream.finish().success and not stream.start().success, "Summary state guards")
 	stream.continue_to_room()
 	check(state.viewers == 0 and state.hype == 0.0 and stream.phase == StreamService.Phase.OFFLINE, "Continue resets room counters")
 	state.energy = 50.0
 	stream.tick()
-	check(is_equal_approx(state.fatigue, 50.0 - config.fatigue_recovery * config.tick_seconds), "Offline fatigue recovery replaces energy recovery")
+	check(state.fatigue == 50, "Offline fatigue recovery waits for a full minute")
 	stream.start()
 	for i: int in range(205):
 		stream.tick()
@@ -148,7 +148,7 @@ func _test_moves() -> void:
 	state.energy = 9.0
 	check(moves.perform(state, "beer", 0).error_code == &"NOT_ENOUGH_ENERGY" and state.energy == 9.0 and state.hype == 0.0, "Insufficient energy is atomic")
 	state.energy = 10.0
-	check(moves.perform(state, "beer", 0).success and state.energy == 0.0 and state.hype == 15.0, "Exact energy cost accepted")
+	check(moves.perform(state, "beer", 0).success and state.energy == 0.0 and is_equal_approx(state.hype, 6.0), "Exact energy cost accepted with tired hype gain")
 	check(moves.perform(state, "beer", 1).error_code == &"ON_COOLDOWN", "Move cooldown enforced")
 	check(is_equal_approx(moves.multiplier(19), 1.15) and moves.multiplier(20) == 1.0, "Temporary effect expiry boundary")
 	check(moves.remaining("beer", 29) == 1 and moves.remaining("beer", 30) == 0, "Cooldown boundary")

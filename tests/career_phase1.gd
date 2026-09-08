@@ -20,7 +20,7 @@ func _test_fatigue_and_reach() -> void:
 	check(initial.followers == 45 and initial.fatigue == 12, "Configured starting state")
 	stream.start()
 	stream.tick()
-	check(is_equal_approx(state.fatigue, config.fatigue_rate * 0.8), "Fatigue grows by content multiplier")
+	check(is_equal_approx(state.fatigue, config.fatigue_per_minute["just_chatting"] / 60.0), "Fatigue grows by configured per-minute rate")
 	state.fatigue = 99.99
 	stream.tick()
 	check(state.fatigue == 100 and state.energy == 0, "Fatigue caps; energy is inverse view")
@@ -89,12 +89,12 @@ func _test_career_save() -> void:
 	check(not document["player"].has("energy"), "New save has only one fatigue meter")
 	repo.document = document
 	saves.clock = func() -> int: return 1100
-	check(is_equal_approx(saves.load_player().fatigue, 50), "Offline recovery applies on load")
+	check(is_equal_approx(saves.load_player().fatigue, 58), "Offline recovery applies whole minutes on load")
 	saves.clock = func() -> int: return 900
 	check(saves.load_player().fatigue == 60, "Backward clock grants no recovery")
 	config.offline_recovery_cap = 10
 	saves.clock = func() -> int: return 100000
-	check(saves.load_player().fatigue == 59, "Offline recovery window is capped")
+	check(saves.load_player().fatigue == 60, "Offline recovery cap below a minute grants no tick")
 	repo.document["player"]["was_streaming"] = true
 	check(saves.load_player().fatigue == 60, "Saved active streams receive no offline recovery")
 	var legacy: Dictionary = {"version": 1, "timestamp": 1000, "player": {"level": 2, "xp": 3, "money": 99, "energy": 40.0, "current_stream_type_id": "irl", "total_clicks": 10, "total_streams": 4, "upgrades": {}, "settings": {"reduced_motion": true}}}

@@ -14,13 +14,25 @@ func new_player() -> PlayerState:
 	return player
 
 func recover(player: PlayerState, seconds: float) -> void:
-	player.fatigue = clampf(player.fatigue - maxf(0.0, seconds) * config.fatigue_recovery, 0.0, 100.0)
+	if player.is_streaming:
+		return
+	player.fatigue_recovery_seconds += maxf(0, seconds)
+	var minutes: int = int(player.fatigue_recovery_seconds / 60.0)
+	player.fatigue_recovery_seconds = fmod(player.fatigue_recovery_seconds, 60.0)
+	player.fatigue = clampf(player.fatigue - minutes * 60.0 * config.fatigue_recovery, 0, 100)
 
 func recover_offline(player: PlayerState, saved_at: int, now: int) -> void:
 	recover(player, clampi(now - saved_at, 0, config.offline_recovery_cap))
 
 func exert(player: PlayerState, content_id: String, seconds: float) -> void:
-	player.fatigue = clampf(player.fatigue + config.fatigue_rate * float(config.fatigue_multipliers.get(content_id, 1.0)) * maxf(0.0, seconds), 0.0, 100.0)
+	player.fatigue = clampf(player.fatigue + float(config.fatigue_per_minute.get(content_id, 1.0)) / 60.0 * maxf(0.0, seconds), 0.0, 100.0)
+
+func viewer_efficiency(player: PlayerState) -> float:
+	var band: int = 0
+	for threshold: float in config.fatigue_viewer_steps:
+		if player.fatigue >= threshold:
+			band += 1
+	return config.fatigue_viewer_efficiency[mini(band, config.fatigue_viewer_efficiency.size() - 1)]
 
 func efficiency(player: PlayerState) -> float:
 	var band: int = 0

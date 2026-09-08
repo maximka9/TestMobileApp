@@ -3,6 +3,9 @@
 [resource]
 script = ExtResource("1")
 id = "aquarium"
+graph_position = Vector2(760, 20)
+parent_ids = PackedStringArray("followers_100")
+tier = 0
 display_name = "Рыбка в чате"
 category = "Комната"
 description = "Рыбка в чате · цель: 1"

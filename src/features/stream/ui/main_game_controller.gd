@@ -3,6 +3,9 @@ extends Control
 ## Presentation only: renders domain state and dispatches validated commands.
 var app: AppBootstrap
 @onready var room: RoomView = %RoomView
+var _location_id: String = "streamer_room"
+var achievement_tree: AchievementTree
+var achievement_detail: Label
 @onready var header: Label = %Header
 @onready var viewers_label: Label = %ViewersValue
 @onready var money_label: Label = %MoneyValue
@@ -79,6 +82,8 @@ func _refresh() -> void:
 	var state: PlayerState = app.stream.state
 	if not app.achievements.evaluate(state).is_empty():
 		app.queue.request_save()
+	if is_instance_valid(achievement_tree):
+		achievement_tree.refresh()
 	var required: int = app.progression.required_xp(state.level)
 	header.text = "ПОДПИСЧИКИ %d · XP %d / %d" % [state.followers, state.xp, required]
 	xp_bar.max_value = required
@@ -93,7 +98,7 @@ func _refresh() -> void:
 	status.text = "%s  /  %s  /  %s" % ["● LIVE" if state.is_streaming else "OFFLINE", content.title, _time(app.stream.elapsed)]
 	primary.text = "Завершить эфир" if state.is_streaming else "НАЧАТЬ ЭФИР"
 	primary.disabled = app.stream.phase == StreamService.Phase.SUMMARY
-	room.present(state)
+	_present_location(state)
 	if modal_kind == "moves" or modal_kind == "collab":
 		for child: Node in modal_body.get_children():
 			if child is Label and child.has_meta("cooldown_id"):
@@ -164,7 +169,9 @@ func _start_content(id: String) -> void:
 			if id in (app.catalog.cosplays[cosplay_id] as CosplayDefinition).stream_tags:
 				_show_cosplay_choice(id)
 				return
-		result = app.stream.start()
+		result = app.stream.select_cosplay("")
+		if result.success:
+			result = app.stream.start()
 	if result.success:
 		_close_modal()
 		_feedback("Ты в эфире! Жми на рабочее место.")
@@ -202,6 +209,9 @@ func _show_short_forms() -> void:
 	for id: String in app.catalog.short_forms:
 		var definition: ShortFormDefinition = app.catalog.short_forms[id] as ShortFormDefinition
 		modal_body.add_child(SasaUI.label(definition.display_name, &"heading", &"AccentLabel"))
+		var has_source: bool = ContentSourceService.find(app.stream.state, definition.source_tags) >= 0
+		if not has_source:
+			modal_body.add_child(SasaUI.label("Нет материала. " + definition.source_hint, &"body", &"MutedLabel"))
 		modal_body.add_child(SasaUI.label("Усталость +%d%% · базовый шанс вирусности %.1f%%" % [int(definition.fatigue_cost), definition.base_viral_chance], &"small", &"MutedLabel"))
 		var publish: Button = SasaUI.button("Опубликовать", func() -> void:
 			var result: OperationResult = app.short_forms.publish(app.stream.state, id)
@@ -211,7 +221,7 @@ func _show_short_forms() -> void:
 			else:
 				_modal_feedback(result)
 		)
-		publish.disabled = app.stream.state.fatigue + definition.fatigue_cost > 100.0 or app.stream.state.money < definition.money_cost
+		publish.disabled = not has_source or app.stream.state.fatigue + definition.fatigue_cost > 100.0 or app.stream.state.money < definition.money_cost
 		modal_body.add_child(publish)
 
 func _show_moves(collab_only: bool) -> void:
@@ -249,7 +259,7 @@ func _show_collaborations() -> void:
 	if app.stream.phase == StreamService.Phase.SUMMARY:
 		return
 	_open_modal("collaborations", "КОЛЛАБОРАЦИИ")
-	modal_body.add_child(SasaUI.label("Авторы здесь вымышлены. Отношения и шансы — игровые значения.", &"small", &"MutedLabel"))
+	modal_body.add_child(SasaUI.label("Шансы и отношения являются игровыми. Размер канала основан на сохранённом снимке данных.", &"small", &"MutedLabel"))
 	if app.stream.state.is_streaming:
 		modal_body.add_child(SasaUI.label("Предлагайте коллаб между эфирами."))
 	for id: String in app.collaborations.candidates(app.stream.state):
@@ -391,20 +401,50 @@ func _show_locations() -> void:
 	for id: String in app.catalog.locations:
 		var location: LocationDefinition = app.catalog.locations[id] as LocationDefinition
 		modal_body.add_child(SasaUI.label(location.display_name + "\n" + location.description, &"body", &"MutedLabel"))
-		var button: Button = SasaUI.button("Выбрать", func() -> void:
-			app.stream.state.current_location_id = id
-			app.stream.changed.emit()
-			_show_locations())
-		button.disabled = app.stream.state.is_streaming or app.stream.state.current_location_id == id
+		var button: Button = SasaUI.button("Выбрать" if location.scene != null else "СКОРО", func() -> void: _select_location(id))
+		button.disabled = app.stream.state.is_streaming or location.scene == null or app.stream.state.current_location_id == id
 		modal_body.add_child(button)
+
+func _select_location(id: String) -> void:
+	var result: OperationResult = app.stream.select_location(id)
+	if result.success:
+		_close_modal()
+	else:
+		_modal_feedback(result)
+
+func _present_location(state: PlayerState) -> void:
+	if state.current_location_id != _location_id:
+		var definition: LocationDefinition = app.catalog.locations.get(state.current_location_id)
+		if definition != null and definition.scene != null:
+			var container: Control = %LocationContainer
+			container.remove_child(room)
+			room.queue_free()
+			room = definition.scene.instantiate() as RoomView
+			container.add_child(room)
+			room.tapped.connect(_room_tapped)
+			_location_id = state.current_location_id
+	room.present(state)
 
 func _show_achievements() -> void:
 	app.achievements.evaluate(app.stream.state)
 	_open_modal("achievements", "ДОСТИЖЕНИЯ")
-	for id: String in app.catalog.achievements:
-		var item: AchievementDefinition = app.catalog.achievements[id] as AchievementDefinition
-		var unlocked: bool = id in app.stream.state.unlocked_achievements
-		modal_body.add_child(SasaUI.label((item.display_name if unlocked or not item.secret else "???") + "\n" + (item.description if unlocked or not item.secret else "Секретное достижение"), &"body", &"SuccessLabel" if unlocked else &"MutedLabel"))
+	achievement_detail = SasaUI.label("Нажмите узел, чтобы увидеть цель и прогресс. Прокручивайте дерево по горизонтали и вертикали.", &"small", &"MutedLabel")
+	modal_body.add_child(achievement_detail)
+	var scroll: ScrollContainer = ScrollContainer.new()
+	scroll.custom_minimum_size.y = 350
+	modal_body.add_child(scroll)
+	achievement_tree = AchievementTree.new()
+	scroll.add_child(achievement_tree)
+	achievement_tree.setup(app.catalog, app.stream.state)
+	achievement_tree.selected.connect(_achievement_selected)
+
+func _achievement_selected(id: String) -> void:
+	var item: AchievementDefinition = app.catalog.achievements[id]
+	var unlocked: bool = id in app.stream.state.unlocked_achievements
+	if item.secret and not unlocked:
+		achievement_detail.text = "? — Секретное достижение"
+	else:
+		achievement_detail.text = "%s\n%s\n%s" % [item.display_name, item.description, "Выполнено ✓" if unlocked else "%d / %d" % [mini(item.threshold, app.achievements._value(app.stream.state, item.metric)), item.threshold]]
 
 func _show_interior() -> void:
 	_open_modal("interior", "ИНТЕРЬЕР")

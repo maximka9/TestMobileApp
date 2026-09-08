@@ -3,6 +3,9 @@
 [resource]
 script = ExtResource("1")
 id = "room_complete"
+graph_position = Vector2(760, 155)
+parent_ids = PackedStringArray("aquarium")
+tier = 1
 display_name = "Полный интерьер"
 category = "Комната"
 description = "Полный интерьер · цель: 4"

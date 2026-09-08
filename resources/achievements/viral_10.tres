@@ -3,6 +3,9 @@
 [resource]
 script = ExtResource("1")
 id = "viral_10"
+graph_position = Vector2(575, 155)
+parent_ids = PackedStringArray("viral_post")
+tier = 1
 display_name = "Вирусный автор"
 category = "Контент"
 description = "Вирусный автор · цель: 10"

@@ -3,6 +3,9 @@
 [resource]
 script = ExtResource("1")
 id = "first_cosplay"
+graph_position = Vector2(575, 560)
+parent_ids = PackedStringArray("first_irl")
+tier = 2
 display_name = "Новый образ"
 category = "Контент"
 description = "Новый образ · цель: 1"

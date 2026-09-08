@@ -19,11 +19,15 @@ func publish(state: PlayerState, id: String) -> OperationResult:
 	var definition: ShortFormDefinition = catalog.short_forms[id] as ShortFormDefinition
 	if definition == null or definition.fatigue_cost < 0 or definition.money_cost < 0:
 		return OperationResult.fail(&"INVALID_ARGUMENT")
+	var source_index: int = ContentSourceService.find(state, definition.source_tags)
+	if source_index < 0:
+		return OperationResult.fail(&"NO_SOURCE", "Нет материала. " + definition.source_hint)
 	if state.money < definition.money_cost:
 		return OperationResult.fail(&"NOT_ENOUGH_MONEY", "Не хватает монет")
 	if state.fatigue + definition.fatigue_cost > 100.0:
 		return OperationResult.fail(&"TOO_TIRED", "Слишком высокая усталость для ролика")
 	state.money -= definition.money_cost
+	state.content_sources[source_index]["consumed"] = true
 	state.fatigue = minf(100.0, state.fatigue + definition.fatigue_cost)
 	var novelty: float = _novelty(state, id)
 	var viral: float = _viral_chance(state, definition, novelty)

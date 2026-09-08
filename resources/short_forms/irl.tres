@@ -3,6 +3,8 @@
 [resource]
 script = ExtResource("1")
 id = "irl"
+source_tags = PackedStringArray("irl")
+source_hint = "Сначала проведите IRL-эфир."
 display_name = "IRL"
 base_viral_chance = 1.8
 fatigue_cost = 12.0

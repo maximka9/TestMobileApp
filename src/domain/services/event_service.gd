@@ -9,6 +9,7 @@ var social: SocialService
 var pending: ActionDefinition
 var next_at: int = 0
 var processing_ms: float = 0.0
+var clock: Callable = func() -> int: return int(Time.get_unix_time_from_system())
 
 func _init(content: ContentCatalog, rng: RandomProvider, game_config: GameConfig, move_service: MoveService) -> void:
 	catalog = content
@@ -56,6 +57,8 @@ func resolve(state: PlayerState, accept: bool, now: int, stream: StreamType) -> 
 			result = moves.apply_action(state, scaled, now)
 		if result.success:
 			social.change(state, pending.social_author_id, pending.reputation_delta, pending.relationship_delta)
+			if not pending.content_source_tag.is_empty():
+				ContentSourceService.create(state, pending.content_source_tag, int(clock.call()))
 	if result.success:
 		schedule(now)
 	return result

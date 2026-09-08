@@ -14,8 +14,10 @@ var room_items: Dictionary = {}
 var homes: Dictionary = {}
 const STREAMER_CATALOG_PATH: String = "res://resources/streamers/streamers.json"
 const MAX_STREAMERS: int = 500
+var streamer_path: String
 
-func _init() -> void:
+func _init(snapshot_path: String = STREAMER_CATALOG_PATH) -> void:
+	streamer_path = snapshot_path
 	_load_folder("res://resources/stream_types", streams)
 	_load_folder("res://resources/upgrades", upgrades)
 	_load_folder("res://resources/moves", moves)
@@ -37,7 +39,7 @@ func _load_folder(path: String, target: Dictionary) -> void:
 
 func _load_streamer_catalog() -> void:
 	streamers.clear()
-	var parsed: Variant = JSON.parse_string(FileAccess.get_file_as_string(STREAMER_CATALOG_PATH))
+	var parsed: Variant = JSON.parse_string(FileAccess.get_file_as_string(streamer_path))
 	if not parsed is Dictionary or not parsed.get("profiles") is Array:
 		push_error("SASAclicker streamer catalog is invalid")
 		return
@@ -56,6 +58,11 @@ func _load_streamer_catalog() -> void:
 func _streamer_from(value: Variant) -> StreamerDefinition:
 	if not value is Dictionary:
 		return null
+	if streamer_path == STREAMER_CATALOG_PATH:
+		if not value.get("source") is String or not str(value["source"]).begins_with("https://") or not value.get("source_checked_at") is String or str(value["source_checked_at"]).length() != 10 or value.get("is_placeholder") != false:
+			return null
+		if str(value.get("id", "")).begins_with("fixture_") or str(value.get("id", "")).begins_with("catalog_") or value.get("region") == "fictional":
+			return null
 	for key: String in ["id", "display_name", "region", "language"]:
 		if not value.get(key) is String or str(value[key]).strip_edges().is_empty() or str(value[key]).length() > 64:
 			return null
@@ -66,6 +73,9 @@ func _streamer_from(value: Variant) -> StreamerDefinition:
 		return null
 	var profile: StreamerDefinition = StreamerDefinition.new()
 	profile.id = value["id"]
+	profile.source = str(value.get("source", "test fixture"))
+	profile.source_checked_at = str(value.get("source_checked_at", ""))
+	profile.is_placeholder = bool(value.get("is_placeholder", streamer_path != STREAMER_CATALOG_PATH))
 	profile.display_name = value["display_name"]
 	profile.reach_tier = int(value["reach_tier"])
 	profile.reference_avg_viewers = int(value["reference_avg_viewers"])

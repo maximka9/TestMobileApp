@@ -25,6 +25,9 @@ var _viewer_sum: int = 0
 var _peak: int = 0
 var _earned: int = 0
 var _clicks: int = 0
+var _xp_fraction: float = 0.0
+var _session_xp: int = 0
+var clock: Callable = func() -> int: return int(Time.get_unix_time_from_system())
 var _best_event: String = "—"
 var _best_score: float = -1.0
 
@@ -52,6 +55,14 @@ func select_content(id: String) -> OperationResult:
 func current_content() -> StreamType:
 	return catalog.streams.get(state.current_stream_type_id) as StreamType
 
+func select_location(id: String) -> OperationResult:
+	var location: LocationDefinition = catalog.locations.get(id) as LocationDefinition
+	if phase != Phase.OFFLINE or location == null or location.scene == null or state.level < location.required_level:
+		return OperationResult.fail(&"LOCATION_UNAVAILABLE", "Локация пока недоступна")
+	state.current_location_id = id
+	changed.emit()
+	return OperationResult.new()
+
 func select_cosplay(id: String) -> OperationResult:
 	if phase != Phase.OFFLINE or (not id.is_empty() and not catalog.cosplays.has(id)):
 		return OperationResult.fail(&"INVALID_ARGUMENT")
@@ -65,6 +76,9 @@ func start() -> OperationResult:
 	if state.fatigue >= config.exhaustion_threshold:
 		return OperationResult.fail(&"EXHAUSTED", "Вы устали. Отдохните перед следующим эфиром.")
 	var content: StreamType = current_content()
+	var location: LocationDefinition = catalog.locations.get(state.current_location_id)
+	if location == null or not state.current_stream_type_id in location.allowed_stream_types:
+		return OperationResult.fail(&"LOCATION_REQUIRED", "Смените локацию для этого формата")
 	if not content.required_location_id.is_empty() and state.current_location_id != content.required_location_id:
 		return OperationResult.fail(&"LOCATION_REQUIRED", "Для этого формата нужна локация: Кухня")
 	var cosplay: CosplayDefinition = catalog.cosplays.get(state.selected_cosplay_id) as CosplayDefinition
@@ -87,6 +101,9 @@ func start() -> OperationResult:
 	_peak = 0
 	_earned = 0
 	_clicks = 0
+	_xp_fraction = 0.0
+	_session_xp = 0
+	state.fatigue_recovery_seconds = 0
 	_best_event = "—"
 	_best_score = -1.0
 	summary.clear()
@@ -100,8 +117,12 @@ func click() -> OperationResult:
 	if phase != Phase.STREAMING:
 		return OperationResult.fail(&"NOT_STREAMING", "Выберите игру и начните эфир")
 	var gain: float = state.click_power * float(upgrades.stats(state)["hype_gain"]) * career.efficiency(state)
+	_xp_fraction += config.high_hype_xp_multiplier if state.hype >= config.high_hype_xp_threshold else 1.0
+	var awarded: int = int(floor(_xp_fraction + 0.000001))
+	_xp_fraction -= awarded
+	_session_xp += awarded
 	state.hype = minf(config.hype_max, state.hype + gain)
-	progression.add_xp(state, 1)
+	progression.add_xp(state, awarded)
 	state.total_clicks += 1
 	_clicks += 1
 	changed.emit()
@@ -116,7 +137,7 @@ func tick() -> void:
 	career.exert(state, state.current_stream_type_id, config.tick_seconds)
 	state.hype = maxf(0.0, state.hype - config.hype_decay)
 	var values: Dictionary = upgrades.stats(state)
-	var target: float = career.audience(state, current_content().viewer_multiplier * (1.0 + state.hype / config.hype_divisor) * moves.multiplier(elapsed) * float(values["viewers"]) * stream_novelty * career.efficiency(state) * (1.0 + state.growth_momentum * config.momentum_audience_factor))
+	var target: float = career.audience(state, current_content().viewer_multiplier * (1.0 + state.hype / config.hype_divisor) * moves.multiplier(elapsed) * float(values["viewers"]) * stream_novelty * career.viewer_efficiency(state) * (1.0 + state.growth_momentum * config.momentum_audience_factor))
 	_viewers_float = lerpf(_viewers_float, target, config.viewer_smoothing)
 	state.viewers = maxi(0, int(round(_viewers_float)))
 	_peak = maxi(_peak, state.viewers)
@@ -163,7 +184,8 @@ func finish() -> OperationResult:
 	state.is_streaming = false
 	state.total_streams += 1
 	phase = Phase.SUMMARY
-	summary = {"seconds": elapsed, "peak": _peak, "average": float(_viewer_sum) / maxi(1, elapsed), "money": _earned, "xp": _clicks, "clicks": _clicks, "best_event": _best_event}
+	summary = {"seconds": elapsed, "peak": _peak, "average": float(_viewer_sum) / maxi(1, elapsed), "money": _earned, "xp": _session_xp, "clicks": _clicks, "best_event": _best_event}
+	ContentSourceService.create(state, state.current_stream_type_id, int(clock.call()))
 	summary["followers"] = career.complete(state, summary, stream_novelty, int(Time.get_unix_time_from_system()))
 	state.growth_momentum *= config.momentum_stream_decay
 	events.pending = null

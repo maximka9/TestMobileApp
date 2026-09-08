@@ -40,8 +40,9 @@ func apply_action(state: PlayerState, definition: ActionDefinition, now: int) ->
 	if state.energy < energy_cost:
 		return OperationResult.fail(&"NOT_ENOUGH_ENERGY", "Не хватает энергии. Отдохните между эфирами")
 	state.money += definition.money_gain - definition.money_cost
+	var effective_hype: float = definition.hype_gain * CareerService.new(config).efficiency(state)
 	state.energy -= energy_cost
-	state.hype = clampf(state.hype + definition.hype_gain, 0.0, config.hype_max)
+	state.hype = clampf(state.hype + effective_hype, 0.0, config.hype_max)
 	if definition.duration > 0:
 		effects[definition.id] = {"until": now + definition.duration, "multiplier": definition.viewer_multiplier}
 	return OperationResult.new(true, &"SUCCESS", definition.title, {"money_gain": definition.money_gain})

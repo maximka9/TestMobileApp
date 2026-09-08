@@ -21,6 +21,7 @@ func _test_career_save() -> void:
 
 func _test_integration_save() -> void:
 	_fixture()
+	saves.clock = func() -> int: return 1000
 	state.money = 10000
 	state.followers = 1500
 	state.career_tier = 2

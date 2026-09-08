@@ -1,7 +1,10 @@
-[gd_resource type="Resource" script_class="LocationDefinition" load_steps=2 format=3]
+[gd_resource type="Resource" script_class="LocationDefinition" load_steps=3 format=3]
 [ext_resource type="Script" path="res://src/domain/models/location_definition.gd" id="1"]
+[ext_resource type="PackedScene" path="res://src/features/stream/scenes/room_view.tscn" id="scene"]
 [resource]
 script = ExtResource("1")
 id = "streamer_room"
+scene = ExtResource("scene")
+allowed_stream_types = PackedStringArray("just_chatting", "dota_2", "irl")
 display_name = "Комната стримера"
 description = "Основная студия для эфиров."

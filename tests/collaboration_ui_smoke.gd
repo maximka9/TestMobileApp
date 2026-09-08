@@ -10,6 +10,7 @@ func _run() -> void:
 	await process_frame
 	await process_frame
 	game.app.set_process(false)
+	game.app.catalog.streamers = ContentCatalog.new("res://tests/fixtures/streamers.json").streamers
 	game.app.collaborations.random = ScriptedRandomProvider.new([0])
 	game.app.collaborations.clock = func() -> int: return 1000
 	DirAccess.make_dir_recursive_absolute(ProjectSettings.globalize_path(OUTPUT))

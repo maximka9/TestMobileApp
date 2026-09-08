@@ -3,6 +3,9 @@
 [resource]
 script = ExtResource("1")
 id = "followers_1000"
+graph_position = Vector2(20, 155)
+parent_ids = PackedStringArray("followers_100")
+tier = 1
 display_name = "Тысяча своих"
 category = "Карьера"
 description = "Тысяча своих · цель: 1000"

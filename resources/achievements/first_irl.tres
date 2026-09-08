@@ -3,6 +3,9 @@
 [resource]
 script = ExtResource("1")
 id = "first_irl"
+graph_position = Vector2(575, 425)
+parent_ids = PackedStringArray("first_cooking")
+tier = 2
 display_name = "За пределами комнаты"
 category = "Контент"
 description = "За пределами комнаты · цель: 1"

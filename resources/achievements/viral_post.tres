@@ -3,6 +3,9 @@
 [resource]
 script = ExtResource("1")
 id = "viral_post"
+graph_position = Vector2(575, 20)
+parent_ids = PackedStringArray("followers_100")
+tier = 0
 display_name = "Залетело"
 category = "Контент"
 description = "Сделайте вирусный короткий ролик."

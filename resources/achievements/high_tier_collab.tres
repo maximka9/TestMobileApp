@@ -3,6 +3,9 @@
 [resource]
 script = ExtResource("1")
 id = "high_tier_collab"
+graph_position = Vector2(390, 290)
+parent_ids = PackedStringArray("collabs_10")
+tier = 1
 display_name = "На большой сцене"
 category = "Коллабы"
 description = "На большой сцене · цель: 1"

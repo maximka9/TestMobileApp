@@ -8,6 +8,10 @@ var money: int = 0
 var viewers: int = 0
 var hype: float = 0.0
 var fatigue: float = 0.0
+var fatigue_updated_at: int = 0
+var fatigue_recovery_seconds: float = 0.0
+var content_sources: Array[Dictionary] = []
+var source_sequence: int = 0
 ## Compatibility view for existing move costs; fatigue is the only stored meter.
 var energy: float:
 	get:

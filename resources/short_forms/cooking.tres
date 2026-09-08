@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ShortFormDefinition" load_steps=2 format=3]
+[ext_resource type="Script" path="res://src/domain/models/short_form_definition.gd" id="1"]
+[resource]
+script = ExtResource("1")
+id = "cooking"
+display_name = "Готовка"
+base_viral_chance = 1.5
+fatigue_cost = 8.0
+source_tags = PackedStringArray("cooking")
+source_hint = "Сначала проведите кулинарный эфир."

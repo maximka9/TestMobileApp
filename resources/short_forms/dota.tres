@@ -3,6 +3,8 @@
 [resource]
 script = ExtResource("1")
 id = "dota"
+source_tags = PackedStringArray("dota_2")
+source_hint = "Сначала проведите Dota-эфир."
 display_name = "Dota"
 base_viral_chance = 1.0
 fatigue_cost = 8.0

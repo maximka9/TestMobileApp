@@ -10,3 +10,6 @@ extends Resource
 @export var base_acceptance: float = 0.5
 @export var region: String = "fictional"
 @export var language: String = "ru"
+@export var source: String = ""
+@export var source_checked_at: String = ""
+@export var is_placeholder: bool = false

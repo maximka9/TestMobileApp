@@ -23,14 +23,14 @@ function Invoke-SasaCheck([string[]]$Arguments) {
 Invoke-SasaCheck @('--headless', '--editor', '--path', $sasaRoot, '--quit')
 Invoke-SasaCheck @('--headless', '--path', $sasaRoot, '--script', 'tests/test_runner.gd')
 Invoke-SasaCheck @('--headless', '--path', $sasaRoot, '--script', 'tests/career_phase9.gd')
-foreach ($sasaPhase in @('career_phase1', 'career_phase2', 'career_phase3', 'career_phase4a', 'career_phase4b')) {
+foreach ($sasaPhase in @('career_phase1', 'career_phase2', 'career_phase3', 'career_phase4a', 'career_phase4b', 'v05_systems')) {
     Invoke-SasaCheck @('--headless', '--path', $sasaRoot, '--script', "tests/$sasaPhase.gd")
 }
 $sasaTag = [DateTimeOffset]::UtcNow.ToUnixTimeMilliseconds().ToString()
 Invoke-SasaCheck @('--headless', '--path', $sasaRoot, '--script', 'tests/restart_probe.gd', '--', 'write', $sasaTag)
 Invoke-SasaCheck @('--headless', '--path', $sasaRoot, '--script', 'tests/restart_probe.gd', '--', 'read', $sasaTag)
 if ($Visual) {
-    foreach ($sasaSmoke in @('typography_smoke', 'collaboration_ui_smoke', 'career_final_smoke')) {
+    foreach ($sasaSmoke in @('typography_smoke', 'collaboration_ui_smoke', 'career_final_smoke', 'v05_ui_smoke')) {
         Invoke-SasaCheck @('--path', $sasaRoot, '--script', "tests/$sasaSmoke.gd")
     }
     Invoke-SasaCheck @('--path', $sasaRoot, '--script', 'tests/visual_smoke.gd', '--resolution', '360x640')

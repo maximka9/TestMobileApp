@@ -3,6 +3,9 @@
 [resource]
 script = ExtResource("1")
 id = "peak_50000"
+graph_position = Vector2(205, 425)
+parent_ids = PackedStringArray("peak_10000")
+tier = 2
 display_name = "Главный эфир"
 category = "Онлайн"
 description = "Главный эфир · цель: 50000"

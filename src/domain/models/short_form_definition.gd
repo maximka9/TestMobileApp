@@ -8,3 +8,5 @@ extends Resource
 @export var money_cost: int = 0
 @export_range(0.0, 1000.0) var follower_multiplier: float = 1.0
 @export var tags: PackedStringArray = []
+@export var source_tags: PackedStringArray = ["just_chatting"]
+@export var source_hint: String = "Сначала проведите разговорный эфир."

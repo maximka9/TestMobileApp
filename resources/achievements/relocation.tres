@@ -3,6 +3,9 @@
 [resource]
 script = ExtResource("1")
 id = "relocation"
+graph_position = Vector2(760, 290)
+parent_ids = PackedStringArray("room_complete")
+tier = 1
 display_name = "Новоселье"
 category = "Комната"
 description = "Новоселье · цель: 1"

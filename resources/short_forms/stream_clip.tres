@@ -3,6 +3,8 @@
 [resource]
 script = ExtResource("1")
 id = "stream_clip"
+source_tags = PackedStringArray("just_chatting", "dota_2", "irl", "cooking")
+source_hint = "Сначала завершите эфир."
 display_name = "Клип со стрима"
 base_viral_chance = 2.4
 fatigue_cost = 10.0

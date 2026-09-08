@@ -16,7 +16,10 @@ func _service(sequence: Array[int]) -> void:
 func _test_short_forms() -> void:
 	_fixture()
 	_service([9999, 0])
-	check(catalog.short_forms.size() == 7 and catalog.short_forms["stream_clip"] is ShortFormDefinition, "Seven data-driven short-form definitions load")
+	check(catalog.short_forms.size() == 8 and catalog.short_forms["stream_clip"] is ShortFormDefinition, "Eight data-driven short-form definitions load")
+	ContentSourceService.create(state, "just_chatting", 1000)
+	ContentSourceService.create(state, "just_chatting", 1001)
+	ContentSourceService.create(state, "irl", 1002)
 	state.fatigue = 10
 	var before: int = state.followers
 	var result: OperationResult = shorts.publish(state, "meme")
@@ -45,6 +48,7 @@ func _test_short_forms() -> void:
 	state.followers = 1000000000
 	state.growth_momentum = 100
 	_service([9999])
+	ContentSourceService.create(state, "just_chatting", 1000)
 	result = shorts.publish(state, "stream_clip")
 	check(float(result.context["viral_chance"]) <= 3 and float(result.context["viral_chance"]) < 100, "Configurable viral cap prevents guaranteed outcomes")
 	_fixture()
@@ -53,11 +57,14 @@ func _test_short_forms() -> void:
 	var one: PlayerState = PlayerState.new()
 	var two: PlayerState = PlayerState.new()
 	for i: int in range(8):
+		ContentSourceService.create(one, "just_chatting", 1000 + i)
+		ContentSourceService.create(two, "just_chatting", 1000 + i)
 		check(a.publish(one, "reaction").context["outcome"] == b.publish(two, "reaction").context["outcome"], "Seeded short outcomes reproducible %d" % i)
 
 func _test_short_save() -> void:
 	_fixture()
 	_service([0])
+	ContentSourceService.create(state, "just_chatting", 1000)
 	shorts.publish(state, "meme")
 	var document: Dictionary = saves.serialize(state)
 	var result: OperationResult = saves.deserialize(JSON.parse_string(JSON.stringify(document)))

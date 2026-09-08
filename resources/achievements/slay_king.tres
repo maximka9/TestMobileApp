@@ -3,6 +3,9 @@
 [resource]
 script = ExtResource("1")
 id = "slay_king"
+graph_position = Vector2(390, 730)
+parent_ids = PackedStringArray("followers_1000000", "peak_50000", "high_tier_collab", "first_cosplay", "relocation")
+tier = 3
 display_name = "SLAY KING"
 category = "Секретные"
 description = "Станьте легендой платформы."

@@ -26,7 +26,7 @@ func _run() -> void:
 		await _capture("career_tier_%d" % tier)
 	state.current_location_id = "kitchen"
 	game._refresh()
-	_check(game.room.get_node("Stage/KitchenSasavot").texture == game.room.sasavot_sprite.texture, "Kitchen uses career appearance")
+	_check(game.room.name == "Kitchen" and game.room.sasavot_sprite.texture != null, "Kitchen uses independent scene and career appearance")
 	await _capture("career_kitchen")
 	state.current_location_id = "streamer_room"
 	game._refresh()

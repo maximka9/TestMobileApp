@@ -1,7 +1,7 @@
 class_name SaveService
 extends RefCounted
 ## Versioned codec with strict field validation and safe defaults on corruption.
-const VERSION: int = 8
+const VERSION: int = 9
 const MAX_COUNTER: int = 1000000000000
 var repository: SaveRepository
 var logger: ILogger
@@ -19,6 +19,13 @@ func _init(save_repository: SaveRepository, game_logger: ILogger, content: Conte
 	upgrades = upgrade_service
 
 func serialize(state: PlayerState) -> Dictionary:
+	var document: Dictionary = _serialize_base(state)
+	if document.is_empty():
+		return document
+	document["player"].merge({"fatigue_updated_at": document["timestamp"], "fatigue_recovery_seconds": state.fatigue_recovery_seconds, "content_sources": state.content_sources.duplicate(true), "source_sequence": state.source_sequence})
+	return document
+
+func _serialize_base(state: PlayerState) -> Dictionary:
 	if state == null:
 		return {}
 	return {"version": VERSION, "timestamp": int(clock.call()), "player": {"selected_cosplay_id": state.selected_cosplay_id, "cosplay_streams": state.cosplay_streams, "viral_posts": state.viral_posts, "high_tier_collabs": state.high_tier_collabs, "career_tier": state.career_tier, "unlocked_achievements": state.unlocked_achievements.duplicate(), "owned_room_items": state.owned_room_items.duplicate(), "owned_homes": state.owned_homes.duplicate(), "completed_collabs": state.completed_collabs, "collab_cooldowns": state.collab_cooldowns.duplicate(), "reputation": state.reputation, "relationships": state.relationships.duplicate(true), "social_requests": state.social_requests.duplicate(true), "level": state.level, "xp": state.xp, "money": state.money, "fatigue": state.fatigue, "followers": state.followers, "average_online": state.average_online, "lifetime_peak_viewers": state.lifetime_peak_viewers, "lifetime_followers_gained": state.lifetime_followers_gained, "stream_history": state.stream_history.duplicate(true), "last_stream_types": state.last_stream_types.duplicate(), "growth_momentum": state.growth_momentum, "short_form_history": state.short_form_history.duplicate(), "current_location_id": state.current_location_id, "current_home_id": state.current_home_id, "was_streaming": state.is_streaming, "current_stream_type_id": state.current_stream_type_id, "total_clicks": state.total_clicks, "total_streams": state.total_streams, "upgrades": state.upgrades.duplicate(true), "settings": state.settings.duplicate(true)}}
@@ -50,6 +57,12 @@ func deserialize(document: Dictionary) -> OperationResult:
 		return OperationResult.fail(&"CORRUPT_SAVE")
 	if version >= 6 and not _read_v04(data, state):
 		return OperationResult.fail(&"CORRUPT_SAVE")
+	state.fatigue_updated_at = int(document["timestamp"])
+	if version >= 9 and not _read_v05(data, state):
+		return OperationResult.fail(&"CORRUPT_SAVE")
+	var location: LocationDefinition = catalog.locations.get(state.current_location_id)
+	if location == null or location.scene == null:
+		state.current_location_id = "streamer_room"
 	state.current_stream_type_id = data["current_stream_type_id"] if catalog.streams.has(data["current_stream_type_id"]) else "just_chatting"
 	for id: Variant in data["upgrades"]:
 		if not id is String:
@@ -78,6 +91,29 @@ func _read_collabs(data: Dictionary, state: PlayerState) -> bool:
 			return false
 		state.collab_cooldowns[id] = int(data["collab_cooldowns"][id])
 	state.completed_collabs = int(data["completed_collabs"])
+	return true
+
+func _read_v05(data: Dictionary, state: PlayerState) -> bool:
+	if not _integer(data.get("fatigue_updated_at"), 0, MAX_COUNTER) or not _integer(data.get("source_sequence"), 0, MAX_COUNTER) or not _number(data.get("fatigue_recovery_seconds"), 0, 59.999999):
+		return false
+	if not data.get("content_sources") is Array or data["content_sources"].size() > 4096:
+		return false
+	var ids: Dictionary = {}
+	for source: Variant in data["content_sources"]:
+		if not source is Dictionary or not _integer(source.get("id"), 1, int(data["source_sequence"])) or not _integer(source.get("created_at"), 0, MAX_COUNTER):
+			return false
+		if ids.has(source["id"]) or not source.get("consumed") is bool or not source.get("source_stream_id") is String or not source.get("tags") is Array:
+			return false
+		if source["tags"].is_empty() or source["tags"].size() > 8 or source["source_stream_id"].length() > 64:
+			return false
+		for tag: Variant in source["tags"]:
+			if not tag is String or tag.is_empty() or tag.length() > 64:
+				return false
+		ids[source["id"]] = true
+		state.content_sources.append(source.duplicate(true))
+	state.source_sequence = int(data["source_sequence"])
+	state.fatigue_updated_at = int(data["fatigue_updated_at"])
+	state.fatigue_recovery_seconds = float(data["fatigue_recovery_seconds"])
 	return true
 
 func _read_v04(data: Dictionary, state: PlayerState) -> bool:
@@ -175,7 +211,7 @@ func load_player() -> PlayerState:
 	if result.success:
 		var player: PlayerState = result.context["state"] as PlayerState
 		if not bool(result.context["was_streaming"]):
-			CareerService.new(upgrades.config).recover_offline(player, int(result.context["saved_at"]), int(clock.call()))
+			CareerService.new(upgrades.config).recover_offline(player, player.fatigue_updated_at, int(clock.call()))
 		return player
 	if result.error_code != &"NOT_FOUND":
 		recovered = true
