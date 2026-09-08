@@ -95,3 +95,25 @@ extends Resource
 @export var collab_relationship_gain: float = 5.0
 @export var collab_momentum_gain: float = 10.0
 @export var collab_response_delay: float = 0.8
+
+@export_group("Audience and collaborations 0.6")
+@export var audience_anchors: PackedVector2Array = [Vector2(100, 4), Vector2(1000, 25), Vector2(10000, 120), Vector2(100000, 700), Vector2(500000, 3500), Vector2(1000000, 6500), Vector2(2000000, 12000), Vector2(5000000, 28000)]
+@export var audience_tail_exponent: float = 0.65
+@export var hype_anchors: PackedVector2Array = [Vector2(0, 0.7), Vector2(25, 0.85), Vector2(50, 1), Vector2(75, 1.15), Vector2(95, 1.35), Vector2(100, 1.5)]
+@export var stream_variance_min: float = 0.85
+@export var stream_variance_max: float = 1.15
+@export var short_minimum_gains: PackedFloat32Array = [0, 5, 15, 50, 150]
+@export var short_follower_percentages: PackedFloat32Array = [0, 0.01, 0.03, 0.1, 0.3]
+@export var short_views_per_follower: PackedInt32Array = [0, 70, 120, 250, 400]
+@export var collab_minimum_gain: float = 12
+@export var collab_follower_percentage: float = 0.02
+@export var collab_fatigue_cost: float = 8
+@export var collab_viewer_boost: float = 0.3
+@export var collab_boost_streams: int = 3
+@export var collab_refresh_seconds: int = 120
+@export var collab_recent_limit: int = 30
+@export var inbound_check_seconds: int = 120
+@export var inbound_expiry_seconds: int = 1200
+@export var inbound_base_chance: float = 0.04
+@export var inbound_chance_cap: float = 0.6
+@export var inbound_min_stream_seconds: int = 30

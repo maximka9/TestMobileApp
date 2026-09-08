@@ -1,7 +1,7 @@
 class_name SaveService
 extends RefCounted
 ## Versioned codec with strict field validation and safe defaults on corruption.
-const VERSION: int = 9
+const VERSION: int = 10
 const MAX_COUNTER: int = 1000000000000
 var repository: SaveRepository
 var logger: ILogger
@@ -23,6 +23,9 @@ func serialize(state: PlayerState) -> Dictionary:
 	if document.is_empty():
 		return document
 	document["player"].merge({"fatigue_updated_at": document["timestamp"], "fatigue_recovery_seconds": state.fatigue_recovery_seconds, "content_sources": state.content_sources.duplicate(true), "source_sequence": state.source_sequence})
+	for key: String in ["collab_candidate_refresh_at", "collab_candidate_ids", "recent_candidate_ids", "incoming_collab_queue", "inbound_next_check_at", "collab_momentum", "collab_momentum_streams", "audience_curve_version"]:
+		var value: Variant = state.get(key)
+		document["player"][key] = value.duplicate(true) if value is Array else value
 	return document
 
 func _serialize_base(state: PlayerState) -> Dictionary:
@@ -59,6 +62,8 @@ func deserialize(document: Dictionary) -> OperationResult:
 		return OperationResult.fail(&"CORRUPT_SAVE")
 	state.fatigue_updated_at = int(document["timestamp"])
 	if version >= 9 and not _read_v05(data, state):
+		return OperationResult.fail(&"CORRUPT_SAVE")
+	if version >= 10 and not _read_v06(data, state):
 		return OperationResult.fail(&"CORRUPT_SAVE")
 	var location: LocationDefinition = catalog.locations.get(state.current_location_id)
 	if location == null or location.scene == null:
@@ -114,6 +119,33 @@ func _read_v05(data: Dictionary, state: PlayerState) -> bool:
 	state.source_sequence = int(data["source_sequence"])
 	state.fatigue_updated_at = int(data["fatigue_updated_at"])
 	state.fatigue_recovery_seconds = float(data["fatigue_recovery_seconds"])
+	return true
+
+func _read_v06(data: Dictionary, state: PlayerState) -> bool:
+	for key: String in ["collab_candidate_refresh_at", "inbound_next_check_at", "collab_momentum_streams", "audience_curve_version"]:
+		if not _integer(data.get(key), 0, 100 if key in ["collab_momentum_streams", "audience_curve_version"] else MAX_COUNTER):
+			return false
+		state.set(key, int(data[key]))
+	if not _number(data.get("collab_momentum"), 0, 1):
+		return false
+	state.collab_momentum = float(data["collab_momentum"])
+	for key: String in ["collab_candidate_ids", "recent_candidate_ids"]:
+		if not data.get(key) is Array or data[key].size() > (10 if key == "collab_candidate_ids" else 30):
+			return false
+		for id: Variant in data[key]:
+			if not id is String or id.is_empty() or id.length() > 64 or id in state.get(key):
+				return false
+			if catalog.streamers.has(id):
+				state.get(key).append(id)
+	if not data.get("incoming_collab_queue") is Array or data["incoming_collab_queue"].size() > 1:
+		return false
+	for invite: Variant in data["incoming_collab_queue"]:
+		if not invite is Dictionary or not invite.get("creator_id") is String or not invite.get("format") is String or not invite.get("accepted") is bool:
+			return false
+		if not _integer(invite.get("created_at"), 0, MAX_COUNTER) or not _integer(invite.get("expires_at"), int(invite["created_at"]), MAX_COUNTER):
+			return false
+		if catalog.streamers.has(invite["creator_id"]) and catalog.streams.has(invite["format"]):
+			state.incoming_collab_queue.append(invite.duplicate(true))
 	return true
 
 func _read_v04(data: Dictionary, state: PlayerState) -> bool:

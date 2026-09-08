@@ -36,6 +36,7 @@ func _test_candidates() -> void:
 	for id: String in catalog.streamers.keys():
 		if id != "fixture_01":
 			catalog.streamers.erase(id)
+	state.collab_candidate_refresh_at = 0
 	check(collabs.candidates(state).size() == 1, "Small dataset degrades gracefully without duplicates")
 	check(not "cooking" in collabs.formats("fixture_01"), "Unavailable formats excluded")
 
@@ -75,16 +76,16 @@ func _test_requests() -> void:
 	result = collabs.request(state, "fixture_20", "just_chatting")
 	check(result.context["accepted"] and state.followers > before and state.completed_collabs == 1, "Successful collab grants followers once")
 	check(state.followers - before <= config.collab_follower_cap and state.followers - before < 80000, "Success does not transfer creator audience")
-	check(state.reputation > 50 and state.relationships["fixture_20"] > 0 and state.growth_momentum > 0, "Success grants social growth and momentum")
+	check(state.reputation > 50 and state.relationships["fixture_20"] > 0 and state.collab_momentum > 0, "Success grants social growth and momentum")
 	before = state.followers
 	collabs.request(state, "fixture_20", "just_chatting")
 	check(state.followers == before and state.completed_collabs == 1, "Rapid duplicate success blocked")
-	var boost: float = state.growth_momentum
+	var boost: float = state.collab_momentum
 	stream.start()
 	check(collabs.request(state, "fixture_01", "just_chatting").error_code == &"BUSY_STREAMING", "Requests restricted to offline")
 	stream.tick()
 	stream.finish()
-	check(state.growth_momentum < boost, "Collab momentum decays through existing stream lifecycle")
+	check(state.collab_momentum < boost, "Collab momentum decays through existing stream lifecycle")
 	_setup()
 	var a: CollaborationService = CollaborationService.new(catalog, config, RandomProvider.new(88))
 	var b: CollaborationService = CollaborationService.new(catalog, config, RandomProvider.new(88))

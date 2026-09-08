@@ -124,7 +124,7 @@ func _test_stream() -> void:
 	stream.start()
 	for i: int in range(200):
 		stream.tick()
-	check(state.viewers == 17, "Float viewer accumulator converges without integer stalling")
+	check(absf(state.viewers - stream.target_viewers()) <= 1, "Float viewer accumulator converges without integer stalling")
 
 func _test_upgrades() -> void:
 	_fixture()

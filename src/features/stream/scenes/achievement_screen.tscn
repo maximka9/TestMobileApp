@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3]
+[ext_resource type="Script" path="res://src/features/stream/ui/achievement_pan.gd" id="pan"]
+[node name="AchievementScreen" type="VBoxContainer"]
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 8
+[node name="Progress" type="Label" parent="."]
+layout_mode = 2
+theme_type_variation = &"SmallLabel"
+[node name="Hint" type="Label" parent="."]
+layout_mode = 2
+theme_type_variation = &"CaptionLabel"
+text = "Тяните поле ↔ ↕ · нажмите на достижение"
+autowrap_mode = 3
+[node name="Pan" type="ScrollContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("pan")

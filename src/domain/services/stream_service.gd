@@ -28,6 +28,9 @@ var _clicks: int = 0
 var _xp_fraction: float = 0.0
 var _session_xp: int = 0
 var clock: Callable = func() -> int: return int(Time.get_unix_time_from_system())
+var random: RandomProvider = RandomProvider.new()
+var stream_variance: float = 1.0
+var inbound: InboundCollabService
 var _best_event: String = "—"
 var _best_score: float = -1.0
 
@@ -92,6 +95,7 @@ func start() -> OperationResult:
 	if cosplay != null:
 		stream_novelty *= 1.0 + cosplay.novelty_bonus
 	phase = Phase.STREAMING
+	stream_variance = lerpf(config.stream_variance_min, config.stream_variance_max, random.between(0, 10000) / 10000.0)
 	state.is_streaming = true
 	state.viewers = 0
 	state.hype = 0.0
@@ -137,7 +141,7 @@ func tick() -> void:
 	career.exert(state, state.current_stream_type_id, config.tick_seconds)
 	state.hype = maxf(0.0, state.hype - config.hype_decay)
 	var values: Dictionary = upgrades.stats(state)
-	var target: float = career.audience(state, current_content().viewer_multiplier * (1.0 + state.hype / config.hype_divisor) * moves.multiplier(elapsed) * float(values["viewers"]) * stream_novelty * career.viewer_efficiency(state) * (1.0 + state.growth_momentum * config.momentum_audience_factor))
+	var target: float = target_viewers()
 	_viewers_float = lerpf(_viewers_float, target, config.viewer_smoothing)
 	state.viewers = maxi(0, int(round(_viewers_float)))
 	_peak = maxi(_peak, state.viewers)
@@ -158,6 +162,10 @@ func perform_move(id: String) -> OperationResult:
 	if result.success:
 		changed.emit()
 	return result
+
+func target_viewers() -> float:
+	var boost: float = 1.0 + state.collab_momentum if state.collab_momentum_streams > 0 else 1.0
+	return career.audience(state, current_content().viewer_multiplier * AudienceCurve.hype_multiplier(state.hype, config) * moves.multiplier(elapsed) * float(upgrades.stats(state)["viewers"]) * stream_novelty * career.viewer_efficiency(state) * boost * (1.0 + state.growth_momentum * config.momentum_audience_factor) * stream_variance)
 
 func resolve_event(accept: bool) -> OperationResult:
 	var definition: ActionDefinition = events.pending
@@ -186,7 +194,13 @@ func finish() -> OperationResult:
 	phase = Phase.SUMMARY
 	summary = {"seconds": elapsed, "peak": _peak, "average": float(_viewer_sum) / maxi(1, elapsed), "money": _earned, "xp": _session_xp, "clicks": _clicks, "best_event": _best_event}
 	ContentSourceService.create(state, state.current_stream_type_id, int(clock.call()))
-	summary["followers"] = career.complete(state, summary, stream_novelty, int(Time.get_unix_time_from_system()))
+	if state.collab_momentum_streams > 0:
+		state.collab_momentum_streams -= 1
+		state.collab_momentum *= 0.7
+		if state.collab_momentum_streams == 0:
+			state.collab_momentum = 0
+	summary["followers"] = inbound.complete(state, state.current_stream_type_id, elapsed) if inbound != null else 0
+	career.complete(state, summary, stream_novelty, int(clock.call()))
 	state.growth_momentum *= config.momentum_stream_decay
 	events.pending = null
 	moves.reset()

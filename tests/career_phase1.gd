@@ -39,7 +39,7 @@ func _test_fatigue_and_reach() -> void:
 	var large: float = stream.career.audience(state, 1)
 	check(large > small and large < small * 100, "Audience growth is sublinear")
 	state.followers = 1000000000000
-	check(stream.career.audience(state, 100000) < config.audience_soft_cap, "Audience soft cap bounds huge channels")
+	check(stream.career.audience(state, 100000) <= config.audience_soft_cap * config.audience_multiplier_cap, "Audience soft cap bounds huge channels")
 	_fixture()
 	stream.start()
 	for i: int in range(180):
@@ -65,7 +65,7 @@ func _test_history_and_novelty() -> void:
 		stream.career.complete(state, {"average": i * 10.0, "seconds": 100, "peak": i * 20, "money": i}, 1.0, i)
 	check(state.stream_history.size() == 3 and state.last_stream_types.size() == 2, "History and novelty memory are bounded")
 	check(state.average_online == 35 and state.lifetime_peak_viewers == 80, "Rolling average uses recent completed streams")
-	check(state.followers > 30 and state.lifetime_followers_gained == state.followers - 30, "Followers accumulate persistently")
+	check(state.followers == 30 and state.lifetime_followers_gained == 0, "Ordinary stream history does not mint followers")
 	_fixture()
 	stream.start()
 	stream.tick()

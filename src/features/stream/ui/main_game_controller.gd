@@ -6,6 +6,9 @@ var app: AppBootstrap
 var _location_id: String = "streamer_room"
 var achievement_tree: AchievementTree
 var achievement_detail: Label
+var achievement_popup: PopupPanel
+var collab_timer_label: Label
+var _shown_candidate_ids: Array[String] = []
 @onready var header: Label = %Header
 @onready var viewers_label: Label = %ViewersValue
 @onready var money_label: Label = %MoneyValue
@@ -44,7 +47,6 @@ func configure(bootstrap: AppBootstrap) -> void:
 	app.queue.completed.connect(_save_completed)
 	room.tapped.connect(_room_tapped)
 	primary.pressed.connect(_primary_pressed)
-	(%GamesButton as Button).pressed.connect(_show_games)
 	(%ContentButton as Button).pressed.connect(_show_short_forms)
 	(%CollabButton as Button).pressed.connect(_show_collaborations)
 	(%MovesButton as Button).pressed.connect(func() -> void: _show_moves(false))
@@ -99,6 +101,13 @@ func _refresh() -> void:
 	primary.text = "Завершить эфир" if state.is_streaming else "НАЧАТЬ ЭФИР"
 	primary.disabled = app.stream.phase == StreamService.Phase.SUMMARY
 	_present_location(state)
+	(%CollabButton as Button).text = "Коллаб !" if not app.inbound.current(state).is_empty() else "Коллаб"
+	if modal_kind == "collaborations":
+		var candidates: Array[String] = app.collaborations.candidates(state)
+		if candidates != _shown_candidate_ids:
+			_show_collaborations()
+		elif is_instance_valid(collab_timer_label):
+			collab_timer_label.text = "Новые предложения через " + _time(maxi(0, state.collab_candidate_refresh_at - int(app.collaborations.clock.call())))
 	if modal_kind == "moves" or modal_kind == "collab":
 		for child: Node in modal_body.get_children():
 			if child is Label and child.has_meta("cooldown_id"):
@@ -125,6 +134,7 @@ func _primary_pressed() -> void:
 		_show_games()
 
 func _open_modal(kind: String, title_text: String) -> void:
+	modal_scroll.vertical_scroll_mode = ScrollContainer.SCROLL_MODE_AUTO
 	modal_kind = kind
 	modal_title.text = title_text
 	for child: Node in modal_body.get_children():
@@ -136,6 +146,11 @@ func _open_modal(kind: String, title_text: String) -> void:
 
 func _close_modal() -> void:
 	if _collab_waiting:
+		return
+	if is_instance_valid(achievement_popup):
+		achievement_popup.hide()
+	if modal_kind in ["collab_formats", "collab_offer"]:
+		_show_collaborations()
 		return
 	if modal_kind == "summary":
 		app.stream.continue_to_room()
@@ -216,8 +231,11 @@ func _show_short_forms() -> void:
 		var publish: Button = SasaUI.button("Опубликовать", func() -> void:
 			var result: OperationResult = app.short_forms.publish(app.stream.state, id)
 			if result.success:
-				_show_short_forms()
-				_modal_feedback(result)
+				app.queue.request_save()
+				_refresh()
+				_open_modal("short_result", "РОЛИК ЗАЛЕТЕЛ" if int(result.context["outcome"]) > 0 else "НЕ ЗАЛЕТЕЛ")
+				modal_body.add_child(SasaUI.label("%s\nПросмотры: %d\nНовые подписчики: +%d\nУсталость: +%d" % [result.message, result.context["views"], result.context["followers"], int(result.context["fatigue"])], &"body"))
+				modal_body.add_child(SasaUI.button("К контенту", _show_short_forms))
 			else:
 				_modal_feedback(result)
 		)
@@ -260,24 +278,50 @@ func _show_collaborations() -> void:
 		return
 	_open_modal("collaborations", "КОЛЛАБОРАЦИИ")
 	modal_body.add_child(SasaUI.label("Шансы и отношения являются игровыми. Размер канала основан на сохранённом снимке данных.", &"small", &"MutedLabel"))
+	collab_timer_label = SasaUI.label("Новые предложения через " + _time(app.config.collab_refresh_seconds), &"small", &"MutedLabel")
+	modal_body.add_child(collab_timer_label)
+	if not app.inbound.current(app.stream.state).is_empty():
+		modal_body.add_child(SasaUI.button("Входящее приглашение", _show_incoming))
 	if app.stream.state.is_streaming:
 		modal_body.add_child(SasaUI.label("Предлагайте коллаб между эфирами."))
-	for id: String in app.collaborations.candidates(app.stream.state):
-		var author: StreamerDefinition = app.catalog.streamers[id]
+	_shown_candidate_ids = app.collaborations.candidates(app.stream.state)
+	app.queue.request_save()
+	for id: String in _shown_candidate_ids:
+		var author: StreamerDefinition = app.collaborations.profile(id)
 		modal_body.add_child(SasaUI.label(author.display_name, &"heading", &"AccentLabel"))
-		modal_body.add_child(SasaUI.label("Уровень канала: %d · отношения: %+.0f" % [author.reach_tier + 1, app.collaborations.social.relationship(app.stream.state, id)], &"small", &"MutedLabel"))
+		modal_body.add_child(SasaUI.label("Размер по онлайну: %s · отношения: %+.0f\nСредний онлайн снимка: ≈%d\nДанные: %s" % [app.collaborations.size_label(id), app.collaborations.social.relationship(app.stream.state, id), author.reference_avg_viewers, author.source_checked_at], &"small", &"MutedLabel"))
 		var button: Button = SasaUI.button("Выбрать формат", func() -> void: _show_collab_formats(id))
 		button.disabled = app.stream.state.is_streaming
 		modal_body.add_child(button)
 
+func _show_incoming() -> void:
+	var invite: Dictionary = app.inbound.current(app.stream.state)
+	if invite.is_empty():
+		_show_collaborations()
+		return
+	var id: String = invite["creator_id"]
+	_open_modal("incoming", "ПРЕДЛОЖЕНИЕ КОЛЛАБА")
+	modal_body.add_child(SasaUI.label("%s предлагает %s\nРазмер по онлайну: %s\nОтношения: %+.0f" % [app.collaborations.profile(id).display_name, app.catalog.streams[invite["format"]].title, app.collaborations.size_label(id), app.collaborations.social.relationship(app.stream.state, id)], &"body"))
+	if invite["accepted"]:
+		modal_body.add_child(SasaUI.label("Принято. Проведите эфир этого формата не менее %d с. Осталось: %s" % [app.config.inbound_min_stream_seconds, _time(maxi(0, int(invite["expires_at"]) - int(app.inbound.clock.call())))], &"body"))
+	else:
+		for accept: bool in [true, false]:
+			var button: Button = SasaUI.button("Принять" if accept else "Отказаться", func() -> void:
+				var result: OperationResult = app.inbound.respond(app.stream.state, accept)
+				app.queue.request_save()
+				_show_incoming() if result.success and accept else _show_collaborations()
+				_modal_feedback(result))
+			button.disabled = app.stream.state.is_streaming
+			modal_body.add_child(button)
+
 func _show_collab_formats(id: String) -> void:
-	var author: StreamerDefinition = app.catalog.streamers[id]
+	var author: StreamerDefinition = app.collaborations.profile(id)
 	_open_modal("collab_formats", author.display_name)
 	for format: String in app.collaborations.formats(id):
 		modal_body.add_child(SasaUI.button(app.catalog.streams[format].title, func() -> void: _show_collab_offer(id, format)))
 
 func _show_collab_offer(id: String, format: String) -> void:
-	_open_modal("collab_offer", app.catalog.streamers[id].display_name)
+	_open_modal("collab_offer", app.collaborations.profile(id).display_name)
 	modal_body.add_child(SasaUI.label(app.catalog.streams[format].title, &"heading", &"AccentLabel"))
 	modal_body.add_child(SasaUI.label("Шанс: " + app.collaborations.label(app.collaborations.chance(app.stream.state, id, format))))
 	modal_body.add_child(SasaUI.label(app.collaborations.reasons(app.stream.state, id, format), &"small", &"MutedLabel"))
@@ -428,23 +472,40 @@ func _present_location(state: PlayerState) -> void:
 func _show_achievements() -> void:
 	app.achievements.evaluate(app.stream.state)
 	_open_modal("achievements", "ДОСТИЖЕНИЯ")
-	achievement_detail = SasaUI.label("Нажмите узел, чтобы увидеть цель и прогресс. Прокручивайте дерево по горизонтали и вертикали.", &"small", &"MutedLabel")
-	modal_body.add_child(achievement_detail)
-	var scroll: ScrollContainer = ScrollContainer.new()
-	scroll.custom_minimum_size.y = 350
-	modal_body.add_child(scroll)
+	modal_scroll.vertical_scroll_mode = ScrollContainer.SCROLL_MODE_SHOW_NEVER
+	var screen: VBoxContainer = preload("res://src/features/stream/scenes/achievement_screen.tscn").instantiate()
+	screen.custom_minimum_size.y = modal_scroll.custom_minimum_size.y
+	modal_body.add_child(screen)
+	(screen.get_node("Progress") as Label).text = "%d / %d" % [app.stream.state.unlocked_achievements.size(), app.catalog.achievements.size()]
+	var scroll: AchievementPan = screen.get_node("Pan")
 	achievement_tree = AchievementTree.new()
 	scroll.add_child(achievement_tree)
 	achievement_tree.setup(app.catalog, app.stream.state)
 	achievement_tree.selected.connect(_achievement_selected)
+	var focus: String = app.stream.state.unlocked_achievements.back() if not app.stream.state.unlocked_achievements.is_empty() else "followers_100"
+	if not achievement_tree.buttons.has(focus):
+		focus = "followers_100"
+	scroll.focus_node.call_deferred(achievement_tree.buttons[focus])
 
 func _achievement_selected(id: String) -> void:
+	if is_instance_valid(achievement_popup):
+		achievement_popup.queue_free()
+	achievement_popup = PopupPanel.new()
+	add_child(achievement_popup)
+	var card: VBoxContainer = VBoxContainer.new()
+	achievement_popup.add_child(card)
+	achievement_detail = SasaUI.label("", &"body")
+	achievement_detail.custom_minimum_size = Vector2(240, 0)
+	card.add_child(achievement_detail)
+	card.add_child(SasaUI.button("Закрыть", func() -> void: achievement_popup.hide()))
 	var item: AchievementDefinition = app.catalog.achievements[id]
 	var unlocked: bool = id in app.stream.state.unlocked_achievements
 	if item.secret and not unlocked:
 		achievement_detail.text = "? — Секретное достижение"
 	else:
 		achievement_detail.text = "%s\n%s\n%s" % [item.display_name, item.description, "Выполнено ✓" if unlocked else "%d / %d" % [mini(item.threshold, app.achievements._value(app.stream.state, item.metric)), item.threshold]]
+	achievement_detail.text += "\nНаграда: отметка достижения (без XP и монет)"
+	achievement_popup.popup_centered(Vector2i(280, 240))
 
 func _show_interior() -> void:
 	_open_modal("interior", "ИНТЕРЬЕР")

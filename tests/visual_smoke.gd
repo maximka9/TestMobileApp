@@ -125,7 +125,7 @@ func _check_layout(resolution: Vector2i) -> void:
 	_check((game.get_node("%Backdrop") as Control).get_global_rect().is_equal_approx(viewport_rect), "Backdrop fills viewport at " + str(resolution))
 	var projected_size: Vector2 = root.get_screen_transform().get_scale() * game.size
 	_check(projected_size.distance_to(Vector2(root.size)) < 3.0, "Viewport fills physical window without letterbox at " + str(resolution))
-	for button_name: String in ["PrimaryButton", "GamesButton", "ContentButton", "CollabButton", "MovesButton", "UpgradesButton", "SettingsButton"]:
+	for button_name: String in ["PrimaryButton", "ContentButton", "CollabButton", "MovesButton", "UpgradesButton", "SettingsButton"]:
 		var button: Button = game.get_node("%" + button_name) as Button
 		_check(button.size.x >= 48.0 and button.size.y >= 48.0, "48-unit target: " + button_name)
 	if game.safe_insets_override.x >= 0:

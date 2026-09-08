@@ -1,5 +1,19 @@
 # Changelog
 
+## 0.6.0 — 2026-09-09
+
+- Add configured follower-driven audience curve, seeded stream variance and central
+  content/collaboration follower rewards, separate from XP.
+- Add saved, expiring incoming collaborations and free completion rewards, fatigue,
+  cooldowns and a three-stream viewer boost.
+- Rotate ten mixed-size candidates every 120 seconds with recent-history avoidance;
+  preserve open profiles and use a local directory repository adapter.
+- Show short-form views/followers/fatigue results and honest snapshot audience labels.
+- Remove duplicate Games navigation; add achievement drag/touch/wheel navigation,
+  hidden scrollbars, computed bounds, progress header and node detail cards.
+- Migrate schema 9 saves to schema 10 while retaining career state.
+
+
 ## 0.5.1 — 2026-09-09
 
 - Complete YOUNG/CURRENT/SUCCESSFUL appearance with shared mapping for room and

@@ -53,14 +53,10 @@ func novelty(player: PlayerState, content_id: String) -> float:
 	return config.novelty_penalties[clampi(repeats - variety, 0, config.novelty_penalties.size() - 1)]
 
 func audience(player: PlayerState, multiplier: float) -> float:
-	var reach: float = config.audience_scale * pow(float(maxi(0, player.followers)), config.audience_exponent)
-	var bounded: float = reach * clampf(multiplier, 0.0, config.audience_multiplier_cap)
-	return config.audience_soft_cap * bounded / (config.audience_soft_cap + bounded)
+	return AudienceCurve.baseline(player.followers, config) * clampf(multiplier, 0.0, config.audience_multiplier_cap)
 
 func complete(player: PlayerState, summary: Dictionary, stream_novelty: float, timestamp: int) -> int:
-	var gain: int = mini(config.follower_gain_cap, maxi(0, int(float(summary["average"]) * int(summary["seconds"]) * config.follower_conversion * stream_novelty)))
-	player.followers += gain
-	player.lifetime_followers_gained += gain
+	var gain: int = int(summary.get("followers", 0))
 	player.lifetime_peak_viewers = maxi(player.lifetime_peak_viewers, int(summary["peak"]))
 	player.stream_history.append({"stream_type": player.current_stream_type_id, "location": player.current_location_id, "duration": int(summary["seconds"]), "average_viewers": float(summary["average"]), "peak_viewers": int(summary["peak"]), "followers_gained": gain, "money_gained": int(summary["money"]), "novelty": stream_novelty, "timestamp": timestamp})
 	while player.stream_history.size() > config.history_limit:

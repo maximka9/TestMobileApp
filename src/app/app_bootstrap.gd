@@ -11,6 +11,7 @@ var moves: MoveService
 var events: EventService
 var short_forms: ShortFormService
 var collaborations: CollaborationService
+var inbound: InboundCollabService
 var achievements: AchievementService
 var room_customization: RoomCustomizationService
 var saves: SaveService
@@ -46,12 +47,14 @@ func _ready() -> void:
 	events = EventService.new(catalog, RandomProvider.new(), config, moves)
 	short_forms = ShortFormService.new(catalog, config, RandomProvider.new())
 	collaborations = CollaborationService.new(catalog, config, RandomProvider.new())
+	inbound = InboundCollabService.new(collaborations, config, RandomProvider.new())
 	achievements = AchievementService.new(catalog)
 	room_customization = RoomCustomizationService.new(catalog)
 	saves = SaveService.new(repository_override if repository_override != null else FileSaveRepository.new(), logger, catalog, upgrades)
 	var state: PlayerState = saves.load_player()
 	queue = SaveJobQueue.new(saves, state, config)
 	stream = StreamService.new(state, catalog, config, progression, EconomyService.new(config, logger), upgrades, moves, events, logger)
+	stream.inbound = inbound
 	clicks = ClickHandler.new(stream)
 	metrics = GameMetrics.new(logger, config)
 	stream.changed.connect(queue.request_save)
@@ -86,6 +89,7 @@ func _process(delta: float) -> void:
 	if _tick_accumulator >= config.tick_seconds:
 		_tick_accumulator = fmod(_tick_accumulator, config.tick_seconds)
 		stream.tick()
+		inbound.poll(stream.state)
 	if _save_accumulator >= config.autosave_seconds:
 		_save_accumulator = 0.0
 		queue.request_save()

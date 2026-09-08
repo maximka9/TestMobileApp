@@ -25,6 +25,7 @@ func _test_candidate_use() -> void:
 	state.average_online = 40
 	var first: Array[String] = service.candidates(state)
 	state.average_online = 100000
+	state.collab_candidate_refresh_at = 0
 	var later: Array[String] = service.candidates(state)
 	check(first.size() == 10 and later.size() == 10 and first != later, "Large catalog selects candidates relative to career scale")
 	var completed: int = 0

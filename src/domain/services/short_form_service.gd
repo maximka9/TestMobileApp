@@ -33,15 +33,14 @@ func publish(state: PlayerState, id: String) -> OperationResult:
 	var viral: float = _viral_chance(state, definition, novelty)
 	var outcome: int = _outcome(viral)
 	var followers: int = _followers(state, definition, outcome, novelty)
-	state.followers += followers
+	FollowerGrowthService.new(config).award(state, followers)
 	if outcome >= 3:
 		state.viral_posts += 1
-	state.lifetime_followers_gained += followers
 	state.growth_momentum = clampf(state.growth_momentum + config.short_momentum_gains[outcome], 0.0, 100.0)
 	state.short_form_history.append(id)
 	while state.short_form_history.size() > config.short_history_limit:
 		state.short_form_history.pop_front()
-	return OperationResult.new(true, &"SUCCESS", OUTCOMES[outcome], {"outcome": outcome, "followers": followers, "viral_chance": viral, "novelty": novelty, "momentum": state.growth_momentum})
+	return OperationResult.new(true, &"SUCCESS", OUTCOMES[outcome], {"outcome": outcome, "followers": followers, "views": followers * config.short_views_per_follower[outcome], "fatigue": definition.fatigue_cost, "viral_chance": viral, "novelty": novelty, "momentum": state.growth_momentum})
 
 func _viral_chance(state: PlayerState, definition: ShortFormDefinition, novelty: float) -> float:
 	var baseline: float = maxf(1.0, float(config.starting_followers))
@@ -74,5 +73,4 @@ func _outcome(viral: float) -> int:
 	return 2
 
 func _followers(state: PlayerState, definition: ShortFormDefinition, outcome: int, novelty: float) -> int:
-	var base: float = maxf(1.0, pow(float(maxi(0, state.followers)), 0.55) * definition.follower_multiplier)
-	return mini(config.follower_gain_cap, maxi(0, int(round(base * config.short_outcome_multipliers[outcome] * novelty))))
+	return FollowerGrowthService.new(config).calculate_tiktok_gain(outcome, state.followers, state.reputation, novelty, definition.follower_multiplier)
