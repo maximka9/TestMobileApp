@@ -32,6 +32,7 @@ func _test_integration_save() -> void:
 	stream.continue_to_room()
 	check(state.stream_history[0]["novelty"] > 1, "Real cosplay session produces bonus novelty")
 	var interior: RoomCustomizationService = RoomCustomizationService.new(catalog)
+	state.level = 10 # Relocation now requires level as well as money and career tier.
 	check(interior.purchase_item(state, "aquarium").success and interior.purchase_home(state, "new_apartment").success, "Purchase inventory and relocate")
 	var social: SocialService = SocialService.new(config)
 	social.change(state, "fixture_01", 2, 5)

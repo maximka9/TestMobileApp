@@ -16,16 +16,26 @@ func purchase_item(state: PlayerState, id: String) -> OperationResult:
 	state.owned_room_items.append(id)
 	return OperationResult.new(true, &"SUCCESS", "Предмет добавлен в интерьер")
 
-func purchase_home(state: PlayerState, id: String) -> OperationResult:
+func home_availability(state: PlayerState, id: String) -> OperationResult:
 	var home: HomeDefinition = catalog.homes.get(id) as HomeDefinition
 	if home == null:
 		return OperationResult.fail(&"INVALID_ARGUMENT")
 	if id in state.owned_homes:
-		state.current_home_id = id
-		return OperationResult.new(true, &"SUCCESS", "Переезд завершён")
-	if state.career_tier < home.required_career_tier or state.money < home.price:
-		return OperationResult.fail(&"UNAVAILABLE", "Новое жильё пока недоступно")
-	state.money -= home.price
-	state.owned_homes.append(id)
+		return OperationResult.new()
+	if state.level < home.required_player_level:
+		return OperationResult.fail(&"LEVEL_LOCKED", "Нужен УР. %d" % home.required_player_level)
+	if state.career_tier < home.required_career_tier:
+		return OperationResult.fail(&"UNAVAILABLE", "Нужен тир карьеры %d" % home.required_career_tier)
+	if state.money < home.price:
+		return OperationResult.fail(&"NOT_ENOUGH_MONEY", "Не хватает монет")
+	return OperationResult.new()
+
+func purchase_home(state: PlayerState, id: String) -> OperationResult:
+	var available: OperationResult = home_availability(state, id)
+	if not available.success:
+		return available
+	if id not in state.owned_homes:
+		state.money -= catalog.homes[id].price
+		state.owned_homes.append(id)
 	state.current_home_id = id
-	return OperationResult.new(true, &"SUCCESS", "Новое жильё куплено")
+	return OperationResult.new(true, &"SUCCESS", "Переезд завершён")

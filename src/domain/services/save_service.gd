@@ -118,6 +118,8 @@ func _read_v05(data: Dictionary, state: PlayerState) -> bool:
 		for tag: Variant in source["tags"]:
 			if not tag is String or tag.is_empty() or tag.length() > 64:
 				return false
+		if not _number(source.get("source_stream_average_hype", 0.0), 0, 100):
+			return false
 		ids[source["id"]] = true
 		state.content_sources.append(source.duplicate(true))
 	state.source_sequence = int(data["source_sequence"])

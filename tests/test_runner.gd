@@ -97,7 +97,7 @@ func _test_stream() -> void:
 	check(stream.select_content("dota_2").success and stream.start().success, "Select and start stream")
 	check(not stream.start().success and not stream.select_content("irl").success, "Streaming state guards")
 	stream.click()
-	check(state.hype == 1.75 and state.xp == 1 and state.total_clicks == 1, "Click grants hype and XP")
+	check(is_equal_approx(state.hype, 0.7) and state.xp == 1 and state.total_clicks == 1, "Click grants hype and XP")
 	for i: int in range(150):
 		stream.click()
 	check(state.hype == 100.0, "Hype maximum")
@@ -137,7 +137,7 @@ func _test_upgrades() -> void:
 	for id: String in ["monitor", "camera", "chair", "internet"]:
 		check(upgrades.purchase(state, id).success, "Generic purchase: " + id)
 	var values: Dictionary = upgrades.stats(state)
-	check(is_equal_approx(values["income"], 1.1) and is_equal_approx(values["hype_gain"], 1.1) and values["max_energy"] == 110.0 and is_equal_approx(values["viewers"], 1.05), "All generic stat bonuses")
+	check(is_equal_approx(values["income"], 1.1) and is_equal_approx(values["click_xp_multiplier"], 1.1) and values["max_energy"] == 110.0 and is_equal_approx(values["viewers"], 1.05), "All generic stat bonuses")
 	state.upgrades["microphone"] = 30
 	check(upgrades.purchase(state, "microphone").error_code == &"MAX_LEVEL", "Upgrade level cap")
 

@@ -9,7 +9,7 @@ func _init(settings: GameConfig) -> void:
 	config = settings
 
 func expected_stream_gain(average_viewers: float, game_minutes: int, average_hype: float, novelty_multiplier: float, reputation: float) -> float:
-	var quality: float = clampf((average_hype - config.organic_min_hype) / (100.0 - config.organic_min_hype), 0, 1)
+	var quality: float = float(AudienceCurve.get_hype_modifiers(average_hype, config)["followers"])
 	var exposure: float = maxf(0, average_viewers) * clampi(game_minutes, 0, config.organic_duration_cap_minutes)
 	var reputation_factor: float = lerpf(config.social_reputation_factor_min, config.social_reputation_factor_max, clampf(reputation / 100.0, 0, 1))
 	var tier_factor: float = config.organic_tier_multipliers[clampi(career_tier, 0, config.organic_tier_multipliers.size() - 1)]

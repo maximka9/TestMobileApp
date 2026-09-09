@@ -4,7 +4,7 @@
 script = ExtResource("1")
 id = "camera"
 title = "Камера"
-description = "+10% хайпа за клик"
+description = "+10% к множителю XP за клик (до общего лимита)"
 base_cost = 25
-stat = "hype_gain"
+stat = "click_xp_multiplier"
 amount = 0.1

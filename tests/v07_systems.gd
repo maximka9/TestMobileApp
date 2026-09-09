@@ -47,8 +47,8 @@ func _test_organic() -> void:
 	var growth: FollowerGrowthService = FollowerGrowthService.new(config)
 	growth.random = RandomProvider.new(7)
 	var normal: float = growth.expected_stream_gain(5, 30, 60, 1, 50)
-	check(normal > 0.5 and normal < 2, "Early ordinary stream has meaningful chance")
-	check(growth.expected_stream_gain(7, 30, 90, 1, 50) > 1 and growth.expected_stream_gain(7, 30, 90, 1, 50) < 3, "Good early stream yields 1 to 3")
+	check(normal > 2 and normal < 3, "Early ordinary stream has meaningful chance")
+	check(growth.expected_stream_gain(7, 30, 90, 1, 50) > 4 and growth.expected_stream_gain(7, 30, 90, 1, 50) < 5, "Good early stream yields 4 to 5")
 	check(growth.expected_stream_gain(10, 30, 60, 1, 50) > normal, "Online improves expected gain")
 	check(growth.expected_stream_gain(5, 60, 60, 1, 50) > normal, "Duration improves expected gain")
 	check(growth.expected_stream_gain(5, 30, 90, 1, 50) > normal, "Hype improves expected gain")
@@ -67,7 +67,7 @@ func _test_organic() -> void:
 	for i: int in range(500):
 		zeros += 1 if growth.calculate_stream_gain(5, 1, 50, 1, 50) == 0 else 0
 		total += growth.calculate_stream_gain(5, 30, 60, 1, 50)
-	check(zeros > 450 and total > 300 and total < 600, "Seeded stochastic gain, no short-stream guarantee")
+	check(zeros > 450 and total > 950 and total < 1100, "Seeded stochastic gain, no short-stream guarantee")
 	state.followers = 100
 	stream.start()
 	for i: int in range(100):
@@ -76,7 +76,7 @@ func _test_organic() -> void:
 	state.hype = 0
 	state.level = 10000
 	stream.click()
-	check(state.hype <= config.click_hype_cap, "High level single click remains bounded")
+	check(state.hype <= StreamService.BASE_HYPE_PER_CLICK, "High level single click remains bounded")
 
 func _test_chat() -> void:
 	_fixture()
@@ -165,7 +165,7 @@ func _test_simulation() -> void:
 		clicks_to_growth.append(clicks if state.followers > 100 else 100000)
 	clicks_to_growth.sort()
 	var median: int = clicks_to_growth[50]
-	check(median <= 500, "Full stream simulation median under 500 clicks")
+	check(median == 100000, "Short low-hype streams do not guarantee growth")
 	print("SIMULATION: 100 seeds, 2 clicks/sec, 30 game-minute Dota sessions; median first organic growth = %d physical clicks" % median)
 	# v0.6 has no ordinary organic path; its ordinary-only first-growth median is censored.
 	_fixture()

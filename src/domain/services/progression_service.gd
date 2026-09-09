@@ -18,12 +18,12 @@ func add_xp(state: PlayerState, amount: int) -> OperationResult:
 		state.level += 1
 	return OperationResult.new()
 
-func click_xp(level: int, click_power: float, hype: float) -> float:
-	var multiplier: float = minf(config.click_xp_multiplier_cap, 1.0 + maxf(0, click_power - 1) * config.click_xp_power_factor)
-	return maxi(1, level) * multiplier * (config.high_hype_xp_multiplier if hype >= config.high_hype_xp_threshold else 1.0)
+func click_xp(level: int, click_power: float, hype: float, equipment_multiplier: float = 1.0) -> float:
+	var multiplier: float = minf(config.click_xp_multiplier_cap, (1.0 + maxf(0, click_power - 1) * config.click_xp_power_factor) * equipment_multiplier)
+	return maxi(1, level) * multiplier * float(AudienceCurve.get_hype_modifiers(hype, config)["xp"])
 
-func hype_mastery(level: int) -> float:
-	return 1.0 + minf(maxi(0, level - 1) * config.level_hype_factor, config.level_hype_bonus_cap)
+func hype_mastery(_level: int) -> float:
+	return 1.0
 
 func migrate_xp(level: int, old_xp: int) -> int:
 	var old_required: float = ceil(50.0 * pow(maxi(1, level), 1.5))

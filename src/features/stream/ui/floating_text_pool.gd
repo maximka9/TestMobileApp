@@ -35,7 +35,7 @@ func emit_amount(at: Vector2, amount: float, bounds: Vector2, reduced_motion: bo
 	_next = (_next + 1) % CAPACITY
 	total_emitted += 1
 	var label: Label = _labels[index]
-	label.text = ("+%s хайпа\n" % (str(int(amount)) if amount == floor(amount) else "%.1f" % amount) if amount > 0 else "") + "+%d XP" % xp
+	label.text = ("+%s хайпа\n" % (str(int(amount)) if amount == floor(amount) else "%.1f" % amount) if amount > 0 else "ХАЙП MAX\n") + "+%d XP" % xp
 	_origins[index] = Vector2(clampf(at.x - 14.0, 6.0, maxf(6.0, bounds.x - 155.0)), clampf(at.y - 22.0, 24.0, maxf(24.0, bounds.y - 60.0)))
 	label.position = _origins[index]
 	label.modulate.a = 1.0

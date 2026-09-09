@@ -26,7 +26,7 @@ func _test_curve() -> void:
 	state.hype = 50
 	var neutral: float = stream.target_viewers()
 	state.hype = 100
-	check(is_equal_approx(stream.target_viewers(), neutral * 1.5), "Hype applied once")
+	check(is_equal_approx(stream.target_viewers(), neutral * 2.0), "Hype applied once")
 	state.hype = 50
 	state.fatigue = 90
 	check(is_equal_approx(stream.target_viewers(), neutral * 0.7), "Viewer fatigue applied once")

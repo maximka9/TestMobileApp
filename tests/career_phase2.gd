@@ -26,10 +26,11 @@ func _test_short_forms() -> void:
 	check(result.success and result.message == "Не залетел" and state.fatigue == 15 and state.followers == before, "Failed post consumes fatigue without followers")
 	check(state.short_form_history == ["meme"], "Published short is remembered")
 	state.is_streaming = true
-	check(shorts.publish(state, "dota").error_code == &"BUSY_STREAMING", "Cannot publish during stream")
+	check(shorts.publish(state, "dota").error_code == &"LOCKED", "Cannot publish during stream")
 	state.is_streaming = false
 	state.fatigue = 98
-	check(shorts.publish(state, "meme").error_code == &"TOO_TIRED" and state.fatigue == 98, "Too-tired publish is atomic")
+	check(shorts.publish(state, "meme").success and state.fatigue == 100, "Existing material publishes at high fatigue and clamps")
+	ContentSourceService.create(state, "just_chatting", 1003)
 	state.money = 0
 	check(shorts.publish(state, "irl").error_code == &"NOT_ENOUGH_MONEY", "Money cost is enforced")
 	state.money = 100

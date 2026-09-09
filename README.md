@@ -1,11 +1,11 @@
 # SASAclicker
 
-Current version: **0.8.0**.
+Current version: **0.9.0**.
 
 Follower-driven audience, incoming collaborations and 120-second candidate rotation;
 achievement tree supports drag, touch and Shift+wheel without visible scrollbars.
 Organic stream followers, automatic locations, viewer-scaled chat and accelerated
-stream time. Save schema 11 preserves the level and migrates legacy XP progress. See [0.8 verification](docs/v0.8-verification.md).
+stream time. Save schema 11 preserves the level and migrates legacy XP progress. See [0.9 audit](docs/v0.9-audit.md) and [verification](docs/v0.9-verification.md).
 
 ## Gameplay systems
 

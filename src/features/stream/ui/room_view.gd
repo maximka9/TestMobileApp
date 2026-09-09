@@ -8,6 +8,7 @@ const CHAT_LIMIT: int = 5
 const STARTER_TEXTURE: Texture2D = preload("res://assets/characters/sasavot_frames.png")
 const APPEARANCE: CharacterAppearance = preload("res://resources/characters/appearance.tres")
 const CHAT_MESSAGES: PackedStringArray = ["жми жми", "ХАХАХ", "+", "КЛИП!", "погнали", "хорош", "KEKW", "это база"]
+const HOT_CHAT_MESSAGES: PackedStringArray = ["KEKW", "КЛИП!", "ХАХАХ"]
 const CHAT_COLORS: PackedStringArray = ["#e78f91", "#b9cbed", "#edb879", "#cdadc5"]
 
 var live: bool = false
@@ -228,6 +229,8 @@ func _refresh_live() -> void:
 
 func _push_chat(nickname: String = "viewer_52") -> void:
 	var message: String = CHAT_MESSAGES[chat_index % CHAT_MESSAGES.size()]
+	if hype >= 70 and chat.random.between(0, 99) < hype:
+		message = HOT_CHAT_MESSAGES[chat.random.between(0, HOT_CHAT_MESSAGES.size() - 1)]
 	var color: String = CHAT_COLORS[chat_index % CHAT_COLORS.size()]
 	_chat_lines.append("[color=%s]%s[/color] [color=#dddce3]%s[/color]" % [color, nickname, message])
 	if _chat_lines.size() > CHAT_LIMIT:

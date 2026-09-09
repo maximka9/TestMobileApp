@@ -121,7 +121,7 @@ func _room_tapped(at: Vector2) -> void:
 	if result.success:
 		room.react(at, float(result.context["hype"]), int(result.context["xp"]))
 		if result.context["level"] > result.context["old_level"]:
-			_feedback("LEVEL UP! %d → %d · Сила клика +%.0f%%" % [result.context["old_level"], result.context["level"], result.context["mastery_gain"]])
+			_feedback("LEVEL UP! %d → %d · Улучшения до ур. %d" % [result.context["old_level"], result.context["level"], maxi(1, int(result.context["level"]) / 2)])
 			if not app.stream.state.settings.get("reduced_motion", false):
 				toast.modulate = Color(1.0, 0.65, 0.4)
 				create_tween().tween_property(toast, "modulate", Color.WHITE, 0.6)
@@ -199,9 +199,9 @@ func _show_short_forms() -> void:
 	for id: String in app.catalog.short_forms:
 		var definition: ShortFormDefinition = app.catalog.short_forms[id] as ShortFormDefinition
 		modal_body.add_child(SasaUI.label(definition.display_name, &"heading", &"AccentLabel"))
-		var has_source: bool = ContentSourceService.find(app.stream.state, definition.source_tags) >= 0
-		if not has_source:
-			modal_body.add_child(SasaUI.label("Нет материала. " + definition.source_hint, &"body", &"MutedLabel"))
+		var available: OperationResult = app.short_forms.availability(app.stream.state, id)
+		if not available.success:
+			modal_body.add_child(SasaUI.label(available.message, &"body", &"MutedLabel"))
 		modal_body.add_child(SasaUI.label("Усталость +%d%% · базовый шанс вирусности %.1f%%" % [int(definition.fatigue_cost), definition.base_viral_chance], &"small", &"MutedLabel"))
 		var publish: Button = SasaUI.button("Опубликовать", func() -> void:
 			var result: OperationResult = app.short_forms.publish(app.stream.state, id)
@@ -209,12 +209,12 @@ func _show_short_forms() -> void:
 				app.queue.request_save()
 				_refresh()
 				_open_modal("short_result", "РОЛИК ЗАЛЕТЕЛ" if int(result.context["outcome"]) > 0 else "НЕ ЗАЛЕТЕЛ")
-				modal_body.add_child(SasaUI.label("%s\nПросмотры: %d\nНовые подписчики: +%d\nУсталость: +%d" % [result.message, result.context["views"], result.context["followers"], int(result.context["fatigue"])], &"body"))
+				modal_body.add_child(SasaUI.label("%s\nПросмотры: %d\nНовые подписчики: +%d\nУсталость: %d%%" % [result.message, result.context["views"], result.context["followers"], int(result.context["final_fatigue"])], &"body"))
 				modal_body.add_child(SasaUI.button("К контенту", _show_short_forms))
 			else:
 				_modal_feedback(result)
 		)
-		publish.disabled = not has_source or app.stream.state.fatigue + definition.fatigue_cost > 100.0 or app.stream.state.money < definition.money_cost
+		publish.disabled = not available.success
 		modal_body.add_child(publish)
 
 func _show_moves(collab_only: bool) -> void:
@@ -375,7 +375,11 @@ func _show_upgrades() -> void:
 			modal_scroll.set_deferred("scroll_vertical", scroll)
 			_modal_feedback(result)
 		)
-		button.disabled = app.stream.state.level < definition.required_level or level >= definition.max_level or app.stream.state.money < app.upgrades.cost(app.stream.state, id)
+		var available: OperationResult = app.upgrades.availability(app.stream.state, id)
+		button.disabled = not available.success
+		modal_body.add_child(SasaUI.label("Следующий: %d · Нужен УР. %d" % [level + 1, app.upgrades.required_player_level(app.stream.state, id)], &"small", &"MutedLabel"))
+		if not available.success:
+			modal_body.add_child(SasaUI.label(available.message, &"small", &"MutedLabel"))
 		modal_body.add_child(button)
 
 func _event_arrived(definition: ActionDefinition) -> void:
@@ -505,11 +509,15 @@ func _show_interior() -> void:
 	for id: String in app.catalog.homes:
 		var home: HomeDefinition = app.catalog.homes[id] as HomeDefinition
 		modal_body.add_child(SasaUI.label("%s · %d монет · тир %d" % [home.display_name, home.price, home.required_career_tier], &"small", &"MutedLabel"))
+		modal_body.add_child(SasaUI.label("Нужен УР. %d · Ваш УР. %d" % [home.required_player_level, app.stream.state.level], &"small", &"MutedLabel"))
 		var move: Button = SasaUI.button("Переехать", func() -> void:
 			var result: OperationResult = app.room_customization.purchase_home(app.stream.state, id)
 			_show_interior()
 			_modal_feedback(result))
-		move.disabled = app.stream.state.current_home_id == id or (not id in app.stream.state.owned_homes and (app.stream.state.money < home.price or app.stream.state.career_tier < home.required_career_tier))
+		var available: OperationResult = app.room_customization.home_availability(app.stream.state, id)
+		move.disabled = app.stream.state.current_home_id == id or not available.success
+		if not available.success:
+			modal_body.add_child(SasaUI.label(available.message, &"small", &"MutedLabel"))
 		modal_body.add_child(move)
 
 func _show_social_profile() -> void:

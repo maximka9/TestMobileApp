@@ -31,8 +31,6 @@ extends Resource
 @export_range(0, 100) var starting_fatigue: float = 0.0
 @export var fatigue_rate: float = 0.04
 @export var fatigue_per_minute: Dictionary = {"just_chatting": 0.20, "dota_2": 0.24, "cooking": 0.30, "irl": 0.32}
-@export var high_hype_xp_threshold: float = 95.0
-@export var high_hype_xp_multiplier: float = 1.15
 @export var fatigue_viewer_steps: PackedFloat32Array = [60, 80, 90]
 @export var fatigue_viewer_efficiency: PackedFloat32Array = [1.0, 0.95, 0.85, 0.7]
 @export var exhaustion_threshold: float = 95.0
@@ -97,7 +95,7 @@ extends Resource
 @export_group("Audience and collaborations 0.6")
 @export var audience_anchors: PackedVector2Array = [Vector2(100, 4), Vector2(1000, 25), Vector2(10000, 120), Vector2(100000, 700), Vector2(500000, 3500), Vector2(1000000, 6500), Vector2(2000000, 12000), Vector2(5000000, 28000)]
 @export var audience_tail_exponent: float = 0.65
-@export var hype_anchors: PackedVector2Array = [Vector2(0, 0.7), Vector2(25, 0.85), Vector2(50, 1), Vector2(75, 1.15), Vector2(95, 1.35), Vector2(100, 1.5)]
+@export var hype_anchors: PackedVector2Array = [Vector2(0, 0.60), Vector2(25, 0.75), Vector2(50, 1), Vector2(70, 1.20), Vector2(85, 1.45), Vector2(95, 1.70), Vector2(100, 2.0)]
 @export var stream_variance_min: float = 0.85
 @export var stream_variance_max: float = 1.15
 @export var short_minimum_gains: PackedFloat32Array = [0, 5, 15, 50, 150]
@@ -117,10 +115,7 @@ extends Resource
 @export var inbound_min_stream_seconds: int = 30
 
 @export_group("Stream simulation 0.7")
-@export var click_hype_multiplier: float = 1.75
-@export var click_hype_cap: float = 8.0
 @export var organic_exposure_conversion: float = 0.012
-@export var organic_min_hype: float = 20.0
 @export var organic_duration_cap_minutes: int = 120
 @export var organic_gain_cap: float = 250.0
 @export var organic_tier_multipliers: PackedFloat32Array = [1.0, 1.0, 0.9, 0.8]
@@ -134,8 +129,9 @@ extends Resource
 @export_group("Progression 0.8")
 @export var click_xp_power_factor: float = 0.08
 @export var click_xp_multiplier_cap: float = 1.75
-@export var level_hype_factor: float = 0.03
-@export var level_hype_bonus_cap: float = 0.60
 @export var fatigue_recovery_per_real_minute: float = 10.0
 @export var cosplay_hype_gain: float = 12.0
 @export var cosplay_special_event_weight: int = 2
+
+@export var follower_hype_anchors: PackedVector2Array = [Vector2(0, 0), Vector2(20, 0), Vector2(30, 0.4), Vector2(50, 1), Vector2(70, 1.3), Vector2(85, 1.7), Vector2(95, 2.1), Vector2(100, 2.4)]
+@export var source_hype_viral_factor: float = 0.005

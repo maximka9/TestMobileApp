@@ -1,5 +1,22 @@
 # Changelog
 
+## [0.9.0]
+
+### Added
+- Player-level gates for equipment and relocation, preserving existing purchases.
+- Exact follower-growth formulas, fixed calculator scenarios and modal screenshots.
+
+### Changed
+- Ordinary click hype is fixed at 0.7; camera upgrades improve XP instead.
+- Central hype curves strengthen online, organic growth, XP and source viral chance.
+- Existing content can be published at any fatigue, clamped to 100 afterwards.
+
+### Fixed
+- Room monitor rendering above modal windows; modal theme retained across canvases.
+- Content availability messages share the service check and distinguish used sources.
+- Completed content captures its session format and average hype before reset.
+
+
 ## 0.8.0
 
 - Linear XP thresholds and level-based click XP, capped equipment bonuses and

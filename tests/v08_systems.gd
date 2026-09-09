@@ -19,7 +19,7 @@ func _test_balance() -> void:
 			var clicks: int = int(ceil(progression.required_xp(level) / xp))
 			print("BALANCE | %d | %d | %d | %.2f | %d | %d" % [level, power, progression.required_xp(level), xp, clicks, int(ceil(progression.required_xp(level) / high))])
 			check(clicks == 100 if power == 1 else clicks >= 20 and clicks < 100, "Configured clicks per level")
-			check(high <= level * config.click_xp_multiplier_cap * 1.15, "Late game XP cap")
+			check(high <= level * config.click_xp_multiplier_cap * 1.30, "Late game XP cap")
 			var measured: int = _simulate_clicks(level, power, 0)
 			var measured_high: int = _simulate_clicks(level, power, 95)
 			check(measured == clicks and measured_high == int(ceil(progression.required_xp(level) / high)), "Physical simulation matches normal and high-hype budget")
@@ -34,21 +34,21 @@ func _test_balance() -> void:
 		state.hype = 0
 		stream.click()
 		check(state.level == level + 1 and state.xp == 0, "100th physical click levels up")
-	check(progression.hype_mastery(10) > progression.hype_mastery(1), "Level increases hype mastery")
-	check(progression.hype_mastery(1000) <= 1 + config.level_hype_bonus_cap, "Mastery bounded")
+	check(progression.hype_mastery(10) == progression.hype_mastery(1), "Level does not increase hype mastery")
+	check(progression.hype_mastery(1000) <= 1.0, "Mastery bounded")
 	check(progression.click_xp(5, 3, 0) > progression.click_xp(5, 1, 0), "Equipment increases XP")
-	check(is_equal_approx(progression.click_xp(7, 1, 94.99), 7), "94.99 normal XP")
-	check(is_equal_approx(progression.click_xp(7, 1, 95), 8.05), "95 XP bonus")
-	check(is_equal_approx(progression.click_xp(7, 1, 100), 8.05), "100 XP bonus")
+	check(is_equal_approx(progression.click_xp(7, 1, 94.99), 8.4), "94.99 XP tier")
+	check(is_equal_approx(progression.click_xp(7, 1, 95), 9.1), "95 XP bonus")
+	check(is_equal_approx(progression.click_xp(7, 1, 100), 9.45), "100 XP bonus")
 
 func _test_click_feedback() -> void:
 	_fixture()
 	state.level = 7
 	state.click_power = 3
 	stream.start()
-	state.hype = 98
+	state.hype = 99.6
 	var result: OperationResult = stream.click()
-	check(result.context["hype"] == 2 and result.context["xp"] > 0, "Clamped click reports only actual hype plus XP")
+	check(is_equal_approx(result.context["hype"], 0.4) and result.context["xp"] > 0, "Clamped click reports only actual hype plus XP")
 	var before: int = state.xp
 	result = stream.click()
 	check(result.context["hype"] == 0 and state.hype == 100 and state.xp > before, "MAX hype has no fake gain but still awards XP")
@@ -56,7 +56,7 @@ func _test_click_feedback() -> void:
 	state.level = 5
 	state.xp = 499
 	result = stream.click()
-	check(result.context["old_level"] == 5 and result.context["level"] == 6 and result.context["mastery_gain"] > 0, "Level up feedback includes mastery change")
+	check(result.context["old_level"] == 5 and result.context["level"] == 6 and result.context["mastery_gain"] == 0, "Level up feedback does not increase hype mastery")
 
 func _test_recovery() -> void:
 	_fixture()

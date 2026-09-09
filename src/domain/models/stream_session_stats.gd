@@ -1,5 +1,6 @@
 class_name StreamSessionStats
 extends RefCounted
+var stream_type_id: String = "just_chatting"
 var viewer_sample_sum: float = 0
 var viewer_sample_count: int = 0
 var peak_viewers: int = 0

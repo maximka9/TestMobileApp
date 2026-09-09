@@ -6,3 +6,5 @@ id = "starter_home"
 display_name = "Первая квартира"
 room_scene = "res://src/features/stream/scenes/room_view.tscn"
 available_slots = PackedStringArray("WallLeft", "WallRight", "DeskLeft")
+
+required_player_level = 1

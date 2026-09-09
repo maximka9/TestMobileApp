@@ -42,6 +42,7 @@ layout_mode = 2
 theme_override_constants/separation = 5
 
 [node name="Brand" type="HBoxContainer" parent="SafeMargin/Layout"]
+z_index = 10
 layout_mode = 2
 custom_minimum_size = Vector2(0, 48)
 
@@ -67,6 +68,7 @@ theme_type_variation = &"Button"
 text = "•••"
 
 [node name="StatsPanel" type="PanelContainer" parent="SafeMargin/Layout"]
+z_index = 10
 unique_name_in_owner = true
 layout_mode = 2
 
@@ -170,6 +172,7 @@ theme_type_variation = &"EnergyBar"
 show_percentage = false
 
 [node name="Status" type="Label" parent="SafeMargin/Layout"]
+z_index = 10
 unique_name_in_owner = true
 layout_mode = 2
 text = "OFFLINE  /  Just Chatting  /  00:00"
@@ -188,6 +191,7 @@ unique_name_in_owner = true
 layout_mode = 2
 
 [node name="PrimaryButton" type="Button" parent="SafeMargin/Layout"]
+z_index = 10
 unique_name_in_owner = true
 layout_mode = 2
 custom_minimum_size = Vector2(48, 48)
@@ -196,6 +200,7 @@ theme_type_variation = &"AccentButton"
 text = "НАЧАТЬ ЭФИР"
 
 [node name="Navigation" type="HBoxContainer" parent="SafeMargin/Layout"]
+z_index = 10
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_constants/separation = 4
@@ -233,6 +238,7 @@ theme_type_variation = &"NavButton"
 text = "Улучшения"
 
 [node name="Footer" type="VBoxContainer" parent="SafeMargin/Layout"]
+z_index = 10
 layout_mode = 2
 theme_override_constants/separation = 2
 
@@ -273,8 +279,12 @@ horizontal_alignment = 1
 
 theme_type_variation = &"CaptionLabel"
 
-[node name="ModalLayer" type="Control" parent="."]
+[node name="ModalCanvas" type="CanvasLayer" parent="."]
+layer = 100
+
+[node name="ModalLayer" type="Control" parent="ModalCanvas"]
 unique_name_in_owner = true
+theme = ExtResource("3")
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -283,7 +293,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Dim" type="ColorRect" parent="ModalLayer"]
+[node name="Dim" type="ColorRect" parent="ModalCanvas/ModalLayer"]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
@@ -292,7 +302,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ModalMargin" type="MarginContainer" parent="ModalLayer"]
+[node name="ModalMargin" type="MarginContainer" parent="ModalCanvas/ModalLayer"]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
@@ -305,25 +315,25 @@ theme_override_constants/margin_top = 16
 theme_override_constants/margin_right = 16
 theme_override_constants/margin_bottom = 16
 
-[node name="Center" type="VBoxContainer" parent="ModalLayer/ModalMargin"]
+[node name="Center" type="VBoxContainer" parent="ModalCanvas/ModalLayer/ModalMargin"]
 layout_mode = 2
 alignment = 1
 
-[node name="ModalPanel" type="PanelContainer" parent="ModalLayer/ModalMargin/Center"]
+[node name="ModalPanel" type="PanelContainer" parent="ModalCanvas/ModalLayer/ModalMargin/Center"]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="Content" type="VBoxContainer" parent="ModalLayer/ModalMargin/Center/ModalPanel"]
+[node name="Content" type="VBoxContainer" parent="ModalCanvas/ModalLayer/ModalMargin/Center/ModalPanel"]
 layout_mode = 2
 theme_override_constants/separation = 12
 
-[node name="Eyebrow" type="Label" parent="ModalLayer/ModalMargin/Center/ModalPanel/Content"]
+[node name="Eyebrow" type="Label" parent="ModalCanvas/ModalLayer/ModalMargin/Center/ModalPanel/Content"]
 layout_mode = 2
 text = "SASA / STREAMER LIFE"
 
 theme_type_variation = &"EditionLabel"
 
-[node name="ModalTitle" type="Label" parent="ModalLayer/ModalMargin/Center/ModalPanel/Content"]
+[node name="ModalTitle" type="Label" parent="ModalCanvas/ModalLayer/ModalMargin/Center/ModalPanel/Content"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "СВОЙ ЭФИР"
@@ -331,19 +341,19 @@ autowrap_mode = 3
 
 theme_type_variation = &"TitleLabel"
 
-[node name="ModalScroll" type="ScrollContainer" parent="ModalLayer/ModalMargin/Center/ModalPanel/Content"]
+[node name="ModalScroll" type="ScrollContainer" parent="ModalCanvas/ModalLayer/ModalMargin/Center/ModalPanel/Content"]
 unique_name_in_owner = true
 layout_mode = 2
 custom_minimum_size = Vector2(0, 340)
 horizontal_scroll_mode = 0
 
-[node name="ModalBody" type="VBoxContainer" parent="ModalLayer/ModalMargin/Center/ModalPanel/Content/ModalScroll"]
+[node name="ModalBody" type="VBoxContainer" parent="ModalCanvas/ModalLayer/ModalMargin/Center/ModalPanel/Content/ModalScroll"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 10
 
-[node name="ModalClose" type="Button" parent="ModalLayer/ModalMargin/Center/ModalPanel/Content"]
+[node name="ModalClose" type="Button" parent="ModalCanvas/ModalLayer/ModalMargin/Center/ModalPanel/Content"]
 unique_name_in_owner = true
 layout_mode = 2
 custom_minimum_size = Vector2(48, 48)

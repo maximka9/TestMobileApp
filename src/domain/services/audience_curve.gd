@@ -14,8 +14,18 @@ static func baseline(followers: int, config: GameConfig) -> float:
 	return minf(config.audience_soft_cap, last.y * pow(x / last.x, config.audience_tail_exponent))
 
 static func hype_multiplier(hype: float, config: GameConfig) -> float:
-	var points: PackedVector2Array = config.hype_anchors
+	return get_hype_modifiers(hype, config)["viewers"]
+
+static func get_hype_modifiers(hype: float, config: GameConfig) -> Dictionary:
+	var value: float = clampf(hype, 0, 100)
+	var xp: float = 1.0
+	for step: Vector2 in [Vector2(50, 1.05), Vector2(70, 1.10), Vector2(85, 1.20), Vector2(95, 1.30), Vector2(100, 1.35)]:
+		if value >= step.x:
+			xp = step.y
+	return {"viewers": _interpolate(value, config.hype_anchors), "followers": _interpolate(value, config.follower_hype_anchors), "xp": xp, "viral": 1.0 + value * config.source_hype_viral_factor}
+
+static func _interpolate(value: float, points: PackedVector2Array) -> float:
 	for i: int in range(1, points.size()):
-		if hype <= points[i].x:
-			return lerpf(points[i - 1].y, points[i].y, clampf((hype - points[i - 1].x) / (points[i].x - points[i - 1].x), 0, 1))
+		if value <= points[i].x:
+			return lerpf(points[i - 1].y, points[i].y, clampf((value - points[i - 1].x) / (points[i].x - points[i - 1].x), 0, 1))
 	return points[-1].y

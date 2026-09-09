@@ -4,6 +4,8 @@ extends RefCounted
 signal changed
 signal event_available(definition: ActionDefinition)
 signal stream_finished(summary: Dictionary)
+const BASE_HYPE_PER_CLICK: float = 0.7
+
 enum Phase { OFFLINE, STREAMING, SUMMARY }
 
 var state: PlayerState
@@ -83,6 +85,7 @@ func start() -> OperationResult:
 	elapsed = 0
 	_viewers_float = 0.0
 	session_stats = StreamSessionStats.new()
+	session_stats.stream_type_id = state.current_stream_type_id
 	_earned = 0
 	_xp_fraction = 0.0
 	_session_xp = 0
@@ -99,10 +102,10 @@ func start() -> OperationResult:
 func click() -> OperationResult:
 	if phase != Phase.STREAMING:
 		return OperationResult.fail(&"NOT_STREAMING", "Выберите игру и начните эфир")
-	var gain: float = minf(config.click_hype_cap, state.click_power * float(upgrades.stats(state)["hype_gain"]) * config.click_hype_multiplier * progression.hype_mastery(state.level) * career.efficiency(state))
+	var gain: float = BASE_HYPE_PER_CLICK
 	var old_level: int = state.level
 	var old_hype: float = state.hype
-	_xp_fraction += progression.click_xp(state.level, state.click_power, state.hype)
+	_xp_fraction += progression.click_xp(state.level, state.click_power, state.hype, float(upgrades.stats(state)["click_xp_multiplier"]))
 	var awarded: int = int(floor(_xp_fraction + 0.000001))
 	_xp_fraction -= awarded
 	_session_xp += awarded
@@ -175,7 +178,7 @@ func finish() -> OperationResult:
 	state.total_streams += 1
 	phase = Phase.SUMMARY
 	summary = {"seconds": elapsed, "peak": session_stats.peak_viewers, "average": session_stats.average_viewers(), "money": _earned, "xp": _session_xp, "clicks": session_stats.clicks, "best_event": _best_event}
-	ContentSourceService.create(state, state.current_stream_type_id, int(clock.call()))
+	ContentSourceService.create(state, session_stats.stream_type_id, int(clock.call()), session_stats.average_hype())
 	if state.collab_momentum_streams > 0:
 		state.collab_momentum_streams -= 1
 		state.collab_momentum *= 0.7

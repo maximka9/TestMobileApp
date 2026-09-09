@@ -17,7 +17,7 @@ func _run() -> void:
 		for i: int in range(20):
 			state.hype = boundary
 			stream.click()
-		check(state.xp == (20 if boundary < 95 else 23), "XP boundary %s applied once" % boundary)
+		check(state.xp == (24 if boundary < 95 else 26 if boundary < 100 else 27), "XP boundary %s applied once" % boundary)
 	state.fatigue = 85
 	check(is_equal_approx(stream.career.efficiency(state), 0.6), "Fatigue hype curve")
 	check(is_equal_approx(stream.career.viewer_efficiency(state), 0.85), "Separate viewer curve")
@@ -98,7 +98,7 @@ func _test_source_migration() -> void:
 	var publisher: ShortFormService = ShortFormService.new(catalog, config, ScriptedRandomProvider.new([0]))
 	check(publisher.publish(restored, "fail").success, "Available FAIL survives save and reload")
 	restored = saves.deserialize(saves.serialize(restored)).context["state"]
-	check(publisher.publish(restored, "fail").error_code == &"NO_SOURCE", "Spent FAIL stays spent after reload")
+	check(publisher.publish(restored, "fail").error_code == &"SOURCE_ALREADY_USED", "Spent FAIL stays spent after reload")
 	var malformed: Dictionary = saves.serialize(restored)
 	malformed["player"]["content_sources"].append(malformed["player"]["content_sources"][0].duplicate())
 	check(not saves.deserialize(malformed).success, "Duplicate source IDs rejected")
@@ -142,7 +142,7 @@ func _test_topic_sources() -> void:
 	stream.finish()
 	stream.continue_to_room()
 	check(publisher.publish(state, "cooking").success, "Completed cooking supplies cooking topic")
-	check(publisher.publish(state, "cooking").error_code == &"NO_SOURCE", "Cooking material consumed once")
+	check(publisher.publish(state, "cooking").error_code == &"SOURCE_ALREADY_USED", "Cooking material consumed once")
 	ContentSourceService.create(state, "irl", 1000)
 	state.money = 0
 	check(not publisher.publish(state, "irl").success and ContentSourceService.find(state, ["irl"]) >= 0, "Rejected publication preserves source")

@@ -58,7 +58,7 @@ func _test_clocks() -> void:
 	stream.start()
 	state.hype = 94.99
 	stream.click()
-	check(state.xp == 1 and stream._xp_fraction == 0, "94.99 XP boundary remains normal")
+	check(state.xp == 1 and is_equal_approx(stream._xp_fraction, 0.2), "94.99 XP boundary uses 1.2 tier")
 
 func _test_historical_saves() -> void:
 	_fixture()
