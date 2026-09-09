@@ -17,8 +17,6 @@ func _run() -> void:
 			var old: WeakRef = weakref(game.room)
 			game.app.stream.state.fatigue = 0
 			game._start_content("cooking" if location == "kitchen" else "irl")
-			if game.modal_kind == "cosplay":
-				game._start_with_cosplay("")
 			await process_frame
 			await process_frame
 			_check(old.get_ref() == null, "Old location freed")
@@ -52,8 +50,6 @@ func _run() -> void:
 		_check(texture.get_image().detect_alpha() != Image.ALPHA_NONE, "Career sprite has real alpha")
 		await _capture(["main_room_young", "main_room_current", "main_room_successful"][tier])
 		game._start_content("cooking")
-		if game.modal_kind == "cosplay":
-			game._start_with_cosplay("")
 		_check(game.room.sasavot_sprite.texture == texture, "Same tier and identity in Kitchen")
 		await _capture(["kitchen_young", "kitchen_current", "kitchen_successful"][tier])
 		game.app.stream.finish()

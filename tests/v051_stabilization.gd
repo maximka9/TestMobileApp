@@ -45,7 +45,7 @@ func _test_clocks() -> void:
 		_fixture()
 		state.fatigue = 80
 		stream.career.recover(state, seconds)
-		check(state.fatigue == 80 - int(seconds / 60.0) * 2, "Minute boundary " + str(seconds))
+		check(is_equal_approx(state.fatigue, maxf(0, 80 - seconds * 10.0 / 60)), "Minute boundary " + str(seconds))
 	for seconds: int in [86400, 2592000, 31536000]:
 		_fixture()
 		state.fatigue = 80
@@ -70,7 +70,7 @@ func _test_historical_saves() -> void:
 		if not loaded.success:
 			continue
 		var restored: PlayerState = loaded.context["state"]
-		check(restored.money == 99 and restored.level == 2 and restored.xp == 3 and restored.fatigue == 60 and restored.upgrades["microphone"] == 1, "Historical progress preserved " + version)
+		check(restored.money == 99 and restored.level == 2 and restored.xp == progression.migrate_xp(2, 3) and restored.fatigue == 60 and restored.upgrades["microphone"] == 1, "Historical progress preserved " + version)
 		var canonical: String = JSON.stringify(saves.serialize(restored))
 		for i: int in range(3):
 			restored = saves.deserialize(JSON.parse_string(canonical)).context["state"]

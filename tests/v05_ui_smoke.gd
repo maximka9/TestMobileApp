@@ -12,8 +12,6 @@ func _run() -> void:
 	for i: int in range(10):
 		game.app.stream.state.fatigue = 0
 		game._start_content("cooking" if i % 2 == 0 else "just_chatting")
-		if game.modal_kind == "cosplay":
-			game._start_with_cosplay("")
 		await process_frame
 		_check(not game.modal_layer.visible, "Selection closes modal")
 		_check(game.get_node("%LocationContainer").get_child_count() == 1, "Exactly one location scene")
@@ -27,8 +25,6 @@ func _run() -> void:
 		await _capture(["main_room_young", "main_room_current", "main_room_successful"][tier])
 		if tier < 2:
 			game._start_content("cooking")
-			if game.modal_kind == "cosplay":
-				game._start_with_cosplay("")
 			await _capture("kitchen_young" if tier == 0 else "kitchen_current")
 			game.app.stream.finish()
 			game._close_modal()

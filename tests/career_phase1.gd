@@ -89,12 +89,12 @@ func _test_career_save() -> void:
 	check(not document["player"].has("energy"), "New save has only one fatigue meter")
 	repo.document = document
 	saves.clock = func() -> int: return 1100
-	check(is_equal_approx(saves.load_player().fatigue, 58), "Offline recovery applies whole minutes on load")
+	check(is_equal_approx(saves.load_player().fatigue, 60 - 100 * 10.0 / 60), "Offline recovery applies whole minutes on load")
 	saves.clock = func() -> int: return 900
 	check(saves.load_player().fatigue == 60, "Backward clock grants no recovery")
 	config.offline_recovery_cap = 10
 	saves.clock = func() -> int: return 100000
-	check(saves.load_player().fatigue == 60, "Offline recovery cap below a minute grants no tick")
+	check(is_equal_approx(saves.load_player().fatigue, 60 - 10.0 / 6), "Offline interval cap applies to fractional recovery")
 	repo.document["player"]["was_streaming"] = true
 	check(saves.load_player().fatigue == 60, "Saved active streams receive no offline recovery")
 	var legacy: Dictionary = {"version": 1, "timestamp": 1000, "player": {"level": 2, "xp": 3, "money": 99, "energy": 40.0, "current_stream_type_id": "irl", "total_clicks": 10, "total_streams": 4, "upgrades": {}, "settings": {"reduced_motion": true}}}

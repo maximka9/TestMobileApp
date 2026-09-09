@@ -26,7 +26,7 @@ func _test_integration_save() -> void:
 	state.followers = 1500
 	state.career_tier = 2
 	state.current_location_id = "kitchen"
-	check(stream.select_content("cooking").success and stream.select_cosplay("basic_cosplay").success and stream.start().success, "Cooking and cosplay start together")
+	check(stream.select_content("cooking").success and stream.start().success and stream.perform_move("cosplay:basic_cosplay").success, "Cooking starts then cosplay move activates")
 	stream.tick()
 	stream.finish()
 	stream.continue_to_room()

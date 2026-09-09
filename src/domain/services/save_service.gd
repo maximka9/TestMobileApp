@@ -1,7 +1,7 @@
 class_name SaveService
 extends RefCounted
 ## Versioned codec with strict field validation and safe defaults on corruption.
-const VERSION: int = 10
+const VERSION: int = 11
 const MAX_COUNTER: int = 1000000000000
 var repository: SaveRepository
 var logger: ILogger
@@ -85,6 +85,10 @@ func deserialize(document: Dictionary) -> OperationResult:
 			return OperationResult.fail(&"CORRUPT_SAVE")
 		state.settings["reduced_motion"] = data["settings"]["reduced_motion"]
 	state.click_power = int(upgrades.stats(state)["click_power"])
+	if version < 11:
+		state.xp = ProgressionService.new(upgrades.config).migrate_xp(state.level, state.xp)
+		state.fatigue_recovery_seconds = 0
+	state.selected_cosplay_id = "" # Sessions never resume; costumes are transient moves.
 	state.normalize()
 	return OperationResult.new(true, &"SUCCESS", "", {"state": state, "saved_at": int(document["timestamp"]), "was_streaming": bool(data.get("was_streaming", false))})
 

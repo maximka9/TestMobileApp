@@ -1,6 +1,7 @@
 class_name CosplayDefinition
 extends Resource
 
+@export var required_level: int = 1
 @export var id: String = ""
 @export var display_name: String = ""
 @export var stream_tags: PackedStringArray = []

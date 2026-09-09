@@ -1,6 +1,7 @@
 class_name ActionDefinition
 extends Resource
 ## Shared data for moves and event choices; an event may delegate to a move.
+@export var required_level: int = 1
 @export var id: String = ""
 @export var title: String = ""
 @export var description: String = ""

@@ -66,9 +66,9 @@ func _test_catalog() -> void:
 
 func _test_progression() -> void:
 	_fixture()
-	check(progression.required_xp(1) == 50, "Level 1 needs 50 XP")
-	progression.add_xp(state, 49)
-	check(state.level == 1 and state.xp == 49, "Below level threshold")
+	check(progression.required_xp(1) == 100, "Level 1 needs 100 XP")
+	progression.add_xp(state, 99)
+	check(state.level == 1 and state.xp == 99, "Below level threshold")
 	progression.add_xp(state, 4)
 	check(state.level == 2 and state.xp == 3, "Level up retains remainder")
 	progression.add_xp(state, progression.required_xp(2) + progression.required_xp(3))
@@ -108,14 +108,14 @@ func _test_stream() -> void:
 	check(state.money >= 1 and state.hype == 97.5, "Timed income and hype decay")
 	stream.finish()
 	check(stream.phase == StreamService.Phase.SUMMARY and not state.is_streaming and state.total_streams == 1, "Finish transitions to summary")
-	check(stream.summary["clicks"] == 151 and stream.summary["xp"] == 165 and stream.summary["seconds"] == 5, "Summary counts session activity including high-hype XP")
+	check(stream.summary["clicks"] == 151 and stream.summary["xp"] == state.xp + progression.required_xp(1) and stream.summary["seconds"] == 5, "Summary counts session activity including high-hype XP")
 	check(stream.summary["peak"] >= stream.summary["average"] and stream.summary["average"] > 0, "Summary viewer statistics")
 	check(not stream.finish().success and not stream.start().success, "Summary state guards")
 	stream.continue_to_room()
 	check(state.viewers == 0 and state.hype == 0.0 and stream.phase == StreamService.Phase.OFFLINE, "Continue resets room counters")
 	state.energy = 50.0
 	stream.tick()
-	check(state.fatigue == 50, "Offline fatigue recovery waits for a full minute")
+	check(is_equal_approx(state.fatigue, 50 - 10.0 / 60), "Offline fatigue recovers each real second")
 	stream.start()
 	for i: int in range(205):
 		stream.tick()

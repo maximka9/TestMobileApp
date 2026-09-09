@@ -4,11 +4,11 @@ func _run() -> void:
 	_fixture()
 	state.fatigue = 50
 	stream.career.recover(state, 59)
-	check(state.fatigue == 50, "No recovery before full minute")
+	check(is_equal_approx(state.fatigue, 50 - 59 * 10.0 / 60), "Partial minute recovery")
 	stream.career.recover(state, 1)
-	check(state.fatigue == 48, "Recovery on full minute")
+	check(is_equal_approx(state.fatigue, 40), "Recovery on full minute")
 	stream.career.recover(state, 120)
-	check(state.fatigue == 44, "Multiple recovery ticks")
+	check(is_equal_approx(state.fatigue, 20), "Multiple recovery minutes")
 	_fixture()
 	stream.start()
 	for boundary: float in [94.9, 95.0, 100.0]:
@@ -61,19 +61,19 @@ func _test_recovery_restart() -> void:
 	repo.document = saves.serialize(state)
 	saves.clock = func() -> int: return 1001
 	var restored: PlayerState = saves.load_player()
-	check(restored.fatigue == 48 and restored.fatigue_recovery_seconds == 0, "Saved 59 seconds plus offline second earns one tick")
+	check(is_equal_approx(restored.fatigue, 40) and restored.fatigue_recovery_seconds == 0, "Saved 59 seconds plus offline second earns one tick")
 	repo.document = saves.serialize(restored)
-	check(saves.load_player().fatigue == 48, "Save and reload cannot duplicate recovery")
+	check(is_equal_approx(saves.load_player().fatigue, 40), "Save and reload cannot duplicate recovery")
 	saves.clock = func() -> int: return 999
-	check(saves.load_player().fatigue == 48, "Backward clock cannot grant fatigue recovery")
+	check(is_equal_approx(saves.load_player().fatigue, 40), "Backward clock cannot grant fatigue recovery")
 	config.offline_recovery_cap = 120
 	saves.clock = func() -> int: return 999999
-	check(saves.load_player().fatigue == 44, "Long absence is capped to two recovery ticks")
+	check(is_equal_approx(saves.load_player().fatigue, 20), "Long absence is capped to two recovery ticks")
 	repo.document["player"]["was_streaming"] = true
-	check(saves.load_player().fatigue == 48, "No offline recovery for interrupted live stream")
+	check(is_equal_approx(saves.load_player().fatigue, 40), "No offline recovery for interrupted live stream")
 	state.is_streaming = true
 	stream.career.recover(state, 120)
-	check(state.fatigue == 50, "Live recovery forbidden")
+	check(is_equal_approx(state.fatigue, 50 - 59 * 10.0 / 60), "Live recovery forbidden")
 	state.is_streaming = false
 	stream.career.recover(state, 999999)
 	check(state.fatigue == 0, "Recovery never creates negative fatigue")

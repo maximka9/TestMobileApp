@@ -31,7 +31,7 @@ func _run() -> void:
 		valid = game.app.queue.flush().success
 	else:
 		var state: PlayerState = game.app.stream.state
-		valid = state.total_clicks == 55 and state.total_streams == 1 and state.level == 2 and state.xp == 5 and state.money >= 10 and state.settings["reduced_motion"] and not state.is_streaming and state.current_stream_type_id == "irl"
+		valid = state.total_clicks == 55 and state.total_streams == 1 and state.level == 1 and state.xp == 55 and state.money >= 10 and state.settings["reduced_motion"] and not state.is_streaming and state.current_stream_type_id == "irl"
 	game.queue_free()
 	await process_frame
 	if args[0] == "read":

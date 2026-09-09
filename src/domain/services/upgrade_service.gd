@@ -29,6 +29,8 @@ func purchase(state: PlayerState, id: String) -> OperationResult:
 	var definition: UpgradeDefinition = catalog.upgrades[id]
 	if int(state.upgrades.get(id, 0)) >= definition.max_level:
 		return OperationResult.fail(&"MAX_LEVEL", "Достигнут максимальный уровень")
+	if state.level < definition.required_level:
+		return OperationResult.fail(&"LEVEL_LOCKED")
 	var price: int = cost(state, id)
 	if state.money < price:
 		return OperationResult.fail(&"NOT_ENOUGH_MONEY", "Не хватает денег")

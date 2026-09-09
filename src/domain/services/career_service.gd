@@ -16,10 +16,8 @@ func new_player() -> PlayerState:
 func recover(player: PlayerState, seconds: float) -> void:
 	if player.is_streaming:
 		return
-	player.fatigue_recovery_seconds += maxf(0, seconds)
-	var minutes: int = int(player.fatigue_recovery_seconds / 60.0)
-	player.fatigue_recovery_seconds = fmod(player.fatigue_recovery_seconds, 60.0)
-	player.fatigue = clampf(player.fatigue - minutes * 60.0 * config.fatigue_recovery, 0, 100)
+	player.fatigue_recovery_seconds = 0
+	player.fatigue = clampf(player.fatigue - maxf(0, seconds) * config.fatigue_recovery_per_real_minute / 60.0, 0, 100)
 
 func recover_offline(player: PlayerState, saved_at: int, now: int) -> void:
 	recover(player, clampi(now - saved_at, 0, config.offline_recovery_cap))

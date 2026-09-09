@@ -35,11 +35,11 @@ func _test_time_and_locations() -> void:
 	state.fatigue_recovery_seconds = 0
 	for i: int in range(59):
 		stream.tick()
-	check(state.fatigue == 50, "Rest waits 60 real seconds")
+	check(is_equal_approx(state.fatigue, 50 - 59 * 10.0 / 60), "Rest progresses before minute boundary")
 	stream.tick()
-	check(state.fatigue == 48, "Rest tick at 60 real seconds")
+	check(is_equal_approx(state.fatigue, 40), "Ten fatigue restored at 60 real seconds")
 	var document: Dictionary = saves.serialize(state)
-	check(document["version"] == 10 and saves.deserialize(document).success, "v0.6 save schema retained and readable")
+	check(document["version"] == SaveService.VERSION and saves.deserialize(document).success, "v0.6 save schema retained and readable")
 	check(Engine.time_scale == 1.0, "Global time scale unchanged")
 
 func _test_organic() -> void:

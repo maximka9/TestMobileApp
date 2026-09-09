@@ -31,6 +31,9 @@ func poll(now: int, stream: StreamType) -> ActionDefinition:
 		var candidate: ActionDefinition = catalog.events[id] as ActionDefinition
 		if candidate.required_stream_type_id.is_empty() or candidate.required_stream_type_id == stream.id:
 			ids.append(id)
+			if moves.active_cosplay != null and not candidate.required_stream_type_id.is_empty():
+				for i: int in range(maxi(0, config.cosplay_special_event_weight - 1)):
+					ids.append(id)
 	if ids.is_empty():
 		schedule(now)
 		return null

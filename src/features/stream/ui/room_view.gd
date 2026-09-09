@@ -27,6 +27,8 @@ var _chat_rows: Array[RichTextLabel] = []
 var _touches: Dictionary[int, bool] = {}
 var _shown_live: bool = false
 var _appearance_tier: int = -1
+var cosplay_variant: String = ""
+var _shown_cosplay_variant: String = ""
 var _appearance_scale: Vector2 = Vector2.ONE
 
 @onready var _stage: Control = $Stage
@@ -158,10 +160,10 @@ func _input(event: InputEvent) -> void:
 		if not touch.pressed or touch.canceled:
 			_touches.erase(touch.index)
 
-func react(position_clicked: Vector2, amount: float) -> void:
+func react(position_clicked: Vector2, amount: float, xp: int = 0) -> void:
 	pulse = 0.0 if reduced_motion else 1.0
 	if is_instance_valid(floating_pool):
-		floating_pool.emit_amount(position_clicked, amount, size, reduced_motion)
+		floating_pool.emit_amount(position_clicked, amount, size, reduced_motion, xp)
 
 func _fit_stage() -> void:
 	if not is_instance_valid(_stage) or size.x <= 0.0 or size.y <= 0.0:
@@ -189,10 +191,15 @@ func _fit_stage() -> void:
 
 func _set_appearance(career_tier: int) -> void:
 	var target: int = APPEARANCE.index_for(career_tier)
-	if target == _appearance_tier:
+	if target == _appearance_tier and cosplay_variant == _shown_cosplay_variant:
 		return
 	_appearance_tier = target
+	_shown_cosplay_variant = cosplay_variant
 	_appearance_scale = APPEARANCE.apply(sasavot_sprite, career_tier)
+	if APPEARANCE.cosplay_variants.has(cosplay_variant):
+		sasavot_sprite.hframes = 1
+		sasavot_sprite.texture = APPEARANCE.cosplay_variants[cosplay_variant]
+		_appearance_scale = Vector2.ONE * (128.0 / sasavot_sprite.texture.get_height())
 	sasavot_sprite.frame = 0
 	sasavot_sprite.scale = _appearance_scale
 

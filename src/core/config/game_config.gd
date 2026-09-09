@@ -6,8 +6,7 @@ extends Resource
 @export var tick_seconds: float = 1.0
 @export var income_seconds: int = 5
 @export var income_rate: float = 0.02
-@export var xp_base: int = 50
-@export var xp_exponent: float = 1.5
+@export var xp_base: int = 100
 @export var viewer_base: float = 10.0
 @export var viewer_per_level: float = 5.0
 @export var viewer_per_power: float = 2.0
@@ -31,7 +30,6 @@ extends Resource
 @export_range(20, 50) var starting_followers: int = 30
 @export_range(0, 100) var starting_fatigue: float = 0.0
 @export var fatigue_rate: float = 0.04
-@export var fatigue_recovery: float = 2.0 / 60.0
 @export var fatigue_per_minute: Dictionary = {"just_chatting": 0.20, "dota_2": 0.24, "cooking": 0.30, "irl": 0.32}
 @export var high_hype_xp_threshold: float = 95.0
 @export var high_hype_xp_multiplier: float = 1.15
@@ -132,3 +130,12 @@ extends Resource
 @export var chat_hype_thresholds: PackedFloat32Array = [30, 70, 95]
 @export var chat_hype_multipliers: PackedFloat32Array = [0.8, 1.0, 1.25, 1.5]
 @export var chat_min_interval: float = 0.25
+
+@export_group("Progression 0.8")
+@export var click_xp_power_factor: float = 0.08
+@export var click_xp_multiplier_cap: float = 1.75
+@export var level_hype_factor: float = 0.03
+@export var level_hype_bonus_cap: float = 0.60
+@export var fatigue_recovery_per_real_minute: float = 10.0
+@export var cosplay_hype_gain: float = 12.0
+@export var cosplay_special_event_weight: int = 2

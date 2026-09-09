@@ -4,6 +4,8 @@ extends Resource
 @export var tier_steps: PackedInt32Array = [0, 1, 2]
 @export var variants: Array[Texture2D] = []
 @export var frame_counts: PackedInt32Array = [1, 4, 1]
+## Optional existing costume textures, keyed by CosplayDefinition.sprite_variant.
+@export var cosplay_variants: Dictionary[String, Texture2D] = {}
 
 func index_for(tier: int) -> int:
 	var selected: int = 0

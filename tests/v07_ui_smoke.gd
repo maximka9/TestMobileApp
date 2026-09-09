@@ -28,8 +28,6 @@ func _run() -> void:
 	game.app._tick_accumulator = 0.99
 	game._start_content("dota_2")
 	_check(game.app._tick_accumulator == 0, "New stream starts with a fresh monotonic tick")
-	if game.modal_kind == "cosplay":
-		game._start_with_cosplay("")
 	game.room.set_process(false)
 	for online: int in [5, 100, 1000]:
 		state.viewers = online
@@ -60,8 +58,6 @@ func _run() -> void:
 	for id: String in ["dota_2", "just_chatting", "cooking", "irl"]:
 		state.fatigue = 0
 		game._start_content(id)
-		if game.modal_kind == "cosplay":
-			game._start_with_cosplay("")
 		_check(game.app.stream.state.is_streaming, "UI starts " + id)
 		_check(game.get_node("%LocationContainer").get_child_count() == 1, "One active location scene")
 		await _capture({"dota_2": "dota_room", "just_chatting": "just_chatting_room", "cooking": "cooking_kitchen", "irl": "irl_city"}[id])

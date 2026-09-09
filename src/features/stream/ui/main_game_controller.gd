@@ -90,7 +90,7 @@ func _refresh() -> void:
 		achievement_tree.refresh()
 	_poll_collab_rotation()
 	var required: int = app.progression.required_xp(state.level)
-	header.text = "ПОДПИСЧИКИ %d · XP %d / %d" % [state.followers, state.xp, required]
+	header.text = "ПОДПИСЧИКИ %d\nУР. %d · XP %d / %d" % [state.followers, state.level, state.xp, required]
 	xp_bar.max_value = required
 	xp_bar.value = state.xp
 	viewers_label.text = str(state.viewers)
@@ -119,7 +119,12 @@ func _time(seconds: int) -> String:
 func _room_tapped(at: Vector2) -> void:
 	var result: OperationResult = app.clicks.handle()
 	if result.success:
-		room.react(at, float(result.context["hype"]))
+		room.react(at, float(result.context["hype"]), int(result.context["xp"]))
+		if result.context["level"] > result.context["old_level"]:
+			_feedback("LEVEL UP! %d → %d · Сила клика +%.0f%%" % [result.context["old_level"], result.context["level"], result.context["mastery_gain"]])
+			if not app.stream.state.settings.get("reduced_motion", false):
+				toast.modulate = Color(1.0, 0.65, 0.4)
+				create_tween().tween_property(toast, "modulate", Color.WHITE, 0.6)
 	else:
 		_feedback(result.message)
 
@@ -171,38 +176,11 @@ func _show_games() -> void:
 		modal_body.add_child(SasaUI.label("Свежесть формата: %d%%" % int(app.stream.career.novelty(app.stream.state, id) * 100), &"small", &"MutedLabel"))
 		modal_body.add_child(SasaUI.label("%s\nОнлайн ×%.2f · доход ×%.2f\nСобытия ×%.1f" % [content.description, content.viewer_multiplier, content.income_multiplier, content.event_multiplier], &"small", &"MutedLabel"))
 		var button: Button = SasaUI.button("Начать: " + content.title, func() -> void: _start_content(id), true)
-		button.disabled = app.stream.state.is_streaming
+		button.disabled = app.stream.state.is_streaming or app.stream.state.level < content.required_level
 		modal_body.add_child(button)
 
 func _start_content(id: String) -> void:
 	var result: OperationResult = app.stream.select_content(id)
-	if result.success:
-		for cosplay_id: String in app.catalog.cosplays:
-			if id in (app.catalog.cosplays[cosplay_id] as CosplayDefinition).stream_tags:
-				_show_cosplay_choice(id)
-				return
-		result = app.stream.select_cosplay("")
-		if result.success:
-			result = app.stream.start()
-	if result.success:
-		_close_modal()
-		_feedback("Ты в эфире! Жми на рабочее место.")
-	else:
-		_feedback(result.message)
-
-func _show_cosplay_choice(content_id: String) -> void:
-	_open_modal("cosplay", "ОБРАЗ ДЛЯ ЭФИРА")
-	modal_body.add_child(SasaUI.button("Без косплея", func() -> void: _start_with_cosplay(""), true))
-	for cosplay_id: String in app.catalog.cosplays:
-		var cosplay: CosplayDefinition = app.catalog.cosplays[cosplay_id] as CosplayDefinition
-		if content_id in cosplay.stream_tags:
-			modal_body.add_child(SasaUI.label("%s · +%d%% свежести · %d монет" % [cosplay.display_name, int(cosplay.novelty_bonus * 100), cosplay.money_cost], &"small", &"MutedLabel"))
-			var button: Button = SasaUI.button("Надеть: " + cosplay.display_name, func() -> void: _start_with_cosplay(cosplay_id))
-			button.disabled = app.stream.state.money < cosplay.money_cost or app.stream.state.fatigue + cosplay.fatigue_cost > 100.0
-			modal_body.add_child(button)
-
-func _start_with_cosplay(id: String) -> void:
-	var result: OperationResult = app.stream.select_cosplay(id)
 	if result.success:
 		result = app.stream.start()
 	if result.success:
@@ -268,6 +246,20 @@ func _show_moves(collab_only: bool) -> void:
 		move_button.set_meta("move_id", id)
 		move_button.disabled = _move_status(id) != "Готово"
 		modal_body.add_child(move_button)
+	for id: String in app.catalog.cosplays:
+		var definition: CosplayDefinition = app.catalog.cosplays[id]
+		modal_body.add_child(SasaUI.label("Косплей · " + definition.display_name, &"heading", &"AccentLabel"))
+		modal_body.add_child(SasaUI.label("Переодеться прямо во время эфира. +%d хайпа · +%d%% свежести · больше специальных событий\n%d монет · +%.0f%% усталости" % [app.config.cosplay_hype_gain, definition.novelty_bonus * 100, definition.money_cost, definition.fatigue_cost], &"body", &"MutedLabel"))
+		var status: Label = SasaUI.label(app.moves.cosplay_status(app.stream.state, id), &"small", &"MutedLabel")
+		status.set_meta("cooldown_id", "cosplay:" + id)
+		modal_body.add_child(status)
+		var button: Button = SasaUI.button("Использовать", func() -> void:
+			var result: OperationResult = app.stream.perform_move("cosplay:" + id)
+			_show_moves(false)
+			_modal_feedback(result))
+		button.set_meta("move_id", "cosplay:" + id)
+		button.disabled = status.text != "Готово"
+		modal_body.add_child(button)
 	modal_body.add_child(SasaUI.label("Мувы увеличивают усталость. Отдых между эфирами восстанавливает силы.", &"small", &"MutedLabel"))
 
 func _show_collaborations() -> void:
@@ -349,12 +341,16 @@ func _send_collab(id: String, format: String) -> void:
 	_modal_feedback(result)
 
 func _move_status(id: String) -> String:
+	if id.begins_with("cosplay:"):
+		return app.moves.cosplay_status(app.stream.state, id.trim_prefix("cosplay:"))
 	if not app.stream.state.is_streaming:
 		return "НЕДОСТУПНО"
 	var remaining: int = app.moves.remaining(id, app.stream.elapsed)
 	if remaining > 0:
 		return "Восстановление: %d с" % remaining
 	var definition: ActionDefinition = app.catalog.moves[id]
+	if app.stream.state.level < definition.required_level:
+		return "Требуется уровень %d" % definition.required_level
 	if app.stream.state.money < definition.money_cost:
 		return "Не хватает монет"
 	var energy_cost: float = definition.energy_cost / float(app.upgrades.stats(app.stream.state)["max_energy"]) * app.config.base_energy
@@ -379,7 +375,7 @@ func _show_upgrades() -> void:
 			modal_scroll.set_deferred("scroll_vertical", scroll)
 			_modal_feedback(result)
 		)
-		button.disabled = level >= definition.max_level or app.stream.state.money < app.upgrades.cost(app.stream.state, id)
+		button.disabled = app.stream.state.level < definition.required_level or level >= definition.max_level or app.stream.state.money < app.upgrades.cost(app.stream.state, id)
 		modal_body.add_child(button)
 
 func _event_arrived(definition: ActionDefinition) -> void:
@@ -407,7 +403,7 @@ func _resolve_event(accept: bool) -> void:
 
 func _show_summary(summary: Dictionary) -> void:
 	_open_modal("summary", "СТРИМ ЗАВЕРШЁН")
-	modal_body.add_child(SasaUI.label("Новых подписчиков: +%d · средний онлайн: %.1f" % [int(summary.get("followers", 0)), app.stream.state.average_online], &"body", &"SuccessLabel"))
+	modal_body.add_child(SasaUI.label("Новых подписчиков: +%d" % int(summary.get("followers", 0)), &"body", &"SuccessLabel"))
 	modal_body.add_child(SasaUI.label("Хороший эфир. Чат ждёт продолжения!", &"body", &"MutedLabel"))
 	for row: Array in [["Время эфира", StreamTime.format_summary(float(summary["seconds"]))], ["Пиковый онлайн", summary["peak"]], ["Средний онлайн", "%.1f" % summary["average"]], ["Заработано", "%d монет" % summary["money"]], ["Получено XP", summary["xp"]], ["Клики", summary["clicks"]], ["Лучший ивент", summary["best_event"]]]:
 		modal_body.add_child(SasaUI.label("%s\n%s" % [row[0], row[1]], &"body"))
@@ -451,6 +447,8 @@ func _present_location(state: PlayerState) -> void:
 			room.tapped.connect(_room_tapped)
 			_location_id = state.current_location_id
 	room.chat.config = app.config
+	var cosplay: CosplayDefinition = app.catalog.cosplays.get(state.selected_cosplay_id)
+	room.cosplay_variant = cosplay.sprite_variant if state.is_streaming and cosplay != null else ""
 	room.present(state)
 
 func _show_achievements() -> void:

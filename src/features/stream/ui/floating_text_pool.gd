@@ -12,6 +12,7 @@ var _motion: PackedByteArray = []
 var _next: int = 0
 
 func _ready() -> void:
+	z_index = 10 # Feedback remains above the foreground monitor and character.
 	mouse_filter = Control.MOUSE_FILTER_IGNORE
 	_ages.resize(CAPACITY)
 	_origins.resize(CAPACITY)
@@ -29,13 +30,13 @@ func _ready() -> void:
 		_labels.append(label)
 		_ages[i] = LIFETIME
 
-func emit_amount(at: Vector2, amount: float, bounds: Vector2, reduced_motion: bool) -> void:
+func emit_amount(at: Vector2, amount: float, bounds: Vector2, reduced_motion: bool, xp: int = 0) -> void:
 	var index: int = _next
 	_next = (_next + 1) % CAPACITY
 	total_emitted += 1
 	var label: Label = _labels[index]
-	label.text = "+%s" % (str(int(amount)) if amount == floor(amount) else "%.1f" % amount)
-	_origins[index] = Vector2(clampf(at.x - 14.0, 6.0, maxf(6.0, bounds.x - 72.0)), clampf(at.y - 22.0, 24.0, maxf(24.0, bounds.y - 30.0)))
+	label.text = ("+%s хайпа\n" % (str(int(amount)) if amount == floor(amount) else "%.1f" % amount) if amount > 0 else "") + "+%d XP" % xp
+	_origins[index] = Vector2(clampf(at.x - 14.0, 6.0, maxf(6.0, bounds.x - 155.0)), clampf(at.y - 22.0, 24.0, maxf(24.0, bounds.y - 60.0)))
 	label.position = _origins[index]
 	label.modulate.a = 1.0
 	label.visible = true

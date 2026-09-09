@@ -1,5 +1,18 @@
 # Changelog
 
+## 0.8.0
+
+- Linear XP thresholds and level-based click XP, capped equipment bonuses and
+  high-hype bonus retained; level mastery increases active click hype.
+- Actual hype + XP pooled feedback, visible level and nonblocking level-up pulse.
+- Continuous elapsed-time rest at 10 fatigue per real minute, online/offline parity.
+- Cosplay activated through Moves once per stream; existing costs and novelty data,
+  hype and special-event weighting, optional mapped costume texture support.
+- Shared StreamSessionStats for peak, average, hype and organic follower rewards;
+  summary no longer mislabels career average as session online.
+- Schema 11 migration preserves legacy level and XP progress ratio.
+
+
 ## 0.7.0 — 2026-09-09
 
 ### Added
