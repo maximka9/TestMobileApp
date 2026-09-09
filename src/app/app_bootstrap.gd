@@ -24,6 +24,9 @@ var _tick_accumulator: float = 0.0
 var _save_accumulator: float = 0.0
 var _metric_accumulator: float = 0.0
 var _background: bool = false
+var monotonic_clock: Callable = func() -> int: return Time.get_ticks_msec()
+var _last_tick_msec: int = -1
+var _tick_streaming: bool = false
 
 func _ready() -> void:
 	set_process(false)
@@ -58,6 +61,7 @@ func _ready() -> void:
 	clicks = ClickHandler.new(stream)
 	metrics = GameMetrics.new(logger, config)
 	stream.changed.connect(queue.request_save)
+	stream.changed.connect(_sync_session_clock)
 	Engine.max_fps = config.target_fps
 	get_tree().auto_accept_quit = false
 	controller.configure.call_deferred(self)
@@ -79,15 +83,24 @@ func _abort_startup(reason: String) -> void:
 		logger.write("ERROR", "APP", "bootstrap_failed", {"reason": reason})
 	push_error("SASAclicker bootstrap failed: " + reason)
 
+func _sync_session_clock() -> void:
+	if stream.state.is_streaming != _tick_streaming:
+		_tick_streaming = stream.state.is_streaming
+		_tick_accumulator = 0.0
+		_last_tick_msec = int(monotonic_clock.call())
+
 func _process(delta: float) -> void:
 	if stream == null or _background:
 		return
-	_tick_accumulator += delta
+	var now_msec: int = int(monotonic_clock.call())
+	var real_delta: float = maxf(0, (now_msec - _last_tick_msec) / 1000.0) if _last_tick_msec >= 0 else 0.0
+	_last_tick_msec = now_msec
+	_tick_accumulator += real_delta
 	_save_accumulator += delta
 	_metric_accumulator += delta
-	# Foreground stalls are capped; no offline income or background catch-up.
-	if _tick_accumulator >= config.tick_seconds:
-		_tick_accumulator = fmod(_tick_accumulator, config.tick_seconds)
+	# Monotonic foreground time only; pause/resume discards background time.
+	while _tick_accumulator >= config.tick_seconds:
+		_tick_accumulator -= config.tick_seconds
 		stream.tick()
 		inbound.poll(stream.state)
 	if _save_accumulator >= config.autosave_seconds:
@@ -106,6 +119,7 @@ func _notification(what: int) -> void:
 		queue.flush()
 	elif what == NOTIFICATION_APPLICATION_RESUMED:
 		_background = false
+		_last_tick_msec = -1
 		_tick_accumulator = 0.0
 	elif what == NOTIFICATION_WM_CLOSE_REQUEST:
 		queue.flush()

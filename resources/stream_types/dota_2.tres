@@ -3,6 +3,7 @@
 [resource]
 script = ExtResource("1")
 id = "dota_2"
+location_id = "streamer_room"
 title = "Dota 2"
 description = "Потные катки и верные зрители."
 viewer_multiplier = 1.25

@@ -7,4 +7,4 @@ extends Resource
 @export var viewer_multiplier: float = 1.0
 @export var income_multiplier: float = 1.0
 @export var event_multiplier: float = 1.0
-@export var required_location_id: String = ""
+@export var location_id: String = "streamer_room"

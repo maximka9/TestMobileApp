@@ -3,6 +3,7 @@
 [resource]
 script = ExtResource("1")
 id = "just_chatting"
+location_id = "streamer_room"
 title = "Just Chatting"
 description = "Общение с чатом. Больше хайпа от событий."
 viewer_multiplier = 1.0

@@ -29,10 +29,27 @@ func _init(snapshot_path: String = STREAMER_CATALOG_PATH) -> void:
 	_load_folder("res://resources/room_items", room_items)
 	_load_folder("res://resources/homes", homes)
 	_load_streamer_catalog()
+	var event_error: String = validate_event_creators()
+	if not event_error.is_empty():
+		push_error(event_error)
+		events.clear()
 	var graph_error: String = validate_achievement_graph(achievements)
 	if not graph_error.is_empty():
 		push_error(graph_error)
 		achievements.clear()
+
+func validate_event_creators() -> String:
+	for event: ActionDefinition in events.values():
+		if not event.creator_id.is_empty() and not event.social_author_id.is_empty() and event.creator_id != event.social_author_id:
+			return "Conflicting event creator: " + event.id
+		var id: String = event.creator_reference()
+		if not id.is_empty():
+			var profile: StreamerDefinition = streamers.get(id)
+			if profile == null or (streamer_path == STREAMER_CATALOG_PATH and profile.is_placeholder):
+				return "Unknown event creator: " + id
+			if event.reputation_delta < 0 or event.relationship_delta < 0:
+				return "Negative community events must be anonymous: " + event.id
+	return ""
 
 func _load_folder(path: String, target: Dictionary) -> void:
 	for file_name: String in ResourceLoader.list_directory(path):

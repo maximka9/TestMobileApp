@@ -97,7 +97,7 @@ func _test_stream() -> void:
 	check(stream.select_content("dota_2").success and stream.start().success, "Select and start stream")
 	check(not stream.start().success and not stream.select_content("irl").success, "Streaming state guards")
 	stream.click()
-	check(state.hype == 1.0 and state.xp == 1 and state.total_clicks == 1, "Click grants hype and XP")
+	check(state.hype == 1.75 and state.xp == 1 and state.total_clicks == 1, "Click grants hype and XP")
 	for i: int in range(150):
 		stream.click()
 	check(state.hype == 100.0, "Hype maximum")
@@ -108,7 +108,7 @@ func _test_stream() -> void:
 	check(state.money >= 1 and state.hype == 97.5, "Timed income and hype decay")
 	stream.finish()
 	check(stream.phase == StreamService.Phase.SUMMARY and not state.is_streaming and state.total_streams == 1, "Finish transitions to summary")
-	check(stream.summary["clicks"] == 151 and stream.summary["xp"] == 159 and stream.summary["seconds"] == 5, "Summary counts session activity including high-hype XP")
+	check(stream.summary["clicks"] == 151 and stream.summary["xp"] == 165 and stream.summary["seconds"] == 5, "Summary counts session activity including high-hype XP")
 	check(stream.summary["peak"] >= stream.summary["average"] and stream.summary["average"] > 0, "Summary viewer statistics")
 	check(not stream.finish().success and not stream.start().success, "Summary state guards")
 	stream.continue_to_room()
@@ -308,6 +308,7 @@ func _test_flow() -> void:
 	_fixture()
 	stream.select_content("irl")
 	stream.start()
+	var beer_worked: bool = stream.perform_move("beer").success
 	for second: int in range(500):
 		for click_index: int in range(3):
 			stream.click()
@@ -315,7 +316,7 @@ func _test_flow() -> void:
 		if events.pending != null:
 			stream.resolve_event(false)
 	check(state.money >= 100 and state.level > 1 and state.viewers > 0, "New player earns enough for collab")
-	check(stream.perform_move("beer").success and stream.perform_move("collab").error_code == &"RETIRED_MOVE", "Flow: beer works; legacy collab routes to new engine")
+	check(beer_worked and stream.perform_move("collab").error_code == &"RETIRED_MOVE", "Flow: beer works while fresh; legacy collab routes to new engine")
 	# Career growth deliberately no longer grants the old level-based income spike.
 	# Earn the next purchase normally instead of assuming spare money after a collab.
 	for second: int in range(config.income_seconds * upgrades.cost(state, "microphone")):

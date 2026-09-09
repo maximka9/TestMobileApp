@@ -52,7 +52,7 @@ func _test_integration_save() -> void:
 		var actual: Dictionary = saves.serialize(state)["player"]
 		for key: String in expected:
 			check(JSON.parse_string(JSON.stringify(actual[key])) == JSON.parse_string(JSON.stringify(expected[key])), "Persistent field %s reload %d" % [key, i])
-	check(state.owned_homes.count("starter_home") == 1 and state.current_location_id == "kitchen" and state.current_home_id == "new_apartment", "Home inventory is stable and separate from location")
+	check(state.owned_homes.count("starter_home") == 1 and state.current_location_id == "streamer_room" and state.current_home_id == "new_apartment", "Home inventory is stable after stream returns to room")
 	check(achievements.evaluate(state).is_empty(), "Reload does not unlock achievements twice")
 	for key: String in ["owned_homes", "owned_room_items", "unlocked_achievements"]:
 		var bad: Dictionary = saves.serialize(state)

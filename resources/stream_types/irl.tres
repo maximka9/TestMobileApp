@@ -3,6 +3,7 @@
 [resource]
 script = ExtResource("1")
 id = "irl"
+location_id = "city"
 title = "IRL"
 description = "Выйди в город — собери новый онлайн."
 viewer_multiplier = 1.5

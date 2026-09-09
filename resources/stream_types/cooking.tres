@@ -8,4 +8,4 @@ description = "Готовь в прямом эфире и слушай чат."
 viewer_multiplier = 1.25
 income_multiplier = 1.05
 event_multiplier = 1.2
-required_location_id = "kitchen"
+location_id = "kitchen"

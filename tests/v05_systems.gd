@@ -44,7 +44,7 @@ func _run() -> void:
 	check(result.success, "v0.5 save loads")
 	if result.success:
 		check(result.context["state"].content_sources.size() == state.content_sources.size(), "Spent and available sources persist")
-	check(stream.select_location("kitchen").success, "Kitchen domain selection")
+	check(not stream.select_location("kitchen").success, "Manual kitchen selection retired")
 	check(not stream.select_location("irl").success, "City placeholder cannot be selected")
 	_test_recovery_restart()
 	_test_source_migration()

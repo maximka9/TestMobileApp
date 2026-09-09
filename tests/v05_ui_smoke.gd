@@ -10,23 +10,30 @@ func _run() -> void:
 	game.app.set_process(false)
 	DirAccess.make_dir_recursive_absolute(ProjectSettings.globalize_path(OUTPUT))
 	for i: int in range(10):
-		game._show_locations()
-		game._select_location("kitchen" if i % 2 == 0 else "streamer_room")
+		game.app.stream.state.fatigue = 0
+		game._start_content("cooking" if i % 2 == 0 else "just_chatting")
+		if game.modal_kind == "cosplay":
+			game._start_with_cosplay("")
 		await process_frame
 		_check(not game.modal_layer.visible, "Selection closes modal")
 		_check(game.get_node("%LocationContainer").get_child_count() == 1, "Exactly one location scene")
 		_check(not game.modal_layer.is_ancestor_of(game.room), "Location never descends from modal")
 		_check(game.get_node("%LocationContainer").get_global_rect().grow(1).encloses(game.room.get_global_rect()), "Location stays inside gameplay area")
+		game.app.stream.finish()
+		game._close_modal()
 	for tier: int in range(3):
 		game.app.stream.state.career_tier = tier
 		game._refresh()
 		await _capture(["main_room_young", "main_room_current", "main_room_successful"][tier])
 		if tier < 2:
-			game._select_location("kitchen")
+			game._start_content("cooking")
+			if game.modal_kind == "cosplay":
+				game._start_with_cosplay("")
 			await _capture("kitchen_young" if tier == 0 else "kitchen_current")
-			game._select_location("streamer_room")
-	game._show_locations()
-	await _capture("locations_modal")
+			game.app.stream.finish()
+			game._close_modal()
+	game._show_games()
+	await _capture("automatic_location_content_selector")
 	game._show_achievements()
 	await _capture("achievements_locked")
 	_check(not game.achievement_tree.buttons["followers_100"].get_meta("completed"), "Incomplete node muted")

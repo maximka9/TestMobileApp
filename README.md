@@ -1,10 +1,15 @@
 # SASAclicker
 
-Current version: **0.6.0**.
+Current version: **0.7.0**.
 
 Follower-driven audience, incoming collaborations and 120-second candidate rotation;
 achievement tree supports drag, touch and Shift+wheel without visible scrollbars.
-Save schema 10 migrates 0.5.1 data. See [0.6 verification](docs/v0.6-verification.md).
+Organic stream followers, automatic locations, viewer-scaled chat and accelerated
+stream time. Save schema 10 remains compatible. See [0.7 verification](docs/v0.7-verification.md).
+
+## Gameplay systems
+
+See [docs/gameplay_metrics.md](docs/gameplay_metrics.md).
 
 Мобильная 2D clicker/idle-игра про SASAVOT. Актуальная рабочая версия находится
 в `main`; переключать ветку после обычного clone не нужно.

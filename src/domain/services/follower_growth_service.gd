@@ -2,9 +2,24 @@ class_name FollowerGrowthService
 extends RefCounted
 enum TikTokOutcome { FLOP, NORMAL, GOOD, VIRAL, MEGA_VIRAL }
 var config: GameConfig
+var random: RandomProvider = RandomProvider.new()
+var career_tier: int = 0
 
 func _init(settings: GameConfig) -> void:
 	config = settings
+
+func expected_stream_gain(average_viewers: float, game_minutes: int, average_hype: float, novelty_multiplier: float, reputation: float) -> float:
+	var quality: float = clampf((average_hype - config.organic_min_hype) / (100.0 - config.organic_min_hype), 0, 1)
+	var exposure: float = maxf(0, average_viewers) * clampi(game_minutes, 0, config.organic_duration_cap_minutes)
+	var reputation_factor: float = lerpf(config.social_reputation_factor_min, config.social_reputation_factor_max, clampf(reputation / 100.0, 0, 1))
+	var tier_factor: float = config.organic_tier_multipliers[clampi(career_tier, 0, config.organic_tier_multipliers.size() - 1)]
+	var raw: float = exposure * quality * clampf(novelty_multiplier, 0, 1.5) * reputation_factor * tier_factor * config.organic_exposure_conversion
+	return config.organic_gain_cap * raw / (config.organic_gain_cap + raw)
+
+func calculate_stream_gain(average_viewers: float, game_minutes: int, average_hype: float, novelty_multiplier: float, reputation: float) -> int:
+	var expected: float = expected_stream_gain(average_viewers, game_minutes, average_hype, novelty_multiplier, reputation)
+	var whole: int = floori(expected)
+	return whole + (1 if random.between(0, 999999) / 1000000.0 < expected - whole else 0)
 
 func calculate_tiktok_gain(outcome: int, followers: int, reputation: float, novelty: float = 1.0, quality: float = 1.0) -> int:
 	var base: float = maxf(config.short_minimum_gains[outcome], followers * config.short_follower_percentages[outcome])

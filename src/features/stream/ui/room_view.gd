@@ -7,11 +7,12 @@ const DESIGN_SIZE := Vector2(336, 250)
 const CHAT_LIMIT: int = 5
 const STARTER_TEXTURE: Texture2D = preload("res://assets/characters/sasavot_frames.png")
 const APPEARANCE: CharacterAppearance = preload("res://resources/characters/appearance.tres")
-const CHAT_NAMES: PackedStringArray = ["kot", "user52", "masha", "anon", "sanya", "viewer", "omlet", "pixel"]
 const CHAT_MESSAGES: PackedStringArray = ["жми жми", "ХАХАХ", "+", "КЛИП!", "погнали", "хорош", "KEKW", "это база"]
 const CHAT_COLORS: PackedStringArray = ["#e78f91", "#b9cbed", "#edb879", "#cdadc5"]
 
 var live: bool = false
+var viewers: int = 0
+var chat: ChatActivityService = ChatActivityService.new(GameConfig.new())
 var reduced_motion: bool = false
 var hype: float = 0.0
 var pulse: float = 0.0
@@ -42,24 +43,42 @@ func _ready() -> void:
 	_ignore_child_input(self)
 	for child: Node in _chat_content.get_children():
 		_chat_rows.append(child as RichTextLabel)
-	# Widen the physical bezel as well as its Control; keep text beyond the character.
+	# The ScreenClip matches the physical inner screen, with safe text padding.
 	$Stage/Desk/RightMonitor.position.x = 210.0
+	$Stage/Desk/RightMonitor.z_index = 1 # Foreground monitor must not lose text behind the character's arm.
 	$Stage/Desk/RightMonitor/Bezel.scale = Vector2(1.15, 1.3)
-	_chat_content.position.x = 44.0
-	_chat_content.size = Vector2(70, 57)
-	_chat_status.position.x = 44.0
+	var screen: Control = Control.new()
+	screen.name = "ScreenClip"
+	screen.position = Vector2(5, 5)
+	screen.size = Vector2(114, 70)
+	screen.clip_contents = true
+	screen.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	$Stage/Desk/RightMonitor.add_child(screen)
+	_chat_content.reparent(screen)
+	_chat_status.reparent(screen)
+	_chat_content.position = Vector2(8, 19)
+	_chat_content.size = Vector2(98, 45)
+	_chat_status.position = Vector2(8, 6)
+	_chat_status.size = Vector2(98, 11)
+	_chat_status.clip_text = true
+	$Stage/Desk/RightMonitor/Scrollbar.hide()
 	for row: RichTextLabel in _chat_rows:
-		row.size.x = 70.0
+		row.size = Vector2(98, 9)
+		row.autowrap_mode = TextServer.AUTOWRAP_OFF
 	floating_pool = $Effects/FloatingTextPool as FloatingTextPool
 	resized.connect(_fit_stage)
 	_fit_stage()
-	for i: int in range(CHAT_LIMIT):
-		_push_chat()
 	_set_category("just_chatting")
 	_refresh_live()
 
 func present(state: PlayerState) -> void:
+	if state.is_streaming and not live:
+		_chat_lines.clear()
+		for row: RichTextLabel in _chat_rows:
+			row.text = ""
 	live = state.is_streaming
+	viewers = state.viewers
+	chat.advance(0, live, viewers, state.hype)
 	reduced_motion = bool(state.settings.get("reduced_motion", false))
 	hype = state.hype
 	if not is_node_ready():
@@ -95,12 +114,10 @@ func _process(delta: float) -> void:
 		sasavot_sprite.scale = _appearance_scale
 	_hype_light.modulate.a = 0.30 if live and hype >= 80.0 else 0.0
 	_refresh_live()
-	if live:
-		chat_clock += delta
-		if chat_clock >= chat_interval():
-			chat_clock = 0.0
-			_push_chat()
-			_chat_slide = 0.0 if reduced_motion else 11.0
+	var nickname: String = chat.advance(delta, live, viewers, hype)
+	if not nickname.is_empty():
+		_push_chat(nickname)
+		_chat_slide = 0.0 if reduced_motion else 9.0
 	_chat_slide = 0.0 if reduced_motion else maxf(0.0, _chat_slide - delta * 40.0)
 	for i: int in range(_chat_rows.size()):
 		_chat_rows[i].position.y = float(i * 9) + roundf(_chat_slide)
@@ -108,7 +125,7 @@ func _process(delta: float) -> void:
 		$Stage/Aquarium/Fish.position.x = 9.0 + fposmod(_idle_clock * 8.0, 34.0)
 
 func chat_interval() -> float:
-	return 0.65 if hype > 70.0 else (3.8 if hype < 20.0 else 1.8)
+	return chat.interval(viewers, hype)
 
 func _gui_input(event: InputEvent) -> void:
 	if event is InputEventScreenTouch:
@@ -202,8 +219,7 @@ func _refresh_live() -> void:
 	$Stage/Desk/LeftMonitor/CategoryVisual.modulate.a = 1.0 if live else 0.65
 	_chat_content.modulate.a = 1.0 if live else 0.75
 
-func _push_chat() -> void:
-	var nickname: String = CHAT_NAMES[chat_index % CHAT_NAMES.size()]
+func _push_chat(nickname: String = "viewer_52") -> void:
 	var message: String = CHAT_MESSAGES[chat_index % CHAT_MESSAGES.size()]
 	var color: String = CHAT_COLORS[chat_index % CHAT_COLORS.size()]
 	_chat_lines.append("[color=%s]%s[/color] [color=#dddce3]%s[/color]" % [color, nickname, message])

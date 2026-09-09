@@ -4,11 +4,10 @@
 script = ExtResource("1")
 id = "collab_offer"
 title = "Знакомство в чате"
-description = "Вымышленный автор pixel_neighbor заглянул в чат. Поздороваться: +2 к отношениям. Предложить совместный эфир можно после стрима на экране коллабораций."
+description = "Зрители предлагают совместный эфир. Обсудить идею: +1 к репутации. Выбрать автора можно после стрима на экране коллабораций."
 hype_gain = 0.0
 viewer_multiplier = 1.0
 money_gain = 0
 move_id = ""
 duration = 0
-social_author_id = "pixel_neighbor"
-relationship_delta = 2.0
+reputation_delta = 1.0

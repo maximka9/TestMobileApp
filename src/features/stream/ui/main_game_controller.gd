@@ -8,6 +8,8 @@ var achievement_tree: AchievementTree
 var achievement_detail: Label
 var achievement_popup: PopupPanel
 var collab_timer_label: Label
+var refresh_pending: bool = false
+var _shown_generation: int = -1
 var _shown_candidate_ids: Array[String] = []
 @onready var header: Label = %Header
 @onready var viewers_label: Label = %ViewersValue
@@ -86,6 +88,7 @@ func _refresh() -> void:
 		app.queue.request_save()
 	if is_instance_valid(achievement_tree):
 		achievement_tree.refresh()
+	_poll_collab_rotation()
 	var required: int = app.progression.required_xp(state.level)
 	header.text = "ПОДПИСЧИКИ %d · XP %d / %d" % [state.followers, state.xp, required]
 	xp_bar.max_value = required
@@ -97,17 +100,11 @@ func _refresh() -> void:
 	hype_bar.value = state.hype
 	energy_bar.value = state.fatigue
 	var content: StreamType = app.stream.current_content()
-	status.text = "%s  /  %s  /  %s" % ["● LIVE" if state.is_streaming else "OFFLINE", content.title, _time(app.stream.elapsed)]
+	status.text = "%s  /  %s  /  %s" % ["● LIVE" if state.is_streaming else "OFFLINE", content.title, StreamTime.format_live(app.stream.elapsed)]
 	primary.text = "Завершить эфир" if state.is_streaming else "НАЧАТЬ ЭФИР"
 	primary.disabled = app.stream.phase == StreamService.Phase.SUMMARY
 	_present_location(state)
 	(%CollabButton as Button).text = "Коллаб !" if not app.inbound.current(state).is_empty() else "Коллаб"
-	if modal_kind == "collaborations":
-		var candidates: Array[String] = app.collaborations.candidates(state)
-		if candidates != _shown_candidate_ids:
-			_show_collaborations()
-		elif is_instance_valid(collab_timer_label):
-			collab_timer_label.text = "Новые предложения через " + _time(maxi(0, state.collab_candidate_refresh_at - int(app.collaborations.clock.call())))
 	if modal_kind == "moves" or modal_kind == "collab":
 		for child: Node in modal_body.get_children():
 			if child is Label and child.has_meta("cooldown_id"):
@@ -285,6 +282,9 @@ func _show_collaborations() -> void:
 	if app.stream.state.is_streaming:
 		modal_body.add_child(SasaUI.label("Предлагайте коллаб между эфирами."))
 	_shown_candidate_ids = app.collaborations.candidates(app.stream.state)
+	_shown_generation = app.collaborations.candidate_generation
+	refresh_pending = false
+	collab_timer_label.text = "Новые предложения через " + _time(maxi(0, app.stream.state.collab_candidate_refresh_at - int(app.collaborations.clock.call())))
 	app.queue.request_save()
 	for id: String in _shown_candidate_ids:
 		var author: StreamerDefinition = app.collaborations.profile(id)
@@ -409,7 +409,7 @@ func _show_summary(summary: Dictionary) -> void:
 	_open_modal("summary", "СТРИМ ЗАВЕРШЁН")
 	modal_body.add_child(SasaUI.label("Новых подписчиков: +%d · средний онлайн: %.1f" % [int(summary.get("followers", 0)), app.stream.state.average_online], &"body", &"SuccessLabel"))
 	modal_body.add_child(SasaUI.label("Хороший эфир. Чат ждёт продолжения!", &"body", &"MutedLabel"))
-	for row: Array in [["Время эфира", _time(int(summary["seconds"]))], ["Пиковый онлайн", summary["peak"]], ["Средний онлайн", "%.1f" % summary["average"]], ["Заработано", "%d монет" % summary["money"]], ["Получено XP", summary["xp"]], ["Клики", summary["clicks"]], ["Лучший ивент", summary["best_event"]]]:
+	for row: Array in [["Время эфира", StreamTime.format_summary(float(summary["seconds"]))], ["Пиковый онлайн", summary["peak"]], ["Средний онлайн", "%.1f" % summary["average"]], ["Заработано", "%d монет" % summary["money"]], ["Получено XP", summary["xp"]], ["Клики", summary["clicks"]], ["Лучший ивент", summary["best_event"]]]:
 		modal_body.add_child(SasaUI.label("%s\n%s" % [row[0], row[1]], &"body"))
 	modal_body.add_child(SasaUI.button("Продолжить", _close_modal, true))
 
@@ -417,7 +417,6 @@ func _show_settings() -> void:
 	if app.stream.phase == StreamService.Phase.SUMMARY:
 		return
 	_open_modal("settings", "НАСТРОЙКИ")
-	modal_body.add_child(SasaUI.button("Локации", _show_locations))
 	modal_body.add_child(SasaUI.button("Достижения", _show_achievements))
 	modal_body.add_child(SasaUI.button("Интерьер", _show_interior))
 	modal_body.add_child(SasaUI.button("Профиль и отношения", _show_social_profile))
@@ -440,22 +439,6 @@ func _show_settings() -> void:
 		_modal_feedback(app.queue.flush())
 	))
 
-func _show_locations() -> void:
-	_open_modal("locations", "ЛОКАЦИИ")
-	for id: String in app.catalog.locations:
-		var location: LocationDefinition = app.catalog.locations[id] as LocationDefinition
-		modal_body.add_child(SasaUI.label(location.display_name + "\n" + location.description, &"body", &"MutedLabel"))
-		var button: Button = SasaUI.button("Выбрать" if location.scene != null else "СКОРО", func() -> void: _select_location(id))
-		button.disabled = app.stream.state.is_streaming or location.scene == null or app.stream.state.current_location_id == id
-		modal_body.add_child(button)
-
-func _select_location(id: String) -> void:
-	var result: OperationResult = app.stream.select_location(id)
-	if result.success:
-		_close_modal()
-	else:
-		_modal_feedback(result)
-
 func _present_location(state: PlayerState) -> void:
 	if state.current_location_id != _location_id:
 		var definition: LocationDefinition = app.catalog.locations.get(state.current_location_id)
@@ -467,6 +450,7 @@ func _present_location(state: PlayerState) -> void:
 			container.add_child(room)
 			room.tapped.connect(_room_tapped)
 			_location_id = state.current_location_id
+	room.chat.config = app.config
 	room.present(state)
 
 func _show_achievements() -> void:
@@ -560,9 +544,24 @@ func _save_completed(result: OperationResult) -> void:
 	save_status.theme_type_variation = &"MutedLabel" if result.success else &"ErrorLabel"
 	_save_notice_time = 3.0 if result.success else 0.0
 
+func _poll_collab_rotation() -> void:
+	if modal_kind not in ["collaborations", "collab_formats", "collab_offer"]:
+		return
+	var state: PlayerState = app.stream.state
+	var remaining: int = maxi(0, state.collab_candidate_refresh_at - int(app.collaborations.clock.call()))
+	if modal_kind != "collaborations":
+		refresh_pending = refresh_pending or remaining == 0
+		return
+	app.collaborations.candidates(state)
+	if _shown_generation != app.collaborations.candidate_generation or _shown_candidate_ids != state.collab_candidate_ids:
+		_show_collaborations()
+	elif is_instance_valid(collab_timer_label):
+		collab_timer_label.text = "Новые предложения через " + _time(remaining)
+
 func _process(delta: float) -> void:
 	if app == null:
 		return
+	_poll_collab_rotation()
 	if _save_notice_time > 0.0:
 		_save_notice_time -= delta
 		if _save_notice_time <= 0.0:

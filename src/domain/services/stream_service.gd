@@ -22,6 +22,7 @@ var career: CareerService
 var stream_novelty: float = 1.0
 var _viewers_float: float = 0.0
 var _viewer_sum: int = 0
+var _hype_sum: float = 0.0
 var _peak: int = 0
 var _earned: int = 0
 var _clicks: int = 0
@@ -59,12 +60,7 @@ func current_content() -> StreamType:
 	return catalog.streams.get(state.current_stream_type_id) as StreamType
 
 func select_location(id: String) -> OperationResult:
-	var location: LocationDefinition = catalog.locations.get(id) as LocationDefinition
-	if phase != Phase.OFFLINE or location == null or location.scene == null or state.level < location.required_level:
-		return OperationResult.fail(&"LOCATION_UNAVAILABLE", "Локация пока недоступна")
-	state.current_location_id = id
-	changed.emit()
-	return OperationResult.new()
+	return OperationResult.fail(&"LOCATION_AUTOMATIC", "Локация определяется контентом: " + id)
 
 func select_cosplay(id: String) -> OperationResult:
 	if phase != Phase.OFFLINE or (not id.is_empty() and not catalog.cosplays.has(id)):
@@ -79,11 +75,9 @@ func start() -> OperationResult:
 	if state.fatigue >= config.exhaustion_threshold:
 		return OperationResult.fail(&"EXHAUSTED", "Вы устали. Отдохните перед следующим эфиром.")
 	var content: StreamType = current_content()
-	var location: LocationDefinition = catalog.locations.get(state.current_location_id)
-	if location == null or not state.current_stream_type_id in location.allowed_stream_types:
-		return OperationResult.fail(&"LOCATION_REQUIRED", "Смените локацию для этого формата")
-	if not content.required_location_id.is_empty() and state.current_location_id != content.required_location_id:
-		return OperationResult.fail(&"LOCATION_REQUIRED", "Для этого формата нужна локация: Кухня")
+	var location: LocationDefinition = LocationService.new(catalog).resolve(content)
+	if location == null or state.level < location.required_level:
+		return OperationResult.fail(&"LOCATION_UNAVAILABLE", "Локация формата недоступна")
 	var cosplay: CosplayDefinition = catalog.cosplays.get(state.selected_cosplay_id) as CosplayDefinition
 	if cosplay != null:
 		if not state.current_stream_type_id in cosplay.stream_tags or state.money < cosplay.money_cost or state.fatigue + cosplay.fatigue_cost > 100.0:
@@ -91,6 +85,9 @@ func start() -> OperationResult:
 		state.money -= cosplay.money_cost
 		state.fatigue += cosplay.fatigue_cost
 		state.cosplay_streams += 1
+	state.current_location_id = location.id
+	# Let the presentation switch its scene before emitting the live state.
+	changed.emit()
 	stream_novelty = career.novelty(state, state.current_stream_type_id)
 	if cosplay != null:
 		stream_novelty *= 1.0 + cosplay.novelty_bonus
@@ -102,6 +99,7 @@ func start() -> OperationResult:
 	elapsed = 0
 	_viewers_float = 0.0
 	_viewer_sum = 0
+	_hype_sum = 0.0
 	_peak = 0
 	_earned = 0
 	_clicks = 0
@@ -120,7 +118,7 @@ func start() -> OperationResult:
 func click() -> OperationResult:
 	if phase != Phase.STREAMING:
 		return OperationResult.fail(&"NOT_STREAMING", "Выберите игру и начните эфир")
-	var gain: float = state.click_power * float(upgrades.stats(state)["hype_gain"]) * career.efficiency(state)
+	var gain: float = minf(config.click_hype_cap, state.click_power * float(upgrades.stats(state)["hype_gain"]) * config.click_hype_multiplier) * career.efficiency(state)
 	_xp_fraction += config.high_hype_xp_multiplier if state.hype >= config.high_hype_xp_threshold else 1.0
 	var awarded: int = int(floor(_xp_fraction + 0.000001))
 	_xp_fraction -= awarded
@@ -138,7 +136,7 @@ func tick() -> void:
 		changed.emit()
 		return
 	elapsed += 1
-	career.exert(state, state.current_stream_type_id, config.tick_seconds)
+	career.exert(state, state.current_stream_type_id, config.tick_seconds * StreamTime.GAME_MINUTES_PER_REAL_SECOND * 60.0)
 	state.hype = maxf(0.0, state.hype - config.hype_decay)
 	var values: Dictionary = upgrades.stats(state)
 	var target: float = target_viewers()
@@ -146,6 +144,7 @@ func tick() -> void:
 	state.viewers = maxi(0, int(round(_viewers_float)))
 	_peak = maxi(_peak, state.viewers)
 	_viewer_sum += state.viewers
+	_hype_sum += state.hype
 	if elapsed % config.income_seconds == 0:
 		var income: int = economy.calculate_income(state, current_content(), float(values["income"]))
 		economy.credit(state, income)
@@ -200,6 +199,15 @@ func finish() -> OperationResult:
 		if state.collab_momentum_streams == 0:
 			state.collab_momentum = 0
 	summary["followers"] = inbound.complete(state, state.current_stream_type_id, elapsed) if inbound != null else 0
+	var growth: FollowerGrowthService = FollowerGrowthService.new(config)
+	growth.random = random
+	growth.career_tier = state.career_tier
+	var organic: int = growth.calculate_stream_gain(float(summary["average"]), StreamTime.game_minutes_from_real_seconds(elapsed), _hype_sum / maxi(1, elapsed), stream_novelty, state.reputation)
+	growth.award(state, organic)
+	summary["organic_followers"] = organic
+	summary["followers"] += organic
+	summary["game_minutes"] = StreamTime.game_minutes_from_real_seconds(elapsed)
+	summary["average_hype"] = _hype_sum / maxi(1, elapsed)
 	career.complete(state, summary, stream_novelty, int(clock.call()))
 	state.growth_momentum *= config.momentum_stream_decay
 	events.pending = null
@@ -213,6 +221,7 @@ func continue_to_room() -> OperationResult:
 	if phase != Phase.SUMMARY:
 		return OperationResult.fail(&"INVALID_STATE")
 	phase = Phase.OFFLINE
+	state.current_location_id = "streamer_room"
 	state.hype = 0.0
 	state.viewers = 0
 	changed.emit()

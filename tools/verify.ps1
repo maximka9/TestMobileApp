@@ -30,7 +30,7 @@ try {
         throw 'Negative control unexpectedly passed.'
     }
     Invoke-SasaCheck @('--headless', '--editor', '--path', $sasaRoot, '--quit')
-    $sasaSuites = @('v06_systems', 'v051_stabilization', 'v05_systems')
+    $sasaSuites = @('v07_systems', 'v06_systems', 'v051_stabilization', 'v05_systems')
     if (-not $Targeted) {
         $sasaSuites += @('test_runner', 'career_phase9', 'career_phase1', 'career_phase2', 'career_phase3', 'career_phase4a', 'career_phase4b')
     }
@@ -49,7 +49,7 @@ try {
     $sasaPython | ForEach-Object { Write-Output ([string]$_) }
     if ($sasaPythonExit -ne 0) { throw "Importer tests failed ($sasaPythonExit)" }
     if (-not $SkipVisual) {
-        $sasaSmokes = @('v06_ui_smoke', 'v051_ui_smoke')
+        $sasaSmokes = @('v07_ui_smoke', 'v06_ui_smoke', 'v051_ui_smoke')
         if (-not $Targeted) { $sasaSmokes += @('typography_smoke', 'collaboration_ui_smoke', 'career_final_smoke', 'v05_ui_smoke', 'visual_smoke') }
         foreach ($sasaSmoke in $sasaSmokes) {
             Invoke-SasaCheck @('--path', $sasaRoot, '--script', "tests/$sasaSmoke.gd")

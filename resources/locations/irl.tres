@@ -1,7 +1,10 @@
-[gd_resource type="Resource" script_class="LocationDefinition" load_steps=2 format=3]
+[gd_resource type="Resource" script_class="LocationDefinition" load_steps=3 format=3]
 [ext_resource type="Script" path="res://src/domain/models/location_definition.gd" id="1"]
+[ext_resource type="PackedScene" path="res://src/features/stream/scenes/city_room.tscn" id="scene"]
 [resource]
 script = ExtResource("1")
-id = "irl"
+id = "city"
+scene = ExtResource("scene")
+allowed_stream_types = PackedStringArray("irl")
 display_name = "Город"
-description = "Локация для будущих IRL-эфиров."
+description = "Прогулка по городу в прямом эфире."

@@ -14,6 +14,10 @@ extends Resource
 @export var move_id: String = ""
 ## Fictional event effects, not statements about public figures.
 @export var social_author_id: String = ""
+@export var creator_id: String = ""
+
+func creator_reference() -> String:
+	return creator_id if not creator_id.is_empty() else social_author_id
 @export var reputation_delta: float = 0.0
 @export var relationship_delta: float = 0.0
 @export var required_stream_type_id: String = ""

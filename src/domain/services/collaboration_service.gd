@@ -7,6 +7,7 @@ var config: GameConfig
 var social: SocialService
 var random: RandomProvider
 var directory: StreamerDirectoryRepository
+var candidate_generation: int = 0
 var clock: Callable = func() -> int: return int(Time.get_unix_time_from_system())
 
 func _init(content: ContentCatalog, game_config: GameConfig, rng: RandomProvider) -> void:
@@ -29,7 +30,23 @@ func candidates(state: PlayerState) -> Array[String]:
 	var now: int = int(clock.call())
 	if not state.collab_candidate_ids.is_empty() and now < state.collab_candidate_refresh_at:
 		return state.collab_candidate_ids.duplicate()
-	state.collab_candidate_ids = _select_candidates(state)
+	return refresh_candidates(state)
+
+func refresh_candidates(state: PlayerState) -> Array[String]:
+	var now: int = int(clock.call())
+	var previous: Array[String] = state.collab_candidate_ids.duplicate()
+	var selected: Array[String] = _select_candidates(state)
+	var old_set: Array[String] = previous.duplicate()
+	var new_set: Array[String] = selected.duplicate()
+	old_set.sort()
+	new_set.sort()
+	if old_set == new_set and not selected.is_empty():
+		for id: String in directory.profiles():
+			if not id in selected and not formats(id).is_empty():
+				selected[-1] = id
+				break
+	state.collab_candidate_ids = selected
+	candidate_generation += 1
 	state.collab_candidate_refresh_at = now + config.collab_refresh_seconds
 	for id: String in state.collab_candidate_ids:
 		state.recent_candidate_ids.erase(id)

@@ -50,6 +50,8 @@ func _run() -> void:
 	game._show_short_forms()
 	await _capture("short_forms_modal")
 	game._start_content("irl")
+	await process_frame
+	await process_frame
 	# Feed a real input event through the viewport rather than calling ClickHandler.
 	var before: int = game.app.stream.state.total_clicks
 	var click: InputEventMouseButton = InputEventMouseButton.new()

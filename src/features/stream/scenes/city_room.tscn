@@ -1,0 +1,41 @@
+[gd_scene load_steps=5 format=3]
+[ext_resource type="Script" path="res://src/features/stream/ui/kitchen_view.gd" id="view"]
+[ext_resource type="Script" path="res://src/features/stream/ui/city_backdrop.gd" id="city"]
+[ext_resource type="Texture2D" path="res://assets/characters/sasavot_frames.png" id="character"]
+[ext_resource type="Script" path="res://src/features/stream/ui/floating_text_pool.gd" id="pool"]
+[node name="CityScene" type="Control"]
+script = ExtResource("view")
+custom_minimum_size = Vector2(0, 210)
+clip_contents = true
+texture_filter = 1
+[node name="Stage" type="Control" parent="."]
+offset_right = 336.0
+offset_bottom = 250.0
+[node name="City" type="Control" parent="Stage"]
+offset_right = 336.0
+offset_bottom = 250.0
+script = ExtResource("city")
+[node name="Character" type="Node2D" parent="Stage"]
+[node name="SasavotSprite" type="Sprite2D" parent="Stage/Character"]
+position = Vector2(150, 153)
+texture = ExtResource("character")
+hframes = 4
+[node name="ChatPanel" type="ColorRect" parent="Stage"]
+offset_left = 226.0
+offset_top = 55.0
+offset_right = 328.0
+offset_bottom = 125.0
+color = Color(0.05, 0.08, 0.13, 0.95)
+[node name="LiveChat" type="Label" parent="Stage"]
+offset_left = 234.0
+offset_top = 61.0
+offset_right = 320.0
+offset_bottom = 119.0
+text = "○ OFFLINE"
+theme_override_font_sizes/font_size = 7
+clip_text = true
+[node name="Effects" type="Control" parent="."]
+mouse_filter = 2
+[node name="FloatingTextPool" type="Control" parent="Effects"]
+script = ExtResource("pool")
+mouse_filter = 2

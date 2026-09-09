@@ -44,14 +44,14 @@ func _test_social_events() -> void:
 	_fixture()
 	stream.start()
 	events.pending = catalog.events["community_help"]
-	check(stream.resolve_event(true).success and state.reputation == 52 and state.relationships["pixel_neighbor"] == 5, "Accepted help event updates social state")
+	check(stream.resolve_event(true).success and state.reputation == 52 and state.relationships.is_empty(), "Accepted help event updates social state")
 	check(not stream.resolve_event(true).success and state.reputation == 52, "Consumed event cannot reward twice")
 	events.pending = catalog.events["community_taunt"]
 	stream.resolve_event(false)
-	check(state.reputation == 52 and state.relationships["pixel_neighbor"] == 5, "Skipping event leaves social state unchanged")
+	check(state.reputation == 52 and state.relationships.is_empty(), "Skipping event leaves social state unchanged")
 	events.pending = catalog.events["community_taunt"]
 	stream.resolve_event(true)
-	check(state.reputation == 49 and state.relationships["pixel_neighbor"] == 0, "Toxic fictional choice reduces reputation and relationship")
+	check(state.reputation == 49 and state.relationships.is_empty(), "Anonymous toxic choice reduces reputation without inventing a creator")
 	state.fatigue = 100
 	events.pending = catalog.events["community_help"]
 	check(not stream.resolve_event(true).success and state.reputation == 49 and events.pending != null, "Failed action cannot grant social reward")

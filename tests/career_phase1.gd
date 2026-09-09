@@ -20,7 +20,7 @@ func _test_fatigue_and_reach() -> void:
 	check(initial.followers == 45 and initial.fatigue == 12, "Configured starting state")
 	stream.start()
 	stream.tick()
-	check(is_equal_approx(state.fatigue, config.fatigue_per_minute["just_chatting"] / 60.0), "Fatigue grows by configured per-minute rate")
+	check(is_equal_approx(state.fatigue, config.fatigue_per_minute["just_chatting"]), "Fatigue grows by configured per-minute rate")
 	state.fatigue = 99.99
 	stream.tick()
 	check(state.fatigue == 100 and state.energy == 0, "Fatigue caps; energy is inverse view")

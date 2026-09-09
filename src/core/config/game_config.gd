@@ -32,7 +32,7 @@ extends Resource
 @export_range(0, 100) var starting_fatigue: float = 0.0
 @export var fatigue_rate: float = 0.04
 @export var fatigue_recovery: float = 2.0 / 60.0
-@export var fatigue_per_minute: Dictionary = {"just_chatting": 1.0, "dota_2": 1.2, "cooking": 1.5, "irl": 1.6}
+@export var fatigue_per_minute: Dictionary = {"just_chatting": 0.20, "dota_2": 0.24, "cooking": 0.30, "irl": 0.32}
 @export var high_hype_xp_threshold: float = 95.0
 @export var high_hype_xp_multiplier: float = 1.15
 @export var fatigue_viewer_steps: PackedFloat32Array = [60, 80, 90]
@@ -117,3 +117,18 @@ extends Resource
 @export var inbound_base_chance: float = 0.04
 @export var inbound_chance_cap: float = 0.6
 @export var inbound_min_stream_seconds: int = 30
+
+@export_group("Stream simulation 0.7")
+@export var click_hype_multiplier: float = 1.75
+@export var click_hype_cap: float = 8.0
+@export var organic_exposure_conversion: float = 0.012
+@export var organic_min_hype: float = 20.0
+@export var organic_duration_cap_minutes: int = 120
+@export var organic_gain_cap: float = 250.0
+@export var organic_tier_multipliers: PackedFloat32Array = [1.0, 1.0, 0.9, 0.8]
+@export var chat_viewer_thresholds: PackedInt32Array = [3, 10, 30, 100, 500, 2000]
+@export var chat_interval_min: PackedFloat32Array = [7, 4, 2.5, 1.5, 0.8, 0.5, 0.25]
+@export var chat_interval_max: PackedFloat32Array = [12, 7, 4, 2.5, 1.5, 1, 0.7]
+@export var chat_hype_thresholds: PackedFloat32Array = [30, 70, 95]
+@export var chat_hype_multipliers: PackedFloat32Array = [0.8, 1.0, 1.25, 1.5]
+@export var chat_min_interval: float = 0.25

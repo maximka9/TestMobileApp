@@ -3,10 +3,8 @@
 [resource]
 script = ExtResource("1")
 id = "community_taunt"
-title = "Ответить резкостью?"
-description = "Чат предлагает высмеять вымышленного автора pixel_neighbor. +10 хайпа, −3 репутации, −5 к отношениям. Можно пропустить."
+title = "Чат провоцирует"
+description = "Ответить резкостью на токсичный комментарий? +10 хайпа, −3 репутации. Можно пропустить."
 hype_gain = 10.0
 duration = 0
-social_author_id = "pixel_neighbor"
 reputation_delta = -3.0
-relationship_delta = -5.0

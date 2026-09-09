@@ -46,7 +46,7 @@ func resolve(state: PlayerState, accept: bool, now: int, stream: StreamType) -> 
 		return OperationResult.fail(&"NOT_STREAMING")
 	var result: OperationResult = OperationResult.new(true, &"SUCCESS", "Событие пропущено")
 	if accept:
-		if not social.can_change(state, pending.social_author_id, pending.reputation_delta, pending.relationship_delta):
+		if not social.can_change(state, pending.creator_reference(), pending.reputation_delta, pending.relationship_delta):
 			return OperationResult.fail(&"INVALID_ARGUMENT")
 		if not pending.move_id.is_empty():
 			result = moves.perform(state, pending.move_id, now)
@@ -56,7 +56,7 @@ func resolve(state: PlayerState, accept: bool, now: int, stream: StreamType) -> 
 			scaled.viewer_multiplier = 1.0 + (scaled.viewer_multiplier - 1.0) * stream.event_multiplier
 			result = moves.apply_action(state, scaled, now)
 		if result.success:
-			social.change(state, pending.social_author_id, pending.reputation_delta, pending.relationship_delta)
+			social.change(state, pending.creator_reference(), pending.reputation_delta, pending.relationship_delta)
 			if not pending.content_source_tag.is_empty():
 				ContentSourceService.create(state, pending.content_source_tag, int(clock.call()))
 	if result.success:

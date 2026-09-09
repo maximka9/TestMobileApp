@@ -1,5 +1,30 @@
 # Changelog
 
+## 0.7.0 — 2026-09-09
+
+### Added
+- Organic stream follower growth based on observed audience, quality, novelty,
+  reputation and career tier, with bounded exposure and stochastic rounding.
+- Gameplay metrics documentation, seeded stream simulations and regression checks.
+- Central stream game time: one real second is one game minute; monotonic ticks.
+- Viewer-scaled chat cadence and a stable session participant pool.
+- Minimal city scene for IRL streams.
+
+### Changed
+- Content automatically resolves its location; closing summary returns home.
+- Remove the manual location selector; preserve content-specific cosplay choice.
+- Increase click hype effectiveness 1.75x with a per-click cap, unchanged XP rules.
+- Rebalance fatigue per game minute while keeping 60-real-second rest ticks.
+- Clip monitor text to the physical screen with padding and five reused rows.
+
+### Fixed
+- Refresh visible collaboration cards at the deadline with generation tracking and
+  guaranteed alternative sets; defer refresh in creator details.
+- Incoming invite checks no longer rotate the user's collaboration list.
+- Remove fictitious event creators and validate production creator references.
+- Explicit hours/minutes in stream summaries; new sessions reset their tick origin.
+
+
 ## 0.6.0 — 2026-09-09
 
 - Add configured follower-driven audience curve, seeded stream variance and central

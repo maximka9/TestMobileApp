@@ -33,7 +33,11 @@ func poll(state: PlayerState) -> void:
 	if now < state.inbound_next_check_at:
 		return
 	state.inbound_next_check_at = now + config.inbound_check_seconds
-	var ids: Array[String] = collaborations.candidates(state)
+	# Invite checks must not rotate the user's list while a profile is open.
+	var ids: Array[String] = []
+	for id: String in collaborations.directory.profiles():
+		if not collaborations.formats(id).is_empty() and collaborations.remaining(state, id) == 0:
+			ids.append(id)
 	if ids.is_empty():
 		return
 	var id: String = ids[random.between(0, ids.size() - 1)]
