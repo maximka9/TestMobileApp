@@ -17,3 +17,6 @@ exports/
 .DS_Store
 Thumbs.db
 export_credentials.cfg
+
+# Generated Godot metadata for documentation screenshots
+docs/**/*.png.import
