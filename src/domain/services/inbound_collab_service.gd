@@ -24,6 +24,8 @@ func probability(state: PlayerState, id: String, format: String) -> float:
 	return clampf(config.inbound_base_chance * sqrt(gap) * overlap * relation * collaborations.social.reputation_factor(state) * (1 + state.career_tier * 0.1) * (1 + state.growth_momentum * 0.05 + state.hype / 100.0), 0, config.inbound_chance_cap)
 
 func poll(state: PlayerState) -> void:
+	if collaborations.has_active_collaboration(state):
+		return
 	if not current(state).is_empty():
 		return
 	var now: int = int(clock.call())
@@ -47,6 +49,8 @@ func poll(state: PlayerState) -> void:
 		state.incoming_collab_queue = [{"creator_id": id, "format": format, "created_at": now, "expires_at": now + config.inbound_expiry_seconds, "accepted": false}]
 
 func respond(state: PlayerState, accept: bool) -> OperationResult:
+	if accept and collaborations.has_active_collaboration(state):
+		return OperationResult.fail(&"COLLAB_PENDING", "Сначала завершите запланированный коллаб")
 	var invite: Dictionary = current(state)
 	if invite.is_empty() or invite["accepted"] or state.is_streaming:
 		return OperationResult.fail(&"INVALID_STATE")
@@ -61,11 +65,10 @@ func respond(state: PlayerState, accept: bool) -> OperationResult:
 	return OperationResult.new(true, &"SUCCESS", "Проведите эфир выбранного формата не менее %d с" % config.inbound_min_stream_seconds if accept else "Приглашение отклонено")
 
 func complete(state: PlayerState, format: String, seconds: int) -> int:
-	var outbound: int = collaborations.complete_pending(state, format, seconds)
 	var invite: Dictionary = current(state)
 	if invite.is_empty() or not invite["accepted"] or invite["format"] != format or seconds < config.inbound_min_stream_seconds:
-		return outbound
+		return collaborations.complete_pending(state, format, seconds)
 	var id: String = invite["creator_id"]
 	state.incoming_collab_queue.clear()
 	state.collab_cooldowns[id] = int(clock.call()) + config.collab_cooldown_seconds
-	return outbound + collaborations.complete_success(state, id, 1.0, format)
+	return collaborations.complete_success(state, id, 1.0, format)

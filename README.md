@@ -1,6 +1,6 @@
 # SASAclicker
 
-Current version: **0.10.0**.
+Current version: **0.10.1**.
 
 Follower-driven audience, incoming collaborations and 60-second candidate rotation;
 the tenth slot features one of six creators. Achievement tree supports 60–180% zoom,
@@ -9,7 +9,7 @@ Organic stream followers, automatic locations, viewer-scaled chat and accelerate
 stream time. Save schema 12 preserves legacy progression and records completed IRL
 collaborations. Settings include a double-confirmed progress reset that preserves
 user preferences. See [0.10 audit](docs/v0.10-audit.md),
-[verification](docs/v0.10-verification.md) and [catalog sources](docs/v0.10-catalog.md).
+[0.10.1 verification and Android smoke](docs/v0.10.1-verification.md) and [catalog sources](docs/v0.10-catalog.md).
 
 ## Gameplay systems
 
@@ -73,9 +73,9 @@ assertion завершает verify с ненулевым кодом. `-Negative
 
 - Эфиры Just Chatting, Dota, IRL и Cooking; хайп, онлайн, монеты и XP.
 - При хайпе >=95 клики дают x1.15 XP; дробная часть накапливается в сессии.
-- Усталость растёт во время эфира, между эфирами снижается на 2 за полную минуту.
+- Усталость растёт во время эфира, между эфирами непрерывно снижается на 10 за реальную минуту.
   Множители хайпа и целевого онлайна раздельные; онлайн изменяется плавно.
-- Комната и кухня переключаются отдельными сценами. Город пока «СКОРО».
+- Комната, кухня и город IRL переключаются автоматически по формату эфира.
 - YOUNG/CURRENT/SUCCESSFUL изображают одного SASAVOT во всех локациях.
 - Короткие ролики расходуют источник подходящей темы; FAIL создаёт отдельный
   источник фейла. Расход сохраняется после перезапуска.
@@ -86,9 +86,9 @@ assertion завершает verify с ненулевым кодом. `-Negative
 
 ## Persistence
 
-`user://save.json`, схема **9**. Миграция поддерживает схемы 1–8.
+`user://save.json`, схема **12**. Миграция поддерживает схемы 1–11.
 Сохраняются экономика, карьера, источники, отношения, достижения, локация,
-timestamp и остаток неполной минуты отдыха. Запись атомарная с ограниченными
+timestamp и запланированные коллаборации. Запись атомарная с ограниченными
 повторами; повреждённый файл по возможности сохраняется в backup.
 
 Незавершённый эфир при запуске сбрасывается в OFFLINE без наград и без

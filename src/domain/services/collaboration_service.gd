@@ -143,17 +143,17 @@ func request(state: PlayerState, id: String, format: String) -> OperationResult:
 		return OperationResult.fail(&"BUSY_STREAMING", "Предлагайте коллаб между эфирами")
 	if not social.can_change(state, id, 0, 0) or (not state.collab_cooldowns.has(id) and state.collab_cooldowns.size() >= config.social_profile_limit):
 		return OperationResult.fail(&"INVALID_ARGUMENT")
-	if not state.pending_outbound_collab.is_empty():
-		return OperationResult.fail(&"COLLAB_PENDING", "Сначала завершите запланированный IRL-коллаб")
+	if has_active_collaboration(state):
+		return OperationResult.fail(&"COLLAB_PENDING", "Сначала завершите запланированный коллаб")
 	var probability: float = chance(state, id, format)
 	var now: int = int(clock.call())
-	var tracked: OperationResult = social.record_request(state, id, now)
-	if not tracked.success:
-		return tracked
 	if remaining(state, id) > 0:
 		return OperationResult.fail(&"ON_COOLDOWN", "Повторно предложить нельзя. Попробуйте позже.")
 	if state.fatigue + config.collab_fatigue_cost > 100:
 		return OperationResult.fail(&"TOO_TIRED", "Сначала отдохните")
+	var tracked: OperationResult = social.record_request(state, id, now)
+	if not tracked.success:
+		return tracked
 	var author: StreamerDefinition = profile(id)
 	var accepted: bool = float(random.between(0, 999999)) / 1000000.0 < probability
 	state.collab_cooldowns[id] = now + config.collab_cooldown_seconds + author.reach_tier * config.collab_tier_cooldown_seconds
@@ -195,3 +195,11 @@ func complete_pending(state: PlayerState, format: String, seconds: int) -> int:
 		return 0
 	state.pending_outbound_collab = {}
 	return complete_success(state, pending["creator_id"], 1.0, format)
+
+func has_active_collaboration(state: PlayerState) -> bool:
+	if not state.pending_outbound_collab.is_empty():
+		return true
+	for invite: Dictionary in state.incoming_collab_queue:
+		if invite.get("accepted", false) and int(invite.get("expires_at", 0)) > int(clock.call()):
+			return true
+	return false

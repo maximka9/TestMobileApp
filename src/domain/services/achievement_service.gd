@@ -10,17 +10,24 @@ func _init(content: ContentCatalog) -> void:
 
 func evaluate(state: PlayerState) -> Array[String]:
 	var unlocked: Array[String] = []
-	for id: String in catalog.achievements:
-		if id in state.unlocked_achievements:
-			continue
-		var definition: AchievementDefinition = catalog.achievements[id] as AchievementDefinition
-		if definition != null and _qualifies(state, definition):
-			state.unlocked_achievements.append(id)
-			unlocked.append(id)
-			achievement_unlocked.emit(id)
+	var changed: bool = true
+	while changed:
+		changed = false
+		for id: String in catalog.achievements:
+			if id in state.unlocked_achievements:
+				continue
+			var definition: AchievementDefinition = catalog.achievements[id] as AchievementDefinition
+			if definition != null and _qualifies(state, definition):
+				state.unlocked_achievements.append(id)
+				unlocked.append(id)
+				achievement_unlocked.emit(id)
+				changed = true
 	return unlocked
 
 func _qualifies(state: PlayerState, definition: AchievementDefinition) -> bool:
+	for parent: String in definition.parent_ids:
+		if not parent in state.unlocked_achievements:
+			return false
 	if not definition.required_creator_id.is_empty():
 		return definition.required_creator_id in state.completed_irl_collab_creator_ids
 	if not definition.requirements.is_empty():

@@ -1,0 +1,20 @@
+﻿Godot_v4.7.2-stable_win64_console.exe : FAIL: P1 cooking waits for viral_10
+    + CategoryInfo          : NotSpecified: (FAIL: P1 cooking waits for viral_10:String) [], RemoteException
+FAIL: P1 first collab waits for 100 followers
+FAIL: Legendary waits for first_collab
+FAIL: Parent signal precedes child first_collab
+FAIL: Parent signal precedes child first_cooking
+FAIL: Accepted inbound blocks outbound
+FAIL: Inbound guard is atomic
+FAIL: Outbound blocks inbound acceptance
+FAIL: Outbound guard is atomic
+FAIL: No invite generated during outbound plan
+FAIL: P1 one stream completes exactly one collab; same=false
+FAIL: Legacy inbound priority retains outbound
+FAIL: Repeated finish cannot reward
+FAIL: P1 one stream completes exactly one collab; same=true
+FAIL: Legacy inbound priority retains outbound
+FAIL: Repeated finish cannot reward
+FAIL: Failed request has no mutation cooldown
+FAIL: Failed request has no mutation fatigue
+V0101 SYSTEMS: 22 passed, 18 failed

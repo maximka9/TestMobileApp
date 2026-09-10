@@ -65,6 +65,7 @@ func _run() -> void:
 	_check(is_equal_approx(game.achievement_pan.zoom, 1.32), "Pinch magnification")
 	var state: PlayerState = game.app.stream.state
 	state.completed_collabs = 1
+	state.followers = 100
 	state.completed_irl_collab_creator_ids.append("rostikfacekid")
 	game._refresh()
 	await process_frame

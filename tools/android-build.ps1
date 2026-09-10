@@ -40,7 +40,9 @@ if ($LASTEXITCODE -ne 0 -or $sasaGodotVersion -notmatch '^4\.7\.2\.stable\.') {
 $sasaExporter = Join-Path $sasaRoot '.tools\android-export'
 $sasaEditorData = Join-Path $sasaExporter 'editor_data'
 $sasaInstalledTemplates = Join-Path $sasaEditorData 'export_templates\4.7.2.stable'
-$sasaChecks = Join-Path $sasaRoot 'build\checks\v0.2'
+$sasaVersion = [regex]::Match([IO.File]::ReadAllText((Join-Path $sasaRoot 'project.godot')), 'config/version="([^"]+)"').Groups[1].Value
+$sasaVersionCode = [regex]::Match([IO.File]::ReadAllText((Join-Path $sasaRoot 'export_presets.cfg')), 'version/code=(\d+)').Groups[1].Value
+$sasaChecks = Join-Path $sasaRoot ("build\checks\v" + $sasaVersion)
 $sasaApk = Join-Path $sasaRoot 'build\android\sasaclicker-debug.apk'
 New-Item -ItemType Directory -Force -Path $sasaExporter, $sasaInstalledTemplates,
     $sasaChecks, (Split-Path -Parent $sasaApk) | Out-Null
@@ -106,7 +108,7 @@ $sasaAapt = Join-Path $sasaBuildTools.FullName 'aapt.exe'
 $sasaBadging = & $sasaAapt dump badging $sasaApk
 if ($LASTEXITCODE -ne 0) { throw 'Cannot inspect APK metadata.' }
 $sasaBadging | Set-Content -LiteralPath (Join-Path $sasaChecks 'android-apk-badging.txt') -Encoding UTF8
-if (-not ($sasaBadging -match "package: name='com.maximka9.sasaclicker' versionCode='2' versionName='0.2.0'")) {
+if (-not ($sasaBadging -match ("package: name='com.maximka9.sasaclicker' versionCode='" + $sasaVersionCode + "' versionName='" + [regex]::Escape($sasaVersion) + "'"))) {
     throw 'Unexpected APK package or version.'
 }
 $sasaManifest = & $sasaAapt dump xmltree $sasaApk AndroidManifest.xml
@@ -120,12 +122,14 @@ $sasaSignature = & (Join-Path $JavaSdkPath 'bin\java.exe') -jar $sasaSigner veri
 if ($LASTEXITCODE -ne 0) { throw 'APK signature verification failed.' }
 $sasaSignature | Set-Content -LiteralPath (Join-Path $sasaChecks 'android-apk-signature.txt') -Encoding UTF8
 $sasaHash = (Get-FileHash -LiteralPath $sasaApk -Algorithm SHA256).Hash.ToLowerInvariant()
+& python (Join-Path $sasaRoot 'tools/check_android_resources.py') $sasaApk
+if ($LASTEXITCODE -ne 0) { throw 'APK resource integrity verification failed.' }
 [IO.File]::WriteAllText((Join-Path $sasaChecks 'android-apk-sha256.txt'), "$sasaHash  sasaclicker-debug.apk`n")
 $sasaDevices = & (Join-Path $AndroidSdkPath 'platform-tools\adb.exe') devices -l
 if ($LASTEXITCODE -ne 0) { throw 'adb device enumeration failed.' }
 $sasaDevices | Set-Content -LiteralPath (Join-Path $sasaChecks 'android-adb-devices.txt') -Encoding UTF8
 Write-Output "APK: $sasaApk"
-Write-Output "Version: 0.2.0 (2); package: com.maximka9.sasaclicker; orientation: portrait"
+Write-Output "Version: $sasaVersion ($sasaVersionCode); package: com.maximka9.sasaclicker; orientation: portrait"
 Write-Output "SHA256: $sasaHash"
 Write-Output "Evidence: $sasaChecks"
 $sasaDevices

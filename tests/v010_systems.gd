@@ -46,6 +46,7 @@ func _test_special() -> void:
 	for id: String in config.featured_collab_creator_ids:
 		state = CareerService.new(config).new_player()
 		state.level = 10
+		state.followers = 100 # Parent eligibility; this suite isolates creator/format completion.
 		var achievement_id: String = "irl_collab_" + id
 		for format: String in ["dota_2", "just_chatting", "cooking"]:
 			service.complete_success(state, id, 1, format)

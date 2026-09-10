@@ -284,6 +284,8 @@ func _show_collaborations() -> void:
 	modal_body.add_child(collab_timer_label)
 	if not app.inbound.current(app.stream.state).is_empty():
 		modal_body.add_child(SasaUI.button("Входящее приглашение", _show_incoming))
+	if app.collaborations.has_active_collaboration(app.stream.state):
+		modal_body.add_child(SasaUI.label("Сначала завершите запланированный коллаб", &"small", &"MutedLabel"))
 	if app.stream.state.is_streaming:
 		modal_body.add_child(SasaUI.label("Предлагайте коллаб между эфирами."))
 	if not app.stream.state.pending_outbound_collab.is_empty():
@@ -297,10 +299,12 @@ func _show_collaborations() -> void:
 	for id: String in _shown_candidate_ids:
 		var author: StreamerDefinition = app.collaborations.profile(id)
 		modal_body.add_child(SasaUI.label(author.display_name, &"heading", &"AccentLabel"))
-		modal_body.add_child(SasaUI.label("Средний онлайн: ≈%s\nПодписчики: %s\nСтримит: %s" % [_compact_followers(author.reference_avg_viewers), _compact_followers(author.followers), _creator_interests(author)], &"small", &"MutedLabel"))
+		modal_body.add_child(SasaUI.label("Средний онлайн: ≈%s\nПодписчики: %s\nКатегории: %s" % [_compact_followers(author.reference_avg_viewers), _compact_followers(author.followers), _creator_interests(author)], &"small", &"MutedLabel"))
 		var button: Button = SasaUI.button("Выбрать формат", func() -> void: _show_collab_formats(id))
 		var cooldown: int = app.collaborations.remaining(app.stream.state, id)
-		button.disabled = app.stream.state.is_streaming or cooldown > 0 or not app.stream.state.pending_outbound_collab.is_empty()
+		button.disabled = app.stream.state.is_streaming or cooldown > 0 or app.collaborations.has_active_collaboration(app.stream.state)
+		if app.collaborations.has_active_collaboration(app.stream.state):
+			button.tooltip_text = "Сначала завершите запланированный коллаб"
 		if cooldown > 0:
 			button.text = "Повторное предложение через " + _time(cooldown)
 		modal_body.add_child(button)
@@ -333,13 +337,15 @@ func _show_incoming() -> void:
 	if invite["accepted"]:
 		modal_body.add_child(SasaUI.label("Принято. Проведите эфир этого формата не менее %d с. Осталось: %s" % [app.config.inbound_min_stream_seconds, _time(maxi(0, int(invite["expires_at"]) - int(app.inbound.clock.call())))], &"body"))
 	else:
+		if app.collaborations.has_active_collaboration(app.stream.state):
+			modal_body.add_child(SasaUI.label("Сначала завершите запланированный коллаб", &"small", &"MutedLabel"))
 		for accept: bool in [true, false]:
 			var button: Button = SasaUI.button("Принять" if accept else "Отказаться", func() -> void:
 				var result: OperationResult = app.inbound.respond(app.stream.state, accept)
 				app.queue.request_save()
 				_show_incoming() if result.success and accept else _show_collaborations()
 				_modal_feedback(result))
-			button.disabled = app.stream.state.is_streaming
+			button.disabled = app.stream.state.is_streaming or (accept and app.collaborations.has_active_collaboration(app.stream.state))
 			modal_body.add_child(button)
 
 func _show_collab_formats(id: String) -> void:
@@ -357,7 +363,9 @@ func _show_collab_offer(id: String, format: String) -> void:
 	if remaining > 0:
 		modal_body.add_child(SasaUI.label("Попробуйте позже: %d с" % remaining, &"small", &"MutedLabel"))
 	var button: Button = SasaUI.button("Предложить коллаб", func() -> void: _send_collab(id, format), true)
-	button.disabled = remaining > 0 or app.stream.state.is_streaming
+	button.disabled = remaining > 0 or app.stream.state.is_streaming or app.collaborations.has_active_collaboration(app.stream.state)
+	if app.collaborations.has_active_collaboration(app.stream.state):
+		modal_body.add_child(SasaUI.label("Сначала завершите запланированный коллаб", &"small", &"MutedLabel"))
 	modal_body.add_child(button)
 
 func _send_collab(id: String, format: String) -> void:

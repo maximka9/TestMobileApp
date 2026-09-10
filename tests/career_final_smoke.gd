@@ -47,6 +47,8 @@ func _run() -> void:
 	state.high_tier_collabs = 3
 	state.viral_posts = 10
 	state.cosplay_streams = 1
+	state.stream_history.append({"stream_type": "cooking"})
+	state.stream_history.append({"stream_type": "irl"})
 	state.owned_room_items = ["aquarium", "neon_light", "dark_wood_wall", "industrial_floor"]
 	state.current_home_id = "new_apartment"
 	state.reputation = 79

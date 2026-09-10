@@ -68,7 +68,7 @@ func _test_requests() -> void:
 	var before: float = state.reputation
 	check(collabs.request(state, "fixture_01", "just_chatting").error_code == &"ON_COOLDOWN", "Cannot request during cooldown")
 	collabs.request(state, "fixture_01", "just_chatting")
-	check(state.reputation < before and state.relationships["fixture_01"] == -1, "Cooldown spam harms reputation without rerolling rejection")
+	check(state.reputation == before and state.relationships["fixture_01"] == -1, "Blocked cooldown request preserves reputation and relationship")
 	collabs.clock = func() -> int: return 1600
 	check(collabs.remaining(state, "fixture_01") == 0 and collabs.request(state, "fixture_01", "just_chatting").success, "Cooldown expires at exact boundary")
 	_setup([0])

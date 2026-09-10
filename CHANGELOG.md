@@ -1,5 +1,15 @@
 # Changelog
 
+## [0.10.1]
+
+### Fixed
+- Achievement parent prerequisites now gate unlocks; dependency chains settle in parent-first signal order. Existing saved unlocks remain intact.
+- Active inbound/outbound plans exclude each other. Legacy conflicting plans complete accepted inbound first, leaving outbound for a later stream.
+- Cooldown and fatigue failures no longer record a social request or penalize reputation.
+- Collaboration cards label offline snapshot interests as categories; disabled actions explain pending plans.
+- README now describes schema 12, continuous fatigue recovery and the existing IRL city scene.
+- Android export now preserves authored resources verbatim; binary conversion had stripped achievement parent arrays. APK builds verify resource integrity.
+
 ## [0.10.0]
 
 ### Added
