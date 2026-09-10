@@ -61,10 +61,11 @@ func respond(state: PlayerState, accept: bool) -> OperationResult:
 	return OperationResult.new(true, &"SUCCESS", "Проведите эфир выбранного формата не менее %d с" % config.inbound_min_stream_seconds if accept else "Приглашение отклонено")
 
 func complete(state: PlayerState, format: String, seconds: int) -> int:
+	var outbound: int = collaborations.complete_pending(state, format, seconds)
 	var invite: Dictionary = current(state)
 	if invite.is_empty() or not invite["accepted"] or invite["format"] != format or seconds < config.inbound_min_stream_seconds:
-		return 0
+		return outbound
 	var id: String = invite["creator_id"]
 	state.incoming_collab_queue.clear()
 	state.collab_cooldowns[id] = int(clock.call()) + config.collab_cooldown_seconds
-	return collaborations.complete_success(state, id)
+	return outbound + collaborations.complete_success(state, id, 1.0, format)

@@ -1,11 +1,15 @@
 # SASAclicker
 
-Current version: **0.9.0**.
+Current version: **0.10.0**.
 
-Follower-driven audience, incoming collaborations and 120-second candidate rotation;
-achievement tree supports drag, touch and Shift+wheel without visible scrollbars.
+Follower-driven audience, incoming collaborations and 60-second candidate rotation;
+the tenth slot features one of six creators. Achievement tree supports 60–180% zoom,
+Fit, Ctrl+wheel, pinch and drag, with queued unlock notifications.
 Organic stream followers, automatic locations, viewer-scaled chat and accelerated
-stream time. Save schema 11 preserves the level and migrates legacy XP progress. See [0.9 audit](docs/v0.9-audit.md) and [verification](docs/v0.9-verification.md).
+stream time. Save schema 12 preserves legacy progression and records completed IRL
+collaborations. Settings include a double-confirmed progress reset that preserves
+user preferences. See [0.10 audit](docs/v0.10-audit.md),
+[verification](docs/v0.10-verification.md) and [catalog sources](docs/v0.10-catalog.md).
 
 ## Gameplay systems
 
@@ -75,7 +79,7 @@ assertion завершает verify с ненулевым кодом. `-Negative
 - YOUNG/CURRENT/SUCCESSFUL изображают одного SASAVOT во всех локациях.
 - Короткие ролики расходуют источник подходящей темы; FAIL создаёт отдельный
   источник фейла. Расход сохраняется после перезапуска.
-- Репутация, игровые отношения и коллаборации с **473 реальными профилями**.
+- Репутация, игровые отношения и коллаборации с **474 реальными профилями**.
   Требование каталога — **400+ подтверждённых профилей**, без заполнителей.
 - Дерево достижений, косплей, аквариум, интерьер и переезд.
 - Чёткий кириллический UI-шрифт, отдельный декоративный шрифт, nearest pixel-art.

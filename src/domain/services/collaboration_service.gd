@@ -42,8 +42,8 @@ func refresh_candidates(state: PlayerState) -> Array[String]:
 	new_set.sort()
 	if old_set == new_set and not selected.is_empty():
 		for id: String in directory.profiles():
-			if not id in selected and not formats(id).is_empty():
-				selected[-1] = id
+			if not id in selected and not id in config.featured_collab_creator_ids and not formats(id).is_empty():
+				selected[0] = id
 				break
 	state.collab_candidate_ids = selected
 	candidate_generation += 1
@@ -56,7 +56,7 @@ func refresh_candidates(state: PlayerState) -> Array[String]:
 	return state.collab_candidate_ids.duplicate()
 
 func _select_candidates(state: PlayerState) -> Array[String]:
-	var ids: Array = directory.profiles().keys()
+	var ids: Array = directory.profiles().keys().filter(func(id: String) -> bool: return not id in config.featured_collab_creator_ids)
 	ids.sort_custom(func(a: String, b: String) -> bool:
 		var x: int = profile(a).reference_avg_viewers
 		var y: int = profile(b).reference_avg_viewers
@@ -82,15 +82,31 @@ func _select_candidates(state: PlayerState) -> Array[String]:
 		group.sort_custom(func(a: String, b: String) -> bool: return (0 if not a in state.recent_candidate_ids else 1) < (0 if not b in state.recent_candidate_ids else 1))
 	var result: Array[String] = []
 	var wanted: int = 0
+	var has_featured: bool = false
+	for id: String in config.featured_collab_creator_ids:
+		has_featured = has_featured or (profile(id) != null and not formats(id).is_empty())
 	for i: int in range(4):
-		wanted += config.collab_candidate_quotas[i]
-		for j: int in range(mini(groups[i].size(), config.collab_candidate_quotas[i])):
+		var quota: int = maxi(0, config.collab_candidate_quotas[i] - (1 if has_featured and i == 1 else 0))
+		wanted += quota
+		for j: int in range(mini(groups[i].size(), quota)):
 			result.append(groups[i][j])
 	for id: String in ids:
 		if result.size() >= wanted:
 			break
 		if not id in result and not formats(id).is_empty():
 			result.append(id)
+	var featured: Array[String] = []
+	for id: String in config.featured_collab_creator_ids:
+		if profile(id) != null and not formats(id).is_empty():
+			featured.append(id)
+	if not featured.is_empty():
+		result.resize(mini(9, result.size()))
+		var available: Array[String] = featured.filter(func(id: String) -> bool: return remaining(state, id) == 0)
+		if not available.is_empty():
+			featured = available
+		if featured.size() > 1 and not state.collab_candidate_ids.is_empty():
+			featured.erase(state.collab_candidate_ids.back())
+		result.append(featured[random.between(0, featured.size() - 1)])
 	return result
 
 func chance(state: PlayerState, id: String, format: String) -> float:
@@ -127,6 +143,8 @@ func request(state: PlayerState, id: String, format: String) -> OperationResult:
 		return OperationResult.fail(&"BUSY_STREAMING", "Предлагайте коллаб между эфирами")
 	if not social.can_change(state, id, 0, 0) or (not state.collab_cooldowns.has(id) and state.collab_cooldowns.size() >= config.social_profile_limit):
 		return OperationResult.fail(&"INVALID_ARGUMENT")
+	if not state.pending_outbound_collab.is_empty():
+		return OperationResult.fail(&"COLLAB_PENDING", "Сначала завершите запланированный IRL-коллаб")
 	var probability: float = chance(state, id, format)
 	var now: int = int(clock.call())
 	var tracked: OperationResult = social.record_request(state, id, now)
@@ -143,15 +161,20 @@ func request(state: PlayerState, id: String, format: String) -> OperationResult:
 		social.rejected(state, id)
 		return OperationResult.new(true, &"SUCCESS", "Ответ пришёл: отказ. Попробуйте позже.", {"accepted": false, "followers": 0})
 	state.fatigue += config.collab_fatigue_cost
-	var gained: int = complete_success(state, id)
+	if id in config.featured_collab_creator_ids and format == "irl":
+		state.pending_outbound_collab = {"creator_id": id, "format": format}
+		return OperationResult.new(true, &"SUCCESS", "Автор согласился! Проведите IRL-эфир не короче 30 секунд, чтобы завершить коллаб.", {"accepted": true, "followers": 0})
+	var gained: int = complete_success(state, id, 1.0, format)
 	return OperationResult.new(true, &"SUCCESS", "Коллаб состоялся! +%d подписчиков. Онлайн следующих эфиров усилен." % gained, {"accepted": true, "followers": gained})
 
-func complete_success(state: PlayerState, id: String, performance: float = 1.0) -> int:
+func complete_success(state: PlayerState, id: String, performance: float = 1.0, format: String = "") -> int:
 	var author: StreamerDefinition = profile(id)
 	var growth: FollowerGrowthService = FollowerGrowthService.new(config)
 	var gained: int = growth.calculate_collab_gain(author, state.followers, performance)
 	growth.award(state, gained)
 	state.completed_collabs += 1
+	if format == "irl" and not id in state.completed_irl_collab_creator_ids:
+		state.completed_irl_collab_creator_ids.append(id)
 	if author.reach_tier >= 3:
 		state.high_tier_collabs += 1
 	state.collab_momentum = config.collab_viewer_boost
@@ -165,3 +188,10 @@ func size_label(id: String) -> String:
 
 func profile(id: String) -> StreamerDefinition:
 	return directory.profiles().get(id) as StreamerDefinition
+
+func complete_pending(state: PlayerState, format: String, seconds: int) -> int:
+	var pending: Dictionary = state.pending_outbound_collab
+	if pending.is_empty() or pending["format"] != format or seconds < config.inbound_min_stream_seconds:
+		return 0
+	state.pending_outbound_collab = {}
+	return complete_success(state, pending["creator_id"], 1.0, format)

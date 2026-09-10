@@ -106,7 +106,7 @@ extends Resource
 @export var collab_fatigue_cost: float = 8
 @export var collab_viewer_boost: float = 0.3
 @export var collab_boost_streams: int = 3
-@export var collab_refresh_seconds: int = 120
+@export var collab_refresh_seconds: int = 60
 @export var collab_recent_limit: int = 30
 @export var inbound_check_seconds: int = 120
 @export var inbound_expiry_seconds: int = 1200
@@ -135,3 +135,5 @@ extends Resource
 
 @export var follower_hype_anchors: PackedVector2Array = [Vector2(0, 0), Vector2(20, 0), Vector2(30, 0.4), Vector2(50, 1), Vector2(70, 1.3), Vector2(85, 1.7), Vector2(95, 2.1), Vector2(100, 2.4)]
 @export var source_hype_viral_factor: float = 0.005
+
+@export var featured_collab_creator_ids: PackedStringArray = ["rostikfacekid", "iceicell", "morphe_ya", "dasha228play", "helin139", "korya_mc"]

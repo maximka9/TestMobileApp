@@ -107,16 +107,16 @@ func _test_rotation() -> void:
 	var service: CollaborationService = CollaborationService.new(catalog, config, RandomProvider.new(42))
 	service.clock = func() -> int: return 1000
 	var first: Array[String] = service.candidates(state)
-	service.clock = func() -> int: return 1119
-	check(service.candidates(state) == first, "119 seconds keeps candidate set")
-	service.clock = func() -> int: return 1120
+	service.clock = func() -> int: return 1059
+	check(service.candidates(state) == first, "59 seconds keeps candidate set")
+	service.clock = func() -> int: return 1060
 	var second: Array[String] = service.candidates(state)
-	check(second != first and second.size() == 10, "120 seconds rotates ten candidates")
-	service.clock = func() -> int: return 1240
-	check(service.candidates(state) != second and state.recent_candidate_ids.size() <= 30, "240 seconds rotates with bounded recent history")
+	check(second != first and second.size() == 10, "60 seconds rotates ten candidates")
+	service.clock = func() -> int: return 1120
+	check(service.candidates(state) != second and state.recent_candidate_ids.size() <= 30, "120 seconds rotates with bounded recent history")
 	service.clock = func() -> int: return 999999
 	service.candidates(state)
-	check(state.collab_candidate_refresh_at == 1000119, "Long absence triggers one refresh only")
+	check(state.collab_candidate_refresh_at == 1000059, "Long absence triggers one refresh only")
 	saves.clock = func() -> int: return 1000
 	var loaded: OperationResult = saves.deserialize(saves.serialize(state))
 	check(loaded.success and loaded.context["state"].collab_candidate_ids == state.collab_candidate_ids, "Rotation state persists")

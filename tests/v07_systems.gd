@@ -104,11 +104,11 @@ func _test_rotation_and_events() -> void:
 	service.clock = func() -> int: return now
 	now = 0
 	var first: Array[String] = service.candidates(state)
-	check(service.candidate_generation == 1 and state.collab_candidate_refresh_at == 120, "First generation at zero")
-	now = 119
-	check(service.candidates(state) == first and service.candidate_generation == 1, "No refresh at 119")
-	now = 120
-	check(service.candidates(state) != first and service.candidate_generation == 2 and state.collab_candidate_refresh_at == 240, "Refresh at 120, next 240")
+	check(service.candidate_generation == 1 and state.collab_candidate_refresh_at == 60, "First generation at zero")
+	now = 59
+	check(service.candidates(state) == first and service.candidate_generation == 1, "No refresh at 59")
+	now = 60
+	check(service.candidates(state) != first and service.candidate_generation == 2 and state.collab_candidate_refresh_at == 120, "Refresh at 60, next 120")
 	for i: int in range(10):
 		var before: Array[String] = service.candidates(state)
 		state.recent_candidate_ids.clear()
@@ -120,7 +120,7 @@ func _test_rotation_and_events() -> void:
 	inbound.clock = func() -> int: return now
 	var generation: int = service.candidate_generation
 	var before_invite: Array[String] = state.collab_candidate_ids.duplicate()
-	now += 120
+	now += 60
 	state.inbound_next_check_at = now
 	inbound.poll(state)
 	check(service.candidate_generation == generation and state.collab_candidate_ids == before_invite, "Incoming poll never rotates open creator details")

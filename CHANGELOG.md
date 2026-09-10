@@ -1,5 +1,24 @@
 # Changelog
 
+## [0.10.0]
+
+### Added
+- Achievement zoom controls, Fit, cursor-centred Ctrl+wheel and pinch gestures.
+- Sequential achievement notifications with red/gold sparks and reduced motion.
+- Six parallel legendary achievements for completed featured IRL collaborations.
+- Double-confirmed progress reset with atomic save, queue cancellation and retained settings.
+
+### Changed
+- Candidate rotation is 60 real seconds; slot ten is reserved for featured creators.
+- Compact creator cards show average viewers, follower snapshots and verified interests.
+- Featured IRL acceptance schedules a collaboration; completion requires a 30-second IRL stream.
+- Schema 12 stores pending/completed IRL collaborations and migrates previous saves.
+
+### Fixed
+- Scaled graph bounds and session navigation state; graph fonts use a local MSDF copy.
+- Achievement progress counter updates while the tree is open.
+- Developer importer can collect follower totals without adding runtime network calls.
+
 ## [0.9.0]
 
 ### Added

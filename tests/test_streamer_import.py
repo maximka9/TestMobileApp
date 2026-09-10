@@ -27,7 +27,7 @@ class ImporterTests(unittest.TestCase):
         self.assertTrue(all(p["id"] == "twitch:" + p["platform_user_id"] for p in profiles))
         self.assertEqual(queries[1], {"first": 100, "language": "ru", "after": "next"})
         self.assertEqual(profiles[0]["interests"], ["dota_2"])
-        self.assertEqual(profiles[1]["interests"], [])
+        self.assertEqual(profiles[1]["interests"], ["Unknown"])
         self.assertTrue(all(not p["is_placeholder"] and p["source"].startswith("https://") for p in profiles))
 
     def test_repeated_cursor_stops(self):
@@ -37,6 +37,15 @@ class ImporterTests(unittest.TestCase):
             return {"data": [record("same")], "pagination": {"cursor": "loop"}}
         self.assertEqual(len(importer.collect(fetch)["profiles"]), 1)
         self.assertEqual(len(calls), 2)
+
+    def test_follower_totals_and_unknowns(self):
+        fetch = lambda _: {"data": [record("sample")]}
+        profile = importer.collect(fetch, fetch_followers=lambda _: {"total": 12400})["profiles"][0]
+        self.assertEqual(profile["followers"], 12400)
+        self.assertTrue(profile["followers_source"].startswith("https://api.twitch.tv/"))
+        self.assertEqual(importer.collect(fetch)["profiles"][0]["followers"], -1)
+        retained = importer.collect(fetch, previous=[profile], fetch_followers=lambda _: {})["profiles"][0]
+        self.assertEqual(retained["followers"], 12400)
 
     def test_limit_and_empty(self):
         self.assertEqual(len(importer.collect(lambda _: {"data": [record(str(i)) for i in range(20)]}, 5)["profiles"]), 5)

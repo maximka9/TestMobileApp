@@ -80,3 +80,6 @@ func normalize() -> void:
 	lifetime_followers_gained = maxi(0, lifetime_followers_gained)
 	growth_momentum = clampf(growth_momentum, 0.0, 100.0) if is_finite(growth_momentum) else 0.0
 	career_tier = maxi(0, career_tier)
+
+var completed_irl_collab_creator_ids: Array[String] = []
+var pending_outbound_collab: Dictionary = {}

@@ -67,7 +67,7 @@ func _run() -> void:
 		_check(game.achievement_tree.buttons["followers_10000"].get_meta("state") == "locked", "Grandchild locked until middle parent")
 		_check(game.achievement_tree.buttons["slay_king"].text.ends_with("?"), "Secret identity stays hidden")
 		await _capture("tree_states_" + str(resolution.x))
-		var scroller: ScrollContainer = game.achievement_tree.get_parent()
+		var scroller: ScrollContainer = game.achievement_pan
 		for button: Button in game.achievement_tree.buttons.values():
 			game.modal_scroll.ensure_control_visible(scroller)
 			scroller.ensure_control_visible(button)

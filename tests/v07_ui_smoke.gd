@@ -67,16 +67,16 @@ func _run() -> void:
 	game._show_collaborations()
 	var initial: Array[String] = game._shown_candidate_ids.duplicate()
 	await _capture("collabs_before_refresh")
-	now = 119
+	now = 59
 	game._process(0.1)
 	_check(game._shown_candidate_ids == initial and game.collab_timer_label.text.ends_with("00:01"), "Visible list countdown 119")
-	now = 120
+	now = 60
 	game._process(0.1)
-	_check(game._shown_candidate_ids != initial and game._shown_candidate_ids.size() == 10 and game.collab_timer_label.text.ends_with("02:00"), "Visible cards refresh immediately at 120 without stream tick")
+	_check(game._shown_candidate_ids != initial and game._shown_candidate_ids.size() == 10 and game.collab_timer_label.text.ends_with("01:00"), "Visible cards refresh immediately at 120 without stream tick")
 	await _capture("collabs_after_refresh")
 	var generation: int = game.app.collaborations.candidate_generation
 	game._show_collab_formats(game._shown_candidate_ids[0])
-	now = 240
+	now = 120
 	game._process(0.1)
 	_check(game.refresh_pending and game.modal_kind == "collab_formats" and game.app.collaborations.candidate_generation == generation, "Details retained with pending refresh")
 	game._close_modal()

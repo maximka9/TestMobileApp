@@ -57,7 +57,7 @@ func _run() -> void:
 		game._show_achievements()
 		await process_frame
 		await process_frame
-		var pan: AchievementPan = game.achievement_tree.get_parent()
+		var pan: AchievementPan = game.achievement_pan
 		_check(not pan.get_h_scroll_bar().visible and not pan.get_v_scroll_bar().visible and not game.modal_scroll.get_v_scroll_bar().visible, "No visible default achievement scrollbars")
 		await _capture("achievements_start")
 		pan.scroll_horizontal = int((game.achievement_tree.size.x - pan.size.x) / 2)
@@ -75,7 +75,7 @@ func _run() -> void:
 		await _capture("achievements_bottom")
 		state.unlocked_achievements.append("slay_king")
 		game.achievement_tree.refresh(true)
-		(pan.get_parent().get_node("Progress") as Label).text = "%d / %d" % [state.unlocked_achievements.size(), game.app.catalog.achievements.size()]
+		(pan.get_parent().get_parent().get_node("Progress") as Label).text = "%d / %d" % [state.unlocked_achievements.size(), game.app.catalog.achievements.size()]
 		await _capture("achievements_completed")
 		pan.scroll_horizontal = 100
 		pan.scroll_vertical = 100

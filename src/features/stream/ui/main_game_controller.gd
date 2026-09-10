@@ -5,6 +5,10 @@ var app: AppBootstrap
 @onready var room: RoomView = %RoomView
 var _location_id: String = "streamer_room"
 var achievement_tree: AchievementTree
+var achievement_pan: AchievementPan
+var achievement_view_state: Dictionary = {}
+var achievement_notifications: AchievementNotificationQueue
+var reset_busy: bool = false
 var achievement_detail: Label
 var achievement_popup: PopupPanel
 var collab_timer_label: Label
@@ -41,6 +45,11 @@ var _collab_waiting: bool = false
 
 func configure(bootstrap: AppBootstrap) -> void:
 	app = bootstrap
+	achievement_notifications = AchievementNotificationQueue.new()
+	add_child(achievement_notifications)
+	achievement_notifications.setup(app.catalog)
+	app.achievements.achievement_unlocked.connect(achievement_notifications.enqueue)
+	debug_label.visible = bool(app.stream.state.settings.get("show_debug_metrics", false))
 	(%Backdrop as ColorRect).color = SasaUI.color(&"background")
 	(%Dim as ColorRect).color = SasaUI.color(&"overlay")
 	app.stream.changed.connect(_refresh)
@@ -88,6 +97,8 @@ func _refresh() -> void:
 		app.queue.request_save()
 	if is_instance_valid(achievement_tree):
 		achievement_tree.refresh()
+		if is_instance_valid(achievement_pan):
+			(achievement_pan.get_parent().get_parent().get_node("Progress") as Label).text = "%d / %d" % [state.unlocked_achievements.size(), app.catalog.achievements.size()]
 	_poll_collab_rotation()
 	var required: int = app.progression.required_xp(state.level)
 	header.text = "ПОДПИСЧИКИ %d\nУР. %d · XP %d / %d" % [state.followers, state.level, state.xp, required]
@@ -136,6 +147,7 @@ func _primary_pressed() -> void:
 		_show_games()
 
 func _open_modal(kind: String, title_text: String) -> void:
+	_remember_achievement_view()
 	modal_scroll.vertical_scroll_mode = ScrollContainer.SCROLL_MODE_AUTO
 	modal_kind = kind
 	modal_title.text = title_text
@@ -147,6 +159,7 @@ func _open_modal(kind: String, title_text: String) -> void:
 	modal_layer.show()
 
 func _close_modal() -> void:
+	_remember_achievement_view()
 	if _collab_waiting:
 		return
 	if is_instance_valid(achievement_popup):
@@ -273,6 +286,9 @@ func _show_collaborations() -> void:
 		modal_body.add_child(SasaUI.button("Входящее приглашение", _show_incoming))
 	if app.stream.state.is_streaming:
 		modal_body.add_child(SasaUI.label("Предлагайте коллаб между эфирами."))
+	if not app.stream.state.pending_outbound_collab.is_empty():
+		var pending_id: String = app.stream.state.pending_outbound_collab["creator_id"]
+		modal_body.add_child(SasaUI.label("Запланирован IRL-коллаб: %s. Завершите IRL-эфир от 30 секунд." % app.collaborations.profile(pending_id).display_name))
 	_shown_candidate_ids = app.collaborations.candidates(app.stream.state)
 	_shown_generation = app.collaborations.candidate_generation
 	refresh_pending = false
@@ -281,10 +297,30 @@ func _show_collaborations() -> void:
 	for id: String in _shown_candidate_ids:
 		var author: StreamerDefinition = app.collaborations.profile(id)
 		modal_body.add_child(SasaUI.label(author.display_name, &"heading", &"AccentLabel"))
-		modal_body.add_child(SasaUI.label("Размер по онлайну: %s · отношения: %+.0f\nСредний онлайн снимка: ≈%d\nДанные: %s" % [app.collaborations.size_label(id), app.collaborations.social.relationship(app.stream.state, id), author.reference_avg_viewers, author.source_checked_at], &"small", &"MutedLabel"))
+		modal_body.add_child(SasaUI.label("Средний онлайн: ≈%s\nПодписчики: %s\nСтримит: %s" % [_compact_followers(author.reference_avg_viewers), _compact_followers(author.followers), _creator_interests(author)], &"small", &"MutedLabel"))
 		var button: Button = SasaUI.button("Выбрать формат", func() -> void: _show_collab_formats(id))
-		button.disabled = app.stream.state.is_streaming
+		var cooldown: int = app.collaborations.remaining(app.stream.state, id)
+		button.disabled = app.stream.state.is_streaming or cooldown > 0 or not app.stream.state.pending_outbound_collab.is_empty()
+		if cooldown > 0:
+			button.text = "Повторное предложение через " + _time(cooldown)
 		modal_body.add_child(button)
+
+func _compact_followers(value: int) -> String:
+	if value < 0:
+		return "нет данных"
+	if value < 1000:
+		return str(value)
+	var divisor: float = 1000000.0 if value >= 1000000 else 1000.0
+	return ("%.1f" % (value / divisor)).trim_suffix(".0") + ("M" if divisor == 1000000 else "K")
+
+func _creator_interests(author: StreamerDefinition) -> String:
+	var labels: PackedStringArray = []
+	var titles: Dictionary = {"just_chatting": "Just Chatting", "dota_2": "Dota 2", "irl": "IRL", "cooking": "Food & Drink"}
+	for interest: String in author.interests:
+		if labels.size() == 5:
+			break
+		labels.append(titles.get(interest, interest))
+	return " · ".join(labels) if not labels.is_empty() else "нет подтверждённых данных"
 
 func _show_incoming() -> void:
 	var invite: Dictionary = app.inbound.current(app.stream.state)
@@ -432,12 +468,68 @@ func _show_settings() -> void:
 		metrics_toggle.text = "Показывать FPS и метрики"
 		metrics_toggle.custom_minimum_size.y = SasaUI.TOUCH_TARGET
 		metrics_toggle.button_pressed = debug_label.visible
-		metrics_toggle.toggled.connect(func(enabled: bool) -> void: debug_label.visible = enabled)
+		metrics_toggle.toggled.connect(func(enabled: bool) -> void:
+			debug_label.visible = enabled
+			app.stream.state.settings["show_debug_metrics"] = enabled
+			app.queue.request_save())
 		modal_body.add_child(metrics_toggle)
 	modal_body.add_child(SasaUI.button("Сохранить сейчас", func() -> void:
 		app.queue.retry_manually()
 		_modal_feedback(app.queue.flush())
 	))
+	modal_body.add_child(SasaUI.label("СБРОС ПРОГРЕССА", &"small", &"MutedLabel"))
+	modal_body.add_child(_danger_button("⚠ Сбросить прогресс", _confirm_reset))
+
+func _danger_button(text: String, action: Callable) -> Button:
+	var button: Button = SasaUI.button(text, action)
+	var style: StyleBoxFlat = StyleBoxFlat.new()
+	style.bg_color = Color("24161c")
+	style.border_color = Color("74303b")
+	style.set_border_width_all(2)
+	style.set_content_margin_all(10)
+	button.add_theme_stylebox_override("normal", style)
+	return button
+
+func _confirm_reset() -> void:
+	_open_modal("reset_confirmation_1", "СБРОСИТЬ ПРОГРЕСС?")
+	modal_body.add_child(SasaUI.label("Будут удалены:\n• подписчики и XP\n• деньги и улучшения\n• достижения\n• отношения и коллабы\n• интерьер и жильё\n• история стримов\n• сохранённый контент\n\nНастройки звука и анимации останутся."))
+	modal_body.add_child(SasaUI.button("Отмена", _show_settings))
+	modal_body.add_child(_danger_button("Продолжить", _confirm_reset_text))
+
+func _confirm_reset_text() -> void:
+	_open_modal("reset_confirmation_2", "СБРОС ПРОГРЕССА")
+	modal_body.add_child(SasaUI.label("ЭТО ДЕЙСТВИЕ НЕЛЬЗЯ ОТМЕНИТЬ\n\nВведите: СБРОСИТЬ"))
+	var input: LineEdit = LineEdit.new()
+	input.name = "ResetConfirmation"
+	input.custom_minimum_size.y = SasaUI.TOUCH_TARGET
+	modal_body.add_child(input)
+	modal_body.add_child(SasaUI.button("Отмена", _show_settings))
+	var confirm: Button = _danger_button("Удалить прогресс", func() -> void:
+		if input.text == "СБРОСИТЬ":
+			_reset_progress())
+	confirm.disabled = true
+	input.text_changed.connect(func(value: String) -> void: confirm.disabled = value != "СБРОСИТЬ")
+	modal_body.add_child(confirm)
+
+func _reset_progress() -> void:
+	if reset_busy:
+		return
+	reset_busy = true
+	app.set_process(false)
+	var result: OperationResult = ResetProgressService.new().reset(app.queue)
+	if not result.success:
+		reset_busy = false
+		app.set_process(true)
+		modal_body.add_child(SasaUI.label("Не удалось сбросить прогресс.\nПопробуйте ещё раз.", &"body", &"AccentLabel"))
+		return
+	app.stream.state = result.context["state"]
+	app._background = true
+	var replacement: MainGameController = load("res://src/features/stream/scenes/main_game.tscn").instantiate()
+	(replacement.get_node("AppBootstrap") as AppBootstrap).repository_override = app.repository_override
+	get_parent().add_child(replacement)
+	if get_tree().current_scene == self:
+		get_tree().current_scene = replacement
+	queue_free()
 
 func _present_location(state: PlayerState) -> void:
 	if state.current_location_id != _location_id:
@@ -463,15 +555,39 @@ func _show_achievements() -> void:
 	screen.custom_minimum_size.y = modal_scroll.custom_minimum_size.y
 	modal_body.add_child(screen)
 	(screen.get_node("Progress") as Label).text = "%d / %d" % [app.stream.state.unlocked_achievements.size(), app.catalog.achievements.size()]
-	var scroll: AchievementPan = screen.get_node("Pan")
+	var scroll: AchievementPan = screen.get_node("GraphViewport/Pan")
+	achievement_pan = scroll
 	achievement_tree = AchievementTree.new()
-	scroll.add_child(achievement_tree)
+	scroll.attach_graph(achievement_tree)
 	achievement_tree.setup(app.catalog, app.stream.state)
+	scroll.set_zoom(1.0)
+	var controls: HBoxContainer = screen.get_node("GraphViewport/ZoomControls")
+	controls.add_child(SasaUI.button("−", func() -> void: scroll.set_zoom(scroll.zoom - scroll.ZOOM_STEP)))
+	var percent: Button = SasaUI.button("100%", func() -> void: scroll.set_zoom(scroll.DEFAULT_ZOOM))
+	controls.add_child(percent)
+	controls.add_child(SasaUI.button("+", func() -> void: scroll.set_zoom(scroll.zoom + scroll.ZOOM_STEP)))
+	controls.add_child(SasaUI.button("⤢", scroll.fit))
+	controls.get_child(3).tooltip_text = "Вписать дерево"
+	scroll.zoom_changed.connect(func(value: float) -> void: percent.text = "%d%%" % roundi(value * 100))
 	achievement_tree.selected.connect(_achievement_selected)
 	var focus: String = app.stream.state.unlocked_achievements.back() if not app.stream.state.unlocked_achievements.is_empty() else "followers_100"
 	if not achievement_tree.buttons.has(focus):
 		focus = "followers_100"
-	scroll.focus_node.call_deferred(achievement_tree.buttons[focus])
+	_restore_achievement_view.call_deferred(focus)
+
+func _remember_achievement_view() -> void:
+	if modal_kind == "achievements" and is_instance_valid(achievement_pan):
+		achievement_view_state = {"zoom": achievement_pan.zoom, "x": achievement_pan.scroll_horizontal, "y": achievement_pan.scroll_vertical}
+
+func _restore_achievement_view(focus: String) -> void:
+	if not is_instance_valid(achievement_pan):
+		return
+	achievement_pan.set_zoom(float(achievement_view_state.get("zoom", 1.0)))
+	if achievement_view_state.is_empty():
+		achievement_pan.focus_node(achievement_tree.buttons[focus])
+	else:
+		achievement_pan.scroll_horizontal = int(achievement_view_state["x"])
+		achievement_pan.scroll_vertical = int(achievement_view_state["y"])
 
 func _achievement_selected(id: String) -> void:
 	if is_instance_valid(achievement_popup):
@@ -567,6 +683,11 @@ func _poll_collab_rotation() -> void:
 func _process(delta: float) -> void:
 	if app == null:
 		return
+	if is_instance_valid(achievement_notifications):
+		var bottom: float = (%ContentButton as Button).global_position.y - global_position.y - 12
+		var left: float = safe_margin.get_theme_constant("margin_left")
+		var right: float = safe_margin.get_theme_constant("margin_right")
+		achievement_notifications.advance(delta, modal_layer.visible, bool(app.stream.state.settings.get("reduced_motion", false)), Rect2(Vector2(left, 12), Vector2(size.x - left - right, maxf(0, bottom - 12))))
 	_poll_collab_rotation()
 	if _save_notice_time > 0.0:
 		_save_notice_time -= delta

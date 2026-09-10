@@ -1,4 +1,29 @@
-# Gameplay systems — 0.9.0
+# Gameplay systems — 0.10.0
+
+## Collaboration and achievement presentation (0.10)
+
+Collab candidate rotation: **60 real seconds**, using the local snapshot, independent
+of stream time. Featured collab slot: **10th candidate**. The first nine exclude
+the featured pool and retain channel-size sampling (2/3/3/1 quotas with fallback).
+Prefer a featured creator without cooldown, avoid immediate repeats when possible;
+if all are cooling down, keep the last slot and disable its action.
+
+Special IRL achievements require successful completion, not acceptance:
+
+| Creator | Achievement |
+|---|---|
+| rostikfacekid | Лимонку будешь? |
+| iceicell | Холмики |
+| morphe_ya | Веселая ферма |
+| dasha228play | Первая любовь... |
+| helin139 | Людочка? Альфредо? |
+| korya_mc | А я и сам своего рода сантехник... |
+
+Featured outgoing IRL proposals persist until an IRL stream completes with at least
+30 seconds of recorded session time. Other formats and short streams do not consume
+the pending proposal. Existing inbound completion shares the same achievement record.
+Rewards retain existing follower formulas. Zoom/pan and notification queue are session-only.
+Reset uses fresh-install defaults, retains settings and writes before reloading the scene.
 
 Source of truth for current gameplay balance. Coefficients live in
 `src/core/config/game_config.gd`; content-specific income, events, costs and
@@ -289,7 +314,7 @@ Foreground ticks используют монотонные `Time.get_ticks_msec(
 `Engine.time_scale` не меняется. Wall clock остаётся для сохранённых timestamp
 и дедлайнов, где нужно пережить перезапуск.
 
-**Real Time:** collab refresh = 120 real seconds; отдых = каждые 60 real seconds;
+**Real Time:** collab refresh = 60 real seconds; отдых = каждые 60 real seconds;
 UI/tweens, чат, cooldown мувов, события, доход, переходы, save debounce = реальные
 секунды. Видимый список коллабов проверяет дедлайн независимо от stream tick.
 Профиль/выбор формата сохраняются при истечении дедлайна; список обновляется

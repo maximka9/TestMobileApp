@@ -20,7 +20,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "dkincc"
+      "login": "dkincc",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "melharucos",
@@ -42,7 +44,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "melharucos"
+      "login": "melharucos",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "lizok_ssk",
@@ -64,7 +68,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "lizok_ssk"
+      "login": "lizok_ssk",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "juice",
@@ -86,7 +92,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "juice"
+      "login": "juice",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "daxak",
@@ -108,7 +116,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "daxak"
+      "login": "daxak",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "karmikkoala",
@@ -130,7 +140,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "karmikkoala"
+      "login": "karmikkoala",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "deerkufa",
@@ -152,7 +164,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "deerkufa"
+      "login": "deerkufa",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "morphe_ya",
@@ -162,7 +176,9 @@
       "is_placeholder": false,
       "reach_tier": 3,
       "reference_avg_viewers": 5596,
-      "interests": [],
+      "interests": [
+        "Liminal Shroud"
+      ],
       "collab_formats": [
         "just_chatting",
         "dota_2",
@@ -173,8 +189,13 @@
       "region": "public",
       "language": "ru",
       "platform": "twitch",
-      "platform_user_id": "",
-      "login": "morphe_ya"
+      "platform_user_id": "194407709",
+      "login": "morphe_ya",
+      "followers": 963244,
+      "stats_updated_at": "2026-09-10",
+      "identity_source": "https://twitchtracker.com/morphe_ya",
+      "followers_source": "https://www.followercharts.com/twitch/morphe_ya",
+      "interests_source": "https://www.followercharts.com/twitch/morphe_ya"
     },
     {
       "id": "rostikfacekid",
@@ -184,7 +205,9 @@
       "is_placeholder": false,
       "reach_tier": 2,
       "reference_avg_viewers": 3742,
-      "interests": [],
+      "interests": [
+        "dota_2"
+      ],
       "collab_formats": [
         "just_chatting",
         "dota_2",
@@ -195,8 +218,13 @@
       "region": "public",
       "language": "ru",
       "platform": "twitch",
-      "platform_user_id": "",
-      "login": "rostikfacekid"
+      "platform_user_id": "711044449",
+      "login": "rostikfacekid",
+      "followers": 1133378,
+      "stats_updated_at": "2026-09-10",
+      "identity_source": "https://twitchtracker.com/rostikfacekid",
+      "followers_source": "https://www.followercharts.com/twitch/rostikfacekid",
+      "interests_source": "https://www.followercharts.com/twitch/rostikfacekid"
     },
     {
       "id": "dmitry_bale",
@@ -218,7 +246,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "dmitry_bale"
+      "login": "dmitry_bale",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "mokrivskyi",
@@ -240,7 +270,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "mokrivskyi"
+      "login": "mokrivskyi",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "vinment",
@@ -262,7 +294,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "vinment"
+      "login": "vinment",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "stariy_bog",
@@ -284,7 +318,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "stariy_bog"
+      "login": "stariy_bog",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "zakvielchannel",
@@ -306,7 +342,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "zakvielchannel"
+      "login": "zakvielchannel",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "m3wsu",
@@ -328,7 +366,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "m3wsu"
+      "login": "m3wsu",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "voodoosh",
@@ -350,7 +390,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "voodoosh"
+      "login": "voodoosh",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "egorkreed",
@@ -372,7 +414,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "egorkreed"
+      "login": "egorkreed",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "mazellovvv",
@@ -394,7 +438,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "mazellovvv"
+      "login": "mazellovvv",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "ybicanoooobov",
@@ -416,7 +462,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "ybicanoooobov"
+      "login": "ybicanoooobov",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "blackufa",
@@ -438,7 +486,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "blackufa"
+      "login": "blackufa",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "inkmate0",
@@ -460,7 +510,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "inkmate0"
+      "login": "inkmate0",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "hypetried",
@@ -482,7 +534,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "hypetried"
+      "login": "hypetried",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "welovegames",
@@ -504,7 +558,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "welovegames"
+      "login": "welovegames",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "tpabomah",
@@ -526,7 +582,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "tpabomah"
+      "login": "tpabomah",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "by_owl",
@@ -548,7 +606,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "by_owl"
+      "login": "by_owl",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "follentass",
@@ -570,7 +630,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "follentass"
+      "login": "follentass",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "unclebjorn",
@@ -592,7 +654,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "unclebjorn"
+      "login": "unclebjorn",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "sor_ka",
@@ -614,7 +678,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "sor_ka"
+      "login": "sor_ka",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "zuoia",
@@ -636,7 +702,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "zuoia"
+      "login": "zuoia",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "dota2ti_ru_2",
@@ -658,7 +726,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "dota2ti_ru_2"
+      "login": "dota2ti_ru_2",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "hooch",
@@ -680,7 +750,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "hooch"
+      "login": "hooch",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "stray228",
@@ -702,7 +774,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "stray228"
+      "login": "stray228",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "dyrachyo",
@@ -724,7 +798,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "dyrachyo"
+      "login": "dyrachyo",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "guit88man",
@@ -746,7 +822,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "guit88man"
+      "login": "guit88man",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "s_chilla",
@@ -768,7 +846,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "s_chilla"
+      "login": "s_chilla",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "jeens",
@@ -790,7 +870,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "jeens"
+      "login": "jeens",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "r2cronus",
@@ -812,7 +894,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "r2cronus"
+      "login": "r2cronus",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "gaechkatm",
@@ -834,7 +918,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "gaechkatm"
+      "login": "gaechkatm",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "ksufee",
@@ -856,7 +942,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "ksufee"
+      "login": "ksufee",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "pathofexilebota",
@@ -878,7 +966,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "pathofexilebota"
+      "login": "pathofexilebota",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "xah0b",
@@ -900,7 +990,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "xah0b"
+      "login": "xah0b",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "asiv0y",
@@ -922,7 +1014,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "asiv0y"
+      "login": "asiv0y",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "mokrivskiy192",
@@ -944,7 +1038,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "mokrivskiy192"
+      "login": "mokrivskiy192",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "vavilon_zxc",
@@ -966,7 +1062,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "vavilon_zxc"
+      "login": "vavilon_zxc",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "r2onlineru",
@@ -988,7 +1086,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "r2onlineru"
+      "login": "r2onlineru",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "frametamer666",
@@ -1010,7 +1110,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "frametamer666"
+      "login": "frametamer666",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "whylollycry",
@@ -1032,7 +1134,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "whylollycry"
+      "login": "whylollycry",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "syslov171",
@@ -1054,7 +1158,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "syslov171"
+      "login": "syslov171",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "etoseregga",
@@ -1076,7 +1182,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "etoseregga"
+      "login": "etoseregga",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "betboom_cs_ru2",
@@ -1098,7 +1206,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "betboom_cs_ru2"
+      "login": "betboom_cs_ru2",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "skillz0r1337",
@@ -1120,7 +1230,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "skillz0r1337"
+      "login": "skillz0r1337",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "icebergdoto",
@@ -1142,7 +1254,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "icebergdoto"
+      "login": "icebergdoto",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "exigent_wires",
@@ -1164,7 +1278,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "exigent_wires"
+      "login": "exigent_wires",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "c_a_k_e",
@@ -1186,7 +1302,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "c_a_k_e"
+      "login": "c_a_k_e",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "ya4iller",
@@ -1208,7 +1326,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "ya4iller"
+      "login": "ya4iller",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "dota2ti_ru_4",
@@ -1230,7 +1350,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "dota2ti_ru_4"
+      "login": "dota2ti_ru_4",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "9pasha",
@@ -1252,7 +1374,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "9pasha"
+      "login": "9pasha",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "alkat_r",
@@ -1274,7 +1398,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "alkat_r"
+      "login": "alkat_r",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "mirwana",
@@ -1296,7 +1422,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "mirwana"
+      "login": "mirwana",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "wokkyflocky",
@@ -1318,7 +1446,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "wokkyflocky"
+      "login": "wokkyflocky",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "guddummit",
@@ -1340,7 +1470,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "guddummit"
+      "login": "guddummit",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "orkpod",
@@ -1362,7 +1494,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "orkpod"
+      "login": "orkpod",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "mistercop",
@@ -1384,7 +1518,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "mistercop"
+      "login": "mistercop",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "jamside",
@@ -1406,7 +1542,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "jamside"
+      "login": "jamside",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "ilame",
@@ -1428,7 +1566,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "ilame"
+      "login": "ilame",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "iltw1",
@@ -1450,7 +1590,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "iltw1"
+      "login": "iltw1",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "banka_banana",
@@ -1472,7 +1614,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "banka_banana"
+      "login": "banka_banana",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "heroes_hub",
@@ -1494,7 +1638,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "heroes_hub"
+      "login": "heroes_hub",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "narek_cr",
@@ -1516,7 +1662,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "narek_cr"
+      "login": "narek_cr",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "muhanjan",
@@ -1538,7 +1686,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "muhanjan"
+      "login": "muhanjan",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "b_komhate",
@@ -1560,7 +1710,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "b_komhate"
+      "login": "b_komhate",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "malr1ne_dota",
@@ -1582,7 +1734,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "malr1ne_dota"
+      "login": "malr1ne_dota",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "uraniumrr",
@@ -1604,7 +1758,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "uraniumrr"
+      "login": "uraniumrr",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "derzko69",
@@ -1626,7 +1782,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "derzko69"
+      "login": "derzko69",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "tictacimus",
@@ -1648,7 +1806,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "tictacimus"
+      "login": "tictacimus",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "cutierover",
@@ -1670,7 +1830,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "cutierover"
+      "login": "cutierover",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "marat_schelkovskyi",
@@ -1692,7 +1854,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "marat_schelkovskyi"
+      "login": "marat_schelkovskyi",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "elwycco",
@@ -1714,7 +1878,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "elwycco"
+      "login": "elwycco",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "deadp47_",
@@ -1736,7 +1902,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "deadp47_"
+      "login": "deadp47_",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "blindzonexgod",
@@ -1758,7 +1926,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "blindzonexgod"
+      "login": "blindzonexgod",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "mulder",
@@ -1780,7 +1950,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "mulder"
+      "login": "mulder",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "eleezabet",
@@ -1802,7 +1974,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "eleezabet"
+      "login": "eleezabet",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "dota2ti_ru_3",
@@ -1824,7 +1998,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "dota2ti_ru_3"
+      "login": "dota2ti_ru_3",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "snailkick",
@@ -1846,7 +2022,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "snailkick"
+      "login": "snailkick",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "gagik",
@@ -1868,7 +2046,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "gagik"
+      "login": "gagik",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "absolut3",
@@ -1890,7 +2070,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "absolut3"
+      "login": "absolut3",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "des0ut",
@@ -1912,7 +2094,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "des0ut"
+      "login": "des0ut",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "at0m",
@@ -1934,7 +2118,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "at0m"
+      "login": "at0m",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "kerimch1k",
@@ -1956,7 +2142,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "kerimch1k"
+      "login": "kerimch1k",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "gensyxa",
@@ -1978,7 +2166,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "gensyxa"
+      "login": "gensyxa",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "madarapoe",
@@ -2000,7 +2190,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "madarapoe"
+      "login": "madarapoe",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "mager1337",
@@ -2022,7 +2214,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "mager1337"
+      "login": "mager1337",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "bondarenk01",
@@ -2044,7 +2238,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "bondarenk01"
+      "login": "bondarenk01",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "kopsteep",
@@ -2066,7 +2262,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "kopsteep"
+      "login": "kopsteep",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "renatko",
@@ -2088,7 +2286,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "renatko"
+      "login": "renatko",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "starky",
@@ -2110,7 +2310,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "starky"
+      "login": "starky",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "roadhouse",
@@ -2132,7 +2334,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "roadhouse"
+      "login": "roadhouse",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "overdrivezzz",
@@ -2154,7 +2358,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "overdrivezzz"
+      "login": "overdrivezzz",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "general_hs_",
@@ -2176,7 +2382,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "general_hs_"
+      "login": "general_hs_",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "jolygames",
@@ -2198,7 +2406,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "jolygames"
+      "login": "jolygames",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "fasoollka",
@@ -2220,7 +2430,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "fasoollka"
+      "login": "fasoollka",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "megarush51",
@@ -2242,7 +2454,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "megarush51"
+      "login": "megarush51",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "chezw11",
@@ -2264,7 +2478,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "chezw11"
+      "login": "chezw11",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "vladragovsky",
@@ -2286,7 +2502,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "vladragovsky"
+      "login": "vladragovsky",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "bullseye",
@@ -2308,7 +2526,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "bullseye"
+      "login": "bullseye",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "vovapain",
@@ -2330,7 +2550,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "vovapain"
+      "login": "vovapain",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "bigrussianmum",
@@ -2352,7 +2574,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "bigrussianmum"
+      "login": "bigrussianmum",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "lentbb",
@@ -2374,7 +2598,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "lentbb"
+      "login": "lentbb",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "keliencs",
@@ -2396,7 +2622,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "keliencs"
+      "login": "keliencs",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "zloyn",
@@ -2418,7 +2646,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "zloyn"
+      "login": "zloyn",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "cacto0o",
@@ -2440,7 +2670,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "cacto0o"
+      "login": "cacto0o",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "yaner_4",
@@ -2462,7 +2694,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "yaner_4"
+      "login": "yaner_4",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "paverpapa",
@@ -2484,7 +2718,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "paverpapa"
+      "login": "paverpapa",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "iceicell",
@@ -2494,7 +2730,9 @@
       "is_placeholder": false,
       "reach_tier": 2,
       "reference_avg_viewers": 2613,
-      "interests": [],
+      "interests": [
+        "just_chatting"
+      ],
       "collab_formats": [
         "just_chatting",
         "dota_2",
@@ -2505,8 +2743,13 @@
       "region": "public",
       "language": "ru",
       "platform": "twitch",
-      "platform_user_id": "",
-      "login": "iceicell"
+      "platform_user_id": "434276417",
+      "login": "iceicell",
+      "followers": 333015,
+      "stats_updated_at": "2026-09-10",
+      "identity_source": "https://twitchtracker.com/iceicell",
+      "followers_source": "https://www.followercharts.com/twitch/iceicell",
+      "interests_source": "https://www.followercharts.com/twitch/iceicell"
     },
     {
       "id": "hyver",
@@ -2528,7 +2771,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "hyver"
+      "login": "hyver",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "limitlessqt",
@@ -2550,7 +2795,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "limitlessqt"
+      "login": "limitlessqt",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "creepeefemboy",
@@ -2572,7 +2819,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "creepeefemboy"
+      "login": "creepeefemboy",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "erokez61",
@@ -2594,7 +2843,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "erokez61"
+      "login": "erokez61",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "olyashaa",
@@ -2616,7 +2867,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "olyashaa"
+      "login": "olyashaa",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "gepscs2",
@@ -2638,7 +2891,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "gepscs2"
+      "login": "gepscs2",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "whoplohoyparen",
@@ -2660,7 +2915,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "whoplohoyparen"
+      "login": "whoplohoyparen",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "makatao",
@@ -2682,7 +2939,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "makatao"
+      "login": "makatao",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "casebattle_official",
@@ -2704,7 +2963,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "casebattle_official"
+      "login": "casebattle_official",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "mariachi",
@@ -2726,7 +2987,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "mariachi"
+      "login": "mariachi",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "little_cs",
@@ -2748,7 +3011,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "little_cs"
+      "login": "little_cs",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "smurf_tv",
@@ -2770,7 +3035,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "smurf_tv"
+      "login": "smurf_tv",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "skifolk",
@@ -2792,7 +3059,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "skifolk"
+      "login": "skifolk",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "gwinglade",
@@ -2814,7 +3083,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "gwinglade"
+      "login": "gwinglade",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "stoun_m",
@@ -2836,7 +3107,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "stoun_m"
+      "login": "stoun_m",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "slimenkpac",
@@ -2858,7 +3131,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "slimenkpac"
+      "login": "slimenkpac",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "lota",
@@ -2880,7 +3155,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "lota"
+      "login": "lota",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "dangar",
@@ -2902,7 +3179,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "dangar"
+      "login": "dangar",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "lizabaktt",
@@ -2924,7 +3203,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "lizabaktt"
+      "login": "lizabaktt",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "ravshanbtw",
@@ -2946,7 +3227,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "ravshanbtw"
+      "login": "ravshanbtw",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "korya_mc",
@@ -2967,8 +3250,11 @@
       "region": "public",
       "language": "ru",
       "platform": "twitch",
-      "platform_user_id": "",
-      "login": "korya_mc"
+      "platform_user_id": "669445653",
+      "login": "korya_mc",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08",
+      "identity_source": "https://twitchtracker.com/korya_mc"
     },
     {
       "id": "smetanduck",
@@ -2990,7 +3276,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "smetanduck"
+      "login": "smetanduck",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "betboom_dota_ru",
@@ -3012,7 +3300,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "betboom_dota_ru"
+      "login": "betboom_dota_ru",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "lru_rose",
@@ -3034,7 +3324,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "lru_rose"
+      "login": "lru_rose",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "rera_seal",
@@ -3056,7 +3348,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "rera_seal"
+      "login": "rera_seal",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "stopb4n",
@@ -3078,7 +3372,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "stopb4n"
+      "login": "stopb4n",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "azamat799",
@@ -3100,7 +3396,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "azamat799"
+      "login": "azamat799",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "ponyaaaa",
@@ -3122,7 +3420,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "ponyaaaa"
+      "login": "ponyaaaa",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "dayneez",
@@ -3144,7 +3444,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "dayneez"
+      "login": "dayneez",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "bandurka",
@@ -3166,7 +3468,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "bandurka"
+      "login": "bandurka",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "fruktozka",
@@ -3188,7 +3492,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "fruktozka"
+      "login": "fruktozka",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "qrushcsgo",
@@ -3210,7 +3516,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "qrushcsgo"
+      "login": "qrushcsgo",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "titamin1",
@@ -3232,7 +3540,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "titamin1"
+      "login": "titamin1",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "abramovich",
@@ -3254,7 +3564,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "abramovich"
+      "login": "abramovich",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "badgetracker",
@@ -3276,7 +3588,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "badgetracker"
+      "login": "badgetracker",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "r0xieee",
@@ -3298,7 +3612,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "r0xieee"
+      "login": "r0xieee",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "redpandash",
@@ -3320,7 +3636,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "redpandash"
+      "login": "redpandash",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "off_kuka358",
@@ -3342,7 +3660,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "off_kuka358"
+      "login": "off_kuka358",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "minthon19",
@@ -3364,7 +3684,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "minthon19"
+      "login": "minthon19",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "rouszztrash",
@@ -3386,7 +3708,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "rouszztrash"
+      "login": "rouszztrash",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "lagoda1337",
@@ -3408,7 +3732,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "lagoda1337"
+      "login": "lagoda1337",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "reznikbtw",
@@ -3430,7 +3756,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "reznikbtw"
+      "login": "reznikbtw",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "versuta",
@@ -3452,7 +3780,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "versuta"
+      "login": "versuta",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "terablade",
@@ -3474,7 +3804,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "terablade"
+      "login": "terablade",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "unutcon",
@@ -3496,7 +3828,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "unutcon"
+      "login": "unutcon",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "toosefn",
@@ -3518,7 +3852,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "toosefn"
+      "login": "toosefn",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "goodoq",
@@ -3540,7 +3876,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "goodoq"
+      "login": "goodoq",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "nostoro",
@@ -3562,7 +3900,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "nostoro"
+      "login": "nostoro",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "lasqa",
@@ -3584,7 +3924,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "lasqa"
+      "login": "lasqa",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "del1ght",
@@ -3606,7 +3948,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "del1ght"
+      "login": "del1ght",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "dianarice",
@@ -3628,7 +3972,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "dianarice"
+      "login": "dianarice",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "lonelybaae",
@@ -3650,7 +3996,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "lonelybaae"
+      "login": "lonelybaae",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "alohadancetv",
@@ -3672,7 +4020,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "alohadancetv"
+      "login": "alohadancetv",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "awfdota",
@@ -3694,7 +4044,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "awfdota"
+      "login": "awfdota",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "rachelr",
@@ -3716,7 +4068,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "rachelr"
+      "login": "rachelr",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "hellyeahplay",
@@ -3738,7 +4092,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "hellyeahplay"
+      "login": "hellyeahplay",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "liz0n",
@@ -3760,7 +4116,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "liz0n"
+      "login": "liz0n",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "zherarrr",
@@ -3782,7 +4140,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "zherarrr"
+      "login": "zherarrr",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "witchblvde",
@@ -3804,7 +4164,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "witchblvde"
+      "login": "witchblvde",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "baz1221",
@@ -3826,7 +4188,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "baz1221"
+      "login": "baz1221",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "gilticus",
@@ -3848,7 +4212,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "gilticus"
+      "login": "gilticus",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "mlbb_cis",
@@ -3870,7 +4236,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "mlbb_cis"
+      "login": "mlbb_cis",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "murzofix",
@@ -3892,7 +4260,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "murzofix"
+      "login": "murzofix",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "99bigboy99",
@@ -3914,7 +4284,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "99bigboy99"
+      "login": "99bigboy99",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "nstvgames",
@@ -3936,7 +4308,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "nstvgames"
+      "login": "nstvgames",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "inseq",
@@ -3958,7 +4332,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "inseq"
+      "login": "inseq",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "agromorph",
@@ -3980,7 +4356,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "agromorph"
+      "login": "agromorph",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "browjey",
@@ -4002,7 +4380,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "browjey"
+      "login": "browjey",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "sme6noy",
@@ -4024,7 +4404,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "sme6noy"
+      "login": "sme6noy",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "tenkedzu",
@@ -4046,7 +4428,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "tenkedzu"
+      "login": "tenkedzu",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "formixyouknow",
@@ -4068,7 +4452,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "formixyouknow"
+      "login": "formixyouknow",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "drac0merald",
@@ -4090,7 +4476,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "drac0merald"
+      "login": "drac0merald",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "mistafaker",
@@ -4112,7 +4500,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "mistafaker"
+      "login": "mistafaker",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "rejiboi",
@@ -4134,7 +4524,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "rejiboi"
+      "login": "rejiboi",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "blackrabbit342",
@@ -4156,7 +4548,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "blackrabbit342"
+      "login": "blackrabbit342",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "es4xtank",
@@ -4178,7 +4572,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "es4xtank"
+      "login": "es4xtank",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "arrowwoods",
@@ -4200,7 +4596,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "arrowwoods"
+      "login": "arrowwoods",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "radika1fa",
@@ -4222,7 +4620,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "radika1fa"
+      "login": "radika1fa",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "shawdfxc",
@@ -4244,7 +4644,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "shawdfxc"
+      "login": "shawdfxc",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "arven93",
@@ -4266,7 +4668,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "arven93"
+      "login": "arven93",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "pch3lk1n",
@@ -4288,7 +4692,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "pch3lk1n"
+      "login": "pch3lk1n",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "crownus_gl",
@@ -4310,7 +4716,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "crownus_gl"
+      "login": "crownus_gl",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "mewendi",
@@ -4332,7 +4740,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "mewendi"
+      "login": "mewendi",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "cispapa",
@@ -4354,7 +4764,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "cispapa"
+      "login": "cispapa",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "9impulse",
@@ -4376,7 +4788,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "9impulse"
+      "login": "9impulse",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "tj_sk1per",
@@ -4398,7 +4812,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "tj_sk1per"
+      "login": "tj_sk1per",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "pro_cast2",
@@ -4420,7 +4836,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "pro_cast2"
+      "login": "pro_cast2",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "mangekyou_14",
@@ -4442,7 +4860,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "mangekyou_14"
+      "login": "mangekyou_14",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "sbolttt",
@@ -4464,7 +4884,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "sbolttt"
+      "login": "sbolttt",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "fandercs",
@@ -4486,7 +4908,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "fandercs"
+      "login": "fandercs",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "dawgonosik",
@@ -4508,7 +4932,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "dawgonosik"
+      "login": "dawgonosik",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "dear_hellgirl",
@@ -4530,7 +4956,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "dear_hellgirl"
+      "login": "dear_hellgirl",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "sofiko_sculpts",
@@ -4552,7 +4980,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "sofiko_sculpts"
+      "login": "sofiko_sculpts",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "spt083",
@@ -4574,7 +5004,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "spt083"
+      "login": "spt083",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "b1ezzed",
@@ -4596,7 +5028,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "b1ezzed"
+      "login": "b1ezzed",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "yung777mockba",
@@ -4618,7 +5052,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "yung777mockba"
+      "login": "yung777mockba",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "sayfergoat",
@@ -4640,7 +5076,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "sayfergoat"
+      "login": "sayfergoat",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "renamid",
@@ -4662,7 +5100,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "renamid"
+      "login": "renamid",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "nikitasudar",
@@ -4684,7 +5124,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "nikitasudar"
+      "login": "nikitasudar",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "baxadoto",
@@ -4706,7 +5148,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "baxadoto"
+      "login": "baxadoto",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "c1ymba_mt",
@@ -4728,7 +5172,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "c1ymba_mt"
+      "login": "c1ymba_mt",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "alinarinrin",
@@ -4750,7 +5196,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "alinarinrin"
+      "login": "alinarinrin",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "alfedov",
@@ -4772,7 +5220,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "alfedov"
+      "login": "alfedov",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "lestakorabli",
@@ -4794,7 +5244,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "lestakorabli"
+      "login": "lestakorabli",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "andr_surov",
@@ -4816,7 +5268,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "andr_surov"
+      "login": "andr_surov",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "dota2_paragon_ru",
@@ -4838,7 +5292,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "dota2_paragon_ru"
+      "login": "dota2_paragon_ru",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "darknikoff",
@@ -4860,7 +5316,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "darknikoff"
+      "login": "darknikoff",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "cherepashk1n",
@@ -4882,7 +5340,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "cherepashk1n"
+      "login": "cherepashk1n",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "banda_boyko",
@@ -4904,7 +5364,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "banda_boyko"
+      "login": "banda_boyko",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "zzord2001",
@@ -4926,7 +5388,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "zzord2001"
+      "login": "zzord2001",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "ruslandvip",
@@ -4948,7 +5412,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "ruslandvip"
+      "login": "ruslandvip",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "lildjeyy1",
@@ -4970,7 +5436,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "lildjeyy1"
+      "login": "lildjeyy1",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "rochersha",
@@ -4992,7 +5460,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "rochersha"
+      "login": "rochersha",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "legendaafk",
@@ -5014,7 +5484,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "legendaafk"
+      "login": "legendaafk",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "snessh",
@@ -5036,7 +5508,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "snessh"
+      "login": "snessh",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "babymelo_22",
@@ -5058,7 +5532,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "babymelo_22"
+      "login": "babymelo_22",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "anastaze",
@@ -5080,7 +5556,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "anastaze"
+      "login": "anastaze",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "ixbt_games",
@@ -5102,7 +5580,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "ixbt_games"
+      "login": "ixbt_games",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "davacimbo",
@@ -5124,7 +5604,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "davacimbo"
+      "login": "davacimbo",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "leron_baron",
@@ -5146,7 +5628,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "leron_baron"
+      "login": "leron_baron",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "poisonika",
@@ -5168,7 +5652,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "poisonika"
+      "login": "poisonika",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "gei_angel",
@@ -5190,7 +5676,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "gei_angel"
+      "login": "gei_angel",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "welderb",
@@ -5212,7 +5700,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "welderb"
+      "login": "welderb",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "murmadoll",
@@ -5234,7 +5724,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "murmadoll"
+      "login": "murmadoll",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "sharishaxd",
@@ -5256,7 +5748,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "sharishaxd"
+      "login": "sharishaxd",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "fadivs",
@@ -5278,7 +5772,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "fadivs"
+      "login": "fadivs",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "zabenafff",
@@ -5300,7 +5796,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "zabenafff"
+      "login": "zabenafff",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "tusoved",
@@ -5322,7 +5820,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "tusoved"
+      "login": "tusoved",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "mrmalfoy07",
@@ -5344,7 +5844,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "mrmalfoy07"
+      "login": "mrmalfoy07",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "cu6ickk",
@@ -5366,7 +5868,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "cu6ickk"
+      "login": "cu6ickk",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "etokeking",
@@ -5388,7 +5892,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "etokeking"
+      "login": "etokeking",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "quickhuntik",
@@ -5410,7 +5916,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "quickhuntik"
+      "login": "quickhuntik",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "wbcclub",
@@ -5432,7 +5940,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "wbcclub"
+      "login": "wbcclub",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "lens_doto",
@@ -5454,7 +5964,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "lens_doto"
+      "login": "lens_doto",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "oneshotmlbb",
@@ -5476,7 +5988,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "oneshotmlbb"
+      "login": "oneshotmlbb",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "exmagistr",
@@ -5498,7 +6012,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "exmagistr"
+      "login": "exmagistr",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "lavieoubourse",
@@ -5520,7 +6036,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "lavieoubourse"
+      "login": "lavieoubourse",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "friend44444",
@@ -5542,7 +6060,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "friend44444"
+      "login": "friend44444",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "iwaschosen66",
@@ -5564,7 +6084,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "iwaschosen66"
+      "login": "iwaschosen66",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "hiltyha",
@@ -5586,7 +6108,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "hiltyha"
+      "login": "hiltyha",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "evikey",
@@ -5608,7 +6132,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "evikey"
+      "login": "evikey",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "bezbash",
@@ -5630,7 +6156,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "bezbash"
+      "login": "bezbash",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "j05k1y",
@@ -5652,7 +6180,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "j05k1y"
+      "login": "j05k1y",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "cemka",
@@ -5674,7 +6204,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "cemka"
+      "login": "cemka",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "thereisnofuture",
@@ -5696,7 +6228,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "thereisnofuture"
+      "login": "thereisnofuture",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "mugretnug",
@@ -5718,7 +6252,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "mugretnug"
+      "login": "mugretnug",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "1uke337",
@@ -5740,7 +6276,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "1uke337"
+      "login": "1uke337",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "kesikton",
@@ -5762,7 +6300,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "kesikton"
+      "login": "kesikton",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "lollipop21k",
@@ -5784,7 +6324,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "lollipop21k"
+      "login": "lollipop21k",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "hesoyamof1974",
@@ -5806,7 +6348,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "hesoyamof1974"
+      "login": "hesoyamof1974",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "shevronin",
@@ -5828,7 +6372,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "shevronin"
+      "login": "shevronin",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "near_you",
@@ -5850,7 +6396,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "near_you"
+      "login": "near_you",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "walkonte",
@@ -5872,7 +6420,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "walkonte"
+      "login": "walkonte",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "nix",
@@ -5894,7 +6444,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "nix"
+      "login": "nix",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "dota2ti_ru",
@@ -5916,7 +6468,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "dota2ti_ru"
+      "login": "dota2ti_ru",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "shadowkekw",
@@ -5938,7 +6492,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "shadowkekw"
+      "login": "shadowkekw",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "chopperinho",
@@ -5960,7 +6516,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "chopperinho"
+      "login": "chopperinho",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "evelone2004",
@@ -5982,7 +6540,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "evelone2004"
+      "login": "evelone2004",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "anarabdullaev",
@@ -6004,7 +6564,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "anarabdullaev"
+      "login": "anarabdullaev",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "ramzes",
@@ -6026,7 +6588,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "ramzes"
+      "login": "ramzes",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "buster",
@@ -6048,7 +6612,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "buster"
+      "login": "buster",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "strogo",
@@ -6070,7 +6636,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "strogo"
+      "login": "strogo",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "dangerlyoha",
@@ -6092,7 +6660,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "dangerlyoha"
+      "login": "dangerlyoha",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "deepins02",
@@ -6114,7 +6684,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "deepins02"
+      "login": "deepins02",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "leva2k",
@@ -6136,7 +6708,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "leva2k"
+      "login": "leva2k",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "recrent",
@@ -6158,7 +6732,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "recrent"
+      "login": "recrent",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "mellstroy",
@@ -6180,7 +6756,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "mellstroy"
+      "login": "mellstroy",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "bratishkinoff",
@@ -6202,7 +6780,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "bratishkinoff"
+      "login": "bratishkinoff",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "just_ns",
@@ -6224,7 +6804,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "just_ns"
+      "login": "just_ns",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "betboom_cs_ru",
@@ -6246,7 +6828,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "betboom_cs_ru"
+      "login": "betboom_cs_ru",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "solo",
@@ -6268,7 +6852,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "solo"
+      "login": "solo",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "t2x2",
@@ -6290,7 +6876,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "t2x2"
+      "login": "t2x2",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "deko",
@@ -6312,7 +6900,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "deko"
+      "login": "deko",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "avice",
@@ -6334,7 +6924,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "avice"
+      "login": "avice",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "rostislav_999",
@@ -6356,7 +6948,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "rostislav_999"
+      "login": "rostislav_999",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "97zoner",
@@ -6378,7 +6972,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "97zoner"
+      "login": "97zoner",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "skywhywalker",
@@ -6400,7 +6996,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "skywhywalker"
+      "login": "skywhywalker",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "ravshann",
@@ -6422,7 +7020,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "ravshann"
+      "login": "ravshann",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "sasavot",
@@ -6444,7 +7044,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "sasavot"
+      "login": "sasavot",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "d1pro4",
@@ -6466,7 +7068,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "d1pro4"
+      "login": "d1pro4",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "aunkere",
@@ -6488,7 +7092,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "aunkere"
+      "login": "aunkere",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "lenagol0vach",
@@ -6510,7 +7116,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "lenagol0vach"
+      "login": "lenagol0vach",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "aslanshukasha",
@@ -6532,7 +7140,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "aslanshukasha"
+      "login": "aslanshukasha",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "olesha",
@@ -6554,7 +7164,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "olesha"
+      "login": "olesha",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "koma",
@@ -6576,7 +7188,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "koma"
+      "login": "koma",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "ct0m",
@@ -6598,7 +7212,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "ct0m"
+      "login": "ct0m",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "silvername",
@@ -6620,7 +7236,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "silvername"
+      "login": "silvername",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "stintik",
@@ -6642,7 +7260,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "stintik"
+      "login": "stintik",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "nicoleheart23",
@@ -6664,7 +7284,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "nicoleheart23"
+      "login": "nicoleheart23",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "edison",
@@ -6686,7 +7308,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "edison"
+      "login": "edison",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "enzzai",
@@ -6708,7 +7332,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "enzzai"
+      "login": "enzzai",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "dmitry_lixxx",
@@ -6730,7 +7356,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "dmitry_lixxx"
+      "login": "dmitry_lixxx",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "rivokizbednosti",
@@ -6752,7 +7380,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "rivokizbednosti"
+      "login": "rivokizbednosti",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "guacamolemolly",
@@ -6774,7 +7404,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "guacamolemolly"
+      "login": "guacamolemolly",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "judah_xx",
@@ -6796,7 +7428,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "judah_xx"
+      "login": "judah_xx",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "drakeoffc",
@@ -6818,7 +7452,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "drakeoffc"
+      "login": "drakeoffc",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "sleduck",
@@ -6840,7 +7476,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "sleduck"
+      "login": "sleduck",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "heartdota23",
@@ -6862,7 +7500,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "heartdota23"
+      "login": "heartdota23",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "dunduk",
@@ -6884,7 +7524,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "dunduk"
+      "login": "dunduk",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "mazoni",
@@ -6906,7 +7548,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "mazoni"
+      "login": "mazoni",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "steel",
@@ -6928,7 +7572,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "steel"
+      "login": "steel",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "danila_gorilla",
@@ -6950,7 +7596,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "danila_gorilla"
+      "login": "danila_gorilla",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "n3koglai",
@@ -6972,7 +7620,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "n3koglai"
+      "login": "n3koglai",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "jojohf",
@@ -6994,7 +7644,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "jojohf"
+      "login": "jojohf",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "akyuliych",
@@ -7016,7 +7668,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "akyuliych"
+      "login": "akyuliych",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "5opka",
@@ -7038,7 +7692,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "5opka"
+      "login": "5opka",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "ahrinyan",
@@ -7060,7 +7716,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "ahrinyan"
+      "login": "ahrinyan",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "ekatze007",
@@ -7082,7 +7740,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "ekatze007"
+      "login": "ekatze007",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "hardgamechannel",
@@ -7104,7 +7764,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "hardgamechannel"
+      "login": "hardgamechannel",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "fenya",
@@ -7126,7 +7788,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "fenya"
+      "login": "fenya",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "dreadztv",
@@ -7148,7 +7812,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "dreadztv"
+      "login": "dreadztv",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "yuuechka",
@@ -7170,7 +7836,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "yuuechka"
+      "login": "yuuechka",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "poka",
@@ -7192,7 +7860,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "poka"
+      "login": "poka",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "leemodopi",
@@ -7214,7 +7884,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "leemodopi"
+      "login": "leemodopi",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "yungfimoz",
@@ -7236,7 +7908,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "yungfimoz"
+      "login": "yungfimoz",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "archangel_hs",
@@ -7258,7 +7932,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "archangel_hs"
+      "login": "archangel_hs",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "dinablin",
@@ -7280,7 +7956,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "dinablin"
+      "login": "dinablin",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "modestal",
@@ -7302,7 +7980,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "modestal"
+      "login": "modestal",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "tati",
@@ -7324,7 +8004,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "tati"
+      "login": "tati",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "mixazver",
@@ -7346,7 +8028,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "mixazver"
+      "login": "mixazver",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "dosia_csgo",
@@ -7368,7 +8052,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "dosia_csgo"
+      "login": "dosia_csgo",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "pwgood",
@@ -7390,7 +8076,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "pwgood"
+      "login": "pwgood",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "ivanzolo578",
@@ -7412,7 +8100,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "ivanzolo578"
+      "login": "ivanzolo578",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "dasha228play",
@@ -7422,7 +8112,9 @@
       "is_placeholder": false,
       "reach_tier": 1,
       "reference_avg_viewers": 837,
-      "interests": [],
+      "interests": [
+        "dota_2"
+      ],
       "collab_formats": [
         "just_chatting",
         "dota_2",
@@ -7433,8 +8125,13 @@
       "region": "public",
       "language": "ru",
       "platform": "twitch",
-      "platform_user_id": "",
-      "login": "dasha228play"
+      "platform_user_id": "191037518",
+      "login": "dasha228play",
+      "followers": 416172,
+      "stats_updated_at": "2026-09-10",
+      "identity_source": "https://twitchtracker.com/dasha228play",
+      "followers_source": "https://www.twitchmetrics.net/c/191037518-dasha228play",
+      "interests_source": "https://www.twitchmetrics.net/c/191037518-dasha228play"
     },
     {
       "id": "fcsm_kefir",
@@ -7456,7 +8153,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "fcsm_kefir"
+      "login": "fcsm_kefir",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "igromania",
@@ -7478,7 +8177,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "igromania"
+      "login": "igromania",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "gohamedia",
@@ -7500,7 +8201,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "gohamedia"
+      "login": "gohamedia",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "cartmanzbs",
@@ -7522,7 +8225,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "cartmanzbs"
+      "login": "cartmanzbs",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "ggwplanaya",
@@ -7544,7 +8249,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "ggwplanaya"
+      "login": "ggwplanaya",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "rxnexus",
@@ -7566,7 +8273,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "rxnexus"
+      "login": "rxnexus",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "seregagibon",
@@ -7588,7 +8297,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "seregagibon"
+      "login": "seregagibon",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "gnumme",
@@ -7610,7 +8321,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "gnumme"
+      "login": "gnumme",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "adm1tr1pow",
@@ -7632,7 +8345,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "adm1tr1pow"
+      "login": "adm1tr1pow",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "zhenyalarkin",
@@ -7654,7 +8369,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "zhenyalarkin"
+      "login": "zhenyalarkin",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "vitecp",
@@ -7676,7 +8393,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "vitecp"
+      "login": "vitecp",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "chr1swave",
@@ -7698,7 +8417,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "chr1swave"
+      "login": "chr1swave",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "zeus",
@@ -7720,7 +8441,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "zeus"
+      "login": "zeus",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "morphilina",
@@ -7742,7 +8465,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "morphilina"
+      "login": "morphilina",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "loru77",
@@ -7764,7 +8489,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "loru77"
+      "login": "loru77",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "znat51",
@@ -7786,7 +8513,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "znat51"
+      "login": "znat51",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "watchfultv",
@@ -7808,7 +8537,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "watchfultv"
+      "login": "watchfultv",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "standoff2esports_ru",
@@ -7830,7 +8561,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "standoff2esports_ru"
+      "login": "standoff2esports_ru",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "risazatvorchestvo",
@@ -7852,7 +8585,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "risazatvorchestvo"
+      "login": "risazatvorchestvo",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "finogenof",
@@ -7874,7 +8609,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "finogenof"
+      "login": "finogenof",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "torontotokyo17",
@@ -7896,7 +8633,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "torontotokyo17"
+      "login": "torontotokyo17",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "abizaka",
@@ -7918,7 +8657,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "abizaka"
+      "login": "abizaka",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "akumaqqe",
@@ -7940,7 +8681,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "akumaqqe"
+      "login": "akumaqqe",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "followkudes",
@@ -7962,7 +8705,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "followkudes"
+      "login": "followkudes",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "1mpala",
@@ -7984,7 +8729,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "1mpala"
+      "login": "1mpala",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "i_olga",
@@ -8006,7 +8753,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "i_olga"
+      "login": "i_olga",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "dariapsina",
@@ -8028,7 +8777,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "dariapsina"
+      "login": "dariapsina",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "uzorrrr",
@@ -8050,7 +8801,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "uzorrrr"
+      "login": "uzorrrr",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "nelyaray",
@@ -8072,7 +8825,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "nelyaray"
+      "login": "nelyaray",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "b3brina",
@@ -8094,7 +8849,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "b3brina"
+      "login": "b3brina",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "tsar_65",
@@ -8116,7 +8873,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "tsar_65"
+      "login": "tsar_65",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "nowkies",
@@ -8138,7 +8897,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "nowkies"
+      "login": "nowkies",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "pandafxfx",
@@ -8160,7 +8921,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "pandafxfx"
+      "login": "pandafxfx",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "sergeycrey",
@@ -8182,7 +8945,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "sergeycrey"
+      "login": "sergeycrey",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "vika_karter",
@@ -8204,7 +8969,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "vika_karter"
+      "login": "vika_karter",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "l4hmadju",
@@ -8226,7 +8993,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "l4hmadju"
+      "login": "l4hmadju",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "dinicetea",
@@ -8248,7 +9017,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "dinicetea"
+      "login": "dinicetea",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "letw1k3",
@@ -8270,7 +9041,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "letw1k3"
+      "login": "letw1k3",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "bratiki94",
@@ -8292,7 +9065,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "bratiki94"
+      "login": "bratiki94",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "drainys",
@@ -8314,7 +9089,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "drainys"
+      "login": "drainys",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "moddychat",
@@ -8336,7 +9113,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "moddychat"
+      "login": "moddychat",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "bulochka",
@@ -8358,7 +9137,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "bulochka"
+      "login": "bulochka",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "soonvooshko",
@@ -8380,7 +9161,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "soonvooshko"
+      "login": "soonvooshko",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "inboss1k",
@@ -8402,7 +9185,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "inboss1k"
+      "login": "inboss1k",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "freem4no",
@@ -8424,7 +9209,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "freem4no"
+      "login": "freem4no",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "jentteno",
@@ -8446,7 +9233,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "jentteno"
+      "login": "jentteno",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "ant1ka",
@@ -8468,7 +9257,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "ant1ka"
+      "login": "ant1ka",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "qsnake",
@@ -8490,7 +9281,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "qsnake"
+      "login": "qsnake",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "maestro_edrak89",
@@ -8512,7 +9305,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "maestro_edrak89"
+      "login": "maestro_edrak89",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "firamir_tv",
@@ -8534,7 +9329,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "firamir_tv"
+      "login": "firamir_tv",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "patl4tiy",
@@ -8556,7 +9353,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "patl4tiy"
+      "login": "patl4tiy",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "gamelifeow",
@@ -8578,7 +9377,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "gamelifeow"
+      "login": "gamelifeow",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "quattroace",
@@ -8600,7 +9401,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "quattroace"
+      "login": "quattroace",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "7ssk7",
@@ -8622,7 +9425,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "7ssk7"
+      "login": "7ssk7",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "acoolbek",
@@ -8644,7 +9449,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "acoolbek"
+      "login": "acoolbek",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "alcest_m",
@@ -8666,7 +9473,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "alcest_m"
+      "login": "alcest_m",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "misterbiznes92",
@@ -8688,7 +9497,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "misterbiznes92"
+      "login": "misterbiznes92",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "anek",
@@ -8710,7 +9521,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "anek"
+      "login": "anek",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "fiveskill",
@@ -8732,7 +9545,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "fiveskill"
+      "login": "fiveskill",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "zakharww",
@@ -8754,7 +9569,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "zakharww"
+      "login": "zakharww",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "7tor",
@@ -8776,7 +9593,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "7tor"
+      "login": "7tor",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "everybodysosa",
@@ -8798,7 +9617,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "everybodysosa"
+      "login": "everybodysosa",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "zark",
@@ -8820,7 +9641,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "zark"
+      "login": "zark",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "semmyxhf",
@@ -8842,7 +9665,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "semmyxhf"
+      "login": "semmyxhf",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "hurma",
@@ -8864,7 +9689,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "hurma"
+      "login": "hurma",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "marasshakursamp",
@@ -8886,7 +9713,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "marasshakursamp"
+      "login": "marasshakursamp",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "pokamolodoy",
@@ -8908,7 +9737,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "pokamolodoy"
+      "login": "pokamolodoy",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "stopgameru",
@@ -8930,7 +9761,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "stopgameru"
+      "login": "stopgameru",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "scrnonstfu",
@@ -8952,7 +9785,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "scrnonstfu"
+      "login": "scrnonstfu",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "barbiegirl",
@@ -8974,7 +9809,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "barbiegirl"
+      "login": "barbiegirl",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "forzorezor",
@@ -8996,7 +9833,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "forzorezor"
+      "login": "forzorezor",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "trixie_vox",
@@ -9018,7 +9857,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "trixie_vox"
+      "login": "trixie_vox",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "lubricum",
@@ -9040,7 +9881,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "lubricum"
+      "login": "lubricum",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "halflex",
@@ -9062,7 +9905,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "halflex"
+      "login": "halflex",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "banan23yt",
@@ -9084,7 +9929,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "banan23yt"
+      "login": "banan23yt",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "shadowdr4g",
@@ -9106,7 +9953,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "shadowdr4g"
+      "login": "shadowdr4g",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "gokump3",
@@ -9128,7 +9977,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "gokump3"
+      "login": "gokump3",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "qwinkiii",
@@ -9150,7 +10001,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "qwinkiii"
+      "login": "qwinkiii",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "dushenka",
@@ -9172,7 +10025,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "dushenka"
+      "login": "dushenka",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "finargot",
@@ -9194,7 +10049,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "finargot"
+      "login": "finargot",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "pinkssage",
@@ -9216,7 +10073,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "pinkssage"
+      "login": "pinkssage",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "olesyabulletka",
@@ -9238,7 +10097,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "olesyabulletka"
+      "login": "olesyabulletka",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "thepadlo",
@@ -9260,7 +10121,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "thepadlo"
+      "login": "thepadlo",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "bezt0rm0z0v",
@@ -9282,7 +10145,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "bezt0rm0z0v"
+      "login": "bezt0rm0z0v",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "ins1de1337",
@@ -9304,7 +10169,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "ins1de1337"
+      "login": "ins1de1337",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "mishura",
@@ -9326,7 +10193,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "mishura"
+      "login": "mishura",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "creative7play",
@@ -9348,7 +10217,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "creative7play"
+      "login": "creative7play",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "toygirl",
@@ -9370,7 +10241,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "toygirl"
+      "login": "toygirl",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "cepreu_inq",
@@ -9392,7 +10265,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "cepreu_inq"
+      "login": "cepreu_inq",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "waveafterwave2ndlife",
@@ -9414,7 +10289,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "waveafterwave2ndlife"
+      "login": "waveafterwave2ndlife",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "zanuda",
@@ -9436,7 +10313,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "zanuda"
+      "login": "zanuda",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "grandrony",
@@ -9458,7 +10337,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "grandrony"
+      "login": "grandrony",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "ivzel96",
@@ -9480,7 +10361,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "ivzel96"
+      "login": "ivzel96",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "misolo3",
@@ -9502,7 +10385,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "misolo3"
+      "login": "misolo3",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "flamie",
@@ -9524,7 +10409,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "flamie"
+      "login": "flamie",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "hibako",
@@ -9546,7 +10433,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "hibako"
+      "login": "hibako",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "tixerok",
@@ -9568,7 +10457,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "tixerok"
+      "login": "tixerok",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "justs_js",
@@ -9590,7 +10481,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "justs_js"
+      "login": "justs_js",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "evilkingmlbb",
@@ -9612,7 +10505,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "evilkingmlbb"
+      "login": "evilkingmlbb",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "sh4dowehhh",
@@ -9634,7 +10529,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "sh4dowehhh"
+      "login": "sh4dowehhh",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "gusar",
@@ -9656,7 +10553,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "gusar"
+      "login": "gusar",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "fakturka",
@@ -9678,7 +10577,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "fakturka"
+      "login": "fakturka",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "jerry256cs2",
@@ -9700,7 +10601,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "jerry256cs2"
+      "login": "jerry256cs2",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "sadpigeone",
@@ -9722,7 +10625,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "sadpigeone"
+      "login": "sadpigeone",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "beastqt",
@@ -9744,7 +10649,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "beastqt"
+      "login": "beastqt",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "404t4ga",
@@ -9766,7 +10673,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "404t4ga"
+      "login": "404t4ga",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "velyalive",
@@ -9788,7 +10697,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "velyalive"
+      "login": "velyalive",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "ackerman_cs",
@@ -9810,7 +10721,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "ackerman_cs"
+      "login": "ackerman_cs",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "sweektw",
@@ -9832,7 +10745,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "sweektw"
+      "login": "sweektw",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "ubica",
@@ -9854,7 +10769,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "ubica"
+      "login": "ubica",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "ezik_shizik",
@@ -9876,7 +10793,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "ezik_shizik"
+      "login": "ezik_shizik",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "doomst4rr",
@@ -9898,7 +10817,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "doomst4rr"
+      "login": "doomst4rr",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "kxrvinho",
@@ -9920,7 +10841,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "kxrvinho"
+      "login": "kxrvinho",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "onehend",
@@ -9942,7 +10865,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "onehend"
+      "login": "onehend",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "adamsonshow",
@@ -9964,7 +10889,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "adamsonshow"
+      "login": "adamsonshow",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "float735",
@@ -9986,7 +10913,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "float735"
+      "login": "float735",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "qanteg",
@@ -10008,7 +10937,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "qanteg"
+      "login": "qanteg",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "stanyyy",
@@ -10030,7 +10961,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "stanyyy"
+      "login": "stanyyy",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "taksebeyarik",
@@ -10052,7 +10985,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "taksebeyarik"
+      "login": "taksebeyarik",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "zibert1715_",
@@ -10074,7 +11009,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "zibert1715_"
+      "login": "zibert1715_",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "pubg_cis",
@@ -10096,7 +11033,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "pubg_cis"
+      "login": "pubg_cis",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "tairlend",
@@ -10118,7 +11057,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "tairlend"
+      "login": "tairlend",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "qewbite",
@@ -10140,7 +11081,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "qewbite"
+      "login": "qewbite",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "raslabon3sss",
@@ -10162,7 +11105,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "raslabon3sss"
+      "login": "raslabon3sss",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "deproboy",
@@ -10184,7 +11129,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "deproboy"
+      "login": "deproboy",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "kiryuhaa",
@@ -10206,7 +11153,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "kiryuhaa"
+      "login": "kiryuhaa",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "diamondprox_lol",
@@ -10228,7 +11177,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "diamondprox_lol"
+      "login": "diamondprox_lol",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "evgexa",
@@ -10250,7 +11201,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "evgexa"
+      "login": "evgexa",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "arturchik_",
@@ -10272,7 +11225,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "arturchik_"
+      "login": "arturchik_",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "sigaseagers",
@@ -10294,7 +11249,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "sigaseagers"
+      "login": "sigaseagers",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "ded_b_tpycax01",
@@ -10316,7 +11273,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "ded_b_tpycax01"
+      "login": "ded_b_tpycax01",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "pinlucky",
@@ -10338,7 +11297,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "pinlucky"
+      "login": "pinlucky",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "mr_jijik",
@@ -10360,7 +11321,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "mr_jijik"
+      "login": "mr_jijik",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "korbendetka",
@@ -10382,7 +11345,9 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "korbendetka"
+      "login": "korbendetka",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
     },
     {
       "id": "warthunder_esports_ru",
@@ -10404,7 +11369,34 @@
       "language": "ru",
       "platform": "twitch",
       "platform_user_id": "",
-      "login": "warthunder_esports_ru"
+      "login": "warthunder_esports_ru",
+      "followers": -1,
+      "stats_updated_at": "2026-09-08"
+    },
+    {
+      "id": "helin139",
+      "display_name": "heliN139",
+      "source": "https://twitchtracker.com/helin139/statistics",
+      "source_checked_at": "2026-09-10",
+      "is_placeholder": false,
+      "reach_tier": 2,
+      "reference_avg_viewers": 1824,
+      "interests": [],
+      "collab_formats": [
+        "just_chatting",
+        "dota_2",
+        "irl",
+        "cooking"
+      ],
+      "base_acceptance": 0.5,
+      "region": "public",
+      "language": "ru",
+      "platform": "twitch",
+      "platform_user_id": "814003935",
+      "login": "helin139",
+      "followers": -1,
+      "stats_updated_at": "2026-09-10",
+      "identity_source": "https://twitchtracker.com/helin139"
     }
   ]
 }

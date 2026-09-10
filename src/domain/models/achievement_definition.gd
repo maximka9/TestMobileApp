@@ -14,3 +14,5 @@ enum AchievementTier { NORMAL, GOAL, CHALLENGE, LEGENDARY }
 @export var tier: AchievementTier = AchievementTier.NORMAL
 @export var icon: Texture2D
 @export var graph_position: Vector2 = Vector2.ZERO
+
+@export var required_creator_id: String = ""

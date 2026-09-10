@@ -97,6 +97,16 @@ func _streamer_from(value: Variant) -> StreamerDefinition:
 	if not _number(value.get("base_acceptance"), 0.0, 1.0) or not value.get("interests") is Array or not value.get("collab_formats") is Array:
 		return null
 	var profile: StreamerDefinition = StreamerDefinition.new()
+	if not _whole(value.get("followers", -1), -1, 1000000000):
+		return null
+	profile.followers = int(value.get("followers", -1))
+	profile.stats_updated_at = str(value.get("stats_updated_at", value.get("source_checked_at", "")))
+	if not profile.stats_updated_at.is_empty() and not valid_date(profile.stats_updated_at):
+		return null
+	profile.followers_source = str(value.get("followers_source", ""))
+	profile.interests_source = str(value.get("interests_source", value.get("source", "")))
+	if streamer_path == STREAMER_CATALOG_PATH and profile.followers >= 0 and not profile.followers_source.begins_with("https://"):
+		return null
 	profile.id = value["id"]
 	profile.platform = str(value.get("platform", "twitch"))
 	profile.platform_user_id = str(value.get("platform_user_id", ""))

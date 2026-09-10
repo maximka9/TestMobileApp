@@ -53,7 +53,7 @@ func _test_gates() -> void:
 	ContentSourceService.create(state, "cooking", 100)
 	state.content_sources[0].erase("source_stream_average_hype") # Genuine pre-0.9 source shape.
 	var document: Dictionary = saves.serialize(state)
-	check(document.version == 11, "v0.8 schema retained")
+	check(document.version == SaveService.VERSION, "Current schema written")
 	var loaded: PlayerState = saves.deserialize(document).context["state"]
 	check(loaded.upgrades.microphone == 8 and not upgrades.purchase(loaded, "microphone").success, "Over-level equipment preserved and gated")
 	check(loaded.level == 10 and loaded.xp == 552 and loaded.followers == 1234 and loaded.relationships == state.relationships and loaded.content_sources == state.content_sources and loaded.current_home_id == state.current_home_id, "v0.8 progress preserved")

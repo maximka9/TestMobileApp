@@ -1,7 +1,7 @@
 class_name SaveService
 extends RefCounted
 ## Versioned codec with strict field validation and safe defaults on corruption.
-const VERSION: int = 11
+const VERSION: int = 12
 const MAX_COUNTER: int = 1000000000000
 var repository: SaveRepository
 var logger: ILogger
@@ -26,6 +26,8 @@ func serialize(state: PlayerState) -> Dictionary:
 	for key: String in ["collab_candidate_refresh_at", "collab_candidate_ids", "recent_candidate_ids", "incoming_collab_queue", "inbound_next_check_at", "collab_momentum", "collab_momentum_streams", "audience_curve_version"]:
 		var value: Variant = state.get(key)
 		document["player"][key] = value.duplicate(true) if value is Array else value
+	document["player"]["completed_irl_collab_creator_ids"] = state.completed_irl_collab_creator_ids.duplicate()
+	document["player"]["pending_outbound_collab"] = state.pending_outbound_collab.duplicate()
 	return document
 
 func _serialize_base(state: PlayerState) -> Dictionary:
@@ -65,6 +67,23 @@ func deserialize(document: Dictionary) -> OperationResult:
 		return OperationResult.fail(&"CORRUPT_SAVE")
 	if version >= 10 and not _read_v06(data, state):
 		return OperationResult.fail(&"CORRUPT_SAVE")
+	if version >= 12:
+		var ids: Variant = data.get("completed_irl_collab_creator_ids")
+		var pending: Variant = data.get("pending_outbound_collab")
+		if not ids is Array or ids.size() > 500 or not pending is Dictionary:
+			return OperationResult.fail(&"CORRUPT_SAVE")
+		for id: Variant in ids:
+			if not id is String or id.is_empty() or id.length() > 64 or id in state.completed_irl_collab_creator_ids:
+				return OperationResult.fail(&"CORRUPT_SAVE")
+			state.completed_irl_collab_creator_ids.append(id)
+		if not pending.is_empty():
+			if not pending.get("creator_id") is String or pending.get("format") != "irl":
+				return OperationResult.fail(&"CORRUPT_SAVE")
+			if catalog.streamers.has(pending["creator_id"]):
+				state.pending_outbound_collab = pending.duplicate()
+	else:
+		state.collab_candidate_ids.clear()
+		state.collab_candidate_refresh_at = 0
 	var location: LocationDefinition = catalog.locations.get(state.current_location_id)
 	if location == null or location.scene == null:
 		state.current_location_id = "streamer_room"
@@ -84,6 +103,13 @@ func deserialize(document: Dictionary) -> OperationResult:
 		if not data["settings"]["reduced_motion"] is bool:
 			return OperationResult.fail(&"CORRUPT_SAVE")
 		state.settings["reduced_motion"] = data["settings"]["reduced_motion"]
+	for key: String in ["volume", "show_debug_metrics", "language"]:
+		if not data["settings"].has(key):
+			continue
+		var value: Variant = data["settings"][key]
+		if (key == "volume" and not _number(value, 0, 1)) or (key == "show_debug_metrics" and not value is bool) or (key == "language" and (not value is String or value.length() > 32)):
+			return OperationResult.fail(&"CORRUPT_SAVE")
+		state.settings[key] = value
 	state.click_power = int(upgrades.stats(state)["click_power"])
 	if version < 11:
 		state.xp = ProgressionService.new(upgrades.config).migrate_xp(state.level, state.xp)

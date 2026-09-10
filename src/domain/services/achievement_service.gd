@@ -1,6 +1,8 @@
 class_name AchievementService
 extends RefCounted
 
+signal achievement_unlocked(id: String)
+
 var catalog: ContentCatalog
 
 func _init(content: ContentCatalog) -> void:
@@ -15,9 +17,12 @@ func evaluate(state: PlayerState) -> Array[String]:
 		if definition != null and _qualifies(state, definition):
 			state.unlocked_achievements.append(id)
 			unlocked.append(id)
+			achievement_unlocked.emit(id)
 	return unlocked
 
 func _qualifies(state: PlayerState, definition: AchievementDefinition) -> bool:
+	if not definition.required_creator_id.is_empty():
+		return definition.required_creator_id in state.completed_irl_collab_creator_ids
 	if not definition.requirements.is_empty():
 		for metric: String in definition.requirements:
 			if _value(state, metric) < int(definition.requirements[metric]):

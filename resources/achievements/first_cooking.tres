@@ -8,6 +8,6 @@ parent_ids = PackedStringArray("viral_10")
 tier = 1
 display_name = "Шеф в эфире"
 category = "Контент"
-description = "Шеф в эфире · цель: 1"
+description = "Проведите первый Cooking-эфир."
 metric = "cooking"
 threshold = 1

@@ -14,6 +14,9 @@ var extents: Dictionary = {}
 func setup(content: ContentCatalog, state: PlayerState) -> void:
 	catalog = content
 	player = state
+	texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR
+	var graph_font: FontFile = (load("res://assets/fonts/NotoSans.ttf") as FontFile).duplicate()
+	graph_font.multichannel_signed_distance_field = true
 	var minimum: Vector2 = Vector2.ZERO
 	var maximum: Vector2 = Vector2.ZERO
 	for definition: AchievementDefinition in catalog.achievements.values():
@@ -22,10 +25,11 @@ func setup(content: ContentCatalog, state: PlayerState) -> void:
 	for id: String in catalog.achievements:
 		var definition: AchievementDefinition = catalog.achievements[id]
 		var button: Button = SasaUI.button("", func() -> void:
-			if not get_parent() is AchievementPan or not get_parent().dragged:
+			if not get_parent().get_parent() is AchievementPan or not get_parent().get_parent().dragged:
 				selected.emit(id))
 		button.position = definition.graph_position + offset
-		button.size = NODE_SIZE + (Vector2(12, 12) if definition.tier == 3 else Vector2.ZERO)
+		button.add_theme_font_override("font", graph_font)
+		button.size = NODE_SIZE + (Vector2(12, 40) if definition.tier == 3 else Vector2.ZERO)
 		positions[id] = button.position
 		extents[id] = button.size
 		maximum = maximum.max(button.position + button.size)

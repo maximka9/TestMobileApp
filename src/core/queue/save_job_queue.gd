@@ -57,3 +57,9 @@ func _attempt() -> OperationResult:
 		pending = true
 		wait_left = config.retry_delays[attempts]
 	return result
+
+func cancel() -> void:
+	pending = false
+	attempts = 0
+	wait_left = 0
+	exhausted = false
