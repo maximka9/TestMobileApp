@@ -125,7 +125,11 @@ $sasaHash = (Get-FileHash -LiteralPath $sasaApk -Algorithm SHA256).Hash.ToLowerI
 & python (Join-Path $sasaRoot 'tools/check_android_resources.py') $sasaApk
 if ($LASTEXITCODE -ne 0) { throw 'APK resource integrity verification failed.' }
 [IO.File]::WriteAllText((Join-Path $sasaChecks 'android-apk-sha256.txt'), "$sasaHash  sasaclicker-debug.apk`n")
-$sasaDevices = & (Join-Path $AndroidSdkPath 'platform-tools\adb.exe') devices -l
+$sasaPreviousPreference = $ErrorActionPreference
+try {
+    $ErrorActionPreference = 'Continue'
+    $sasaDevices = & (Join-Path $AndroidSdkPath 'platform-tools\adb.exe') devices -l
+} finally { $ErrorActionPreference = $sasaPreviousPreference }
 if ($LASTEXITCODE -ne 0) { throw 'adb device enumeration failed.' }
 $sasaDevices | Set-Content -LiteralPath (Join-Path $sasaChecks 'android-adb-devices.txt') -Encoding UTF8
 Write-Output "APK: $sasaApk"

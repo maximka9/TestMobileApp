@@ -9,6 +9,7 @@ var reduced_motion: bool = false
 var card: PanelContainer
 var heading: Label
 var description: Label
+var artwork: TextureRect
 var catalog: ContentCatalog
 const DURATION: float = 3.8
 
@@ -34,6 +35,17 @@ func setup(content: ContentCatalog) -> void:
 		body.add_child(label)
 	heading = body.get_child(1)
 	description = body.get_child(2)
+	var row := HBoxContainer.new()
+	body.add_child(row)
+	artwork = SasaUI.image(null, Vector2(48, 48))
+	row.add_child(artwork)
+	var text := VBoxContainer.new()
+	text.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	row.add_child(text)
+	heading.reparent(text)
+	description.reparent(text)
+	heading.custom_minimum_size.x = 170
+	description.custom_minimum_size.x = 170
 	hide()
 
 func enqueue(id: String) -> void:
@@ -54,6 +66,7 @@ func advance(delta: float, blocked: bool, reduce: bool, available: Rect2) -> voi
 		active_id = pending.pop_front()
 		elapsed = 0
 		var definition: AchievementDefinition = catalog.achievements[active_id]
+		artwork.texture = definition.icon if definition.icon != null else SasaUI.achievement_icon("")
 		heading.text = "★ " + definition.display_name
 		description.text = definition.description
 	elapsed += delta

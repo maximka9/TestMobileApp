@@ -1,5 +1,9 @@
-[gd_resource type="Resource" script_class="AchievementDefinition" load_steps=2 format=3]
+[gd_resource type="Resource" script_class="AchievementDefinition" load_steps=4 format=3]
 [ext_resource type="Script" path="res://src/domain/models/achievement_definition.gd" id="1"]
+[ext_resource type="Texture2D" path="res://assets/ui/achievements/achievements_atlas.png" id="art"]
+[sub_resource type="AtlasTexture" id="artwork"]
+atlas = ExtResource("art")
+region = Rect2(764, 1015, 226, 226)
 [resource]
 script = ExtResource("1")
 id = "followers_100000"
@@ -11,3 +15,4 @@ category = "Карьера"
 description = "Большая аудитория · цель: 100000"
 metric = "followers"
 threshold = 100000
+icon = SubResource("artwork")

@@ -47,7 +47,20 @@ func _ready() -> void:
 	for child: Node in _chat_content.get_children():
 		_chat_rows.append(child as RichTextLabel)
 	# The ScreenClip matches the physical inner screen, with safe text padding.
+	$Stage/Desk/LeftMonitor.rotation_degrees = 3.0
 	$Stage/Desk/RightMonitor.position.x = 210.0
+	$Stage/Desk/RightMonitor.rotation_degrees = -4.0
+	# Flip only the peripherals, keeping the existing desk/legs in place.
+	var desk: Sprite2D = $Stage/Foreground/DesktopKeyboardMouse
+	for region: Rect2 in [Rect2(70, 5, 122, 24), Rect2(198, 6, 59, 25)]:
+		var peripheral := Sprite2D.new()
+		var crop := AtlasTexture.new()
+		crop.atlas = desk.texture
+		crop.region = region
+		peripheral.texture = crop
+		peripheral.position = region.position + region.size / 2
+		peripheral.flip_v = true
+		desk.add_child(peripheral)
 	$Stage/Desk/RightMonitor.z_index = 1 # Foreground monitor must not lose text behind the character's arm.
 	$Stage/Desk/RightMonitor/Bezel.scale = Vector2(1.15, 1.3)
 	var screen: Control = Control.new()

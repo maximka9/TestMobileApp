@@ -1,7 +1,23 @@
-[gd_resource type="Theme" load_steps=15 format=3]
+[gd_resource type="Theme" load_steps=19 format=3]
 
 [ext_resource type="FontFile" path="res://assets/fonts/NotoSans.ttf" id="ui"]
 [ext_resource type="FontFile" path="res://assets/fonts/RussoOne.ttf" id="display"]
+
+[sub_resource type="StyleBoxFlat" id="AvatarFrame"]
+content_margin_left = 3.0
+content_margin_top = 3.0
+content_margin_right = 3.0
+content_margin_bottom = 3.0
+bg_color = Color(0.13, 0.07, 0.09, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.45, 0.17, 0.23, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_left = 5
+corner_radius_bottom_right = 5
 
 [sub_resource type="StyleBoxFlat" id="Panel"]
 content_margin_left = 10.0
@@ -111,6 +127,47 @@ corner_radius_top_right = 5
 corner_radius_bottom_left = 5
 corner_radius_bottom_right = 5
 
+[sub_resource type="StyleBoxFlat" id="Danger"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+bg_color = Color(0.24, 0.035, 0.055, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 3
+border_color = Color(0.95, 0.22, 0.28, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_left = 5
+corner_radius_bottom_right = 5
+
+[sub_resource type="StyleBoxFlat" id="Ghost"]
+content_margin_left = 8.0
+content_margin_top = 8.0
+content_margin_right = 8.0
+content_margin_bottom = 8.0
+bg_color = Color(0, 0, 0, 0)
+border_width_bottom = 1
+border_color = Color(0.45, 0.35, 0.39, 1)
+
+[sub_resource type="StyleBoxFlat" id="Toggle"]
+content_margin_left = 12.0
+content_margin_top = 8.0
+content_margin_right = 12.0
+content_margin_bottom = 8.0
+bg_color = Color(0.14, 0.07, 0.1, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.58, 0.23, 0.32, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_left = 12
+corner_radius_bottom_right = 12
+
 [sub_resource type="StyleBoxFlat" id="Track"]
 bg_color = Color(0.19, 0.13, 0.15, 1)
 corner_radius_top_left = 2
@@ -146,9 +203,24 @@ AccentButton/font_sizes/font_size = 14
 AccentButton/styles/normal = SubResource("Accent")
 AccentButton/styles/hover = SubResource("AccentHover")
 AccentButton/styles/pressed = SubResource("Pressed")
+DangerButton/base_type = &"Button"
+DangerButton/colors/font_color = Color(1, 0.82, 0.82, 1)
+DangerButton/styles/normal = SubResource("Danger")
+DangerButton/styles/hover = SubResource("AccentHover")
+DangerButton/styles/pressed = SubResource("Pressed")
+GhostButton/base_type = &"Button"
+GhostButton/styles/normal = SubResource("Ghost")
+ToggleButton/base_type = &"Button"
+ToggleButton/styles/normal = SubResource("Toggle")
 NavButton/base_type = &"Button"
+NavButton/styles/normal = SubResource("Ghost")
+CompactButton/base_type = &"Button"
+CompactButton/styles/normal = SubResource("Toggle")
+CompactButton/font_sizes/font_size = 12
 NavButton/font_sizes/font_size = 12
 PanelContainer/styles/panel = SubResource("Panel")
+AvatarFrame/base_type = &"PanelContainer"
+AvatarFrame/styles/panel = SubResource("AvatarFrame")
 Label/colors/font_color = Color(0.91, 0.89, 0.89, 1)
 Label/font_sizes/font_size = 14
 MutedLabel/base_type = &"Label"

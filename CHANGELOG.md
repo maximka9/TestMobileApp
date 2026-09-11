@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.11.0]
+
+- Added 412 real Twitch channel avatars stored locally with source URLs and creator-ID mapping; missing avatars use a neutral placeholder.
+- Added explicit event and achievement artwork resources, including matching unlock notifications.
+- Added primary, secondary, danger, ghost, navigation, and toggle button variants with readable interaction states.
+- Reoriented the room desktop toward the streamer without changing gameplay or saves.
+
 ## [0.10.1]
 
 ### Fixed

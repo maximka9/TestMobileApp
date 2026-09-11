@@ -156,6 +156,7 @@ func _open_modal(kind: String, title_text: String) -> void:
 		child.queue_free()
 	modal_scroll.scroll_vertical = 0
 	modal_close.text = "Продолжить" if kind == "summary" else "Пропустить событие" if kind == "event" else "Вернуться в комнату"
+	modal_close.theme_type_variation = &"Button" if kind == "summary" else &"NavButton"
 	modal_layer.show()
 
 func _close_modal() -> void:
@@ -188,7 +189,7 @@ func _show_games() -> void:
 		modal_body.add_child(SasaUI.label(content.title, &"heading", &"AccentLabel"))
 		modal_body.add_child(SasaUI.label("Свежесть формата: %d%%" % int(app.stream.career.novelty(app.stream.state, id) * 100), &"small", &"MutedLabel"))
 		modal_body.add_child(SasaUI.label("%s\nОнлайн ×%.2f · доход ×%.2f\nСобытия ×%.1f" % [content.description, content.viewer_multiplier, content.income_multiplier, content.event_multiplier], &"small", &"MutedLabel"))
-		var button: Button = SasaUI.button("Начать: " + content.title, func() -> void: _start_content(id), true)
+		var button: Button = SasaUI.button("Начать: " + content.title, func() -> void: _start_content(id))
 		button.disabled = app.stream.state.is_streaming or app.stream.state.level < content.required_level
 		modal_body.add_child(button)
 
@@ -298,7 +299,26 @@ func _show_collaborations() -> void:
 	app.queue.request_save()
 	for id: String in _shown_candidate_ids:
 		var author: StreamerDefinition = app.collaborations.profile(id)
-		modal_body.add_child(SasaUI.label(author.display_name, &"heading", &"AccentLabel"))
+		var identity := HBoxContainer.new()
+		identity.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		identity.custom_minimum_size.y = 64
+		var avatar := SasaUI.image(SasaUI.avatar(author.id), SasaUI.COLLAB_AVATAR_SIZE)
+		avatar.name = "Avatar"
+		avatar.set_meta("creator_id", author.id)
+		avatar.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR
+		var avatar_frame := PanelContainer.new()
+		avatar_frame.name = "AvatarFrame"
+		avatar_frame.theme_type_variation = &"AvatarFrame"
+		avatar_frame.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		avatar_frame.add_child(avatar)
+		identity.add_child(avatar_frame)
+		var name_label := SasaUI.label(author.display_name, &"heading", &"AccentLabel")
+		name_label.custom_minimum_size = Vector2(160, 32)
+		name_label.autowrap_mode = TextServer.AUTOWRAP_OFF
+		name_label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		name_label.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
+		identity.add_child(name_label)
+		modal_body.add_child(identity)
 		modal_body.add_child(SasaUI.label("Средний онлайн: ≈%s\nПодписчики: %s\nКатегории: %s" % [_compact_followers(author.reference_avg_viewers), _compact_followers(author.followers), _creator_interests(author)], &"small", &"MutedLabel"))
 		var button: Button = SasaUI.button("Выбрать формат", func() -> void: _show_collab_formats(id))
 		var cooldown: int = app.collaborations.remaining(app.stream.state, id)
@@ -434,6 +454,9 @@ func _event_arrived(definition: ActionDefinition) -> void:
 
 func _show_event(definition: ActionDefinition) -> void:
 	_open_modal("event", "СОБЫТИЕ ЭФИРА")
+	var illustration := SasaUI.image(definition.image if definition.image != null else SasaUI.event_image(""), Vector2(0, 156))
+	illustration.name = "EventImage"
+	modal_body.add_child(illustration)
 	modal_body.add_child(SasaUI.label(definition.title, &"heading", &"AccentLabel"))
 	modal_body.add_child(SasaUI.label(definition.description, &"body"))
 	modal_body.add_child(SasaUI.label("Бонусы обычных событий зависят от выбранного контента. Эфир продолжается.", &"small", &"MutedLabel"))
@@ -489,7 +512,7 @@ func _show_settings() -> void:
 	modal_body.add_child(_danger_button("⚠ Сбросить прогресс", _confirm_reset))
 
 func _danger_button(text: String, action: Callable) -> Button:
-	var button: Button = SasaUI.button(text, action)
+	var button: Button = SasaUI.button(text, action, false, SasaUI.ButtonVariant.DANGER)
 	var style: StyleBoxFlat = StyleBoxFlat.new()
 	style.bg_color = Color("24161c")
 	style.border_color = Color("74303b")
@@ -501,7 +524,7 @@ func _danger_button(text: String, action: Callable) -> Button:
 func _confirm_reset() -> void:
 	_open_modal("reset_confirmation_1", "СБРОСИТЬ ПРОГРЕСС?")
 	modal_body.add_child(SasaUI.label("Будут удалены:\n• подписчики и XP\n• деньги и улучшения\n• достижения\n• отношения и коллабы\n• интерьер и жильё\n• история стримов\n• сохранённый контент\n\nНастройки звука и анимации останутся."))
-	modal_body.add_child(SasaUI.button("Отмена", _show_settings))
+	modal_body.add_child(SasaUI.button("Отмена", _show_settings, false, SasaUI.ButtonVariant.NAVIGATION))
 	modal_body.add_child(_danger_button("Продолжить", _confirm_reset_text))
 
 func _confirm_reset_text() -> void:
@@ -511,7 +534,7 @@ func _confirm_reset_text() -> void:
 	input.name = "ResetConfirmation"
 	input.custom_minimum_size.y = SasaUI.TOUCH_TARGET
 	modal_body.add_child(input)
-	modal_body.add_child(SasaUI.button("Отмена", _show_settings))
+	modal_body.add_child(SasaUI.button("Отмена", _show_settings, false, SasaUI.ButtonVariant.NAVIGATION))
 	var confirm: Button = _danger_button("Удалить прогресс", func() -> void:
 		if input.text == "СБРОСИТЬ":
 			_reset_progress())
@@ -576,6 +599,8 @@ func _show_achievements() -> void:
 	controls.add_child(SasaUI.button("+", func() -> void: scroll.set_zoom(scroll.zoom + scroll.ZOOM_STEP)))
 	controls.add_child(SasaUI.button("⤢", scroll.fit))
 	controls.get_child(3).tooltip_text = "Вписать дерево"
+	for control: Button in controls.get_children():
+		control.theme_type_variation = &"CompactButton"
 	scroll.zoom_changed.connect(func(value: float) -> void: percent.text = "%d%%" % roundi(value * 100))
 	achievement_tree.selected.connect(_achievement_selected)
 	var focus: String = app.stream.state.unlocked_achievements.back() if not app.stream.state.unlocked_achievements.is_empty() else "followers_100"
@@ -598,12 +623,16 @@ func _restore_achievement_view(focus: String) -> void:
 		achievement_pan.scroll_vertical = int(achievement_view_state["y"])
 
 func _achievement_selected(id: String) -> void:
+	achievement_tree.selected_id = id
+	achievement_tree.refresh(true)
 	if is_instance_valid(achievement_popup):
 		achievement_popup.queue_free()
 	achievement_popup = PopupPanel.new()
 	add_child(achievement_popup)
 	var card: VBoxContainer = VBoxContainer.new()
 	achievement_popup.add_child(card)
+	var artwork: Texture2D = app.catalog.achievements[id].icon
+	card.add_child(SasaUI.image(artwork if artwork != null else SasaUI.achievement_icon(""), Vector2(96, 96)))
 	achievement_detail = SasaUI.label("", &"body")
 	achievement_detail.custom_minimum_size = Vector2(240, 0)
 	card.add_child(achievement_detail)
@@ -614,6 +643,14 @@ func _achievement_selected(id: String) -> void:
 		achievement_detail.text = "? — Секретное достижение"
 	else:
 		achievement_detail.text = "%s\n%s\n%s" % [item.display_name, item.description, "Выполнено ✓" if unlocked else "%d / %d" % [mini(item.threshold, app.achievements._value(app.stream.state, item.metric)), item.threshold]]
+		var missing: PackedStringArray = []
+		for parent_id: String in item.parent_ids:
+			if not parent_id in app.stream.state.unlocked_achievements:
+				missing.append(app.catalog.achievements[parent_id].display_name)
+		if not unlocked:
+			achievement_detail.text += "\nСтатус: " + ("Доступно" if missing.is_empty() else "Заблокировано")
+		if not missing.is_empty() and not unlocked:
+			achievement_detail.text += "\nСначала: " + ", ".join(missing)
 	achievement_detail.text += "\nНаграда: отметка достижения (без XP и монет)"
 	achievement_popup.popup_centered(Vector2i(280, 240))
 

@@ -1,6 +1,15 @@
 # SASAclicker
 
-Current version: **0.10.1**.
+Current version: **0.11.0 — Visual Identity Update**.
+
+Version 0.11 adds bundled streamer avatars, illustrated events and achievements,
+distinct action-button variants, and a streamer-facing desktop composition. All
+visual resources are local and have deterministic fallbacks; the save schema and
+game balance are unchanged.
+
+Avatars are real Twitch channel images bundled for 412 profiles (all six featured
+creators included); 62 missing images use a neutral placeholder. No runtime network
+request is needed. See [0.11 verification and sources](docs/v0.11-verification.md).
 
 Follower-driven audience, incoming collaborations and 60-second candidate rotation;
 the tenth slot features one of six creators. Achievement tree supports 60–180% zoom,

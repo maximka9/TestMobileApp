@@ -10,6 +10,7 @@ const NODE_SIZE := Vector2(150, 84)
 const COLORS: Array[Color] = [Color("d44958"), Color("d44958"), Color("e4b252"), Color("f06b88")]
 var positions: Dictionary = {}
 var extents: Dictionary = {}
+var selected_id: String = ""
 
 func setup(content: ContentCatalog, state: PlayerState) -> void:
 	catalog = content
@@ -34,7 +35,11 @@ func setup(content: ContentCatalog, state: PlayerState) -> void:
 		extents[id] = button.size
 		maximum = maximum.max(button.position + button.size)
 		button.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-		button.icon = definition.icon
+		button.icon = definition.icon if definition.icon != null else SasaUI.achievement_icon(id)
+		button.add_theme_constant_override("icon_max_width", 66)
+		button.expand_icon = true
+		button.icon_alignment = HORIZONTAL_ALIGNMENT_CENTER
+		button.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
 		add_child(button)
 		buttons[id] = button
 	custom_minimum_size = maximum + Vector2(24, 24)
@@ -52,13 +57,16 @@ func refresh(force: bool = false) -> void:
 		for parent: String in definition.parent_ids:
 			available = available and parent in player.unlocked_achievements
 		var button: Button = buttons[id]
-		button.text = ("✓\n" if completed else "◆\n" if available else "◇\n") + (definition.display_name if completed or not definition.secret else "?")
+		button.text = "✓" if completed else "?" if definition.secret else ""
+		button.self_modulate = Color.WHITE if completed or available else Color(0.48, 0.48, 0.52)
 		button.set_meta("completed", completed)
 		button.set_meta("state", "completed" if completed else "secret" if definition.secret else "available" if available else "locked")
 		button.tooltip_text = "Выполнено" if completed else "Доступно" if available else "Сначала выполните предыдущие достижения"
 		var box: StyleBoxFlat = StyleBoxFlat.new()
 		box.bg_color = Color("301b22") if completed else Color("141419")
 		box.border_color = COLORS[definition.tier] if completed else Color("942f42") if available else Color("45424a")
+		if selected_id == id:
+			box.border_color = Color.WHITE
 		box.set_border_width_all(3 if completed else 2)
 		box.set_corner_radius_all(8)
 		box.shadow_color = Color(0.8, 0.1, 0.2, 0.25) if completed else Color.TRANSPARENT

@@ -1,5 +1,9 @@
-[gd_resource type="Resource" script_class="ActionDefinition" load_steps=2 format=3]
+[gd_resource type="Resource" script_class="ActionDefinition" load_steps=4 format=3]
 [ext_resource type="Script" path="res://src/domain/models/action_definition.gd" id="1"]
+[ext_resource type="Texture2D" path="res://assets/ui/events/events_atlas.png" id="art"]
+[sub_resource type="AtlasTexture" id="artwork"]
+atlas = ExtResource("art")
+region = Rect2(952, 325, 289, 289)
 [resource]
 script = ExtResource("1")
 id = "community_taunt"
@@ -8,3 +12,4 @@ description = "Ответить резкостью на токсичный ко�
 hype_gain = 10.0
 duration = 0
 reputation_delta = -3.0
+image = SubResource("artwork")

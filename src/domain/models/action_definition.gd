@@ -5,6 +5,7 @@ extends Resource
 @export var id: String = ""
 @export var title: String = ""
 @export var description: String = ""
+@export var image: Texture2D
 @export var money_cost: int = 0
 @export var energy_cost: float = 0.0
 @export var hype_gain: float = 0.0

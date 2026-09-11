@@ -1,0 +1,3199 @@
+{
+  "checked_at": "2026-09-11T13:23:09.057124+00:00",
+  "avatars": [
+    {
+      "creator_id": "dkincc",
+      "channel": "https://www.twitch.tv/dkincc",
+      "path": "res://assets/ui/avatars/streamer_dkincc.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/8997d1f1-a3c6-4956-841c-923499efb0f5-profile_image-150x150.png",
+      "sha256": "66c5e34740525efb8ecba3c729e5c38dab9c25c2473970912965e03e326c834d"
+    },
+    {
+      "creator_id": "melharucos",
+      "channel": "https://www.twitch.tv/melharucos",
+      "path": "res://assets/ui/avatars/streamer_melharucos.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/1f3d7e72-6c77-4fe7-9a08-def5ec31ed6b-profile_image-150x150.png",
+      "sha256": "c0db03066408860c5295e2997b610dbb669828f7f469791ce103925d40f08e6f"
+    },
+    {
+      "creator_id": "lizok_ssk",
+      "channel": "https://www.twitch.tv/lizok_ssk",
+      "path": "res://assets/ui/avatars/streamer_lizok_ssk.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/c1b1a170-86da-40fb-8320-67fe47973b07-profile_image-150x150.png",
+      "sha256": "66ece029a6165ef72d3f5e6c980b0abe7ae8911ac16d1bd67b803b516bc64d03"
+    },
+    {
+      "creator_id": "juice",
+      "channel": "https://www.twitch.tv/juice",
+      "path": "res://assets/ui/avatars/streamer_juice.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/0f93d8ec-38bf-40e6-9b01-6714323b762f-profile_image-150x150.png",
+      "sha256": "bf16520bfac75bbbb75970d3905244e73070f01cb2dff511a21d73778d67605e"
+    },
+    {
+      "creator_id": "daxak",
+      "channel": "https://www.twitch.tv/daxak",
+      "path": "res://assets/ui/avatars/streamer_daxak.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/6f5537fe-2caa-40fd-b0eb-e239cb803fea-profile_image-150x150.png",
+      "sha256": "ef41aa705c75fcb738b93e57765c469cd3d8e88f5682c0262436684dbd3b95cf"
+    },
+    {
+      "creator_id": "karmikkoala",
+      "channel": "https://www.twitch.tv/karmikkoala",
+      "path": "res://assets/ui/avatars/streamer_karmikkoala.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/40c080e2-1037-4501-8b88-231524cc8bc8-profile_image-150x150.png",
+      "sha256": "3719235d9c42c2283386efb5e60a99cd8ddc2068a22e1a06ef76feb04fbb1b9c"
+    },
+    {
+      "creator_id": "deerkufa",
+      "channel": "https://www.twitch.tv/deerkufa",
+      "fallback_reason": "No public channel avatar"
+    },
+    {
+      "creator_id": "morphe_ya",
+      "channel": "https://www.twitch.tv/morphe_ya",
+      "path": "res://assets/ui/avatars/streamer_morphe_ya.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/2aad8f55-8a00-4787-861a-70508d5828c0-profile_image-150x150.png",
+      "sha256": "cc294e55630f3d1258f7573ad55f59d170c086cb259d1b19d79fa4f92e47550a"
+    },
+    {
+      "creator_id": "rostikfacekid",
+      "channel": "https://www.twitch.tv/rostikfacekid",
+      "path": "res://assets/ui/avatars/streamer_rostikfacekid.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/58d70887-29ef-4f96-9c17-e2b6f7b2e56b-profile_image-150x150.png",
+      "sha256": "67a9e16fc4c215d37c7bbd7e27ac44a569b66072322c2907a2d1094ec65ef252"
+    },
+    {
+      "creator_id": "dmitry_bale",
+      "channel": "https://www.twitch.tv/dmitry_bale",
+      "path": "res://assets/ui/avatars/streamer_dmitry_bale.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/aed21381-a47f-45a6-b0d3-748dd03de0a3-profile_image-150x150.png",
+      "sha256": "e57994dcd5b86ce6abe9f96f0dde174f73ef3ef53b7212bf7c2919ac603233dc"
+    },
+    {
+      "creator_id": "mokrivskyi",
+      "channel": "https://www.twitch.tv/mokrivskyi",
+      "path": "res://assets/ui/avatars/streamer_mokrivskyi.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/9f90fb3c-9f6c-4ecf-bd81-a3b21699a85c-profile_image-150x150.png",
+      "sha256": "b201523d1650ae17db1aa4d8c579882701d311e8e60daa8e23749ee08414a68c"
+    },
+    {
+      "creator_id": "vinment",
+      "channel": "https://www.twitch.tv/vinment",
+      "path": "res://assets/ui/avatars/streamer_vinment.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/0647c12b-5dff-471f-a899-88b5b3520c53-profile_image-150x150.png",
+      "sha256": "db9af8649162960ee4841db8a58657663016293c57d3f4ab31141a6553d5ab7c"
+    },
+    {
+      "creator_id": "stariy_bog",
+      "channel": "https://www.twitch.tv/stariy_bog",
+      "path": "res://assets/ui/avatars/streamer_stariy_bog.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/f9435c16-7fff-44c9-88cd-43494e59da56-profile_image-150x150.png",
+      "sha256": "cfbc6ef9157d79e10a9d40b7328bfd9ed0586f61dd5d18cf9e36032db3caecd2"
+    },
+    {
+      "creator_id": "zakvielchannel",
+      "channel": "https://www.twitch.tv/zakvielchannel",
+      "path": "res://assets/ui/avatars/streamer_zakvielchannel.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/e373954b-82cf-443f-9071-b005fdbf9d0a-profile_image-150x150.png",
+      "sha256": "b2ff0524604b6c81ff652bbbc4240d420c813624e0423c88599bae3271be36cd"
+    },
+    {
+      "creator_id": "m3wsu",
+      "channel": "https://www.twitch.tv/m3wsu",
+      "path": "res://assets/ui/avatars/streamer_m3wsu.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/47ba28f7-3d76-4885-973c-ba0eaf209987-profile_image-150x150.png",
+      "sha256": "f02d96b1863a008bec02172b6c2824029fa27b4cd2eda5c4f68bfc95373aa056"
+    },
+    {
+      "creator_id": "voodoosh",
+      "channel": "https://www.twitch.tv/voodoosh",
+      "path": "res://assets/ui/avatars/streamer_voodoosh.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/c587ab08-3356-40d4-92d6-be1b1a47ba55-profile_image-150x150.png",
+      "sha256": "58bb1ef28f9b2d846e1dfa53d3624df91da8a6700e5462bb0281b9e15015e4fd"
+    },
+    {
+      "creator_id": "egorkreed",
+      "channel": "https://www.twitch.tv/egorkreed",
+      "path": "res://assets/ui/avatars/streamer_egorkreed.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/40e7f148-250e-4cae-b720-a9ca8eff1ae2-profile_image-150x150.png",
+      "sha256": "167243ccff7a0fc70c4e40041ecf6ddd04f9c4440083f4bdae57c1d542fcbad0"
+    },
+    {
+      "creator_id": "mazellovvv",
+      "channel": "https://www.twitch.tv/mazellovvv",
+      "path": "res://assets/ui/avatars/streamer_mazellovvv.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/abb2f937-1510-46f9-a5e5-ba48d1fd0d0f-profile_image-150x150.png",
+      "sha256": "af8a66d21e266dd59c8680a275ee723c30941420718e61e5fb34a7b4bdcaa4d8"
+    },
+    {
+      "creator_id": "ybicanoooobov",
+      "channel": "https://www.twitch.tv/ybicanoooobov",
+      "path": "res://assets/ui/avatars/streamer_ybicanoooobov.jpg",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/ybicanoooobov-profile_image-841fca9b492bd5d5-150x150.jpeg",
+      "sha256": "2cfdb8c357598497a6f967d6927a3ac5a275fffc8cfb6865122b8b671caf9bc3"
+    },
+    {
+      "creator_id": "blackufa",
+      "channel": "https://www.twitch.tv/blackufa",
+      "path": "res://assets/ui/avatars/streamer_blackufa.jpg",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/765f4978b39deed4-profile_image-150x150.jpeg",
+      "sha256": "7f9b6f12fd99d24d907821f63493fcb6d79d1e9276fe16653dddbd63dd12a4d9"
+    },
+    {
+      "creator_id": "inkmate0",
+      "channel": "https://www.twitch.tv/inkmate0",
+      "path": "res://assets/ui/avatars/streamer_inkmate0.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/7c940bd3-7d46-421d-8e33-80c0a10bac0d-profile_image-150x150.png",
+      "sha256": "2fffa5bbdaae821291674d0fe150f2aca0ec2315bab3bd4ae0ca2e9519f78fa5"
+    },
+    {
+      "creator_id": "hypetried",
+      "channel": "https://www.twitch.tv/hypetried",
+      "path": "res://assets/ui/avatars/streamer_hypetried.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/afa73555-0e6a-46e8-a5cf-3650dc6ec9af-profile_image-150x150.png",
+      "sha256": "48357871534b0520496c28fb9fb73c789e6ff6b032901d974be16cd78e66f6c5"
+    },
+    {
+      "creator_id": "welovegames",
+      "channel": "https://www.twitch.tv/welovegames",
+      "path": "res://assets/ui/avatars/streamer_welovegames.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/welovegames-profile_image-15afef2e74a108da-150x150.png",
+      "sha256": "208ad00f8b91a2428a057c8169fbd0c88f2d0c1e0898d6f9c25843cd45205730"
+    },
+    {
+      "creator_id": "tpabomah",
+      "channel": "https://www.twitch.tv/tpabomah",
+      "path": "res://assets/ui/avatars/streamer_tpabomah.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/9a052d06-822c-47ab-9397-0188b7e2c994-profile_image-150x150.png",
+      "sha256": "f9b347d306f6a0e29f813e2e06a355be48f5e37d1a8699f05b11286704daa166"
+    },
+    {
+      "creator_id": "by_owl",
+      "channel": "https://www.twitch.tv/by_owl",
+      "fallback_reason": "No public channel avatar"
+    },
+    {
+      "creator_id": "follentass",
+      "channel": "https://www.twitch.tv/follentass",
+      "path": "res://assets/ui/avatars/streamer_follentass.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/dc172206-9ff7-4056-bfa2-57400b56dee7-profile_image-150x150.png",
+      "sha256": "3f9e78eba03984f93d291a241d8f34ee1f0c422519378c312cdba1f7fd01cf78"
+    },
+    {
+      "creator_id": "unclebjorn",
+      "channel": "https://www.twitch.tv/unclebjorn",
+      "path": "res://assets/ui/avatars/streamer_unclebjorn.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/e0b169c8-6f37-4b04-8fee-d0145492560f-profile_image-150x150.png",
+      "sha256": "b3990d795d9feecc3527e5136b46fd83c4be63a15de6d417a67c131fdbff8721"
+    },
+    {
+      "creator_id": "sor_ka",
+      "channel": "https://www.twitch.tv/sor_ka",
+      "path": "res://assets/ui/avatars/streamer_sor_ka.jpg",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/2a3147e2-725d-4295-af86-177552a2732a-profile_image-150x150.jpeg",
+      "sha256": "8c8c1e52303d466255f85adae82ca05b79e1ea8726912c8210011b85f78a75c9"
+    },
+    {
+      "creator_id": "zuoia",
+      "channel": "https://www.twitch.tv/zuoia",
+      "path": "res://assets/ui/avatars/streamer_zuoia.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/8a899017-bb17-4a4b-ab79-1d7ef3229fea-profile_image-150x150.png",
+      "sha256": "03dd85d581fd6f06bff5526a1ec0c69870ea7a05d73caa83bcf518b33b9f3fff"
+    },
+    {
+      "creator_id": "dota2ti_ru_2",
+      "channel": "https://www.twitch.tv/dota2ti_ru_2",
+      "path": "res://assets/ui/avatars/streamer_dota2ti_ru_2.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/9b17836d-fc0a-4636-9199-31c9a63e4e58-profile_image-150x150.png",
+      "sha256": "250d00f7553b698cd082b24fa72532ba9f2d105271eba97f67028461072733f7"
+    },
+    {
+      "creator_id": "hooch",
+      "channel": "https://www.twitch.tv/hooch",
+      "path": "res://assets/ui/avatars/streamer_hooch.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/b92f8e9c-e278-488c-8681-7edd1ef82ec6-profile_image-150x150.png",
+      "sha256": "229202c913d07a22870fab649acbb94b25f5c628b6c3048e2589496af3c98712"
+    },
+    {
+      "creator_id": "stray228",
+      "channel": "https://www.twitch.tv/stray228",
+      "path": "res://assets/ui/avatars/streamer_stray228.jpg",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/stray228-profile_image-ceb0393a88eb8286-150x150.jpeg",
+      "sha256": "52b5cfb08a307acba03d2df6c4dcff1731539d3bc01ece48c2c5806f17e33f00"
+    },
+    {
+      "creator_id": "dyrachyo",
+      "channel": "https://www.twitch.tv/dyrachyo",
+      "path": "res://assets/ui/avatars/streamer_dyrachyo.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/b67f5267-1dcf-41f8-8b64-3fb421c19d7a-profile_image-150x150.png",
+      "sha256": "7175f0a30185086fab999287f502b016dbb068536d8caafd534fe9b3f841f722"
+    },
+    {
+      "creator_id": "guit88man",
+      "channel": "https://www.twitch.tv/guit88man",
+      "path": "res://assets/ui/avatars/streamer_guit88man.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/db57905e-f397-4723-b311-3d2ad0bfaba0-profile_image-150x150.png",
+      "sha256": "07aac6ab635428c69c0b4765316973cfb50a6438dfcace67581495cddb95a090"
+    },
+    {
+      "creator_id": "s_chilla",
+      "channel": "https://www.twitch.tv/s_chilla",
+      "path": "res://assets/ui/avatars/streamer_s_chilla.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/15dbe470-e5a2-493f-b5ac-3ed059307aa2-profile_image-150x150.png",
+      "sha256": "674192ccf8d925c37105449d99e9dd9575e47853fbdab85f1e8601d66485103a"
+    },
+    {
+      "creator_id": "jeens",
+      "channel": "https://www.twitch.tv/jeens",
+      "path": "res://assets/ui/avatars/streamer_jeens.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/d404ea9d-7fc9-4546-a95a-e060ba555b2d-profile_image-150x150.png",
+      "sha256": "4f1c4d9fa42bf166152b9fee3a5edef189d11d9f154e61051a362db3be74f521"
+    },
+    {
+      "creator_id": "r2cronus",
+      "channel": "https://www.twitch.tv/r2cronus",
+      "fallback_reason": "No public channel avatar"
+    },
+    {
+      "creator_id": "gaechkatm",
+      "channel": "https://www.twitch.tv/gaechkatm",
+      "fallback_reason": "No public channel avatar"
+    },
+    {
+      "creator_id": "ksufee",
+      "channel": "https://www.twitch.tv/ksufee",
+      "path": "res://assets/ui/avatars/streamer_ksufee.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/ad2d060c-dd54-457f-b964-1f02c3196c76-profile_image-150x150.png",
+      "sha256": "9441bfc5e05499716a7e94823d5cb902c4f57c92677e7694e195f045740d2be2"
+    },
+    {
+      "creator_id": "pathofexilebota",
+      "channel": "https://www.twitch.tv/pathofexilebota",
+      "path": "res://assets/ui/avatars/streamer_pathofexilebota.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/871ab993-fc44-4beb-80a5-a7a4835a2c6c-profile_image-150x150.png",
+      "sha256": "280a2a00220d313a2e3d660d9e48934d2225c7453bb408e7a990b0f78afa586e"
+    },
+    {
+      "creator_id": "xah0b",
+      "channel": "https://www.twitch.tv/xah0b",
+      "path": "res://assets/ui/avatars/streamer_xah0b.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/265d9ff1-bdce-424f-9c15-a720cf3d94b9-profile_image-150x150.png",
+      "sha256": "36a1e15d9abacea92fe1ff885f0c03b485a0564e40df96242c5cfeef4d85f429"
+    },
+    {
+      "creator_id": "asiv0y",
+      "channel": "https://www.twitch.tv/asiv0y",
+      "path": "res://assets/ui/avatars/streamer_asiv0y.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/cd9ddc55-769b-445e-aa49-9730afef89cc-profile_image-150x150.png",
+      "sha256": "aef7676edfe476c2dbaffc5435173b01cfe84d913f597112ec11358281bf98b4"
+    },
+    {
+      "creator_id": "mokrivskiy192",
+      "channel": "https://www.twitch.tv/mokrivskiy192",
+      "path": "res://assets/ui/avatars/streamer_mokrivskiy192.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/265dfb4b-721b-495a-8e8e-fe239b608ed6-profile_image-150x150.png",
+      "sha256": "877238d4c3aab0af3221f1ce5cb129bd0496fc0ba9d3100a2f354ddc404c0261"
+    },
+    {
+      "creator_id": "vavilon_zxc",
+      "channel": "https://www.twitch.tv/vavilon_zxc",
+      "path": "res://assets/ui/avatars/streamer_vavilon_zxc.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/9b413382-1b06-48d2-8172-0f43b314faf1-profile_image-150x150.png",
+      "sha256": "2b66d522d9dc6a4bb39a0ade3f16b7a78cfb7fc91176c44052102f0b83e69313"
+    },
+    {
+      "creator_id": "r2onlineru",
+      "channel": "https://www.twitch.tv/r2onlineru",
+      "path": "res://assets/ui/avatars/streamer_r2onlineru.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/786f926c-ab63-48da-8c91-f7949d38bb08-profile_image-150x150.png",
+      "sha256": "303b06595dd71e6c742a87042fd779e2d56f0f8708c00035119243e4c3b5d519"
+    },
+    {
+      "creator_id": "frametamer666",
+      "channel": "https://www.twitch.tv/frametamer666",
+      "path": "res://assets/ui/avatars/streamer_frametamer666.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/346d346a-8dfb-4ec1-80bd-6eb12b3c15cc-profile_image-150x150.png",
+      "sha256": "5c629c7c3a06a52ebe10e44d554120afac6570e8f41408940e1f0bf8c67a2183"
+    },
+    {
+      "creator_id": "whylollycry",
+      "channel": "https://www.twitch.tv/whylollycry",
+      "path": "res://assets/ui/avatars/streamer_whylollycry.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/56327e86-00dd-488b-bb98-30f3cb82896f-profile_image-150x150.png",
+      "sha256": "2e6c3b7c2b7223aead15b2c64fe9313e975e72553bf7671b094becd77819cdce"
+    },
+    {
+      "creator_id": "syslov171",
+      "channel": "https://www.twitch.tv/syslov171",
+      "path": "res://assets/ui/avatars/streamer_syslov171.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/906af50a-4da5-4bfe-8795-48544e7255fe-profile_image-150x150.png",
+      "sha256": "c78c416664ca270e48b59802b42d037c7fd5eb3718d27b2d795187ec57dfb6fa"
+    },
+    {
+      "creator_id": "etoseregga",
+      "channel": "https://www.twitch.tv/etoseregga",
+      "path": "res://assets/ui/avatars/streamer_etoseregga.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/6f9bc4b0-1832-482a-9e4b-e548418536ad-profile_image-150x150.png",
+      "sha256": "936e0edc59dabca556497df993988647c7edc6cfef3fbadae8627abb488b5403"
+    },
+    {
+      "creator_id": "betboom_cs_ru2",
+      "channel": "https://www.twitch.tv/betboom_cs_ru2",
+      "path": "res://assets/ui/avatars/streamer_betboom_cs_ru2.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/d2087f85-3438-4ad6-aeab-e6b94487cd61-profile_image-150x150.png",
+      "sha256": "f6db0f08dff5d67970bbf3e42a90f29c71b13906615882cbe6a7a4d0f7c00de7"
+    },
+    {
+      "creator_id": "skillz0r1337",
+      "channel": "https://www.twitch.tv/skillz0r1337",
+      "path": "res://assets/ui/avatars/streamer_skillz0r1337.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/9f16053e-74b5-42b3-8ba0-b0a8c8609ea3-profile_image-150x150.png",
+      "sha256": "47a1579650a79bc3ac0c18109237a11cc08b61d0fb551115d5f4ef8069d2ea75"
+    },
+    {
+      "creator_id": "icebergdoto",
+      "channel": "https://www.twitch.tv/icebergdoto",
+      "path": "res://assets/ui/avatars/streamer_icebergdoto.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/4449b127-5961-4dd6-8321-6108caecf8d4-profile_image-150x150.png",
+      "sha256": "564b051205ba0e6aab87e776497246fb3a014eec1db65ae12b4a916099e69d12"
+    },
+    {
+      "creator_id": "exigent_wires",
+      "channel": "https://www.twitch.tv/exigent_wires",
+      "path": "res://assets/ui/avatars/streamer_exigent_wires.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/f00013c0-dc1c-4fa5-81e0-78bc6c30f8a1-profile_image-150x150.png",
+      "sha256": "8b9d1b72633cea34df6ae6e3afccbdbfc8d4f583d73081a0692aaf3f32a53e4a"
+    },
+    {
+      "creator_id": "c_a_k_e",
+      "channel": "https://www.twitch.tv/c_a_k_e",
+      "fallback_reason": "No public channel avatar"
+    },
+    {
+      "creator_id": "ya4iller",
+      "channel": "https://www.twitch.tv/ya4iller",
+      "path": "res://assets/ui/avatars/streamer_ya4iller.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/8ecf3fa8-cd40-4920-8ce8-b8a997a32177-profile_image-150x150.png",
+      "sha256": "97a201428ba93ca72777c1ec79542e46f67637ee0ad29ba377afbdbfff11c27f"
+    },
+    {
+      "creator_id": "dota2ti_ru_4",
+      "channel": "https://www.twitch.tv/dota2ti_ru_4",
+      "path": "res://assets/ui/avatars/streamer_dota2ti_ru_4.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/5dc8a54b-2130-4c59-b706-75d04f7fcee6-profile_image-150x150.png",
+      "sha256": "250d00f7553b698cd082b24fa72532ba9f2d105271eba97f67028461072733f7"
+    },
+    {
+      "creator_id": "9pasha",
+      "channel": "https://www.twitch.tv/9pasha",
+      "path": "res://assets/ui/avatars/streamer_9pasha.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/186eb669-212d-4f5b-a6e2-293f58880944-profile_image-150x150.png",
+      "sha256": "2fed6e4a685ffd10ae8439eb5f5f585b793601ea0ab2401c12832e93d1b99358"
+    },
+    {
+      "creator_id": "alkat_r",
+      "channel": "https://www.twitch.tv/alkat_r",
+      "fallback_reason": "No public channel avatar"
+    },
+    {
+      "creator_id": "mirwana",
+      "channel": "https://www.twitch.tv/mirwana",
+      "path": "res://assets/ui/avatars/streamer_mirwana.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/0831c729-0c63-4817-afd4-d1c52cf12217-profile_image-150x150.png",
+      "sha256": "389a82c8c5021ba087b275fd9c1e638081e76e6966afeeabebaa7086e3ca683b"
+    },
+    {
+      "creator_id": "wokkyflocky",
+      "channel": "https://www.twitch.tv/wokkyflocky",
+      "path": "res://assets/ui/avatars/streamer_wokkyflocky.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/21922aea-428e-4917-b489-1d0fa81d1c29-profile_image-150x150.png",
+      "sha256": "33ee5541a1f3e7192ed85d2ede7bc49a0388b8eae1363ec65b5f5693f3dbbe53"
+    },
+    {
+      "creator_id": "guddummit",
+      "channel": "https://www.twitch.tv/guddummit",
+      "fallback_reason": "No public channel avatar"
+    },
+    {
+      "creator_id": "orkpod",
+      "channel": "https://www.twitch.tv/orkpod",
+      "path": "res://assets/ui/avatars/streamer_orkpod.jpg",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/0de8d424-622c-40b7-94f4-edc925bf26b8-profile_image-150x150.jpg",
+      "sha256": "a94ab00309320009541086462d20ac8bb5b92226a698f88265f50d217aa9c0ec"
+    },
+    {
+      "creator_id": "mistercop",
+      "channel": "https://www.twitch.tv/mistercop",
+      "fallback_reason": "No public channel avatar"
+    },
+    {
+      "creator_id": "jamside",
+      "channel": "https://www.twitch.tv/jamside",
+      "path": "res://assets/ui/avatars/streamer_jamside.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/7f0a09b6-8806-4a45-8962-fa5105833abe-profile_image-150x150.png",
+      "sha256": "b2b1c8f0a5f18ad56a791876cc63482cfc2b959168f428bbefa0627c1f4ce7e6"
+    },
+    {
+      "creator_id": "ilame",
+      "channel": "https://www.twitch.tv/ilame",
+      "path": "res://assets/ui/avatars/streamer_ilame.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/ce8be9fe-c33d-412e-aea6-98497a74390b-profile_image-150x150.png",
+      "sha256": "bd61926270a39d2bbf3af5acbc1d2872a4a0a6a58ce1bc179b9711d4b187b3ec"
+    },
+    {
+      "creator_id": "iltw1",
+      "channel": "https://www.twitch.tv/iltw1",
+      "path": "res://assets/ui/avatars/streamer_iltw1.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/6c756ef4-8c0f-425b-b41d-a7234e4f3aea-profile_image-150x150.png",
+      "sha256": "526749f1b1318b3cfc660438161a360066367072488e5f298c187e9ace589ada"
+    },
+    {
+      "creator_id": "banka_banana",
+      "channel": "https://www.twitch.tv/banka_banana",
+      "path": "res://assets/ui/avatars/streamer_banka_banana.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/cb64df72-f1ea-4010-b0b5-306b16c45c84-profile_image-150x150.png",
+      "sha256": "da8d369b8be8726a25c82097d1186944182c3794bf2b809afbc1ebae6aa19b96"
+    },
+    {
+      "creator_id": "heroes_hub",
+      "channel": "https://www.twitch.tv/heroes_hub",
+      "path": "res://assets/ui/avatars/streamer_heroes_hub.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/69767d05-1348-4e13-b1fb-7fb63a612dce-profile_image-150x150.png",
+      "sha256": "65f351e7576c0677c5826b98f187addb909574f08f5dc37d1fce3e521268721e"
+    },
+    {
+      "creator_id": "narek_cr",
+      "channel": "https://www.twitch.tv/narek_cr",
+      "path": "res://assets/ui/avatars/streamer_narek_cr.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/cfcfb8d8-1cb2-44f2-8bbd-c75e3ac53c65-profile_image-150x150.png",
+      "sha256": "4db522ce316894a659730e0b41fa1de62978af3a859a3621887e2434343f1197"
+    },
+    {
+      "creator_id": "muhanjan",
+      "channel": "https://www.twitch.tv/muhanjan",
+      "path": "res://assets/ui/avatars/streamer_muhanjan.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/8b18740d-e9fb-443e-a788-11053f3ac65a-profile_image-150x150.png",
+      "sha256": "52f8648b666a4355ab335b4fb2c86ca9805be1a3f08ff028acd36ea67683f3c2"
+    },
+    {
+      "creator_id": "b_komhate",
+      "channel": "https://www.twitch.tv/b_komhate",
+      "path": "res://assets/ui/avatars/streamer_b_komhate.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/5f21d2c9-8728-4e74-ae7f-e1bbd12286cf-profile_image-150x150.png",
+      "sha256": "bd9fe25d972810cb3b8e898ad4116065f1a76d8e9e0707869912e32f79dadb8c"
+    },
+    {
+      "creator_id": "malr1ne_dota",
+      "channel": "https://www.twitch.tv/malr1ne_dota",
+      "path": "res://assets/ui/avatars/streamer_malr1ne_dota.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/3328960d-0981-4c82-bfa0-4c5d34080004-profile_image-150x150.png",
+      "sha256": "52d0b28f39c98c39ea4dcbb9ade725ae222698c5c5a6d59677b3a14ee0585e99"
+    },
+    {
+      "creator_id": "uraniumrr",
+      "channel": "https://www.twitch.tv/uraniumrr",
+      "path": "res://assets/ui/avatars/streamer_uraniumrr.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/c4cf02b5-e9e3-4f20-983e-4e1d5251b426-profile_image-150x150.png",
+      "sha256": "20715f8894dedd6bdfc00f15cf0b344e84e0c152f1e40d4e850b09ad1475ba54"
+    },
+    {
+      "creator_id": "derzko69",
+      "channel": "https://www.twitch.tv/derzko69",
+      "path": "res://assets/ui/avatars/streamer_derzko69.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/fa7ac9a3-7c4a-4945-a26d-041871be5ed0-profile_image-150x150.png",
+      "sha256": "cb820ffbed8503d0e04b50b9f8fdff1f7c4d3492def1a7024900e5f026bf0ed8"
+    },
+    {
+      "creator_id": "tictacimus",
+      "channel": "https://www.twitch.tv/tictacimus",
+      "path": "res://assets/ui/avatars/streamer_tictacimus.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/59588e3f-9e81-4dc9-ac62-0e3c5f91b267-profile_image-150x150.png",
+      "sha256": "449d92c7a6c2210e7b6f9991c519b3c1c141d80294e8df25834851de817925fa"
+    },
+    {
+      "creator_id": "cutierover",
+      "channel": "https://www.twitch.tv/cutierover",
+      "path": "res://assets/ui/avatars/streamer_cutierover.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/e728ae31-4811-4780-a3a0-4a61bc60abb5-profile_image-150x150.png",
+      "sha256": "1aa9ad9a08cd8c5caf78ce419bdcd6c2dfdd2b371052c2ad37f0d8935d05f4ac"
+    },
+    {
+      "creator_id": "marat_schelkovskyi",
+      "channel": "https://www.twitch.tv/marat_schelkovskyi",
+      "path": "res://assets/ui/avatars/streamer_marat_schelkovskyi.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/92d2f6bf-fcf8-4fc7-a8e6-5fadc57ca820-profile_image-150x150.png",
+      "sha256": "a2d25ca1f7b242acaa81b7664a60c554327d6e841ee26d5c171f1a9800ac0090"
+    },
+    {
+      "creator_id": "elwycco",
+      "channel": "https://www.twitch.tv/elwycco",
+      "path": "res://assets/ui/avatars/streamer_elwycco.jpg",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/612cfd00-b73e-429d-931b-e218a77e8b40-profile_image-150x150.jpg",
+      "sha256": "c425b8b71694535986b2763317262f26e30c07c44bcf3ac70feaf08f9e92d32a"
+    },
+    {
+      "creator_id": "deadp47_",
+      "channel": "https://www.twitch.tv/deadp47_",
+      "path": "res://assets/ui/avatars/streamer_deadp47_.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/4ec62e01-40c2-4a7f-9018-48939c0b1566-profile_image-150x150.png",
+      "sha256": "d55d88a14506bd642aab6c4df27caaede7c1c0fa02824aa912b23d682b3f25ab"
+    },
+    {
+      "creator_id": "blindzonexgod",
+      "channel": "https://www.twitch.tv/blindzonexgod",
+      "fallback_reason": "No public channel avatar"
+    },
+    {
+      "creator_id": "mulder",
+      "channel": "https://www.twitch.tv/mulder",
+      "path": "res://assets/ui/avatars/streamer_mulder.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/61dffcb4-a3d1-4347-bbd4-80a74b57307a-profile_image-150x150.png",
+      "sha256": "6dc7107b1f98e56934fcc7c40fe9c468aa501a014fecd2e974fad491becd6a08"
+    },
+    {
+      "creator_id": "eleezabet",
+      "channel": "https://www.twitch.tv/eleezabet",
+      "path": "res://assets/ui/avatars/streamer_eleezabet.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/11efb9d1-18cd-40e7-aae5-101f11a81d61-profile_image-150x150.png",
+      "sha256": "402933c977b6777f45965c692612f2c730b3487bdfca90d4dd93c6676fb8a8cc"
+    },
+    {
+      "creator_id": "dota2ti_ru_3",
+      "channel": "https://www.twitch.tv/dota2ti_ru_3",
+      "path": "res://assets/ui/avatars/streamer_dota2ti_ru_3.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/b35d5bb3-1ed9-48a2-bfc7-84cc1b330c96-profile_image-150x150.png",
+      "sha256": "250d00f7553b698cd082b24fa72532ba9f2d105271eba97f67028461072733f7"
+    },
+    {
+      "creator_id": "snailkick",
+      "channel": "https://www.twitch.tv/snailkick",
+      "path": "res://assets/ui/avatars/streamer_snailkick.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/08f6a236-80c0-4940-8fba-87aec868a72f-profile_image-150x150.png",
+      "sha256": "900d0fa745de4af49deb1be13a4511713f7d245565e196ceddbd6f2e8b644b92"
+    },
+    {
+      "creator_id": "gagik",
+      "channel": "https://www.twitch.tv/gagik",
+      "path": "res://assets/ui/avatars/streamer_gagik.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/4ab6fb35-37cb-4f6e-a281-75903346de6f-profile_image-150x150.png",
+      "sha256": "ee9fe2588b9379338885bcbaf99ca22380aacf2ffd57b1cc33b2224f022feafc"
+    },
+    {
+      "creator_id": "absolut3",
+      "channel": "https://www.twitch.tv/absolut3",
+      "path": "res://assets/ui/avatars/streamer_absolut3.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/561fd6bd-788a-4ebb-a120-780b838ee2b2-profile_image-150x150.png",
+      "sha256": "83ffb303625d25aa90ebd3b004f57f95667797b759684ff745cdd57343beea3c"
+    },
+    {
+      "creator_id": "des0ut",
+      "channel": "https://www.twitch.tv/des0ut",
+      "path": "res://assets/ui/avatars/streamer_des0ut.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/dfde7f23-6514-4d9f-a185-d8e1f140f875-profile_image-150x150.png",
+      "sha256": "8103fbd9cb50174bc86699e9aca2d8cfddff94150baacf23ce413c33a6b855be"
+    },
+    {
+      "creator_id": "at0m",
+      "channel": "https://www.twitch.tv/at0m",
+      "path": "res://assets/ui/avatars/streamer_at0m.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/cb54be89-6bb7-4a7b-9682-d628042264d1-profile_image-150x150.png",
+      "sha256": "b0dbc1bcc204473721145751ea44fac4c26155c6538a60a220023a65ed3e816c"
+    },
+    {
+      "creator_id": "kerimch1k",
+      "channel": "https://www.twitch.tv/kerimch1k",
+      "path": "res://assets/ui/avatars/streamer_kerimch1k.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/e669c1c4-18e2-4ee3-ac21-8c256dbd7367-profile_image-150x150.png",
+      "sha256": "2a04dd14d88bdb48a93a12af5c98030351f7e2ae8b3acf1c1a1ed8e5858edc66"
+    },
+    {
+      "creator_id": "gensyxa",
+      "channel": "https://www.twitch.tv/gensyxa",
+      "path": "res://assets/ui/avatars/streamer_gensyxa.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/d72be976-e5c7-456a-9f1c-4dec3f450c5b-profile_image-150x150.png",
+      "sha256": "55dd59a29e278c4cf7510afe2e15cf188c5b32c4a64f969e06f7e585328b2ffd"
+    },
+    {
+      "creator_id": "madarapoe",
+      "channel": "https://www.twitch.tv/madarapoe",
+      "path": "res://assets/ui/avatars/streamer_madarapoe.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/17f2bdb2-1ed4-457e-82cf-30cf2d06cd30-profile_image-150x150.png",
+      "sha256": "f0055b1d92f1ebb7fbc0d78398394d78d09a504aa5cd410f3b566c87afd5b8ff"
+    },
+    {
+      "creator_id": "mager1337",
+      "channel": "https://www.twitch.tv/mager1337",
+      "path": "res://assets/ui/avatars/streamer_mager1337.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/47a7228b-6c7a-48e0-8e9f-a296eb301c1d-profile_image-150x150.png",
+      "sha256": "db42c24c6ef863f7097b00da2639cbf7369743acdd72bb259805cfb565341c29"
+    },
+    {
+      "creator_id": "bondarenk01",
+      "channel": "https://www.twitch.tv/bondarenk01",
+      "path": "res://assets/ui/avatars/streamer_bondarenk01.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/a2e3f1f1-5141-4188-80dd-95701ed0780c-profile_image-150x150.png",
+      "sha256": "22266f7cdd4085a17a4e265c3330efb1c6511361585415de999c556684e9044a"
+    },
+    {
+      "creator_id": "kopsteep",
+      "channel": "https://www.twitch.tv/kopsteep",
+      "path": "res://assets/ui/avatars/streamer_kopsteep.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/44fca324-a1be-4dc2-8c59-47ab33c2eca2-profile_image-150x150.png",
+      "sha256": "1242aa3728e34d7d99e58d16db759f226b45511c10bdf2d58ee3ab8d123f4c79"
+    },
+    {
+      "creator_id": "renatko",
+      "channel": "https://www.twitch.tv/renatko",
+      "fallback_reason": "No public channel avatar"
+    },
+    {
+      "creator_id": "starky",
+      "channel": "https://www.twitch.tv/starky",
+      "path": "res://assets/ui/avatars/streamer_starky.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/43876d60-8f00-452f-874f-b9b5fbbb65cf-profile_image-150x150.png",
+      "sha256": "19df00502fb69a47a165fffc626e4220eed1b999d6107361f958533d15656e7d"
+    },
+    {
+      "creator_id": "roadhouse",
+      "channel": "https://www.twitch.tv/roadhouse",
+      "path": "res://assets/ui/avatars/streamer_roadhouse.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/67a6901f-664d-4496-b85e-98ca278d5abc-profile_image-150x150.png",
+      "sha256": "8f2d3b30ad55c7af83b6da761a630c90f2039e79eb82e8b64e5519358a73c96c"
+    },
+    {
+      "creator_id": "overdrivezzz",
+      "channel": "https://www.twitch.tv/overdrivezzz",
+      "path": "res://assets/ui/avatars/streamer_overdrivezzz.jpg",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/817e77f0-683e-440d-a60d-7d4e23e1756b-profile_image-150x150.jpg",
+      "sha256": "04e58cac5aa28c5e354f31742827fe0fe55f2ee617af778a8f84904df228eda5"
+    },
+    {
+      "creator_id": "general_hs_",
+      "channel": "https://www.twitch.tv/general_hs_",
+      "path": "res://assets/ui/avatars/streamer_general_hs_.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/cce0ab85-489c-4416-a984-81d545d63cfb-profile_image-150x150.png",
+      "sha256": "e235f4d6b8c143cad30a9af2fd66be0831f0a0aee76f4629d0b33b0689439f05"
+    },
+    {
+      "creator_id": "jolygames",
+      "channel": "https://www.twitch.tv/jolygames",
+      "path": "res://assets/ui/avatars/streamer_jolygames.jpg",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/jolygames-profile_image-425bf50c49efe328-150x150.jpeg",
+      "sha256": "aa6f9a0d426da90f245647e96f09622b60516cb2c3967aca68b52c67ab435b77"
+    },
+    {
+      "creator_id": "fasoollka",
+      "channel": "https://www.twitch.tv/fasoollka",
+      "path": "res://assets/ui/avatars/streamer_fasoollka.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/1c6b088a-fe9d-4b3e-af92-26a126210db0-profile_image-150x150.png",
+      "sha256": "9fae31ede7f727200e75612b8350fb2c4445669f720210f316bab1f7c01c4667"
+    },
+    {
+      "creator_id": "megarush51",
+      "channel": "https://www.twitch.tv/megarush51",
+      "path": "res://assets/ui/avatars/streamer_megarush51.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/3d7a4291-44ba-433e-b645-18930860a16c-profile_image-150x150.png",
+      "sha256": "571b846337bb23580989c972c7f669c5f5207d2ff07b71ac65a7abd105dbb5d9"
+    },
+    {
+      "creator_id": "chezw11",
+      "channel": "https://www.twitch.tv/chezw11",
+      "path": "res://assets/ui/avatars/streamer_chezw11.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/7837742d-8bbd-4f61-a230-bc044d770ad2-profile_image-150x150.png",
+      "sha256": "94e4b5af4e4d2f6ef8f544aad022f37b67d98142d7b10a25e94c142e11e41449"
+    },
+    {
+      "creator_id": "vladragovsky",
+      "channel": "https://www.twitch.tv/vladragovsky",
+      "fallback_reason": "No public channel avatar"
+    },
+    {
+      "creator_id": "bullseye",
+      "channel": "https://www.twitch.tv/bullseye",
+      "fallback_reason": "No public channel avatar"
+    },
+    {
+      "creator_id": "vovapain",
+      "channel": "https://www.twitch.tv/vovapain",
+      "path": "res://assets/ui/avatars/streamer_vovapain.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/0a2f7dc4-50dd-4865-9676-d13b8b5ea0eb-profile_image-150x150.png",
+      "sha256": "d75c434325f767f3c944a924e4240573c02b5ef523b7a8e900e1623355dd2afc"
+    },
+    {
+      "creator_id": "bigrussianmum",
+      "channel": "https://www.twitch.tv/bigrussianmum",
+      "fallback_reason": "No public channel avatar"
+    },
+    {
+      "creator_id": "lentbb",
+      "channel": "https://www.twitch.tv/lentbb",
+      "path": "res://assets/ui/avatars/streamer_lentbb.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/04b56dd5-d77b-4b71-9087-9b13dbabf862-profile_image-150x150.png",
+      "sha256": "88ea44fb1abf02a23c63dc7c5e7c46b2f4f89dfcf653807d78fda7a3e48406ba"
+    },
+    {
+      "creator_id": "keliencs",
+      "channel": "https://www.twitch.tv/keliencs",
+      "path": "res://assets/ui/avatars/streamer_keliencs.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/c7b8d2d9-af3e-4233-8b68-137474c2b170-profile_image-150x150.png",
+      "sha256": "8f3f40f9c0e32582ca500332a85f2c3ed2d799a7a6ca4e690b9d4ed7cee94253"
+    },
+    {
+      "creator_id": "zloyn",
+      "channel": "https://www.twitch.tv/zloyn",
+      "fallback_reason": "No public channel avatar"
+    },
+    {
+      "creator_id": "cacto0o",
+      "channel": "https://www.twitch.tv/cacto0o",
+      "path": "res://assets/ui/avatars/streamer_cacto0o.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/0efc4b06-1b1e-41c1-9a59-6df7d5ccfc53-profile_image-150x150.png",
+      "sha256": "cd86c0c16ac1d40ecc426548526ca8e879a8ad1910ec512c357b44786e7a3ae6"
+    },
+    {
+      "creator_id": "yaner_4",
+      "channel": "https://www.twitch.tv/yaner_4",
+      "path": "res://assets/ui/avatars/streamer_yaner_4.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/16ff3a08-f50e-4041-bbca-24e080565bd9-profile_image-150x150.png",
+      "sha256": "e6a4b6ac8e96e84069e8fb5c6b99f27a02da671cd91200d65e8787a4aeb9e495"
+    },
+    {
+      "creator_id": "paverpapa",
+      "channel": "https://www.twitch.tv/paverpapa",
+      "path": "res://assets/ui/avatars/streamer_paverpapa.jpg",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/4c5816e1-f052-4cf1-adaf-6b86a2c04625-profile_image-150x150.jpeg",
+      "sha256": "a5511afa5a2f895d67de41065882d81bd75baf882c19e6628d9685851de8edf7"
+    },
+    {
+      "creator_id": "iceicell",
+      "channel": "https://www.twitch.tv/iceicell",
+      "path": "res://assets/ui/avatars/streamer_iceicell.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/f90bbbde-7934-4d0f-80df-74889e3c7c9e-profile_image-150x150.png",
+      "sha256": "549ba00e400cb858bbca46b31ce42b27b5f90f79fdf907af25e623c94f005fba"
+    },
+    {
+      "creator_id": "hyver",
+      "channel": "https://www.twitch.tv/hyver",
+      "path": "res://assets/ui/avatars/streamer_hyver.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/67bd6b5f-5a7e-4fc6-8d32-3da0763b056f-profile_image-150x150.png",
+      "sha256": "b9ee8375313e86a29eac22028ee5b7a0e050c487ace2b1f123eeeedb4b4a9a30"
+    },
+    {
+      "creator_id": "limitlessqt",
+      "channel": "https://www.twitch.tv/limitlessqt",
+      "path": "res://assets/ui/avatars/streamer_limitlessqt.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/76ff0113-3caf-404a-bc77-2481cc9fe6ee-profile_image-150x150.png",
+      "sha256": "eb79120c34e6d38f2c9ec074f821256dba48e1496382838449e27486057844d9"
+    },
+    {
+      "creator_id": "creepeefemboy",
+      "channel": "https://www.twitch.tv/creepeefemboy",
+      "path": "res://assets/ui/avatars/streamer_creepeefemboy.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/42543568-5019-42b2-93d0-1d6b1b171793-profile_image-150x150.png",
+      "sha256": "6bf853c0c91483c51c1860933802bd25319942d2eee1c5ca965fb47912c28da7"
+    },
+    {
+      "creator_id": "erokez61",
+      "channel": "https://www.twitch.tv/erokez61",
+      "path": "res://assets/ui/avatars/streamer_erokez61.jpg",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/7bc5aa52adbc1990-profile_image-150x150.jpeg",
+      "sha256": "11e6b91841f3bf4b234fc7be382f83b5cdabb3b356f576b66fd336cfcc9ed3ef"
+    },
+    {
+      "creator_id": "olyashaa",
+      "channel": "https://www.twitch.tv/olyashaa",
+      "path": "res://assets/ui/avatars/streamer_olyashaa.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/olyashaa-profile_image-678836346723f273-150x150.png",
+      "sha256": "8290f3af0dfc198a552d9d267fb4e63f8bbf5206738cd7f55ee087272b9f97be"
+    },
+    {
+      "creator_id": "gepscs2",
+      "channel": "https://www.twitch.tv/gepscs2",
+      "fallback_reason": "Generic or unsupported avatar"
+    },
+    {
+      "creator_id": "whoplohoyparen",
+      "channel": "https://www.twitch.tv/whoplohoyparen",
+      "path": "res://assets/ui/avatars/streamer_whoplohoyparen.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/95b099a4-4cf9-483e-b6f2-bf9d20a815c4-profile_image-150x150.png",
+      "sha256": "b71fb6dc52e586818f87cd14d2fd9342b73d9a99088f83ba4c73534eda45b07d"
+    },
+    {
+      "creator_id": "makatao",
+      "channel": "https://www.twitch.tv/makatao",
+      "path": "res://assets/ui/avatars/streamer_makatao.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/510236d0-b638-40f9-8ff4-ef029e6a191b-profile_image-150x150.png",
+      "sha256": "cea32cfd937620955802469444bba480c8728463202af874e5efb2a4991d894d"
+    },
+    {
+      "creator_id": "casebattle_official",
+      "channel": "https://www.twitch.tv/casebattle_official",
+      "fallback_reason": "No public channel avatar"
+    },
+    {
+      "creator_id": "mariachi",
+      "channel": "https://www.twitch.tv/mariachi",
+      "path": "res://assets/ui/avatars/streamer_mariachi.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/a43f6083-4e7f-4269-b5de-be49fd77466c-profile_image-150x150.png",
+      "sha256": "add059229f72a41a9c14e8a4a3e892a7274b6eb173bda17983df4b8802891fbf"
+    },
+    {
+      "creator_id": "little_cs",
+      "channel": "https://www.twitch.tv/little_cs",
+      "path": "res://assets/ui/avatars/streamer_little_cs.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/f5fbcfac-98a9-415e-9ab0-d7d9ef6e6924-profile_image-150x150.png",
+      "sha256": "00e9af87633b29391fdee2e8f137d45aa3d52b8b3a00a838040c2a1cebecefa4"
+    },
+    {
+      "creator_id": "smurf_tv",
+      "channel": "https://www.twitch.tv/smurf_tv",
+      "path": "res://assets/ui/avatars/streamer_smurf_tv.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/309c7c07-6269-479d-8239-71a31ed35807-profile_image-150x150.png",
+      "sha256": "d133b25e37d6e90469cd961a382d7f594c0cdac2413a1fab7abdbdb09d5c150a"
+    },
+    {
+      "creator_id": "skifolk",
+      "channel": "https://www.twitch.tv/skifolk",
+      "fallback_reason": "No public channel avatar"
+    },
+    {
+      "creator_id": "gwinglade",
+      "channel": "https://www.twitch.tv/gwinglade",
+      "path": "res://assets/ui/avatars/streamer_gwinglade.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/53266d78-7850-4dc1-af9c-9331e2b0cc50-profile_image-150x150.png",
+      "sha256": "3ace57628376753e97e92ee53a11b95dec187ac8d16c31a7b38d5bd94b966bda"
+    },
+    {
+      "creator_id": "stoun_m",
+      "channel": "https://www.twitch.tv/stoun_m",
+      "path": "res://assets/ui/avatars/streamer_stoun_m.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/a95dcaf8-2747-4d71-805d-8225dfb680aa-profile_image-150x150.png",
+      "sha256": "b9784ccdb777ad4e56c89e0c935fad0d1946cb0f1b0bf52af8b77a771ce4d9a2"
+    },
+    {
+      "creator_id": "slimenkpac",
+      "channel": "https://www.twitch.tv/slimenkpac",
+      "path": "res://assets/ui/avatars/streamer_slimenkpac.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/6e67bac3-a0d3-4589-a456-22a8e90cc2f7-profile_image-150x150.png",
+      "sha256": "087664440247ada36ebca88f5312c4ad815dc3c0a3952f8e639e7da42b40b9fc"
+    },
+    {
+      "creator_id": "lota",
+      "channel": "https://www.twitch.tv/lota",
+      "path": "res://assets/ui/avatars/streamer_lota.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/a7295e84-1d9f-4a8a-90c1-48c42db3a9d0-profile_image-150x150.png",
+      "sha256": "bea9353a0a0f58e2e635a9764cf965dea82c54e090d50880dcf9ca68e9154ea8"
+    },
+    {
+      "creator_id": "dangar",
+      "channel": "https://www.twitch.tv/dangar",
+      "path": "res://assets/ui/avatars/streamer_dangar.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/4c9996de-8115-498a-bd83-8c3e92ca35f0-profile_image-150x150.png",
+      "sha256": "c10ba2a03f9125b1c89ec289442745cfb78e9641a883873278853004401b04c3"
+    },
+    {
+      "creator_id": "lizabaktt",
+      "channel": "https://www.twitch.tv/lizabaktt",
+      "path": "res://assets/ui/avatars/streamer_lizabaktt.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/f9837c7f-fcd2-4690-a888-d39219098270-profile_image-150x150.png",
+      "sha256": "b8939d6ece3c5e1586b7b20d9b4fd45082529449d872c3ef847c6ca201d2c51d"
+    },
+    {
+      "creator_id": "ravshanbtw",
+      "channel": "https://www.twitch.tv/ravshanbtw",
+      "path": "res://assets/ui/avatars/streamer_ravshanbtw.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/f2698f1f-3e3f-47c9-ac00-62878459b621-profile_image-150x150.png",
+      "sha256": "6d9d24398c8181c2d20efe07dbfdeaff2998dddafc29645531c7344714a957fd"
+    },
+    {
+      "creator_id": "korya_mc",
+      "channel": "https://www.twitch.tv/korya_mc",
+      "path": "res://assets/ui/avatars/streamer_korya_mc.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/5dd62cba-cdbc-42d9-96ff-66b0417b7815-profile_image-150x150.png",
+      "sha256": "df992a014095410dca523e7197eda7b10e695f792c2d0293ad713abeb139f79e"
+    },
+    {
+      "creator_id": "smetanduck",
+      "channel": "https://www.twitch.tv/smetanduck",
+      "path": "res://assets/ui/avatars/streamer_smetanduck.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/e835b1b8-b96a-4ffb-8b7b-91b30c51a978-profile_image-150x150.png",
+      "sha256": "49f6e1c612653c897519904a9861e6d9429d3f88fb0a3fa10cd5db849928f36e"
+    },
+    {
+      "creator_id": "betboom_dota_ru",
+      "channel": "https://www.twitch.tv/betboom_dota_ru",
+      "fallback_reason": "No public channel avatar"
+    },
+    {
+      "creator_id": "lru_rose",
+      "channel": "https://www.twitch.tv/lru_rose",
+      "path": "res://assets/ui/avatars/streamer_lru_rose.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/1eacd591-36e0-4f05-ab89-c1e35f54b61a-profile_image-150x150.png",
+      "sha256": "5f6c3525768956acd0d5831f2644462d60720b5ac1a900358a9d8eafb9623d61"
+    },
+    {
+      "creator_id": "rera_seal",
+      "channel": "https://www.twitch.tv/rera_seal",
+      "path": "res://assets/ui/avatars/streamer_rera_seal.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/32a96dff-43c1-46bd-b6b1-8543f7373bfc-profile_image-150x150.png",
+      "sha256": "13c88bec411df4664babd234f7e34d28d807e6a31711e00255805f39c37eed1d"
+    },
+    {
+      "creator_id": "stopb4n",
+      "channel": "https://www.twitch.tv/stopb4n",
+      "path": "res://assets/ui/avatars/streamer_stopb4n.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/77b89265-eef9-4ac8-9599-a707e1d9ddf7-profile_image-150x150.png",
+      "sha256": "2ab3721a656f8d94efd2280abc6c58e3dc1fd36548d9a439f20c1dd8cef9f894"
+    },
+    {
+      "creator_id": "azamat799",
+      "channel": "https://www.twitch.tv/azamat799",
+      "path": "res://assets/ui/avatars/streamer_azamat799.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/d0a9e0f1-b880-4c24-bb82-54c0e334b8f3-profile_image-150x150.png",
+      "sha256": "dc0225b861cf531263369858807e60fe37600f2076dcc3865c25857693d0391f"
+    },
+    {
+      "creator_id": "ponyaaaa",
+      "channel": "https://www.twitch.tv/ponyaaaa",
+      "path": "res://assets/ui/avatars/streamer_ponyaaaa.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/d700efb7-29ac-4b8a-8275-c1d869aad237-profile_image-150x150.png",
+      "sha256": "3688e614cce996554228fd85fccfacbe20b3fffa2689a81161a2aa3a6faf1c01"
+    },
+    {
+      "creator_id": "dayneez",
+      "channel": "https://www.twitch.tv/dayneez",
+      "fallback_reason": "No public channel avatar"
+    },
+    {
+      "creator_id": "bandurka",
+      "channel": "https://www.twitch.tv/bandurka",
+      "path": "res://assets/ui/avatars/streamer_bandurka.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/457472ec-aa04-49ce-931b-fbd5be646cf8-profile_image-150x150.png",
+      "sha256": "bf403c7c9e57bfd401728afd1357386c13a0928da18ac944debb033db50daef1"
+    },
+    {
+      "creator_id": "fruktozka",
+      "channel": "https://www.twitch.tv/fruktozka",
+      "path": "res://assets/ui/avatars/streamer_fruktozka.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/8e182135-9555-4543-985d-1d00329491f6-profile_image-150x150.png",
+      "sha256": "3ff6b446502e734d01e9994ba7115e886c1b8e55049aa530e11ba931ae099dac"
+    },
+    {
+      "creator_id": "qrushcsgo",
+      "channel": "https://www.twitch.tv/qrushcsgo",
+      "path": "res://assets/ui/avatars/streamer_qrushcsgo.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/a477bccc-9b23-44d7-a379-fe64f67898c3-profile_image-150x150.png",
+      "sha256": "426ab5a9a7b05590bbbea88d93bffbbad14b9a7bd093d0fea08be7ea73ba3a0e"
+    },
+    {
+      "creator_id": "titamin1",
+      "channel": "https://www.twitch.tv/titamin1",
+      "fallback_reason": "No public channel avatar"
+    },
+    {
+      "creator_id": "abramovich",
+      "channel": "https://www.twitch.tv/abramovich",
+      "path": "res://assets/ui/avatars/streamer_abramovich.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/9aecb41d-21c7-4215-9fff-81cb2be39379-profile_image-150x150.png",
+      "sha256": "56fdb40de84387e894633eca02f49177e1dde417b9c729a3a7c6a17baf19157e"
+    },
+    {
+      "creator_id": "badgetracker",
+      "channel": "https://www.twitch.tv/badgetracker",
+      "path": "res://assets/ui/avatars/streamer_badgetracker.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/bfea2a37-6455-417d-9cbf-5509f842f249-profile_image-150x150.png",
+      "sha256": "8ebd794b779601a99a120d61efe3ebdbf9a57d669b62d9ad305ca4b27287a807"
+    },
+    {
+      "creator_id": "r0xieee",
+      "channel": "https://www.twitch.tv/r0xieee",
+      "path": "res://assets/ui/avatars/streamer_r0xieee.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/46b5bace-24ec-4d58-bf28-09501d699387-profile_image-150x150.png",
+      "sha256": "0e7920af2e263bbb65a32decf4faa127c30d357b6034aeb77bfb1a237bd29b2f"
+    },
+    {
+      "creator_id": "redpandash",
+      "channel": "https://www.twitch.tv/redpandash",
+      "path": "res://assets/ui/avatars/streamer_redpandash.jpg",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/123eabee06a3ea4d-profile_image-150x150.jpeg",
+      "sha256": "88061e77a960931dcbde7373ed5591c0d819e8905708c9cf878e8dc42e660b43"
+    },
+    {
+      "creator_id": "off_kuka358",
+      "channel": "https://www.twitch.tv/off_kuka358",
+      "path": "res://assets/ui/avatars/streamer_off_kuka358.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/0f730f53-65cc-4e01-9a2f-c2ff751298e4-profile_image-150x150.png",
+      "sha256": "3b360c6d80114da8cfb99638752ca7973728e682c7102dc1b20b4f53d7133160"
+    },
+    {
+      "creator_id": "minthon19",
+      "channel": "https://www.twitch.tv/minthon19",
+      "path": "res://assets/ui/avatars/streamer_minthon19.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/2cb81b37-fb27-4b9d-a72a-85f11a5ee94f-profile_image-150x150.png",
+      "sha256": "40abd10e0a79a90c33adcebd5a04239f0c3f69f4355c34548d9c0d52768a711e"
+    },
+    {
+      "creator_id": "rouszztrash",
+      "channel": "https://www.twitch.tv/rouszztrash",
+      "path": "res://assets/ui/avatars/streamer_rouszztrash.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/28b9fa86-809e-4611-aae7-4f725bbfb472-profile_image-150x150.png",
+      "sha256": "827951b2f4c2c81166c1a2f63e17bbc717e12cf9bbd080b30f8ef9649ec1bc5e"
+    },
+    {
+      "creator_id": "lagoda1337",
+      "channel": "https://www.twitch.tv/lagoda1337",
+      "path": "res://assets/ui/avatars/streamer_lagoda1337.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/f85d299a-06bb-4b00-9045-94f3b166b263-profile_image-150x150.png",
+      "sha256": "6272ae15b07339619df4602f22aae02d76fc23b6b2300c92c14ef995a132910f"
+    },
+    {
+      "creator_id": "reznikbtw",
+      "channel": "https://www.twitch.tv/reznikbtw",
+      "path": "res://assets/ui/avatars/streamer_reznikbtw.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/3d274037-b163-4967-9237-b5eb231711c2-profile_image-150x150.png",
+      "sha256": "6a9f2f8128c7ab1cfa3ac92ac95b68df78486ff2b5de95c45f5ed1c5feaf065a"
+    },
+    {
+      "creator_id": "versuta",
+      "channel": "https://www.twitch.tv/versuta",
+      "path": "res://assets/ui/avatars/streamer_versuta.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/0c9f7ab2-17c5-4412-ba9f-5b90ab2cf1b4-profile_image-150x150.png",
+      "sha256": "5b52dfecd9f295844c4042d09e69ae920d79778fa112a9b4de0a21765195df91"
+    },
+    {
+      "creator_id": "terablade",
+      "channel": "https://www.twitch.tv/terablade",
+      "path": "res://assets/ui/avatars/streamer_terablade.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/f7dc3834-c107-4b8d-a9b4-5c2cc1e2bb62-profile_image-150x150.png",
+      "sha256": "1d70a4575a1713f64d516e2fcae20e8de16d783385180407787cd8a071d2b2f0"
+    },
+    {
+      "creator_id": "unutcon",
+      "channel": "https://www.twitch.tv/unutcon",
+      "path": "res://assets/ui/avatars/streamer_unutcon.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/544eb038-9dd5-4c7e-823a-ecc466f5eef9-profile_image-150x150.png",
+      "sha256": "d8bb4c63c38cf167129d3f96c078d194d6232f8147f9503787af976e3f9c6d4e"
+    },
+    {
+      "creator_id": "toosefn",
+      "channel": "https://www.twitch.tv/toosefn",
+      "path": "res://assets/ui/avatars/streamer_toosefn.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/f3930471-86f3-422d-91d4-30c23c1bd6c0-profile_image-150x150.png",
+      "sha256": "6afe5856b0d3b2df3b2162402e26f68d9ef53f5030d750fd9299d7ec7998ea16"
+    },
+    {
+      "creator_id": "goodoq",
+      "channel": "https://www.twitch.tv/goodoq",
+      "path": "res://assets/ui/avatars/streamer_goodoq.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/e4e738e0-e590-43cc-8fce-0292f8235ab4-profile_image-150x150.png",
+      "sha256": "7cb1c8729b9c2823453eaafa3982c770ecc5da22c022990be403e5d7c181ac15"
+    },
+    {
+      "creator_id": "nostoro",
+      "channel": "https://www.twitch.tv/nostoro",
+      "path": "res://assets/ui/avatars/streamer_nostoro.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/8c33d157-0893-4def-8609-ea6204abd710-profile_image-150x150.png",
+      "sha256": "a9cb434dadbe46da9f212c99640fa7fcfd650dde9359e9d1d1a2b266b146e234"
+    },
+    {
+      "creator_id": "lasqa",
+      "channel": "https://www.twitch.tv/lasqa",
+      "path": "res://assets/ui/avatars/streamer_lasqa.jpg",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/lasqa-profile_image-49dc25f1e724dbd6-150x150.jpeg",
+      "sha256": "381e995e1cdf062df7bed60d8e5e70bf0b047a843673f235c04b6ffa3081dd27"
+    },
+    {
+      "creator_id": "del1ght",
+      "channel": "https://www.twitch.tv/del1ght",
+      "path": "res://assets/ui/avatars/streamer_del1ght.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/b42c5a0f-27d3-402e-81a3-c05137739edf-profile_image-150x150.png",
+      "sha256": "7adb1ea22e884a35d9f13c943a835eafe8887607110d86038cc62cee86cef2c3"
+    },
+    {
+      "creator_id": "dianarice",
+      "channel": "https://www.twitch.tv/dianarice",
+      "path": "res://assets/ui/avatars/streamer_dianarice.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/68bb73a7-c4bf-49aa-8d03-6ed716c22ec8-profile_image-150x150.png",
+      "sha256": "a81682072ae101a684c685242c6883ad942439113dd8267e06a755aa1cd45599"
+    },
+    {
+      "creator_id": "lonelybaae",
+      "channel": "https://www.twitch.tv/lonelybaae",
+      "path": "res://assets/ui/avatars/streamer_lonelybaae.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/8a32a02b-836e-412d-b142-926eec248b6f-profile_image-150x150.png",
+      "sha256": "4dc7da008e2eb57589dc2cee186117bcf5ff190b418b7c2d5e858660ad9b4302"
+    },
+    {
+      "creator_id": "alohadancetv",
+      "channel": "https://www.twitch.tv/alohadancetv",
+      "path": "res://assets/ui/avatars/streamer_alohadancetv.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/288c688d-16e0-4c54-b76d-3bbbaa677438-profile_image-150x150.png",
+      "sha256": "026a18c99440c8d910b21e507e799d777665996a35494f681dafb6ace91c6922"
+    },
+    {
+      "creator_id": "awfdota",
+      "channel": "https://www.twitch.tv/awfdota",
+      "path": "res://assets/ui/avatars/streamer_awfdota.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/13c548a9-cafd-4cae-beeb-36721e1cd282-profile_image-150x150.png",
+      "sha256": "8b6ea387214a03568439a3d6763f27663031dca64f98c97fe2a9168d2d0a2198"
+    },
+    {
+      "creator_id": "rachelr",
+      "channel": "https://www.twitch.tv/rachelr",
+      "fallback_reason": "No public channel avatar"
+    },
+    {
+      "creator_id": "hellyeahplay",
+      "channel": "https://www.twitch.tv/hellyeahplay",
+      "path": "res://assets/ui/avatars/streamer_hellyeahplay.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/e6a53bf0-e588-40bf-bbe1-1b7c92d236fa-profile_image-150x150.png",
+      "sha256": "6f32a2e3a4ae5a98795d0369bbe861ea978d028a41ba809521324f06f6d333da"
+    },
+    {
+      "creator_id": "liz0n",
+      "channel": "https://www.twitch.tv/liz0n",
+      "path": "res://assets/ui/avatars/streamer_liz0n.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/liz0n-profile_image-e9616d306b0099b1-150x150.png",
+      "sha256": "b1273f86c16490b2f77444f9f4383603f145b82ab85746f537b91259bfe05af4"
+    },
+    {
+      "creator_id": "zherarrr",
+      "channel": "https://www.twitch.tv/zherarrr",
+      "path": "res://assets/ui/avatars/streamer_zherarrr.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/ea61f796-17e5-41b7-b4f5-4481c833b26a-profile_image-150x150.png",
+      "sha256": "c0f7031084a5c1d4bb437bfc1478f375f358509c4daab1eee9be3742ef274db5"
+    },
+    {
+      "creator_id": "witchblvde",
+      "channel": "https://www.twitch.tv/witchblvde",
+      "path": "res://assets/ui/avatars/streamer_witchblvde.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/7eba67e5-7350-4313-83ae-e4b59afef876-profile_image-150x150.png",
+      "sha256": "e3d97c30ec37389b0fed54972abbd78ae2da9197ce3c171bfa4f7f4c93653444"
+    },
+    {
+      "creator_id": "baz1221",
+      "channel": "https://www.twitch.tv/baz1221",
+      "fallback_reason": "No public channel avatar"
+    },
+    {
+      "creator_id": "gilticus",
+      "channel": "https://www.twitch.tv/gilticus",
+      "path": "res://assets/ui/avatars/streamer_gilticus.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/3cfcc24d-8a0a-4317-9c1b-54e0e9d4388a-profile_image-150x150.png",
+      "sha256": "42b93e2f68d59c955edd5d3e2edd70dfaeae9712e0c33cb2fdffec38388f3f54"
+    },
+    {
+      "creator_id": "mlbb_cis",
+      "channel": "https://www.twitch.tv/mlbb_cis",
+      "fallback_reason": "No public channel avatar"
+    },
+    {
+      "creator_id": "murzofix",
+      "channel": "https://www.twitch.tv/murzofix",
+      "path": "res://assets/ui/avatars/streamer_murzofix.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/34e9c71d-9e6c-4640-956f-02f6a6533870-profile_image-150x150.png",
+      "sha256": "0cc8c808ec176c181341efa78f6a4b503faed87767266210667d90232fc18fec"
+    },
+    {
+      "creator_id": "99bigboy99",
+      "channel": "https://www.twitch.tv/99bigboy99",
+      "path": "res://assets/ui/avatars/streamer_99bigboy99.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/988a7d8b-d8fa-4958-ae2e-eff4b5537313-profile_image-150x150.png",
+      "sha256": "8eb1d8e47aa2ebfdd9f5fba447bdc34a16894ab2e978e5198eaa807fac485933"
+    },
+    {
+      "creator_id": "nstvgames",
+      "channel": "https://www.twitch.tv/nstvgames",
+      "path": "res://assets/ui/avatars/streamer_nstvgames.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/ee7b6271-75ff-41de-a303-c647313ff7a4-profile_image-150x150.png",
+      "sha256": "3264db060047e2d9d97105b3169f0ffd8a4544980f6734e75a482ae13c04b806"
+    },
+    {
+      "creator_id": "inseq",
+      "channel": "https://www.twitch.tv/inseq",
+      "path": "res://assets/ui/avatars/streamer_inseq.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/79543e3e-b2c7-4587-9890-336d1a40fb06-profile_image-150x150.png",
+      "sha256": "8121c47743ebab442531e5a41c84db28f78e6cbc314afd1514d1b26bba3ce9cd"
+    },
+    {
+      "creator_id": "agromorph",
+      "channel": "https://www.twitch.tv/agromorph",
+      "path": "res://assets/ui/avatars/streamer_agromorph.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/25c56b50-a07e-4dc5-85b0-c81b66df6d4b-profile_image-150x150.png",
+      "sha256": "f1421e5d9ff590240d460745720b834c256c1528cebac8a8907cdffe58c9ddef"
+    },
+    {
+      "creator_id": "browjey",
+      "channel": "https://www.twitch.tv/browjey",
+      "path": "res://assets/ui/avatars/streamer_browjey.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/7c1d1467-7848-464a-94c1-0efa2c514030-profile_image-150x150.png",
+      "sha256": "a158fac7199314f5e888ad72259a609f6087bac9550760ceaf8c23fcab9e8ba2"
+    },
+    {
+      "creator_id": "sme6noy",
+      "channel": "https://www.twitch.tv/sme6noy",
+      "path": "res://assets/ui/avatars/streamer_sme6noy.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/0febaff5-f4bf-47cd-967c-8d4669593034-profile_image-150x150.png",
+      "sha256": "feaaad408521e625b8057ae5d8dd99ec5601b40f91589fd133eedc44dfd539fd"
+    },
+    {
+      "creator_id": "tenkedzu",
+      "channel": "https://www.twitch.tv/tenkedzu",
+      "path": "res://assets/ui/avatars/streamer_tenkedzu.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/7edb1d2f-991a-4ef3-ae72-667ad4ac0d21-profile_image-150x150.png",
+      "sha256": "2a68ecb3e9fd5eb2b7ad188d834747f8fd7112c0554518f5630031ba6472fd97"
+    },
+    {
+      "creator_id": "formixyouknow",
+      "channel": "https://www.twitch.tv/formixyouknow",
+      "path": "res://assets/ui/avatars/streamer_formixyouknow.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/2ad0d88c-59ad-4e71-a4ae-d0d8c9380f01-profile_image-150x150.png",
+      "sha256": "80b0e29e3e8131c1bf47beefff873753240700dafab03f28375690a3ee6d5e1b"
+    },
+    {
+      "creator_id": "drac0merald",
+      "channel": "https://www.twitch.tv/drac0merald",
+      "path": "res://assets/ui/avatars/streamer_drac0merald.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/cbfb21ab-67f3-429c-8136-fabc9f66a95a-profile_image-150x150.png",
+      "sha256": "482686464e2a6deaa15286aa24f19a6d3c33e04d433f9b0d975bb88ee82e16ba"
+    },
+    {
+      "creator_id": "mistafaker",
+      "channel": "https://www.twitch.tv/mistafaker",
+      "path": "res://assets/ui/avatars/streamer_mistafaker.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/ceb432cd-3c36-426e-9033-3f14ffc2a8f8-profile_image-150x150.png",
+      "sha256": "f9f5a24984568f407a78872ecf157aecf35f3dbf3dc61a086f69ceb2ec28478a"
+    },
+    {
+      "creator_id": "rejiboi",
+      "channel": "https://www.twitch.tv/rejiboi",
+      "fallback_reason": "No public channel avatar"
+    },
+    {
+      "creator_id": "blackrabbit342",
+      "channel": "https://www.twitch.tv/blackrabbit342",
+      "fallback_reason": "No public channel avatar"
+    },
+    {
+      "creator_id": "es4xtank",
+      "channel": "https://www.twitch.tv/es4xtank",
+      "path": "res://assets/ui/avatars/streamer_es4xtank.jpg",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/953f6d1e-1b5e-4b39-8461-9076ba596f09-profile_image-150x150.jpeg",
+      "sha256": "27e0877f3d53784e8327c5d325d09d81bc4194ff0a88c379db2529b847c4dcb7"
+    },
+    {
+      "creator_id": "arrowwoods",
+      "channel": "https://www.twitch.tv/arrowwoods",
+      "path": "res://assets/ui/avatars/streamer_arrowwoods.jpg",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/2a4b0efe-7021-469f-9f14-8d41d94f2205-profile_image-150x150.jpeg",
+      "sha256": "3a2e541e8829acd24b23efb12c3902309ecdb2f05c972b7d079c9c1d1be4e4e3"
+    },
+    {
+      "creator_id": "radika1fa",
+      "channel": "https://www.twitch.tv/radika1fa",
+      "path": "res://assets/ui/avatars/streamer_radika1fa.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/15374a42-d966-4290-892f-134feda15c55-profile_image-150x150.png",
+      "sha256": "a9547ee68bb4e54b3b2a16b612be1833609d15c2549d67a13030a7bb84840e6a"
+    },
+    {
+      "creator_id": "shawdfxc",
+      "channel": "https://www.twitch.tv/shawdfxc",
+      "path": "res://assets/ui/avatars/streamer_shawdfxc.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/5a7b32b2-c16c-44f5-a514-54efeb418858-profile_image-150x150.png",
+      "sha256": "3e4acd1bb7ad706c937a4a7529df148b79eb427db3d77c3b072266bbf79724bf"
+    },
+    {
+      "creator_id": "arven93",
+      "channel": "https://www.twitch.tv/arven93",
+      "fallback_reason": "No public channel avatar"
+    },
+    {
+      "creator_id": "pch3lk1n",
+      "channel": "https://www.twitch.tv/pch3lk1n",
+      "path": "res://assets/ui/avatars/streamer_pch3lk1n.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/6211c167-2bc8-4663-bf31-ede424b41945-profile_image-150x150.png",
+      "sha256": "a8925235c8bbf545e39e7e0a10fe8b44e61674819d75c5ba15a8592468966346"
+    },
+    {
+      "creator_id": "crownus_gl",
+      "channel": "https://www.twitch.tv/crownus_gl",
+      "fallback_reason": "No public channel avatar"
+    },
+    {
+      "creator_id": "mewendi",
+      "channel": "https://www.twitch.tv/mewendi",
+      "path": "res://assets/ui/avatars/streamer_mewendi.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/9d3d3bd8-f7e9-4a0f-bde8-a13a35c027a3-profile_image-150x150.png",
+      "sha256": "066f1c8111faba40094a19655875f180180ec037a6b1bb20e84a0a5b1781456f"
+    },
+    {
+      "creator_id": "cispapa",
+      "channel": "https://www.twitch.tv/cispapa",
+      "path": "res://assets/ui/avatars/streamer_cispapa.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/0aa7fb8f-d445-4843-b19f-b1512028d1e7-profile_image-150x150.png",
+      "sha256": "f88768ef1dec4d6b024dec30ca28be3ba77cce14d2f9602073fcd669bd96368c"
+    },
+    {
+      "creator_id": "9impulse",
+      "channel": "https://www.twitch.tv/9impulse",
+      "path": "res://assets/ui/avatars/streamer_9impulse.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/b18d56b8-26fb-41b3-aec3-a1d8724f00bb-profile_image-150x150.png",
+      "sha256": "73fa45170c09a8e2262b750488606447bfaebdbd37913d0c686cd12cd52ffb44"
+    },
+    {
+      "creator_id": "tj_sk1per",
+      "channel": "https://www.twitch.tv/tj_sk1per",
+      "path": "res://assets/ui/avatars/streamer_tj_sk1per.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/f14a30ef-614a-43d8-bdfa-2984a31f1aa7-profile_image-150x150.png",
+      "sha256": "de00ddfe39f56aad5cf3f19a134d507045db710a177bcd97f6bf23dfa5d21c81"
+    },
+    {
+      "creator_id": "pro_cast2",
+      "channel": "https://www.twitch.tv/pro_cast2",
+      "path": "res://assets/ui/avatars/streamer_pro_cast2.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/92220586-9eaf-470d-b7bb-00812009c404-profile_image-150x150.png",
+      "sha256": "d5894824675268f2ae6929792fce956e98dbe186189c330ee1f9855a8cc81b1a"
+    },
+    {
+      "creator_id": "mangekyou_14",
+      "channel": "https://www.twitch.tv/mangekyou_14",
+      "path": "res://assets/ui/avatars/streamer_mangekyou_14.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/d21ab3ae-fd5c-49ac-9505-bf9ca1a52101-profile_image-150x150.png",
+      "sha256": "15a176fd5733e5a9778f56fd912e7482d48b81199b6db8031832b57093b5c268"
+    },
+    {
+      "creator_id": "sbolttt",
+      "channel": "https://www.twitch.tv/sbolttt",
+      "path": "res://assets/ui/avatars/streamer_sbolttt.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/564fdbc4-bddf-4761-8dad-bce0458976ea-profile_image-150x150.png",
+      "sha256": "295d37e2cbb8fdf924eaeceb7d6800fc80d7f62838d25e8c7e7fc66a6256197a"
+    },
+    {
+      "creator_id": "fandercs",
+      "channel": "https://www.twitch.tv/fandercs",
+      "path": "res://assets/ui/avatars/streamer_fandercs.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/0dd9274d-2398-4aaf-a619-b9be4b248272-profile_image-150x150.png",
+      "sha256": "cc9f74b3252087ebf697add016f88c662cf746ecff797e4768ee3d071d0dc1d5"
+    },
+    {
+      "creator_id": "dawgonosik",
+      "channel": "https://www.twitch.tv/dawgonosik",
+      "path": "res://assets/ui/avatars/streamer_dawgonosik.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/9109d26d-cb7d-4a8d-a04f-763694b79c55-profile_image-150x150.png",
+      "sha256": "b46736fe18d0940914f0ee41df09e4da0f5ed7ab2cc60f883f4d81a579646804"
+    },
+    {
+      "creator_id": "dear_hellgirl",
+      "channel": "https://www.twitch.tv/dear_hellgirl",
+      "path": "res://assets/ui/avatars/streamer_dear_hellgirl.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/ae3fa9b0-5184-4f0a-9fd3-ea0bada45254-profile_image-150x150.png",
+      "sha256": "ef9970feba063da88bdd9a975562d74638375ad38fb3814ac66a52b230a22eea"
+    },
+    {
+      "creator_id": "sofiko_sculpts",
+      "channel": "https://www.twitch.tv/sofiko_sculpts",
+      "path": "res://assets/ui/avatars/streamer_sofiko_sculpts.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/a6767acc-7efd-4cfb-8819-6cdecb780c73-profile_image-150x150.png",
+      "sha256": "01d96e38f6866a2c408897fe9482de020de6fede22dd55f72fb68f1f82fbc6d4"
+    },
+    {
+      "creator_id": "spt083",
+      "channel": "https://www.twitch.tv/spt083",
+      "path": "res://assets/ui/avatars/streamer_spt083.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/1ef17d5f-2d56-4185-aea7-d6caa5b123ee-profile_image-150x150.png",
+      "sha256": "4b8f0f5e81882a11ee258778a2116b28e9991b2e60655defda957d7f11c8f2e5"
+    },
+    {
+      "creator_id": "b1ezzed",
+      "channel": "https://www.twitch.tv/b1ezzed",
+      "path": "res://assets/ui/avatars/streamer_b1ezzed.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/dd675222-0a9e-4b5a-ad93-40e122a724f4-profile_image-150x150.png",
+      "sha256": "b13dd33d024cefd39e4f405003a4d6cf11228bee7d8a3cea42eea25f7e7c1c44"
+    },
+    {
+      "creator_id": "yung777mockba",
+      "channel": "https://www.twitch.tv/yung777mockba",
+      "fallback_reason": "No public channel avatar"
+    },
+    {
+      "creator_id": "sayfergoat",
+      "channel": "https://www.twitch.tv/sayfergoat",
+      "path": "res://assets/ui/avatars/streamer_sayfergoat.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/841990bd-4015-4d76-b077-9833725ad565-profile_image-150x150.png",
+      "sha256": "8d8f1656b7300f975f5826a3221be1a597497ed7b63bbb6329b0c471e44b74a8"
+    },
+    {
+      "creator_id": "renamid",
+      "channel": "https://www.twitch.tv/renamid",
+      "fallback_reason": "No public channel avatar"
+    },
+    {
+      "creator_id": "nikitasudar",
+      "channel": "https://www.twitch.tv/nikitasudar",
+      "fallback_reason": "No public channel avatar"
+    },
+    {
+      "creator_id": "baxadoto",
+      "channel": "https://www.twitch.tv/baxadoto",
+      "path": "res://assets/ui/avatars/streamer_baxadoto.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/9768df60-0635-479a-a1aa-415cbfdd4e2c-profile_image-150x150.png",
+      "sha256": "bfaf34e752149344a6673000d5bb4588c0fbef421f8bcc3c2130675fcff47a18"
+    },
+    {
+      "creator_id": "c1ymba_mt",
+      "channel": "https://www.twitch.tv/c1ymba_mt",
+      "path": "res://assets/ui/avatars/streamer_c1ymba_mt.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/4238d662-fece-4e35-a054-c9afff8a6a34-profile_image-150x150.png",
+      "sha256": "eacb98a478528622fe44b7a781917e7aecc8f7bfbfbd6e50d33a32fe4b799ebb"
+    },
+    {
+      "creator_id": "alinarinrin",
+      "channel": "https://www.twitch.tv/alinarinrin",
+      "path": "res://assets/ui/avatars/streamer_alinarinrin.jpg",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/1c8c610e-a80e-45b0-baa5-85f58283a998-profile_image-150x150.jpg",
+      "sha256": "8e85dd516d8840a77bd34ffa268696c37159a2c48c79bdec00d91b4c1d8997d5"
+    },
+    {
+      "creator_id": "alfedov",
+      "channel": "https://www.twitch.tv/alfedov",
+      "fallback_reason": "No public channel avatar"
+    },
+    {
+      "creator_id": "lestakorabli",
+      "channel": "https://www.twitch.tv/lestakorabli",
+      "path": "res://assets/ui/avatars/streamer_lestakorabli.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/c0c6fd0b-3139-4891-86c7-0b8996a34fae-profile_image-150x150.png",
+      "sha256": "b5b5d760030fa4fa76651707028dd3ee50ae909f9570d4cdd71cfe9a00cf0671"
+    },
+    {
+      "creator_id": "andr_surov",
+      "channel": "https://www.twitch.tv/andr_surov",
+      "path": "res://assets/ui/avatars/streamer_andr_surov.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/c88f466a-2b54-4538-bc30-6136547660a7-profile_image-150x150.png",
+      "sha256": "31e5b0867cf33dca713c5343af8cd6f1306e8e3a167711c74518ba05eac489fa"
+    },
+    {
+      "creator_id": "dota2_paragon_ru",
+      "channel": "https://www.twitch.tv/dota2_paragon_ru",
+      "path": "res://assets/ui/avatars/streamer_dota2_paragon_ru.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/20068c90-e693-492e-9edd-f40c5f03832f-profile_image-150x150.png",
+      "sha256": "dca5314a44cb357c328f3631e94bb47c314f516177d7fcc83f1061fadc7525a9"
+    },
+    {
+      "creator_id": "darknikoff",
+      "channel": "https://www.twitch.tv/darknikoff",
+      "path": "res://assets/ui/avatars/streamer_darknikoff.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/1e6b4485-917a-40d9-9ca4-ce15b8e277d6-profile_image-150x150.png",
+      "sha256": "6228db0650a93a24b403aacdc52e09921b9d3e2caa8fd713e5cbb434b69a37e6"
+    },
+    {
+      "creator_id": "cherepashk1n",
+      "channel": "https://www.twitch.tv/cherepashk1n",
+      "path": "res://assets/ui/avatars/streamer_cherepashk1n.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/7b5435a0-fe0a-45c6-b0f0-061c3a4e1d60-profile_image-150x150.png",
+      "sha256": "d0cc8a2f831e84d7470f0f06eef20d542d7ab90e5bd10c3a1bb3ca7b18f663d8"
+    },
+    {
+      "creator_id": "banda_boyko",
+      "channel": "https://www.twitch.tv/banda_boyko",
+      "path": "res://assets/ui/avatars/streamer_banda_boyko.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/faf1080d-d3e7-4716-99ef-1ba05e5494e0-profile_image-150x150.png",
+      "sha256": "8ad20827070db4fbc43000f47008a5f8175ba7b0b89ca4a1eb977142c2dbd10c"
+    },
+    {
+      "creator_id": "zzord2001",
+      "channel": "https://www.twitch.tv/zzord2001",
+      "path": "res://assets/ui/avatars/streamer_zzord2001.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/3e29f100-dc87-47ff-9933-6f0d110e834f-profile_image-150x150.png",
+      "sha256": "f795b40adc659dcee7b75fdc447aab4bff42aac68f69d5e5b594bfc8bb3434f2"
+    },
+    {
+      "creator_id": "ruslandvip",
+      "channel": "https://www.twitch.tv/ruslandvip",
+      "path": "res://assets/ui/avatars/streamer_ruslandvip.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/d29591eb-a912-49df-9758-bb5c0531a710-profile_image-150x150.png",
+      "sha256": "21204eebb19e87e7e2cbbca8639a203442f1d000513dc34cfa44dba67b436185"
+    },
+    {
+      "creator_id": "lildjeyy1",
+      "channel": "https://www.twitch.tv/lildjeyy1",
+      "path": "res://assets/ui/avatars/streamer_lildjeyy1.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/4dfa0ace-3217-4ae6-b24f-1b8a6a70ff9d-profile_image-150x150.png",
+      "sha256": "556e02ccab9af0f443ed43ecda2ce86aa7b1c6f9f8ff8ccb373d3b75d3def3d4"
+    },
+    {
+      "creator_id": "rochersha",
+      "channel": "https://www.twitch.tv/rochersha",
+      "path": "res://assets/ui/avatars/streamer_rochersha.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/a30c0c80-0993-4524-b37b-23db60850b22-profile_image-150x150.png",
+      "sha256": "7705479daa632c2a91b32efa75eac7c9e630d420f4c1e6eb15dd1daa9a87e560"
+    },
+    {
+      "creator_id": "legendaafk",
+      "channel": "https://www.twitch.tv/legendaafk",
+      "fallback_reason": "No public channel avatar"
+    },
+    {
+      "creator_id": "snessh",
+      "channel": "https://www.twitch.tv/snessh",
+      "path": "res://assets/ui/avatars/streamer_snessh.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/fec080cf-cba1-4c3a-9fc7-5fdc8220ab2d-profile_image-150x150.png",
+      "sha256": "5a4fec939f9a084e1500a830582a15990e4dd824304016854084efbb3aa257a6"
+    },
+    {
+      "creator_id": "babymelo_22",
+      "channel": "https://www.twitch.tv/babymelo_22",
+      "path": "res://assets/ui/avatars/streamer_babymelo_22.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/b71ae3ec-5463-4b7c-8426-80b153f652ae-profile_image-150x150.png",
+      "sha256": "31311b0d2b0c05888faa7ac64100ff9c1a23365bf3ed052cb75fdff3c2fbb5f1"
+    },
+    {
+      "creator_id": "anastaze",
+      "channel": "https://www.twitch.tv/anastaze",
+      "fallback_reason": "No public channel avatar"
+    },
+    {
+      "creator_id": "ixbt_games",
+      "channel": "https://www.twitch.tv/ixbt_games",
+      "path": "res://assets/ui/avatars/streamer_ixbt_games.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/c4b1351c-aa14-4ab0-8bcf-0ba91461c879-profile_image-150x150.png",
+      "sha256": "acd7756f00165c1907de682d3650a980b6c58f713dae063c02d9e1ad7bd5bb9b"
+    },
+    {
+      "creator_id": "davacimbo",
+      "channel": "https://www.twitch.tv/davacimbo",
+      "path": "res://assets/ui/avatars/streamer_davacimbo.jpg",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/fe4bb863-1fad-4167-9f51-e7e6e7d55450-profile_image-150x150.jpg",
+      "sha256": "ce59c8368ee093f031d3df2bfdae96bf8f480a3195f6e079894afc60e223a994"
+    },
+    {
+      "creator_id": "leron_baron",
+      "channel": "https://www.twitch.tv/leron_baron",
+      "path": "res://assets/ui/avatars/streamer_leron_baron.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/90809b96-99ba-4279-a1c3-e929c284cc9a-profile_image-150x150.png",
+      "sha256": "673dc6d5e36db7e8ffc5c5cf49b685ec887ac957a3ff5bb3193c1e0ae16c59cd"
+    },
+    {
+      "creator_id": "poisonika",
+      "channel": "https://www.twitch.tv/poisonika",
+      "path": "res://assets/ui/avatars/streamer_poisonika.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/605d6471-db8e-4658-89f2-111851ca0553-profile_image-150x150.png",
+      "sha256": "baeb1522acf69454f55bc5c9cac53a275dfcebe10f7877f6a134dae7b93fc6a4"
+    },
+    {
+      "creator_id": "gei_angel",
+      "channel": "https://www.twitch.tv/gei_angel",
+      "path": "res://assets/ui/avatars/streamer_gei_angel.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/24049653-60ee-4c1b-b65f-148138a25f6c-profile_image-150x150.png",
+      "sha256": "5108a59766df0d5904640f7dec1c34ac90e5dd2193cb2cf57e42332f61259fbf"
+    },
+    {
+      "creator_id": "welderb",
+      "channel": "https://www.twitch.tv/welderb",
+      "path": "res://assets/ui/avatars/streamer_welderb.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/0a621464-e99c-4064-86c2-fc676ec6fa37-profile_image-150x150.png",
+      "sha256": "e86c2592b229a8d39686d6024bd97593fb334349890059d335d8af6a32f2bd7f"
+    },
+    {
+      "creator_id": "murmadoll",
+      "channel": "https://www.twitch.tv/murmadoll",
+      "path": "res://assets/ui/avatars/streamer_murmadoll.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/e194b300-2658-4f8a-b7c2-336fba6701fb-profile_image-150x150.png",
+      "sha256": "039a594325197945c52f39cf890a4d126ae81bf484aaac2116d93f164020ed7d"
+    },
+    {
+      "creator_id": "sharishaxd",
+      "channel": "https://www.twitch.tv/sharishaxd",
+      "path": "res://assets/ui/avatars/streamer_sharishaxd.jpg",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/cec13e44cee25b0f-profile_image-150x150.jpeg",
+      "sha256": "834b0a112097a6dc15c345e66c428897eb7b7363ff50ca4b9c2dacc2120ac41b"
+    },
+    {
+      "creator_id": "fadivs",
+      "channel": "https://www.twitch.tv/fadivs",
+      "path": "res://assets/ui/avatars/streamer_fadivs.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/d5067a7b-693f-4216-9279-25176f33747c-profile_image-150x150.png",
+      "sha256": "0e1f189b36856d62d8fe4228a2994112ce1fc6a35af25d3744d98bed0ddc3a0d"
+    },
+    {
+      "creator_id": "zabenafff",
+      "channel": "https://www.twitch.tv/zabenafff",
+      "path": "res://assets/ui/avatars/streamer_zabenafff.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/247963e9-3605-4052-8319-fa9818c89fa0-profile_image-150x150.png",
+      "sha256": "1f49d8923c0cff873395743738afa7e4481fd1a9daf60e17bc9eb1816f62f0e8"
+    },
+    {
+      "creator_id": "tusoved",
+      "channel": "https://www.twitch.tv/tusoved",
+      "path": "res://assets/ui/avatars/streamer_tusoved.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/85f5346f-7be9-4db1-9a22-30d1e301bf72-profile_image-150x150.png",
+      "sha256": "5573cffebb03bbe9dfe85089b4a24c269d4a732049627d7114bea30c8a839b76"
+    },
+    {
+      "creator_id": "mrmalfoy07",
+      "channel": "https://www.twitch.tv/mrmalfoy07",
+      "path": "res://assets/ui/avatars/streamer_mrmalfoy07.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/cdf8ab2f-1f15-4845-9c43-8fd2b1fb5e66-profile_image-150x150.png",
+      "sha256": "3e15a630a5ff7dd39d3d662c039871ad88afaa341a47e279c01670ea5183aeea"
+    },
+    {
+      "creator_id": "cu6ickk",
+      "channel": "https://www.twitch.tv/cu6ickk",
+      "path": "res://assets/ui/avatars/streamer_cu6ickk.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/0b018f47-366a-4ec7-8475-f2749fa8aebd-profile_image-150x150.png",
+      "sha256": "bfc04e89dc038fd921e4bc98bb8b7420a5e166fe99773a6989ab291ad52079c8"
+    },
+    {
+      "creator_id": "etokeking",
+      "channel": "https://www.twitch.tv/etokeking",
+      "path": "res://assets/ui/avatars/streamer_etokeking.jpg",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/12bcb04f-635a-4f07-9c0d-02bdf6ad1253-profile_image-150x150.jpg",
+      "sha256": "8dd74de897ac7b9f4736dfeab7f9b8e615dd86e77b1a9bec6f2afa4a4243be10"
+    },
+    {
+      "creator_id": "quickhuntik",
+      "channel": "https://www.twitch.tv/quickhuntik",
+      "path": "res://assets/ui/avatars/streamer_quickhuntik.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/87a471b3-7ec0-4d7c-8c21-44a8ca7eb72d-profile_image-150x150.png",
+      "sha256": "dc9229ec8f36b74331b2c7c822a244097a1e92a55c6e7183156a88791fee6815"
+    },
+    {
+      "creator_id": "wbcclub",
+      "channel": "https://www.twitch.tv/wbcclub",
+      "path": "res://assets/ui/avatars/streamer_wbcclub.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/b8405b80-5c6c-4b82-a4d0-fcd7c1b4d381-profile_image-150x150.png",
+      "sha256": "aaf95bd6c5d3796f3bb9d2f569cce6e357b54b0fb2a33d85eb7f024b55a441a7"
+    },
+    {
+      "creator_id": "lens_doto",
+      "channel": "https://www.twitch.tv/lens_doto",
+      "path": "res://assets/ui/avatars/streamer_lens_doto.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/a727a8dc-20cc-4a60-b3ab-2c64c9c8088e-profile_image-150x150.png",
+      "sha256": "fd663daa5ae690f881a3cd563ef0894d4c8e6601bda8de28ad25e9db87da1ce9"
+    },
+    {
+      "creator_id": "oneshotmlbb",
+      "channel": "https://www.twitch.tv/oneshotmlbb",
+      "path": "res://assets/ui/avatars/streamer_oneshotmlbb.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/d8262c37-52e5-4cc2-9923-e1cc9bc7e15f-profile_image-150x150.png",
+      "sha256": "dc091453685b3125052c36a36022fb9bbf1294b7eacd6b72b461343c28de1b99"
+    },
+    {
+      "creator_id": "exmagistr",
+      "channel": "https://www.twitch.tv/exmagistr",
+      "path": "res://assets/ui/avatars/streamer_exmagistr.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/5c467a9a-324a-4a0e-b088-77c0692d6898-profile_image-150x150.png",
+      "sha256": "ffd7b402ad296c78894e1959b630ff11b1ef2d110dcbe4024c2a8be6db91e24d"
+    },
+    {
+      "creator_id": "lavieoubourse",
+      "channel": "https://www.twitch.tv/lavieoubourse",
+      "path": "res://assets/ui/avatars/streamer_lavieoubourse.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/6aafb386-b209-4a78-a843-b3d415fad126-profile_image-150x150.png",
+      "sha256": "acbb26a90c90dc98cd6ae82fad88499cf305cb2a606ecf5e6d70f041385d0db3"
+    },
+    {
+      "creator_id": "friend44444",
+      "channel": "https://www.twitch.tv/friend44444",
+      "path": "res://assets/ui/avatars/streamer_friend44444.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/d0487c12-f6a3-4883-84f3-fbda38168e3a-profile_image-150x150.png",
+      "sha256": "ca65c43c257daac9058c22cbf34a494c6ac7aaa915ccf80c287908c18f95265b"
+    },
+    {
+      "creator_id": "iwaschosen66",
+      "channel": "https://www.twitch.tv/iwaschosen66",
+      "path": "res://assets/ui/avatars/streamer_iwaschosen66.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/31b9fe01-6ed0-44e1-af9f-6613045a5c5a-profile_image-150x150.png",
+      "sha256": "2f57d4740e7ed68a61d441181b274bfa98f2884de53ba41cd9d462ec2f204bfa"
+    },
+    {
+      "creator_id": "hiltyha",
+      "channel": "https://www.twitch.tv/hiltyha",
+      "path": "res://assets/ui/avatars/streamer_hiltyha.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/5fff5c87-3d33-4003-8730-7707886d25ea-profile_image-150x150.png",
+      "sha256": "b972afd5bee551199b8f83e73fe5ceedeebab9b80fa3fb1bfcf3dd27814d59e7"
+    },
+    {
+      "creator_id": "evikey",
+      "channel": "https://www.twitch.tv/evikey",
+      "path": "res://assets/ui/avatars/streamer_evikey.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/50fe242c-ea62-4871-aef8-77f96356ecd1-profile_image-150x150.png",
+      "sha256": "fab19d1139323c9c369c064d9d6a819544a95afaed8f89c087d795741561c2af"
+    },
+    {
+      "creator_id": "bezbash",
+      "channel": "https://www.twitch.tv/bezbash",
+      "path": "res://assets/ui/avatars/streamer_bezbash.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/9a472d56-9878-48d7-bb1a-2453398ba89d-profile_image-150x150.png",
+      "sha256": "34833ac4a36d6b9560fe25bb317f7830e27069777c409c7e76c0c53ba50ea025"
+    },
+    {
+      "creator_id": "j05k1y",
+      "channel": "https://www.twitch.tv/j05k1y",
+      "path": "res://assets/ui/avatars/streamer_j05k1y.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/369d1d37-a60c-48f1-b1df-804274ce2707-profile_image-150x150.png",
+      "sha256": "2b3e0a37366eacc322ac4c4c65aa95f689b77cbaac435f04be13d8add2a0cc4d"
+    },
+    {
+      "creator_id": "cemka",
+      "channel": "https://www.twitch.tv/cemka",
+      "fallback_reason": "No public channel avatar"
+    },
+    {
+      "creator_id": "thereisnofuture",
+      "channel": "https://www.twitch.tv/thereisnofuture",
+      "path": "res://assets/ui/avatars/streamer_thereisnofuture.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/8445ab17-aba5-4794-9173-3a2d9aa3c07a-profile_image-150x150.png",
+      "sha256": "29ce93d0bc27a0707f0aa517af970c1280013805a9e8a277abe095de33690771"
+    },
+    {
+      "creator_id": "mugretnug",
+      "channel": "https://www.twitch.tv/mugretnug",
+      "path": "res://assets/ui/avatars/streamer_mugretnug.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/254d0a28-074e-48f4-ae43-68bcd9852e57-profile_image-150x150.png",
+      "sha256": "cf3a1585172c759a5fab2a9b1ff1834ade33d33f83f5063f4b7659bb7bf8b7c8"
+    },
+    {
+      "creator_id": "1uke337",
+      "channel": "https://www.twitch.tv/1uke337",
+      "path": "res://assets/ui/avatars/streamer_1uke337.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/fd7697d7-df34-4195-9f93-16252ccf3e7a-profile_image-150x150.png",
+      "sha256": "d1a91339c71e0538d1d6c78820484baa0cd727afdcfb8a2a119cf2c1328eef4b"
+    },
+    {
+      "creator_id": "kesikton",
+      "channel": "https://www.twitch.tv/kesikton",
+      "fallback_reason": "No public channel avatar"
+    },
+    {
+      "creator_id": "lollipop21k",
+      "channel": "https://www.twitch.tv/lollipop21k",
+      "path": "res://assets/ui/avatars/streamer_lollipop21k.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/ff4da058-5779-4bf5-93c3-587514864698-profile_image-150x150.png",
+      "sha256": "6903c7edf2d3fe11dc0d76d59d0930380ef8d8696bffff26639858e5519395d9"
+    },
+    {
+      "creator_id": "hesoyamof1974",
+      "channel": "https://www.twitch.tv/hesoyamof1974",
+      "fallback_reason": "No public channel avatar"
+    },
+    {
+      "creator_id": "shevronin",
+      "channel": "https://www.twitch.tv/shevronin",
+      "path": "res://assets/ui/avatars/streamer_shevronin.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/8a68dad3-3306-4739-9453-9759eb102662-profile_image-150x150.png",
+      "sha256": "83cac81eb597b92a4f2d9ef7fdced9bd29f837dad133a6dc11bfdb389cec1539"
+    },
+    {
+      "creator_id": "near_you",
+      "channel": "https://www.twitch.tv/near_you",
+      "path": "res://assets/ui/avatars/streamer_near_you.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/9424a877-5ff6-4be8-8a3a-76db7b5ce60f-profile_image-150x150.png",
+      "sha256": "ef912b4cb5731c23b727a1334471ea347df029553d165533a718142477e0520a"
+    },
+    {
+      "creator_id": "walkonte",
+      "channel": "https://www.twitch.tv/walkonte",
+      "path": "res://assets/ui/avatars/streamer_walkonte.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/33086d55-1380-4bb7-9281-11ecda49cda1-profile_image-150x150.png",
+      "sha256": "22290570a22ae6c7e7e8101f9e9e13c9993e3e7b0ebffc676d49b13a2324103a"
+    },
+    {
+      "creator_id": "nix",
+      "channel": "https://www.twitch.tv/nix",
+      "fallback_reason": "No public channel avatar"
+    },
+    {
+      "creator_id": "dota2ti_ru",
+      "channel": "https://www.twitch.tv/dota2ti_ru",
+      "path": "res://assets/ui/avatars/streamer_dota2ti_ru.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/409eab04-b5b8-4c32-841b-6011f7effa4a-profile_image-150x150.png",
+      "sha256": "250d00f7553b698cd082b24fa72532ba9f2d105271eba97f67028461072733f7"
+    },
+    {
+      "creator_id": "shadowkekw",
+      "channel": "https://www.twitch.tv/shadowkekw",
+      "path": "res://assets/ui/avatars/streamer_shadowkekw.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/55a5e785-9c08-47f5-bcff-895224deb51f-profile_image-150x150.png",
+      "sha256": "c5bcf71d01ec6f3c6a01b66f966df9b4951e698943b8d75af419b1b27a3dd05d"
+    },
+    {
+      "creator_id": "chopperinho",
+      "channel": "https://www.twitch.tv/chopperinho",
+      "path": "res://assets/ui/avatars/streamer_chopperinho.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/5f83a0e1-c8c7-409d-ae4a-469a7ff5427d-profile_image-150x150.png",
+      "sha256": "92efece5c60169c395e8320891fbb0ccd3b425fe93bac6070d072b14a0f90b32"
+    },
+    {
+      "creator_id": "evelone2004",
+      "channel": "https://www.twitch.tv/evelone2004",
+      "path": "res://assets/ui/avatars/streamer_evelone2004.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/4af340ba-8d13-44e8-9e72-14c4c86d1f20-profile_image-150x150.png",
+      "sha256": "b0d60a723c98508396aeab7661c3b092c878e1ca5705442dd17297694403b72f"
+    },
+    {
+      "creator_id": "anarabdullaev",
+      "channel": "https://www.twitch.tv/anarabdullaev",
+      "path": "res://assets/ui/avatars/streamer_anarabdullaev.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/57dafab4-67fd-4a8f-9f04-81b1412925ae-profile_image-150x150.png",
+      "sha256": "7f4b469dda60f0d83a0206efb6833d93c47b684a10c0e47e58e77ef5a17a8a72"
+    },
+    {
+      "creator_id": "ramzes",
+      "channel": "https://www.twitch.tv/ramzes",
+      "path": "res://assets/ui/avatars/streamer_ramzes.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/09f74aa6-9df9-4d37-a686-7ee5ed29bca8-profile_image-150x150.png",
+      "sha256": "e22bb979b0af104bfb36585d46d3ac15e475db3ce55980197d953a41128bacaa"
+    },
+    {
+      "creator_id": "buster",
+      "channel": "https://www.twitch.tv/buster",
+      "path": "res://assets/ui/avatars/streamer_buster.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/96d66837-22f0-4393-89c5-2e5c2408485b-profile_image-150x150.png",
+      "sha256": "4d80c57d5b130e76bf8583e7f0731415196065ffdf64cad3b1785199c8b5a6d0"
+    },
+    {
+      "creator_id": "strogo",
+      "channel": "https://www.twitch.tv/strogo",
+      "path": "res://assets/ui/avatars/streamer_strogo.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/8a9c0603-7ff0-4189-bdc1-3072029a613d-profile_image-150x150.png",
+      "sha256": "a2f68d1a23df6eceec4124297562a32cc9b8ccd4b29f9d51478043af0307e28b"
+    },
+    {
+      "creator_id": "dangerlyoha",
+      "channel": "https://www.twitch.tv/dangerlyoha",
+      "fallback_reason": "No public channel avatar"
+    },
+    {
+      "creator_id": "deepins02",
+      "channel": "https://www.twitch.tv/deepins02",
+      "path": "res://assets/ui/avatars/streamer_deepins02.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/5537e5db-a0d9-489e-bc37-eb6609b6a713-profile_image-150x150.png",
+      "sha256": "f90dfa18ababc6edc6d60ada27dbde0868649fddf8c22522c453fb3fac46d638"
+    },
+    {
+      "creator_id": "leva2k",
+      "channel": "https://www.twitch.tv/leva2k",
+      "path": "res://assets/ui/avatars/streamer_leva2k.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/114d9819-5e2c-47d4-a7ca-a8e8e0509d9e-profile_image-150x150.png",
+      "sha256": "fb10ed94d37724f712c1e49607a19787425fdab2412bf01bd252d8404299d9ac"
+    },
+    {
+      "creator_id": "recrent",
+      "channel": "https://www.twitch.tv/recrent",
+      "path": "res://assets/ui/avatars/streamer_recrent.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/8e9ae092-d343-4f47-a65a-26ce3d2da6ab-profile_image-150x150.png",
+      "sha256": "d1b0acf7651f77668745538b4beea349e076052d31d1e8c68272dc46f095fe53"
+    },
+    {
+      "creator_id": "mellstroy",
+      "channel": "https://www.twitch.tv/mellstroy",
+      "path": "res://assets/ui/avatars/streamer_mellstroy.jpg",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/mellstroy-profile_image-ce67a84d927c03de-150x150.jpeg",
+      "sha256": "0c41ab9e2b97dcb0c6e6e88eb6f247f91853fe81a48df314d98f9efd7693b8d2"
+    },
+    {
+      "creator_id": "bratishkinoff",
+      "channel": "https://www.twitch.tv/bratishkinoff",
+      "path": "res://assets/ui/avatars/streamer_bratishkinoff.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/2596c7b9-81fc-4f64-be16-8456f3772c1a-profile_image-150x150.png",
+      "sha256": "fe47a345b468ffea957bb20ee538ba2f2898ef09119786ec497479f29aa5adff"
+    },
+    {
+      "creator_id": "just_ns",
+      "channel": "https://www.twitch.tv/just_ns",
+      "path": "res://assets/ui/avatars/streamer_just_ns.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/42b9ddab-e29a-4efb-9ac9-288b5093e031-profile_image-150x150.png",
+      "sha256": "16f0715c71e9978cc400fc5b98ccef178bd2b103e57cd21b59860242e814bc1d"
+    },
+    {
+      "creator_id": "betboom_cs_ru",
+      "channel": "https://www.twitch.tv/betboom_cs_ru",
+      "path": "res://assets/ui/avatars/streamer_betboom_cs_ru.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/7d63e447-49d4-4c37-a3ac-a59d83cf07e2-profile_image-150x150.png",
+      "sha256": "f6db0f08dff5d67970bbf3e42a90f29c71b13906615882cbe6a7a4d0f7c00de7"
+    },
+    {
+      "creator_id": "solo",
+      "channel": "https://www.twitch.tv/solo",
+      "path": "res://assets/ui/avatars/streamer_solo.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/ace181d4-f2e7-441c-80ae-f7de7bdf2036-profile_image-150x150.png",
+      "sha256": "73c21d8312a474c784efdf40c915d32d8391bbc923eb3fdc150e9a945e483cf2"
+    },
+    {
+      "creator_id": "t2x2",
+      "channel": "https://www.twitch.tv/t2x2",
+      "path": "res://assets/ui/avatars/streamer_t2x2.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/c3279fd1-6f68-4f40-bb7a-c358a6f7a492-profile_image-150x150.png",
+      "sha256": "f313e0d28bf01073aee260779e0348847a8c3ca6554acf0fb3f851c3e39a227c"
+    },
+    {
+      "creator_id": "deko",
+      "channel": "https://www.twitch.tv/deko",
+      "path": "res://assets/ui/avatars/streamer_deko.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/99c6e2ab-8acf-4c72-9fd6-8d6945f901e8-profile_image-150x150.png",
+      "sha256": "9d18b9affd236b74938c9a59296cdaa3026f16bb4c8e2c85fae6e8959bf0c0a0"
+    },
+    {
+      "creator_id": "avice",
+      "channel": "https://www.twitch.tv/avice",
+      "path": "res://assets/ui/avatars/streamer_avice.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/25da635a-0d2b-4b40-b7f3-742c68c3e717-profile_image-150x150.png",
+      "sha256": "bd36bcad390f127281a8e31a2456f92a3cb778b0f4599d0084f52a25ab6d4f4e"
+    },
+    {
+      "creator_id": "rostislav_999",
+      "channel": "https://www.twitch.tv/rostislav_999",
+      "path": "res://assets/ui/avatars/streamer_rostislav_999.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/f5d92185-4d9d-4995-baf2-1089975f5c91-profile_image-150x150.png",
+      "sha256": "7be0aa92196c1e2d4ea5aed99b1e49a4b1d480b4ec946317629b25837a6182ee"
+    },
+    {
+      "creator_id": "97zoner",
+      "channel": "https://www.twitch.tv/97zoner",
+      "path": "res://assets/ui/avatars/streamer_97zoner.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/199e59d8-aaaf-4bbe-9aad-2a0c5f14f2d5-profile_image-150x150.png",
+      "sha256": "25c05b32db87418753f6a655623d07e2ec9bf1a4fc01d537cfbe37c71bdf29dd"
+    },
+    {
+      "creator_id": "skywhywalker",
+      "channel": "https://www.twitch.tv/skywhywalker",
+      "path": "res://assets/ui/avatars/streamer_skywhywalker.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/6cf5c0a9-24f3-4e63-8433-022ef586e279-profile_image-150x150.png",
+      "sha256": "9d1931704ffc49990de8a0cee6463b0aee015bf058199f45f5f845b740236a37"
+    },
+    {
+      "creator_id": "ravshann",
+      "channel": "https://www.twitch.tv/ravshann",
+      "path": "res://assets/ui/avatars/streamer_ravshann.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/d9690761-26f0-463a-8648-4fb7ca7bd4b6-profile_image-150x150.png",
+      "sha256": "b7025f730da128320c708a928351c6111c2681df704323f18617468a16a0ddc4"
+    },
+    {
+      "creator_id": "sasavot",
+      "channel": "https://www.twitch.tv/sasavot",
+      "path": "res://assets/ui/avatars/streamer_sasavot.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/c1372b44-c4c9-451d-867e-377b0d227756-profile_image-150x150.png",
+      "sha256": "8924fc4b5b37a7e32d59c1a3ad83d9ee67798e669b4bb8f02fa09b59e2dc35d6"
+    },
+    {
+      "creator_id": "d1pro4",
+      "channel": "https://www.twitch.tv/d1pro4",
+      "path": "res://assets/ui/avatars/streamer_d1pro4.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/2ad025cf-2cf6-4cc2-b27b-663abd4f0e70-profile_image-150x150.png",
+      "sha256": "1cc3ca70f1ecd37d7fbbcd03c3cab772721cb0bf904e3e67cd981c7fb7db0967"
+    },
+    {
+      "creator_id": "aunkere",
+      "channel": "https://www.twitch.tv/aunkere",
+      "path": "res://assets/ui/avatars/streamer_aunkere.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/92c5a182-3a76-4116-82cf-89758b7025b3-profile_image-150x150.png",
+      "sha256": "168c321146d6fadf22c66687c314ba4fd8eafa117a80dcedb7c73d9f9c12c630"
+    },
+    {
+      "creator_id": "lenagol0vach",
+      "channel": "https://www.twitch.tv/lenagol0vach",
+      "path": "res://assets/ui/avatars/streamer_lenagol0vach.jpg",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/lenagol0vach-profile_image-c2f1c1192fe3a731-150x150.jpeg",
+      "sha256": "2ba0865c0cf8ec66dd94eb6ad1205f3846bb015d3750413d621c094c77dd6530"
+    },
+    {
+      "creator_id": "aslanshukasha",
+      "channel": "https://www.twitch.tv/aslanshukasha",
+      "fallback_reason": "No public channel avatar"
+    },
+    {
+      "creator_id": "olesha",
+      "channel": "https://www.twitch.tv/olesha",
+      "path": "res://assets/ui/avatars/streamer_olesha.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/4257685a-f572-4f27-840b-e4eda6bc833b-profile_image-150x150.png",
+      "sha256": "cbb014f7025c5b8c0eb544ece14c028236be8b7ac1200b0964caa3238e4cbba1"
+    },
+    {
+      "creator_id": "koma",
+      "channel": "https://www.twitch.tv/koma",
+      "path": "res://assets/ui/avatars/streamer_koma.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/d5a8e8aa-2b8e-4f84-bc00-fb84776f856b-profile_image-150x150.png",
+      "sha256": "9c58f049a4ef428a3908e5f9f9fd75d2ff71f3849b29a57fef06b5937b2f374c"
+    },
+    {
+      "creator_id": "ct0m",
+      "channel": "https://www.twitch.tv/ct0m",
+      "path": "res://assets/ui/avatars/streamer_ct0m.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/595df469-4703-44cf-9f8c-90bb827cf354-profile_image-150x150.png",
+      "sha256": "c63912ec29ce3d47df6b1003e52d590e30854480cef96709572fb45640b8b2ce"
+    },
+    {
+      "creator_id": "silvername",
+      "channel": "https://www.twitch.tv/silvername",
+      "path": "res://assets/ui/avatars/streamer_silvername.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/b880d4ea-9d95-4ffc-a1f3-00eb1cb332ae-profile_image-150x150.png",
+      "sha256": "9db5ace79c51b9b3e5036525a85dbc888a35ce04c135a16dd2979f753acc5a93"
+    },
+    {
+      "creator_id": "stintik",
+      "channel": "https://www.twitch.tv/stintik",
+      "path": "res://assets/ui/avatars/streamer_stintik.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/1fdc84cb-9f9d-48a3-b84f-b5944d76cb82-profile_image-150x150.png",
+      "sha256": "1ca02a81f70c05e45db532fb02f353bc5f6673db709b67fab791a4426b3e5a54"
+    },
+    {
+      "creator_id": "nicoleheart23",
+      "channel": "https://www.twitch.tv/nicoleheart23",
+      "path": "res://assets/ui/avatars/streamer_nicoleheart23.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/d7180b2a-3205-4b4b-8431-f726e40910a6-profile_image-150x150.png",
+      "sha256": "19e26fb4c75974a7b2a7bff9f79bb065f8393c5f969b4637b311bc35c5478060"
+    },
+    {
+      "creator_id": "edison",
+      "channel": "https://www.twitch.tv/edison",
+      "path": "res://assets/ui/avatars/streamer_edison.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/ecbc81a4-42f6-47e3-9304-b14764fcec14-profile_image-150x150.png",
+      "sha256": "dc2fb5a418fed2f9f6ea6eec541246d66d653c488dc6e58fd403d2ea429f66da"
+    },
+    {
+      "creator_id": "enzzai",
+      "channel": "https://www.twitch.tv/enzzai",
+      "path": "res://assets/ui/avatars/streamer_enzzai.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/a8391378-5f78-4737-8734-93bdbb02db30-profile_image-150x150.png",
+      "sha256": "892d02638753f294f36b9f4b536893b2cad29b6f3616d7741f67e73418f293b6"
+    },
+    {
+      "creator_id": "dmitry_lixxx",
+      "channel": "https://www.twitch.tv/dmitry_lixxx",
+      "path": "res://assets/ui/avatars/streamer_dmitry_lixxx.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/338e8041-6289-4ba4-9029-d11f54153443-profile_image-150x150.png",
+      "sha256": "8b5280dd92fb0ca247a92c21130d3622c34c428996532c7d7cda5b77fbf41078"
+    },
+    {
+      "creator_id": "rivokizbednosti",
+      "channel": "https://www.twitch.tv/rivokizbednosti",
+      "path": "res://assets/ui/avatars/streamer_rivokizbednosti.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/9ebbc7ab-da46-4d7f-b3fb-6bf4db26af96-profile_image-150x150.png",
+      "sha256": "37cdf8f9458dd3c4333a367765ed729af26e0d18e90097eca19f74d86b664a8a"
+    },
+    {
+      "creator_id": "guacamolemolly",
+      "channel": "https://www.twitch.tv/guacamolemolly",
+      "path": "res://assets/ui/avatars/streamer_guacamolemolly.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/e74f1812-0c89-4bf6-8d68-90fc7a48c42e-profile_image-150x150.png",
+      "sha256": "b8235de8d3e38327cfa85fbb21c36b7ab49188ad5ba78debcd23a2464870ed48"
+    },
+    {
+      "creator_id": "judah_xx",
+      "channel": "https://www.twitch.tv/judah_xx",
+      "path": "res://assets/ui/avatars/streamer_judah_xx.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/d378e9eb-aa20-4ba4-80af-d0feba209814-profile_image-150x150.png",
+      "sha256": "4e1c918e1c25afa4eb204bcd35e75e574e21748c4d79d663b7ed4e8ce57fb9b9"
+    },
+    {
+      "creator_id": "drakeoffc",
+      "channel": "https://www.twitch.tv/drakeoffc",
+      "path": "res://assets/ui/avatars/streamer_drakeoffc.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/1d8995c2-0c09-4422-9281-adba8b9461fb-profile_image-150x150.png",
+      "sha256": "ae868f9eed68698d18d19f72aa7bbf628f09948ce91e7c273fde2ba2c74c4334"
+    },
+    {
+      "creator_id": "sleduck",
+      "channel": "https://www.twitch.tv/sleduck",
+      "path": "res://assets/ui/avatars/streamer_sleduck.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/3d6391d0-90d5-41c2-85a7-1e2415bc4ea9-profile_image-150x150.png",
+      "sha256": "b48928b24f267749cfd8189d2a5e2531f84312158574353634a2f66bc62fa7aa"
+    },
+    {
+      "creator_id": "heartdota23",
+      "channel": "https://www.twitch.tv/heartdota23",
+      "path": "res://assets/ui/avatars/streamer_heartdota23.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/b3d97fa3-8638-4caf-964b-de00d217b742-profile_image-150x150.png",
+      "sha256": "8d1aa52e6454b2f4005822a539339e08237736383886a3ac336b34b162e6756e"
+    },
+    {
+      "creator_id": "dunduk",
+      "channel": "https://www.twitch.tv/dunduk",
+      "path": "res://assets/ui/avatars/streamer_dunduk.jpg",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/34f3d4fd-4018-4f49-8558-8efbba90f199-profile_image-150x150.jpg",
+      "sha256": "234d3cc1d01714d973221076bfd05b6f842706d81e3ffb694679a529d6749771"
+    },
+    {
+      "creator_id": "mazoni",
+      "channel": "https://www.twitch.tv/mazoni",
+      "path": "res://assets/ui/avatars/streamer_mazoni.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/a8dda47b-be45-4b2d-b01b-6fa2497450ab-profile_image-150x150.png",
+      "sha256": "6a8faa09f16eb0a9bad156f754e3954483111aa59af249d354dec3f253910c53"
+    },
+    {
+      "creator_id": "steel",
+      "channel": "https://www.twitch.tv/steel",
+      "path": "res://assets/ui/avatars/streamer_steel.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/80027c30-3fca-4401-ac76-f2aedae1bfe6-profile_image-150x150.png",
+      "sha256": "020451af93b41b3d666f2908c938904c29e6d09b7c031738b51c5a1324188f62"
+    },
+    {
+      "creator_id": "danila_gorilla",
+      "channel": "https://www.twitch.tv/danila_gorilla",
+      "path": "res://assets/ui/avatars/streamer_danila_gorilla.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/5acf2e25-e8ce-421e-a9c6-ba029e38848b-profile_image-150x150.png",
+      "sha256": "469d145a571fbee820d0afdbcf48aef3a7a17474a52c5c081e4fcba5acb52df2"
+    },
+    {
+      "creator_id": "n3koglai",
+      "channel": "https://www.twitch.tv/n3koglai",
+      "path": "res://assets/ui/avatars/streamer_n3koglai.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/1033db5d-c27c-4a2b-8a7d-3b4938503dc9-profile_image-150x150.png",
+      "sha256": "0af444763c024e7ccc20c2d7fc867ef0e14ea41bc7feffc950f03d19baa209dc"
+    },
+    {
+      "creator_id": "jojohf",
+      "channel": "https://www.twitch.tv/jojohf",
+      "path": "res://assets/ui/avatars/streamer_jojohf.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/79c6a7cd-4ea0-48b7-aee9-5833c26413ce-profile_image-150x150.png",
+      "sha256": "e9130790f33787d5b4304ff2f66a47c9e63e12ceaa5d968d23416c4f83e14478"
+    },
+    {
+      "creator_id": "akyuliych",
+      "channel": "https://www.twitch.tv/akyuliych",
+      "path": "res://assets/ui/avatars/streamer_akyuliych.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/7362477d-029b-481a-8121-f4bf9ce09704-profile_image-150x150.png",
+      "sha256": "552f6de9a7af0c6802f480588cd16c08dc4fdc3775237df17a15a8c07fb2d032"
+    },
+    {
+      "creator_id": "5opka",
+      "channel": "https://www.twitch.tv/5opka",
+      "fallback_reason": "No public channel avatar"
+    },
+    {
+      "creator_id": "ahrinyan",
+      "channel": "https://www.twitch.tv/ahrinyan",
+      "path": "res://assets/ui/avatars/streamer_ahrinyan.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/db762479-14fd-4485-aced-24014353fc18-profile_image-150x150.png",
+      "sha256": "dab89a02d2197b38d0e0e663724dd2614b7a97a0471d421b6505876586aa586c"
+    },
+    {
+      "creator_id": "ekatze007",
+      "channel": "https://www.twitch.tv/ekatze007",
+      "fallback_reason": "No public channel avatar"
+    },
+    {
+      "creator_id": "hardgamechannel",
+      "channel": "https://www.twitch.tv/hardgamechannel",
+      "path": "res://assets/ui/avatars/streamer_hardgamechannel.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/f2a5b3e7-aed2-4c4c-a7b8-9e96a1ebd49a-profile_image-150x150.png",
+      "sha256": "b12dd2a636f7ec5a29f0433320cbd2719b40d7a4e0c0ad6612af7af026d92fd8"
+    },
+    {
+      "creator_id": "fenya",
+      "channel": "https://www.twitch.tv/fenya",
+      "path": "res://assets/ui/avatars/streamer_fenya.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/fenya-profile_image-4a5b2d24ef480f68-150x150.png",
+      "sha256": "d1e46ec1cae4ae818721ee68790b62dec581491a3a9e5c2edcb2309ac3131990"
+    },
+    {
+      "creator_id": "dreadztv",
+      "channel": "https://www.twitch.tv/dreadztv",
+      "path": "res://assets/ui/avatars/streamer_dreadztv.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/71a805ae-e53e-405e-8a4a-b3bbb6bfc178-profile_image-150x150.png",
+      "sha256": "e2779f08272732e1553370d1455ae2d579dbb6ab56add71e17646e84f172b45e"
+    },
+    {
+      "creator_id": "yuuechka",
+      "channel": "https://www.twitch.tv/yuuechka",
+      "path": "res://assets/ui/avatars/streamer_yuuechka.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/e4e3a27b-2ab2-406c-825e-a793c3a53564-profile_image-150x150.png",
+      "sha256": "53ebff0000ab1c3aeafbfd89e2130158d207ddcdbbe66936911967de43d96e65"
+    },
+    {
+      "creator_id": "poka",
+      "channel": "https://www.twitch.tv/poka",
+      "path": "res://assets/ui/avatars/streamer_poka.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/43f6cbbd-52de-4cbc-a4c2-1a5c6d024a3a-profile_image-150x150.png",
+      "sha256": "3f3ae3d370c11f2b5c7f4eee1c92bc76fc67120861246ee05b8bb6790c0ae041"
+    },
+    {
+      "creator_id": "leemodopi",
+      "channel": "https://www.twitch.tv/leemodopi",
+      "path": "res://assets/ui/avatars/streamer_leemodopi.jpg",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/6424d8ae-d18f-4d19-9015-f8b5c0308e60-profile_image-150x150.jpeg",
+      "sha256": "cb8fe78c59f8aea736d79db3ae7382d0809ba9ce9cfcd359471b83f49cd2ea0a"
+    },
+    {
+      "creator_id": "yungfimoz",
+      "channel": "https://www.twitch.tv/yungfimoz",
+      "path": "res://assets/ui/avatars/streamer_yungfimoz.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/003e6a4b-6ff2-4608-b40c-a421610e6779-profile_image-150x150.png",
+      "sha256": "ff28736ba8c8a215e4f7647e8621ff56743e1a7a13614bece58609fe53819602"
+    },
+    {
+      "creator_id": "archangel_hs",
+      "channel": "https://www.twitch.tv/archangel_hs",
+      "path": "res://assets/ui/avatars/streamer_archangel_hs.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/8b6fc385-6f4b-460c-9b69-c5e9c9e06f75-profile_image-150x150.png",
+      "sha256": "3531326049fb8407ee7addad64ab5ce5b8ad5c20324925646812f17a093f178a"
+    },
+    {
+      "creator_id": "dinablin",
+      "channel": "https://www.twitch.tv/dinablin",
+      "path": "res://assets/ui/avatars/streamer_dinablin.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/d1cbaae7-79df-4b31-884f-3694e64f514a-profile_image-150x150.png",
+      "sha256": "11450cff61c0ff5861ff8b6a57d93f627de3df602dc877974784430da46c16da"
+    },
+    {
+      "creator_id": "modestal",
+      "channel": "https://www.twitch.tv/modestal",
+      "path": "res://assets/ui/avatars/streamer_modestal.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/8b5e9223-39e3-4132-9693-6175f531f691-profile_image-150x150.png",
+      "sha256": "7103a80efd07c1240884191473685d232c362a1ddb410c9d23c52e7bdc7ceaf9"
+    },
+    {
+      "creator_id": "tati",
+      "channel": "https://www.twitch.tv/tati",
+      "path": "res://assets/ui/avatars/streamer_tati.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/85cb7158-0ca4-4584-a651-1886806eebdd-profile_image-150x150.png",
+      "sha256": "653bf37d79bfd77a9fa74a40496f900c3333309414fa3371683c2de04e05467d"
+    },
+    {
+      "creator_id": "mixazver",
+      "channel": "https://www.twitch.tv/mixazver",
+      "path": "res://assets/ui/avatars/streamer_mixazver.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/84a04282-94a9-4262-ad4c-f31f118ad2b7-profile_image-150x150.png",
+      "sha256": "ca550eaa8113323604fe5867d244e75440429ed7f7d41ed2842b4ec5d749f647"
+    },
+    {
+      "creator_id": "dosia_csgo",
+      "channel": "https://www.twitch.tv/dosia_csgo",
+      "path": "res://assets/ui/avatars/streamer_dosia_csgo.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/8629daa1-ff1c-4fc7-a07c-e7a3557577bc-profile_image-150x150.png",
+      "sha256": "70082dd7ed63f031cc067392c5924b9283b84aa3a97471798ac81e2274d4c6a0"
+    },
+    {
+      "creator_id": "pwgood",
+      "channel": "https://www.twitch.tv/pwgood",
+      "path": "res://assets/ui/avatars/streamer_pwgood.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/5221d54c-3507-42cc-bea4-2832cd1300d7-profile_image-150x150.png",
+      "sha256": "b99aac57ddb0f552dc2e22eb9e62522c55c7ae1ec75d733d5064d1aa8141b7e6"
+    },
+    {
+      "creator_id": "ivanzolo578",
+      "channel": "https://www.twitch.tv/ivanzolo578",
+      "path": "res://assets/ui/avatars/streamer_ivanzolo578.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/28d03338-2df6-4e60-b47c-b755eb47d4a6-profile_image-150x150.png",
+      "sha256": "ad572b8429c6ce3033f7b9242382ceaeeb3ffc0b157673ac599b2bd77f477896"
+    },
+    {
+      "creator_id": "dasha228play",
+      "channel": "https://www.twitch.tv/dasha228play",
+      "path": "res://assets/ui/avatars/streamer_dasha228play.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/c12d9708-19e5-410a-8681-257288886063-profile_image-150x150.png",
+      "sha256": "94f844ad4643dfb741adc8a7a7b1de3ecac00b8b49559e6d98ec9c68643a1ae4"
+    },
+    {
+      "creator_id": "fcsm_kefir",
+      "channel": "https://www.twitch.tv/fcsm_kefir",
+      "fallback_reason": "No public channel avatar"
+    },
+    {
+      "creator_id": "igromania",
+      "channel": "https://www.twitch.tv/igromania",
+      "path": "res://assets/ui/avatars/streamer_igromania.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/07c7c961-f504-497a-81f0-fdb2187d230d-profile_image-150x150.png",
+      "sha256": "7c2468d0c362f8b7f8b39650fd7da9fd543262fcfd0c0ff737389a8ac4483fba"
+    },
+    {
+      "creator_id": "gohamedia",
+      "channel": "https://www.twitch.tv/gohamedia",
+      "path": "res://assets/ui/avatars/streamer_gohamedia.jpg",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/gohamedia-profile_image-e8d2a20bf1c4d187-150x150.jpeg",
+      "sha256": "865cfde07bba8529094dc3dcac92100d5c0a26133862704d0743ae4a7af43108"
+    },
+    {
+      "creator_id": "cartmanzbs",
+      "channel": "https://www.twitch.tv/cartmanzbs",
+      "fallback_reason": "No public channel avatar"
+    },
+    {
+      "creator_id": "ggwplanaya",
+      "channel": "https://www.twitch.tv/ggwplanaya",
+      "path": "res://assets/ui/avatars/streamer_ggwplanaya.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/d5ed8ad4-e3b8-47e3-8858-adeaa35e46c2-profile_image-150x150.png",
+      "sha256": "578d43791a9b1a03fd9f784c3a413a391a32a4c5e2bc08f4656ee1e35af69ed3"
+    },
+    {
+      "creator_id": "rxnexus",
+      "channel": "https://www.twitch.tv/rxnexus",
+      "path": "res://assets/ui/avatars/streamer_rxnexus.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/3a88ab62-5d2e-4772-9249-ca76c6a1d2c3-profile_image-150x150.png",
+      "sha256": "e2db500348a9e437a2ce81d9238b077793d9f57fa7d010c8a93b357e75849964"
+    },
+    {
+      "creator_id": "seregagibon",
+      "channel": "https://www.twitch.tv/seregagibon",
+      "fallback_reason": "No public channel avatar"
+    },
+    {
+      "creator_id": "gnumme",
+      "channel": "https://www.twitch.tv/gnumme",
+      "path": "res://assets/ui/avatars/streamer_gnumme.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/b5f391f0-edca-4490-bc14-5c80558d6e24-profile_image-150x150.png",
+      "sha256": "9ec8f3b64d60f10a0f68d2a5808c805c4f5be4f5830c226cef58ddc27a564714"
+    },
+    {
+      "creator_id": "adm1tr1pow",
+      "channel": "https://www.twitch.tv/adm1tr1pow",
+      "path": "res://assets/ui/avatars/streamer_adm1tr1pow.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/44449744-378b-4956-a257-92b60f29fe73-profile_image-150x150.png",
+      "sha256": "722535d42d76ef2257c5f8abd70affa6b20a60e24940bd797486bd02ac08f540"
+    },
+    {
+      "creator_id": "zhenyalarkin",
+      "channel": "https://www.twitch.tv/zhenyalarkin",
+      "path": "res://assets/ui/avatars/streamer_zhenyalarkin.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/d3f6dc07-0be3-4771-a0e3-98a667e147ab-profile_image-150x150.png",
+      "sha256": "6c82b1ccfee9f1d25b9e9e6d780d97fd72caf8f9b3c47306b688d54bb9ee9356"
+    },
+    {
+      "creator_id": "vitecp",
+      "channel": "https://www.twitch.tv/vitecp",
+      "fallback_reason": "No public channel avatar"
+    },
+    {
+      "creator_id": "chr1swave",
+      "channel": "https://www.twitch.tv/chr1swave",
+      "path": "res://assets/ui/avatars/streamer_chr1swave.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/0675ba9e-1ca6-4cda-bc16-e4c2f663f627-profile_image-150x150.png",
+      "sha256": "3db4ffbecdede9f8b08fa10a3f03edb07fceb33796a2e8954a9dea9b1c4594c4"
+    },
+    {
+      "creator_id": "zeus",
+      "channel": "https://www.twitch.tv/zeus",
+      "path": "res://assets/ui/avatars/streamer_zeus.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/96fcc641-c25d-4aa6-b1d1-bbed56507d1f-profile_image-150x150.png",
+      "sha256": "c53ec60282a035f5013c63116ff7922aceff6fa339a0355f6446222528ed8733"
+    },
+    {
+      "creator_id": "morphilina",
+      "channel": "https://www.twitch.tv/morphilina",
+      "path": "res://assets/ui/avatars/streamer_morphilina.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/f760571c-36a8-4f76-b918-ee54e97713a6-profile_image-150x150.png",
+      "sha256": "a8769d41fc2afb4f6056211fbcb608d7924815e24a8bf1c7e742f4af45802d5b"
+    },
+    {
+      "creator_id": "loru77",
+      "channel": "https://www.twitch.tv/loru77",
+      "path": "res://assets/ui/avatars/streamer_loru77.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/26d5b6d3-51b8-47ee-80c2-653d949bf298-profile_image-150x150.png",
+      "sha256": "9259c477603b1c127d6e323e341dc244a069b0609db3da4386500289f72cdbb4"
+    },
+    {
+      "creator_id": "znat51",
+      "channel": "https://www.twitch.tv/znat51",
+      "path": "res://assets/ui/avatars/streamer_znat51.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/549e8987-2885-4435-b5f5-584ae778df7f-profile_image-150x150.png",
+      "sha256": "4cb693a467eccedf6fb9499c70871c8a0e1267f7f46eb9e4b34e2ba4d43c60da"
+    },
+    {
+      "creator_id": "watchfultv",
+      "channel": "https://www.twitch.tv/watchfultv",
+      "path": "res://assets/ui/avatars/streamer_watchfultv.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/9e44c8e1-d40c-4cf6-b807-96e1b0bd0914-profile_image-150x150.png",
+      "sha256": "9b0a1c0340ef8e991cf59b5f74e98c57d8fd1d9fb6b12ec13452b7ead538c694"
+    },
+    {
+      "creator_id": "standoff2esports_ru",
+      "channel": "https://www.twitch.tv/standoff2esports_ru",
+      "path": "res://assets/ui/avatars/streamer_standoff2esports_ru.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/45c8a621-96cd-4902-b16b-800e995dcb18-profile_image-150x150.png",
+      "sha256": "f06880898c1cd67c46e19eccd083f4be5212df12e218f46daad93de690bbcc11"
+    },
+    {
+      "creator_id": "risazatvorchestvo",
+      "channel": "https://www.twitch.tv/risazatvorchestvo",
+      "path": "res://assets/ui/avatars/streamer_risazatvorchestvo.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/ba2c68d8-1f6c-4a89-8abd-703e30b01c4b-profile_image-150x150.png",
+      "sha256": "c9b8736c74144bf6eb2012631393edcb91c9d16f3c5cbc75a9255a9ee2b4699e"
+    },
+    {
+      "creator_id": "finogenof",
+      "channel": "https://www.twitch.tv/finogenof",
+      "path": "res://assets/ui/avatars/streamer_finogenof.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/b48d2ab0-b7de-4dd3-858f-bdeca1038176-profile_image-150x150.png",
+      "sha256": "d8eb9b5843bd7d7924d9932ddfd71f1c23f4809d273edafc753184685ac05498"
+    },
+    {
+      "creator_id": "torontotokyo17",
+      "channel": "https://www.twitch.tv/torontotokyo17",
+      "path": "res://assets/ui/avatars/streamer_torontotokyo17.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/aa143a9c-5ab8-490a-b198-05cbee16e1ed-profile_image-150x150.png",
+      "sha256": "7308097249584f0c5ee2eefa47fb94425e31805e68df93ce696c524cade73d97"
+    },
+    {
+      "creator_id": "abizaka",
+      "channel": "https://www.twitch.tv/abizaka",
+      "fallback_reason": "No public channel avatar"
+    },
+    {
+      "creator_id": "akumaqqe",
+      "channel": "https://www.twitch.tv/akumaqqe",
+      "path": "res://assets/ui/avatars/streamer_akumaqqe.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/78f3d615-8668-490a-b778-aa8afd5d2b25-profile_image-150x150.png",
+      "sha256": "94ba1e9cacd1d69db54c4265c68f0343665b20a934baa5f1eed06016b16e071d"
+    },
+    {
+      "creator_id": "followkudes",
+      "channel": "https://www.twitch.tv/followkudes",
+      "path": "res://assets/ui/avatars/streamer_followkudes.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/1000d6c3-78a8-4b6b-999e-4e94e3e101fa-profile_image-150x150.png",
+      "sha256": "9d16ad542bfb78161f3ddf2cc14ee703b4d159a0f084bb17a2992da31850a97a"
+    },
+    {
+      "creator_id": "1mpala",
+      "channel": "https://www.twitch.tv/1mpala",
+      "path": "res://assets/ui/avatars/streamer_1mpala.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/f7abcdc4-f1db-4946-a946-9cb7696c48b7-profile_image-150x150.png",
+      "sha256": "718eaf8cf194e0be5f6f9917211b681e46742dadf3023b61449fc173d6e65a2f"
+    },
+    {
+      "creator_id": "i_olga",
+      "channel": "https://www.twitch.tv/i_olga",
+      "path": "res://assets/ui/avatars/streamer_i_olga.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/cbfba3c0-8f0c-4ada-8035-41443bf780ee-profile_image-150x150.png",
+      "sha256": "2e7fee492ee59a00f7eb5295b35a3008e81d1ad8428bf33a1d63d9692f0d8651"
+    },
+    {
+      "creator_id": "dariapsina",
+      "channel": "https://www.twitch.tv/dariapsina",
+      "path": "res://assets/ui/avatars/streamer_dariapsina.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/2620dca5-ab0c-406c-bc6e-0006d0d0f715-profile_image-150x150.png",
+      "sha256": "b04212117711d2def5a991bba3d43de96ff69d674b948153f84dd1fc42120583"
+    },
+    {
+      "creator_id": "uzorrrr",
+      "channel": "https://www.twitch.tv/uzorrrr",
+      "path": "res://assets/ui/avatars/streamer_uzorrrr.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/ee033fef-eca5-4a57-974f-7559c6c10728-profile_image-150x150.png",
+      "sha256": "f17d8c143e845014c9d55379ec6074e224154841f85339adfd8ff47e9fab5304"
+    },
+    {
+      "creator_id": "nelyaray",
+      "channel": "https://www.twitch.tv/nelyaray",
+      "path": "res://assets/ui/avatars/streamer_nelyaray.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/97ef418d-2dab-4665-bf49-39e14e2c8f9a-profile_image-150x150.png",
+      "sha256": "ae1be346bef58f1301b253f1e55c29d7efd3ddda0c5f810ab1f6d64deba22957"
+    },
+    {
+      "creator_id": "b3brina",
+      "channel": "https://www.twitch.tv/b3brina",
+      "path": "res://assets/ui/avatars/streamer_b3brina.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/df0fcfbe-3456-48b1-891a-72bcf42bfa67-profile_image-150x150.png",
+      "sha256": "e9da89dbc2a040211dd03cca0b54c1da0578b518a049ce747f55cc8cfacc37b1"
+    },
+    {
+      "creator_id": "tsar_65",
+      "channel": "https://www.twitch.tv/tsar_65",
+      "path": "res://assets/ui/avatars/streamer_tsar_65.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/7fffe7a5-be3c-4661-828b-6974ad8b5b83-profile_image-150x150.png",
+      "sha256": "9e6c8ec18af228af3aa425d6ce3278e2bd00ba119413dbe2030a5efdd31574f9"
+    },
+    {
+      "creator_id": "nowkies",
+      "channel": "https://www.twitch.tv/nowkies",
+      "path": "res://assets/ui/avatars/streamer_nowkies.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/7ca0ec84-e293-41d8-a73b-7d443260945d-profile_image-150x150.png",
+      "sha256": "4bd5812e8d96b5496ab116e8adff671f79bd952384808eec90eda694f38e9d4a"
+    },
+    {
+      "creator_id": "pandafxfx",
+      "channel": "https://www.twitch.tv/pandafxfx",
+      "path": "res://assets/ui/avatars/streamer_pandafxfx.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/cb944dd5-baf8-4232-b1fb-8b5855ddd704-profile_image-150x150.png",
+      "sha256": "b69ece560226c339ee371db6b21c88c608446de2f8efda5378a19b460ef57b3a"
+    },
+    {
+      "creator_id": "sergeycrey",
+      "channel": "https://www.twitch.tv/sergeycrey",
+      "path": "res://assets/ui/avatars/streamer_sergeycrey.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/4c452b89-c10a-4213-9919-fa80402fbea6-profile_image-150x150.png",
+      "sha256": "11ee552538659fe7c109d0d2c553aaf131b852a6a6af56529bd3db86b5546568"
+    },
+    {
+      "creator_id": "vika_karter",
+      "channel": "https://www.twitch.tv/vika_karter",
+      "fallback_reason": "No public channel avatar"
+    },
+    {
+      "creator_id": "l4hmadju",
+      "channel": "https://www.twitch.tv/l4hmadju",
+      "path": "res://assets/ui/avatars/streamer_l4hmadju.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/d299167a-2a81-4763-a099-569f412da66e-profile_image-150x150.png",
+      "sha256": "cfd9ae0158e55608c2faf5532ff94b55c6247ece7b92e33ff11d7cfacc1319d7"
+    },
+    {
+      "creator_id": "dinicetea",
+      "channel": "https://www.twitch.tv/dinicetea",
+      "path": "res://assets/ui/avatars/streamer_dinicetea.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/b3f2468b-e0dc-4a6b-a303-7e3d05d51a8a-profile_image-150x150.png",
+      "sha256": "81aa3484dab5a9118e60f924807bdbd1f91775b3da7cda7247a8f6c13b1e0804"
+    },
+    {
+      "creator_id": "letw1k3",
+      "channel": "https://www.twitch.tv/letw1k3",
+      "path": "res://assets/ui/avatars/streamer_letw1k3.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/60e215ca-459c-4980-bc0d-35b93cc1a85a-profile_image-150x150.png",
+      "sha256": "b04efadd69bde42d3360bf1699b8aee785235086f234887b31d8d4352cd9ac50"
+    },
+    {
+      "creator_id": "bratiki94",
+      "channel": "https://www.twitch.tv/bratiki94",
+      "path": "res://assets/ui/avatars/streamer_bratiki94.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/aec7a1fe-0714-4194-ab11-15ee64908c41-profile_image-150x150.png",
+      "sha256": "06f6df488ae8f3b1fe6a481a7417753a553141c52c3b45e67135aa025bc5e439"
+    },
+    {
+      "creator_id": "drainys",
+      "channel": "https://www.twitch.tv/drainys",
+      "path": "res://assets/ui/avatars/streamer_drainys.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/ddb9dfe6-be1f-4310-abd3-0862656ec749-profile_image-150x150.png",
+      "sha256": "046800e44d9c4d5b7d0115876780c1d9e353a242486f62ea2d8e8725ba358ddb"
+    },
+    {
+      "creator_id": "moddychat",
+      "channel": "https://www.twitch.tv/moddychat",
+      "path": "res://assets/ui/avatars/streamer_moddychat.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/1d47e309-27f4-402e-ae5d-607a01770314-profile_image-150x150.png",
+      "sha256": "a53abf886f9dd7cc58c42cbbf8f397ecd9817e3aa7d53be163d0986f7f02f68c"
+    },
+    {
+      "creator_id": "bulochka",
+      "channel": "https://www.twitch.tv/bulochka",
+      "path": "res://assets/ui/avatars/streamer_bulochka.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/8559362d-f2a6-4a44-8dc1-b623e81cb7da-profile_image-150x150.png",
+      "sha256": "6f1fa3fe6e00784744056a51cf6ef260e526a79a2c242cfb926ddb7e009f2793"
+    },
+    {
+      "creator_id": "soonvooshko",
+      "channel": "https://www.twitch.tv/soonvooshko",
+      "path": "res://assets/ui/avatars/streamer_soonvooshko.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/11aec96a-d18b-4dde-b37d-fd510a43fa12-profile_image-150x150.png",
+      "sha256": "b1f13b8c3ba9424cdd324083f52d643ea08fe4cbcf1c1fec4d9031cb95897735"
+    },
+    {
+      "creator_id": "inboss1k",
+      "channel": "https://www.twitch.tv/inboss1k",
+      "path": "res://assets/ui/avatars/streamer_inboss1k.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/52ae9971-1f28-48a1-b781-8a1549781783-profile_image-150x150.png",
+      "sha256": "083df0e0610d6675851de2300a32fc53879cbe82381ef28410f9ca0d908ce381"
+    },
+    {
+      "creator_id": "freem4no",
+      "channel": "https://www.twitch.tv/freem4no",
+      "fallback_reason": "No public channel avatar"
+    },
+    {
+      "creator_id": "jentteno",
+      "channel": "https://www.twitch.tv/jentteno",
+      "path": "res://assets/ui/avatars/streamer_jentteno.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/1bf42024-0586-4d45-9924-d644f5711a8c-profile_image-150x150.png",
+      "sha256": "af688c8db55b7b64c52528fcb318060046bc1ce8ab44de74cf37c3e533550434"
+    },
+    {
+      "creator_id": "ant1ka",
+      "channel": "https://www.twitch.tv/ant1ka",
+      "path": "res://assets/ui/avatars/streamer_ant1ka.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/7ed7017a-658f-47fc-aa0e-8cc593290cc7-profile_image-150x150.png",
+      "sha256": "8acf301c65a776be9242390efb2354b5ff1f3f40a8af13999aca2ca43be968c2"
+    },
+    {
+      "creator_id": "qsnake",
+      "channel": "https://www.twitch.tv/qsnake",
+      "fallback_reason": "No public channel avatar"
+    },
+    {
+      "creator_id": "maestro_edrak89",
+      "channel": "https://www.twitch.tv/maestro_edrak89",
+      "fallback_reason": "No public channel avatar"
+    },
+    {
+      "creator_id": "firamir_tv",
+      "channel": "https://www.twitch.tv/firamir_tv",
+      "path": "res://assets/ui/avatars/streamer_firamir_tv.jpg",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/firamir_tv-profile_image-0411cafcfbff6ad7-150x150.jpeg",
+      "sha256": "56e5fff19d691811f29a4e7420f5a0de392689993683667b72c55beff19b70c1"
+    },
+    {
+      "creator_id": "patl4tiy",
+      "channel": "https://www.twitch.tv/patl4tiy",
+      "path": "res://assets/ui/avatars/streamer_patl4tiy.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/13e8453b-0b1c-4143-a395-84dd1c7f104f-profile_image-150x150.png",
+      "sha256": "8d57da95f7bfc2c7e109f6cf4eb62efeadcabba46fcd7d1b062bafd6e3151561"
+    },
+    {
+      "creator_id": "gamelifeow",
+      "channel": "https://www.twitch.tv/gamelifeow",
+      "path": "res://assets/ui/avatars/streamer_gamelifeow.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/6865a046-9ed0-4439-b6c0-e54c245af986-profile_image-150x150.png",
+      "sha256": "62d55abec41550fcd8cd74043552bfe151fc3b54325098e2de0092c7bc11777f"
+    },
+    {
+      "creator_id": "quattroace",
+      "channel": "https://www.twitch.tv/quattroace",
+      "path": "res://assets/ui/avatars/streamer_quattroace.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/53f9e04a-b76e-4b51-bfa9-1d67864a7ae4-profile_image-150x150.png",
+      "sha256": "ba0879038441e91888fe4d2e80e44430ab471885462131a5dc352795c17e7434"
+    },
+    {
+      "creator_id": "7ssk7",
+      "channel": "https://www.twitch.tv/7ssk7",
+      "path": "res://assets/ui/avatars/streamer_7ssk7.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/66cb7060-1a8a-4fca-9ccd-f760b70af636-profile_image-150x150.png",
+      "sha256": "035543f02de7c60196cc25d176899944774fe98c77a53d505b299fb42b460a3e"
+    },
+    {
+      "creator_id": "acoolbek",
+      "channel": "https://www.twitch.tv/acoolbek",
+      "path": "res://assets/ui/avatars/streamer_acoolbek.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/51d54f9e-90ba-4d71-aae6-839e920a5ee5-profile_image-150x150.png",
+      "sha256": "7e535a138715a53ebaa723cd9b7a0bf6987d6bb89be82e4b912542a31ab5b77e"
+    },
+    {
+      "creator_id": "alcest_m",
+      "channel": "https://www.twitch.tv/alcest_m",
+      "path": "res://assets/ui/avatars/streamer_alcest_m.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/502cfe07-06d9-41f2-9d3b-13ecfd8c50a5-profile_image-150x150.png",
+      "sha256": "f56a43ff77f973870165a6e7e73968d955f3eb25b21e6cac6536551bfbe5854a"
+    },
+    {
+      "creator_id": "misterbiznes92",
+      "channel": "https://www.twitch.tv/misterbiznes92",
+      "path": "res://assets/ui/avatars/streamer_misterbiznes92.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/52325d96-7427-432b-9cb4-7fd793cb7755-profile_image-150x150.png",
+      "sha256": "853376fb0053f4e5576ad6f854c727d15870adac9c0667b4bf0749ad75495f75"
+    },
+    {
+      "creator_id": "anek",
+      "channel": "https://www.twitch.tv/anek",
+      "path": "res://assets/ui/avatars/streamer_anek.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/19f14fa8-41af-479a-994a-b77ab963adfa-profile_image-150x150.png",
+      "sha256": "972b687e6f0eb3dec38ef8a7ace37b54c43c83b5a3e0b921987cb8ca94c14fb1"
+    },
+    {
+      "creator_id": "fiveskill",
+      "channel": "https://www.twitch.tv/fiveskill",
+      "path": "res://assets/ui/avatars/streamer_fiveskill.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/d33c4ce4-00d2-43b9-b454-99eb71f1f992-profile_image-150x150.png",
+      "sha256": "6ce413a80e28e88644c1084c3aa638bf5da79e36906b49b24a37ee3bb4d41756"
+    },
+    {
+      "creator_id": "zakharww",
+      "channel": "https://www.twitch.tv/zakharww",
+      "path": "res://assets/ui/avatars/streamer_zakharww.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/b355a52c-c53c-443c-857a-88173aff11b8-profile_image-150x150.png",
+      "sha256": "7f6e04ef9f3761282f09d9db6aaaa9bcf1448f59662c14f708020d77f8d9c1d1"
+    },
+    {
+      "creator_id": "7tor",
+      "channel": "https://www.twitch.tv/7tor",
+      "fallback_reason": "No public channel avatar"
+    },
+    {
+      "creator_id": "everybodysosa",
+      "channel": "https://www.twitch.tv/everybodysosa",
+      "path": "res://assets/ui/avatars/streamer_everybodysosa.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/fb0d3cbf-810a-4b8c-8626-5a1a6bfe256b-profile_image-150x150.png",
+      "sha256": "e667a4a369c3db049c375a23b3d0266077a08defb1a3c776aab9efd4bbce6851"
+    },
+    {
+      "creator_id": "zark",
+      "channel": "https://www.twitch.tv/zark",
+      "path": "res://assets/ui/avatars/streamer_zark.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/88492816-463e-46a8-8ea9-3d0ab5561602-profile_image-150x150.png",
+      "sha256": "351f215b44240ff73d8c23760174b82b0ff81295b4cd65adc1c4dcdafdcd42c6"
+    },
+    {
+      "creator_id": "semmyxhf",
+      "channel": "https://www.twitch.tv/semmyxhf",
+      "fallback_reason": "No public channel avatar"
+    },
+    {
+      "creator_id": "hurma",
+      "channel": "https://www.twitch.tv/hurma",
+      "path": "res://assets/ui/avatars/streamer_hurma.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/67915e1e-7839-4a7e-9c84-b82149382db3-profile_image-150x150.png",
+      "sha256": "c46850118b2e2f7089a65a5ac2e8eff197f7b62ca96bc3ea61ad46b06b01b712"
+    },
+    {
+      "creator_id": "marasshakursamp",
+      "channel": "https://www.twitch.tv/marasshakursamp",
+      "path": "res://assets/ui/avatars/streamer_marasshakursamp.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/7950c5fe-2d6c-4708-8e74-535829c32888-profile_image-150x150.png",
+      "sha256": "ba649936c9112176da9550ac9365b6d9bce919926c71a691b607268dd781f199"
+    },
+    {
+      "creator_id": "pokamolodoy",
+      "channel": "https://www.twitch.tv/pokamolodoy",
+      "path": "res://assets/ui/avatars/streamer_pokamolodoy.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/e11c5567-6a2f-4ef5-9318-964caebd609d-profile_image-150x150.png",
+      "sha256": "17f25d108581ff3db0fe687f290ca0eee5c4b8df9eb052c415f4eeed55178607"
+    },
+    {
+      "creator_id": "stopgameru",
+      "channel": "https://www.twitch.tv/stopgameru",
+      "fallback_reason": "No public channel avatar"
+    },
+    {
+      "creator_id": "scrnonstfu",
+      "channel": "https://www.twitch.tv/scrnonstfu",
+      "path": "res://assets/ui/avatars/streamer_scrnonstfu.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/434c72ef-622a-4dfd-8071-42802503bc1d-profile_image-150x150.png",
+      "sha256": "d38f56c916950297761b8b6170418288606b47612c2ab7f7d70c9e56eaf875d6"
+    },
+    {
+      "creator_id": "barbiegirl",
+      "channel": "https://www.twitch.tv/barbiegirl",
+      "path": "res://assets/ui/avatars/streamer_barbiegirl.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/d8c7e4a1-cbb1-4df1-a798-e75ea1ee8b8c-profile_image-150x150.png",
+      "sha256": "d52d92de2b344b4d149209342d589ef01c334ca0e70857692b937ca4fe324cfd"
+    },
+    {
+      "creator_id": "forzorezor",
+      "channel": "https://www.twitch.tv/forzorezor",
+      "path": "res://assets/ui/avatars/streamer_forzorezor.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/e3ff5bef-107d-4945-98bd-f8c0769b6d4d-profile_image-150x150.png",
+      "sha256": "5e5b7ac8b873c13d057daf92607efb99c304d8ffd2d486d54d9761d51cb1e02c"
+    },
+    {
+      "creator_id": "trixie_vox",
+      "channel": "https://www.twitch.tv/trixie_vox",
+      "path": "res://assets/ui/avatars/streamer_trixie_vox.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/74835fa6-5b69-45a8-ba8b-1d0c7422b69d-profile_image-150x150.png",
+      "sha256": "a7106717f4d37a6d9afb8550fc2128d336f46247eb505cb1f35e4f622c985a25"
+    },
+    {
+      "creator_id": "lubricum",
+      "channel": "https://www.twitch.tv/lubricum",
+      "path": "res://assets/ui/avatars/streamer_lubricum.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/6d3c2b2a-b758-4a03-a00b-3baf80b0f0a0-profile_image-150x150.png",
+      "sha256": "0161012d5a71eea7c8c958f96d84dab46d3f4ddcf4bfe42e7ba70a12d65789b3"
+    },
+    {
+      "creator_id": "halflex",
+      "channel": "https://www.twitch.tv/halflex",
+      "fallback_reason": "No public channel avatar"
+    },
+    {
+      "creator_id": "banan23yt",
+      "channel": "https://www.twitch.tv/banan23yt",
+      "path": "res://assets/ui/avatars/streamer_banan23yt.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/e50fb5d1-747c-4171-b8e6-0a214915cbd1-profile_image-150x150.png",
+      "sha256": "f7f69599ec2660f639025df4656ecb1462f61fcc99621a47af2ddf997c31ac00"
+    },
+    {
+      "creator_id": "shadowdr4g",
+      "channel": "https://www.twitch.tv/shadowdr4g",
+      "path": "res://assets/ui/avatars/streamer_shadowdr4g.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/61e65ba2-9be0-410b-9a96-2fa9578b803d-profile_image-150x150.png",
+      "sha256": "d06ec12aa86ef064dc2b85543e47a19ff7920d049007343f6434f3e51257fd7b"
+    },
+    {
+      "creator_id": "gokump3",
+      "channel": "https://www.twitch.tv/gokump3",
+      "path": "res://assets/ui/avatars/streamer_gokump3.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/cccf04ea-6b02-412c-91ea-46dfa90e54d6-profile_image-150x150.png",
+      "sha256": "87f254744c7af8a13dbdf1762026f3556285fd0a897c1b323979c760aed11941"
+    },
+    {
+      "creator_id": "qwinkiii",
+      "channel": "https://www.twitch.tv/qwinkiii",
+      "path": "res://assets/ui/avatars/streamer_qwinkiii.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/1ef058d0-94f5-4ae6-be98-89d19269e73d-profile_image-150x150.png",
+      "sha256": "9520059fdad2f8a89d94f3ee3457dd3ddb76b15b2ca09a0c50a388b628ee8c85"
+    },
+    {
+      "creator_id": "dushenka",
+      "channel": "https://www.twitch.tv/dushenka",
+      "path": "res://assets/ui/avatars/streamer_dushenka.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/45f180f9-906d-42c5-a3ad-0148c777677f-profile_image-150x150.png",
+      "sha256": "06124516268569f07ff37354c64cb539245b0f77682cec11bfb7456a033849c6"
+    },
+    {
+      "creator_id": "finargot",
+      "channel": "https://www.twitch.tv/finargot",
+      "path": "res://assets/ui/avatars/streamer_finargot.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/39710984-e0ef-4cfb-bcb7-7dd2bef1fa56-profile_image-150x150.png",
+      "sha256": "05c4965849226788c7deef2ce3a4fc6e5eedbbf68189d0f810e1950935cf2f47"
+    },
+    {
+      "creator_id": "pinkssage",
+      "channel": "https://www.twitch.tv/pinkssage",
+      "path": "res://assets/ui/avatars/streamer_pinkssage.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/93c3a656-8f3c-4014-8fbe-8487b8865546-profile_image-150x150.png",
+      "sha256": "2f24ef135cb333b427f99125858634c3a43e6bfea369adc9dfc4104f94fa50bb"
+    },
+    {
+      "creator_id": "olesyabulletka",
+      "channel": "https://www.twitch.tv/olesyabulletka",
+      "path": "res://assets/ui/avatars/streamer_olesyabulletka.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/36b1ff65-f060-49c2-8b67-f7233a928519-profile_image-150x150.png",
+      "sha256": "2b471254828a8a2b12c544fec763b88e3fae4cc2852ce2ec223fa024475b3da7"
+    },
+    {
+      "creator_id": "thepadlo",
+      "channel": "https://www.twitch.tv/thepadlo",
+      "path": "res://assets/ui/avatars/streamer_thepadlo.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/dcb2fcb1-fc52-4d0f-a1e4-1836286b3a2e-profile_image-150x150.png",
+      "sha256": "487129364701afe030ca2ed9555dcbbc9643f85b05653ca0efb273461656f30d"
+    },
+    {
+      "creator_id": "bezt0rm0z0v",
+      "channel": "https://www.twitch.tv/bezt0rm0z0v",
+      "path": "res://assets/ui/avatars/streamer_bezt0rm0z0v.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/a6955958-edb4-451b-8f1d-98427b988ca1-profile_image-150x150.png",
+      "sha256": "d7c4d49c479d2340261b4ebf91db6e13184ae96b000dd4db3abe7ba1e20372f7"
+    },
+    {
+      "creator_id": "ins1de1337",
+      "channel": "https://www.twitch.tv/ins1de1337",
+      "path": "res://assets/ui/avatars/streamer_ins1de1337.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/1790fb0d-3fca-46f0-a139-1d9e82f291f5-profile_image-150x150.png",
+      "sha256": "50d67d4ab01019e81383844985dfa07df5581a6068b9198fea354a4572b07855"
+    },
+    {
+      "creator_id": "mishura",
+      "channel": "https://www.twitch.tv/mishura",
+      "path": "res://assets/ui/avatars/streamer_mishura.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/89eeb80e-974d-4522-baf9-862ded35bee6-profile_image-150x150.png",
+      "sha256": "401fe5f638fc2ee90bb9242434f313bb948cfaac432452136d963412e57b5e96"
+    },
+    {
+      "creator_id": "creative7play",
+      "channel": "https://www.twitch.tv/creative7play",
+      "path": "res://assets/ui/avatars/streamer_creative7play.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/1b4f2cc7-9c37-4b3b-a55e-e88ebec2f3a4-profile_image-150x150.png",
+      "sha256": "b1630a9fa9242373e149a137d6f477cb7fa808f1ff2c6fda962301bcb0caffe7"
+    },
+    {
+      "creator_id": "toygirl",
+      "channel": "https://www.twitch.tv/toygirl",
+      "fallback_reason": "No public channel avatar"
+    },
+    {
+      "creator_id": "cepreu_inq",
+      "channel": "https://www.twitch.tv/cepreu_inq",
+      "path": "res://assets/ui/avatars/streamer_cepreu_inq.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/b4c47746-9d78-4623-b294-2b234691e171-profile_image-150x150.png",
+      "sha256": "09930bba3ba5bb5840dbec39326c0dba6a3471fd7ba626a3a83966e82cbba853"
+    },
+    {
+      "creator_id": "waveafterwave2ndlife",
+      "channel": "https://www.twitch.tv/waveafterwave2ndlife",
+      "path": "res://assets/ui/avatars/streamer_waveafterwave2ndlife.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/272902dd-0699-4289-9f7f-bd51213eb266-profile_image-150x150.png",
+      "sha256": "47844e2b6e0c628ea5937d9df3d45997e7ef615d9562b1a1d437451f40122081"
+    },
+    {
+      "creator_id": "zanuda",
+      "channel": "https://www.twitch.tv/zanuda",
+      "path": "res://assets/ui/avatars/streamer_zanuda.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/c46a1ed0-d4f8-4154-90d8-1723176956ed-profile_image-150x150.png",
+      "sha256": "d689e0471348eb3a90afa194bd3b12e828df318e647622b285afffb955edc83b"
+    },
+    {
+      "creator_id": "grandrony",
+      "channel": "https://www.twitch.tv/grandrony",
+      "path": "res://assets/ui/avatars/streamer_grandrony.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/856d89be-42c1-4b4e-8144-e54f87d507f4-profile_image-150x150.png",
+      "sha256": "88f24df9500cfef68baf72997dd4872d5f5392a64ec23256f3109517c7d0776c"
+    },
+    {
+      "creator_id": "ivzel96",
+      "channel": "https://www.twitch.tv/ivzel96",
+      "path": "res://assets/ui/avatars/streamer_ivzel96.jpg",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/9e596148-6d40-4480-b76c-f3e82591a449-profile_image-150x150.jpeg",
+      "sha256": "3e814de6c9048ef6f70283e8086cc2e741a4d09a0ed04b6232e425eaf690c5f3"
+    },
+    {
+      "creator_id": "misolo3",
+      "channel": "https://www.twitch.tv/misolo3",
+      "path": "res://assets/ui/avatars/streamer_misolo3.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/d2b9d1db-3ab9-40d9-a20b-35449af33791-profile_image-150x150.png",
+      "sha256": "e4afb34a0ffd40618a72b7e6936a31c9e80fb3666a00151aa7deac49d5778ed7"
+    },
+    {
+      "creator_id": "flamie",
+      "channel": "https://www.twitch.tv/flamie",
+      "fallback_reason": "No public channel avatar"
+    },
+    {
+      "creator_id": "hibako",
+      "channel": "https://www.twitch.tv/hibako",
+      "path": "res://assets/ui/avatars/streamer_hibako.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/1d7636fe-a7c0-45a4-920c-f54ce863af6d-profile_image-150x150.png",
+      "sha256": "4b06415961e03eae371d1b816c53f194a9ca060fecf3e435c8a533b5b52dc4ca"
+    },
+    {
+      "creator_id": "tixerok",
+      "channel": "https://www.twitch.tv/tixerok",
+      "path": "res://assets/ui/avatars/streamer_tixerok.jpg",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/f59f8a13-6612-47da-bfdb-14831782ec3e-profile_image-150x150.jpg",
+      "sha256": "c48551de0c830bcd5754b80f88a1145b781e24eda6a415e21e151c09b309bd07"
+    },
+    {
+      "creator_id": "justs_js",
+      "channel": "https://www.twitch.tv/justs_js",
+      "path": "res://assets/ui/avatars/streamer_justs_js.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/bcba6f86-d22d-4b5e-8ad9-c9e0431b228a-profile_image-150x150.png",
+      "sha256": "bebdf980a59917ca221dbe7a7459c7dd5acd680dde45259a6eb835aa78c9114f"
+    },
+    {
+      "creator_id": "evilkingmlbb",
+      "channel": "https://www.twitch.tv/evilkingmlbb",
+      "path": "res://assets/ui/avatars/streamer_evilkingmlbb.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/d99df916-85a0-4fa2-bc57-58448be38d48-profile_image-150x150.png",
+      "sha256": "bb0c7dcfce5dd90eaedcbd9dbe06cd3070877f19f9e41cecfaf3206fc3d97d8e"
+    },
+    {
+      "creator_id": "sh4dowehhh",
+      "channel": "https://www.twitch.tv/sh4dowehhh",
+      "path": "res://assets/ui/avatars/streamer_sh4dowehhh.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/19a45884-077e-45d9-9de7-f14ab4c92dca-profile_image-150x150.png",
+      "sha256": "35c2a63bacd7c6e52b0c53d26b4b7e9db98ab55d181b2dc03efbc9c9f2f7607e"
+    },
+    {
+      "creator_id": "gusar",
+      "channel": "https://www.twitch.tv/gusar",
+      "path": "res://assets/ui/avatars/streamer_gusar.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/d14a1cd6-ac9f-4856-a52f-a18561e734cc-profile_image-150x150.png",
+      "sha256": "6edb93c975d68c8c8726276b4e21f6bf3c8ff2ceceadd3b8d8bb8d541fda75c5"
+    },
+    {
+      "creator_id": "fakturka",
+      "channel": "https://www.twitch.tv/fakturka",
+      "path": "res://assets/ui/avatars/streamer_fakturka.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/95745202-eaca-4a7d-9f23-589b694cd03a-profile_image-150x150.png",
+      "sha256": "49e0d9a05ebba9ebe8c57a7362c8c3716544d149ff94b78c1f3b3ad2cee718f6"
+    },
+    {
+      "creator_id": "jerry256cs2",
+      "channel": "https://www.twitch.tv/jerry256cs2",
+      "path": "res://assets/ui/avatars/streamer_jerry256cs2.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/28e541d0-00f1-4dd6-b44b-1ce278eaf355-profile_image-150x150.png",
+      "sha256": "40d54a61d0515a5e07cd1d0cb28c5895ba877089c2764b26e79edb3ebd02a14c"
+    },
+    {
+      "creator_id": "sadpigeone",
+      "channel": "https://www.twitch.tv/sadpigeone",
+      "path": "res://assets/ui/avatars/streamer_sadpigeone.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/24d90a28-6888-41d9-92c5-173c41fdff4d-profile_image-150x150.png",
+      "sha256": "cca9594e8aec3b7130265cdad598898fa9c56aabb73e507e4a0288c6ed446ada"
+    },
+    {
+      "creator_id": "beastqt",
+      "channel": "https://www.twitch.tv/beastqt",
+      "path": "res://assets/ui/avatars/streamer_beastqt.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/49a9be81-4482-475e-8914-49842bfecf90-profile_image-150x150.png",
+      "sha256": "830c2932585574d828d9ab0760ed4661a262e5c705372df4ae4029c52741b322"
+    },
+    {
+      "creator_id": "404t4ga",
+      "channel": "https://www.twitch.tv/404t4ga",
+      "path": "res://assets/ui/avatars/streamer_404t4ga.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/cd597b12-1d85-4fd4-a9db-1803b471c2ee-profile_image-150x150.png",
+      "sha256": "7147184b212d3f93a9651694023e974e8f3b675751bf0a6df0c2e2ac549d266f"
+    },
+    {
+      "creator_id": "velyalive",
+      "channel": "https://www.twitch.tv/velyalive",
+      "path": "res://assets/ui/avatars/streamer_velyalive.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/4b6efa20-48d5-43aa-91c3-3181ea5e564a-profile_image-150x150.png",
+      "sha256": "b31daa5c6f4a2f3bfde4831c3103be62e378b78ecaf77f443dbc8ef16e3dead7"
+    },
+    {
+      "creator_id": "ackerman_cs",
+      "channel": "https://www.twitch.tv/ackerman_cs",
+      "path": "res://assets/ui/avatars/streamer_ackerman_cs.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/aa45a9fd-576b-461c-8b22-380cddcef256-profile_image-150x150.png",
+      "sha256": "5917cf767ff2354f64625897d7cc0655579d135c53d036c91299307b1b036e71"
+    },
+    {
+      "creator_id": "sweektw",
+      "channel": "https://www.twitch.tv/sweektw",
+      "path": "res://assets/ui/avatars/streamer_sweektw.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/8aca4fe9-a54b-4fe9-81c8-15e99a6476b7-profile_image-150x150.png",
+      "sha256": "819962a1532c4101a85f13d0af7667c32988b1a852d6a5480b90bf490ac84798"
+    },
+    {
+      "creator_id": "ubica",
+      "channel": "https://www.twitch.tv/ubica",
+      "path": "res://assets/ui/avatars/streamer_ubica.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/441cafed-7d64-49ed-8328-641f17253f4d-profile_image-150x150.png",
+      "sha256": "afe8f89ac27a0f6672cf71ed4bf402e8a4afb6d62dff8d122c6f2ddf44794984"
+    },
+    {
+      "creator_id": "ezik_shizik",
+      "channel": "https://www.twitch.tv/ezik_shizik",
+      "path": "res://assets/ui/avatars/streamer_ezik_shizik.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/dc00d63a-12b1-4c56-beb0-b4d7962aebc5-profile_image-150x150.png",
+      "sha256": "759ff30b848be8c93e1bc2154a58037e4b64372345055488f9b20d305e4f8444"
+    },
+    {
+      "creator_id": "doomst4rr",
+      "channel": "https://www.twitch.tv/doomst4rr",
+      "path": "res://assets/ui/avatars/streamer_doomst4rr.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/4566154c-1620-40c9-8884-9e482118aecb-profile_image-150x150.png",
+      "sha256": "22bf70597cac482543c66a1709b4fe1348303a074ae98fba1c42404a2eb821d5"
+    },
+    {
+      "creator_id": "kxrvinho",
+      "channel": "https://www.twitch.tv/kxrvinho",
+      "fallback_reason": "No public channel avatar"
+    },
+    {
+      "creator_id": "onehend",
+      "channel": "https://www.twitch.tv/onehend",
+      "path": "res://assets/ui/avatars/streamer_onehend.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/c2b00534-2dae-467f-96c1-86f637360ebf-profile_image-150x150.png",
+      "sha256": "8d9146ebc29367b65e3ae0cec5dc0895ac58c475c2a44db9a8de6a09bf5713e6"
+    },
+    {
+      "creator_id": "adamsonshow",
+      "channel": "https://www.twitch.tv/adamsonshow",
+      "path": "res://assets/ui/avatars/streamer_adamsonshow.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/566fb14c-c3bd-464e-a673-f9454cbb949b-profile_image-150x150.png",
+      "sha256": "83a2e3211dcb504a4589d7c00679e2826fff41c9f11d6a95d81de0e46687fc74"
+    },
+    {
+      "creator_id": "float735",
+      "channel": "https://www.twitch.tv/float735",
+      "path": "res://assets/ui/avatars/streamer_float735.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/92a223d5-5431-41c8-b54f-0ec1cd8ead26-profile_image-150x150.png",
+      "sha256": "ca34fed3af646129bde8b5ce15829a654c260767bfc2e8b7c606b5017040bd2d"
+    },
+    {
+      "creator_id": "qanteg",
+      "channel": "https://www.twitch.tv/qanteg",
+      "path": "res://assets/ui/avatars/streamer_qanteg.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/a99172e1-b7cc-4f08-b4e0-fc1ec6db89b0-profile_image-150x150.png",
+      "sha256": "ce23dcb670c5193b92d054a842ddba249d90b5b10316302edda5eb93efed42f3"
+    },
+    {
+      "creator_id": "stanyyy",
+      "channel": "https://www.twitch.tv/stanyyy",
+      "path": "res://assets/ui/avatars/streamer_stanyyy.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/a4667d38-9469-4537-89e9-fe62078c5df4-profile_image-150x150.png",
+      "sha256": "f44907007373bc3ef737fbbbf2184c871e2065928ae0b25bf96402f6312d7534"
+    },
+    {
+      "creator_id": "taksebeyarik",
+      "channel": "https://www.twitch.tv/taksebeyarik",
+      "fallback_reason": "No public channel avatar"
+    },
+    {
+      "creator_id": "zibert1715_",
+      "channel": "https://www.twitch.tv/zibert1715_",
+      "path": "res://assets/ui/avatars/streamer_zibert1715_.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/96f0804e-dbcf-4490-ace9-f03c1c5e15a5-profile_image-150x150.png",
+      "sha256": "00dafcedaf4e4f479d5367276828b66073ad4f2ba9fa3e633da1ff1f4dc6cd2b"
+    },
+    {
+      "creator_id": "pubg_cis",
+      "channel": "https://www.twitch.tv/pubg_cis",
+      "path": "res://assets/ui/avatars/streamer_pubg_cis.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/ae4f0f84-9447-4e5e-a2be-87362c74ccc6-profile_image-150x150.png",
+      "sha256": "7a5e40f2140aef9585d800be26c1f9cb8948e9dc6f52b43f2ba3dc616dcd15e3"
+    },
+    {
+      "creator_id": "tairlend",
+      "channel": "https://www.twitch.tv/tairlend",
+      "fallback_reason": "No public channel avatar"
+    },
+    {
+      "creator_id": "qewbite",
+      "channel": "https://www.twitch.tv/qewbite",
+      "path": "res://assets/ui/avatars/streamer_qewbite.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/e9313ad8-b23f-46f5-b8c4-d0e1add7cb13-profile_image-150x150.png",
+      "sha256": "16115827d93c11a1229ffcb052009766e886b75f57619c3dbf0049adff44737c"
+    },
+    {
+      "creator_id": "raslabon3sss",
+      "channel": "https://www.twitch.tv/raslabon3sss",
+      "path": "res://assets/ui/avatars/streamer_raslabon3sss.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/ad9919dc-6a39-4a93-bcb6-0f4293a6621b-profile_image-150x150.png",
+      "sha256": "fbfa786d6e4f9978029d4381f938db2b7e6d9b2c7984beb57d971b873ab87865"
+    },
+    {
+      "creator_id": "deproboy",
+      "channel": "https://www.twitch.tv/deproboy",
+      "path": "res://assets/ui/avatars/streamer_deproboy.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/3355c91f-e12d-4907-a802-18a2c22de2e0-profile_image-150x150.png",
+      "sha256": "fe0ee8548212f2e633581a074a990ca1e9216eb67d8137359a50117b9d5a32fe"
+    },
+    {
+      "creator_id": "kiryuhaa",
+      "channel": "https://www.twitch.tv/kiryuhaa",
+      "path": "res://assets/ui/avatars/streamer_kiryuhaa.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/eb4c5cdb-44b5-4d6c-8923-5b181c69ccb8-profile_image-150x150.png",
+      "sha256": "638eb413506fd0387f002402691d7655ab7cfa16e71da52c26ec8589fcf8adfe"
+    },
+    {
+      "creator_id": "diamondprox_lol",
+      "channel": "https://www.twitch.tv/diamondprox_lol",
+      "path": "res://assets/ui/avatars/streamer_diamondprox_lol.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/096c6398-8f32-4c7b-948e-1ca90ef7ac48-profile_image-150x150.png",
+      "sha256": "c9bb8b244ef044f3e2d6d55ce313d516edbd1312d3d1125603285b7ff77549b9"
+    },
+    {
+      "creator_id": "evgexa",
+      "channel": "https://www.twitch.tv/evgexa",
+      "path": "res://assets/ui/avatars/streamer_evgexa.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/dd66b38d-7e2a-4637-83a1-b1a8c6f1c026-profile_image-150x150.png",
+      "sha256": "d46698bfa2d2b5c324d6e334f953a2413ca435af0118c7eb39ac81b3556f1d60"
+    },
+    {
+      "creator_id": "arturchik_",
+      "channel": "https://www.twitch.tv/arturchik_",
+      "path": "res://assets/ui/avatars/streamer_arturchik_.jpg",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/arturchik_-profile_image-ba93b5299b66d132-150x150.jpeg",
+      "sha256": "8efaedba39b418dc9066195370bb9044fbd862ffd7c69672a6a17850f1d722a6"
+    },
+    {
+      "creator_id": "sigaseagers",
+      "channel": "https://www.twitch.tv/sigaseagers",
+      "path": "res://assets/ui/avatars/streamer_sigaseagers.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/93458a30-3415-4d6a-9507-8067b7a0ac01-profile_image-150x150.png",
+      "sha256": "f0bcadceed922d20bd9b16e408d84e0449eaef8ade30433d4f2983716e1e7a7d"
+    },
+    {
+      "creator_id": "ded_b_tpycax01",
+      "channel": "https://www.twitch.tv/ded_b_tpycax01",
+      "fallback_reason": "No public channel avatar"
+    },
+    {
+      "creator_id": "pinlucky",
+      "channel": "https://www.twitch.tv/pinlucky",
+      "path": "res://assets/ui/avatars/streamer_pinlucky.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/c0b1b8be-d92e-40c5-9652-7c155b1c3031-profile_image-150x150.png",
+      "sha256": "8d4701c14d5189a80f48830ea71f28fc490a3109f17148c222deb9338147e93a"
+    },
+    {
+      "creator_id": "mr_jijik",
+      "channel": "https://www.twitch.tv/mr_jijik",
+      "fallback_reason": "No public channel avatar"
+    },
+    {
+      "creator_id": "korbendetka",
+      "channel": "https://www.twitch.tv/korbendetka",
+      "path": "res://assets/ui/avatars/streamer_korbendetka.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/13dd1916-aa59-4f7d-82bb-258556007881-profile_image-150x150.png",
+      "sha256": "6f76c75fd1f5d2de240bba2ffe326106d6a3d34f1bb7b554138e1a58d6b6be3a"
+    },
+    {
+      "creator_id": "warthunder_esports_ru",
+      "channel": "https://www.twitch.tv/warthunder_esports_ru",
+      "fallback_reason": "No public channel avatar"
+    },
+    {
+      "creator_id": "helin139",
+      "channel": "https://www.twitch.tv/helin139",
+      "path": "res://assets/ui/avatars/streamer_helin139.png",
+      "source": "https://static-cdn.jtvnw.net/jtv_user_pictures/a1ccc1db-bab2-4eeb-bc0d-78d204e1b15b-profile_image-150x150.png",
+      "sha256": "18628bbfb020a9b704fe554096539b399957c7495747dcafd3e73fcd1ed124c9"
+    }
+  ]
+}

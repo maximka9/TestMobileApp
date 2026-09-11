@@ -171,13 +171,10 @@ position = Vector2(0, 0)
 texture = ExtResource("9_monitor")
 centered = false
 
-[node name="RightMonitor" type="Control" parent="Stage/Desk"]
-layout_mode = 0
-offset_left = 166.0
-offset_top = 100.0
-offset_right = 322.0
-offset_bottom = 223.0
-mouse_filter = 2
+[node name="RightMonitor" type="Node2D" parent="Stage/Desk"]
+position = Vector2(210, 100)
+scale = Vector2(0.86, 1)
+skew = -0.18
 
 [node name="Bezel" type="Sprite2D" parent="Stage/Desk/RightMonitor"]
 position = Vector2(0, 0)
