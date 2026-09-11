@@ -1,5 +1,6 @@
 class_name CosplayDefinition
 extends Resource
+@export var icon: Texture2D
 
 @export var required_level: int = 1
 @export var id: String = ""

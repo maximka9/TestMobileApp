@@ -6,11 +6,12 @@ var catalog: ContentCatalog
 var player: PlayerState
 var buttons: Dictionary = {}
 var _completion: String = ""
-const NODE_SIZE := Vector2(150, 84)
+const NODE_SIZE := Vector2(64, 64)
 const COLORS: Array[Color] = [Color("d44958"), Color("d44958"), Color("e4b252"), Color("f06b88")]
 var positions: Dictionary = {}
 var extents: Dictionary = {}
 var selected_id: String = ""
+var layout: AchievementLayout = AchievementLayout.new()
 
 func setup(content: ContentCatalog, state: PlayerState) -> void:
 	catalog = content
@@ -18,31 +19,26 @@ func setup(content: ContentCatalog, state: PlayerState) -> void:
 	texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR
 	var graph_font: FontFile = (load("res://assets/fonts/NotoSans.ttf") as FontFile).duplicate()
 	graph_font.multichannel_signed_distance_field = true
-	var minimum: Vector2 = Vector2.ZERO
-	var maximum: Vector2 = Vector2.ZERO
-	for definition: AchievementDefinition in catalog.achievements.values():
-		minimum = minimum.min(definition.graph_position)
-	var offset: Vector2 = Vector2(24, 24) - minimum
+	layout.build(catalog.achievements)
 	for id: String in catalog.achievements:
 		var definition: AchievementDefinition = catalog.achievements[id]
 		var button: Button = SasaUI.button("", func() -> void:
 			if not get_parent().get_parent() is AchievementPan or not get_parent().get_parent().dragged:
 				selected.emit(id))
-		button.position = definition.graph_position + offset
+		button.position = layout.positions[id]
 		button.add_theme_font_override("font", graph_font)
-		button.size = NODE_SIZE + (Vector2(12, 40) if definition.tier == 3 else Vector2.ZERO)
+		button.size = NODE_SIZE
 		positions[id] = button.position
 		extents[id] = button.size
-		maximum = maximum.max(button.position + button.size)
 		button.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 		button.icon = definition.icon if definition.icon != null else SasaUI.achievement_icon(id)
-		button.add_theme_constant_override("icon_max_width", 66)
+		button.add_theme_constant_override("icon_max_width", 44)
 		button.expand_icon = true
 		button.icon_alignment = HORIZONTAL_ALIGNMENT_CENTER
 		button.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
 		add_child(button)
 		buttons[id] = button
-	custom_minimum_size = maximum + Vector2(24, 24)
+	custom_minimum_size = layout.bounds
 	refresh(true)
 
 func refresh(force: bool = false) -> void:
@@ -89,12 +85,12 @@ func _draw() -> void:
 	for x: int in range(0, int(size.x), 32):
 		for y: int in range(0, int(size.y), 32):
 			draw_circle(Vector2(x + 8, y + 8), 1, Color(0.5, 0.15, 0.22, 0.18))
-	for id: String in catalog.achievements:
-		var definition: AchievementDefinition = catalog.achievements[id]
-		for parent_id: String in definition.parent_ids:
-			if catalog.achievements.has(parent_id):
-				var from: Vector2 = positions[parent_id] + Vector2(extents[parent_id].x / 2, extents[parent_id].y)
-				var to: Vector2 = positions[id] + Vector2(extents[id].x / 2, 0)
-				var elbow: float = (from.y + to.y) / 2
-				var color: Color = Color("d44958") if id in player.unlocked_achievements else Color("75273a") if parent_id in player.unlocked_achievements else Color("45424a")
-				draw_polyline(PackedVector2Array([from, Vector2(from.x, elbow), Vector2(to.x, elbow), to]), color, 3)
+	var drawn: Dictionary = {}
+	for connection: Dictionary in layout.connections:
+		var points: PackedVector2Array = connection.points
+		var color: Color = Color("b64050") if connection.child in player.unlocked_achievements else Color("75273a") if connection.parent in player.unlocked_achievements else Color("39363f")
+		for index: int in range(points.size() - 1):
+			var key: String = str(points[index]) + str(points[index + 1])
+			if not drawn.has(key):
+				draw_line(points[index], points[index + 1], color, 1.0)
+				drawn[key] = true

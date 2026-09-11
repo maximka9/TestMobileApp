@@ -38,7 +38,7 @@ func _run() -> void:
 		game.room._process(0.3)
 		var clip: Control = game.room.get_node("Stage/Desk/RightMonitor/ScreenClip")
 		_check(clip.clip_contents and clip.get_global_rect().encloses(game.room._chat_content.get_global_rect()), "Chat content contained by physical monitor screen")
-		_check(game.room._chat_rows.size() == 5 and game.room._chat_lines.size() == 5, "Five reused chat rows")
+		_check(not game.room._chat_content.visible and game.room.chat.generated == 0, "Status monitor does not generate or display random chat")
 		await _capture("chat_%d_viewers" % online)
 	game.app.monotonic_clock = func() -> int: return mono
 	game.app._last_tick_msec = mono

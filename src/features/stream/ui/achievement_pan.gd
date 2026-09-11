@@ -43,7 +43,7 @@ func set_zoom(value: float, pivot: Vector2 = Vector2(-1, -1)) -> void:
 func fit() -> void:
 	set_zoom(minf(size.x / canvas.custom_minimum_size.x, size.y / canvas.custom_minimum_size.y))
 	scroll_horizontal = int((bounds.custom_minimum_size.x - size.x) / 2)
-	scroll_vertical = int((bounds.custom_minimum_size.y - size.y) / 2)
+	scroll_vertical = 0 # Top-down progression: Fit starts with the root and branch split.
 
 func _ready() -> void:
 	horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_SHOW_NEVER

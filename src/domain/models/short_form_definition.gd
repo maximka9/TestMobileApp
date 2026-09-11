@@ -1,5 +1,6 @@
 class_name ShortFormDefinition
 extends Resource
+@export var icon: Texture2D
 ## Data-only definition for a short-form post. The label may say TikTok, the system is platform-neutral.
 @export var id: String = ""
 @export var display_name: String = ""

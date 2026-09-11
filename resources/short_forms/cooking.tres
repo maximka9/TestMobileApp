@@ -1,5 +1,9 @@
-[gd_resource type="Resource" script_class="ShortFormDefinition" load_steps=2 format=3]
+[gd_resource type="Resource" script_class="ShortFormDefinition" load_steps=4 format=3]
 [ext_resource type="Script" path="res://src/domain/models/short_form_definition.gd" id="1"]
+[ext_resource type="Texture2D" path="res://assets/ui/achievements/achievements_atlas.png" id="ui_art"]
+[sub_resource type="AtlasTexture" id="ui_icon"]
+atlas = ExtResource("ui_art")
+region = Rect2(263, 514, 225, 225)
 [resource]
 script = ExtResource("1")
 id = "cooking"
@@ -8,3 +12,5 @@ base_viral_chance = 1.5
 fatigue_cost = 8.0
 source_tags = PackedStringArray("cooking")
 source_hint = "Сначала проведите кулинарный эфир."
+
+icon = SubResource("ui_icon")

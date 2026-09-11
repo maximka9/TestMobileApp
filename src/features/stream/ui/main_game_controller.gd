@@ -186,7 +186,7 @@ func _show_games() -> void:
 		modal_body.add_child(SasaUI.label("Завершите эфир, чтобы сменить контент.", &"body", &"MutedLabel"))
 	for id: String in app.catalog.streams:
 		var content: StreamType = app.catalog.streams[id]
-		modal_body.add_child(SasaUI.label(content.title, &"heading", &"AccentLabel"))
+		modal_body.add_child(SasaUI.icon_heading(content.title, content.icon))
 		modal_body.add_child(SasaUI.label("Свежесть формата: %d%%" % int(app.stream.career.novelty(app.stream.state, id) * 100), &"small", &"MutedLabel"))
 		modal_body.add_child(SasaUI.label("%s\nОнлайн ×%.2f · доход ×%.2f\nСобытия ×%.1f" % [content.description, content.viewer_multiplier, content.income_multiplier, content.event_multiplier], &"small", &"MutedLabel"))
 		var button: Button = SasaUI.button("Начать: " + content.title, func() -> void: _start_content(id))
@@ -212,7 +212,7 @@ func _show_short_forms() -> void:
 	modal_body.add_child(SasaUI.label("Усталость: %d%% · ускорение: %d%%" % [int(app.stream.state.fatigue), int(app.stream.state.growth_momentum)], &"small", &"MutedLabel"))
 	for id: String in app.catalog.short_forms:
 		var definition: ShortFormDefinition = app.catalog.short_forms[id] as ShortFormDefinition
-		modal_body.add_child(SasaUI.label(definition.display_name, &"heading", &"AccentLabel"))
+		modal_body.add_child(SasaUI.icon_heading(definition.display_name, definition.icon))
 		var available: OperationResult = app.short_forms.availability(app.stream.state, id)
 		if not available.success:
 			modal_body.add_child(SasaUI.label(available.message, &"body", &"MutedLabel"))
@@ -244,7 +244,7 @@ func _show_moves(collab_only: bool) -> void:
 		if id == "collab":
 			continue
 		var definition: ActionDefinition = app.catalog.moves[id]
-		modal_body.add_child(SasaUI.label(definition.title, &"heading", &"AccentLabel"))
+		modal_body.add_child(SasaUI.icon_heading(definition.title, definition.icon))
 		modal_body.add_child(SasaUI.label(definition.description, &"body", &"MutedLabel"))
 		if not app.stream.state.is_streaming:
 			modal_body.add_child(SasaUI.label("Только во время эфира", &"small", &"MutedLabel"))
@@ -262,7 +262,7 @@ func _show_moves(collab_only: bool) -> void:
 		modal_body.add_child(move_button)
 	for id: String in app.catalog.cosplays:
 		var definition: CosplayDefinition = app.catalog.cosplays[id]
-		modal_body.add_child(SasaUI.label("Косплей · " + definition.display_name, &"heading", &"AccentLabel"))
+		modal_body.add_child(SasaUI.icon_heading("Косплей · " + definition.display_name, definition.icon))
 		modal_body.add_child(SasaUI.label("Переодеться прямо во время эфира. +%d хайпа · +%d%% свежести · больше специальных событий\n%d монет · +%.0f%% усталости" % [app.config.cosplay_hype_gain, definition.novelty_bonus * 100, definition.money_cost, definition.fatigue_cost], &"body", &"MutedLabel"))
 		var status: Label = SasaUI.label(app.moves.cosplay_status(app.stream.state, id), &"small", &"MutedLabel")
 		status.set_meta("cooldown_id", "cosplay:" + id)
@@ -601,6 +601,8 @@ func _show_achievements() -> void:
 	controls.get_child(3).tooltip_text = "Вписать дерево"
 	for control: Button in controls.get_children():
 		control.theme_type_variation = &"CompactButton"
+		control.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
+		control.custom_minimum_size = Vector2(48 if control == percent else 36, 40)
 	scroll.zoom_changed.connect(func(value: float) -> void: percent.text = "%d%%" % roundi(value * 100))
 	achievement_tree.selected.connect(_achievement_selected)
 	var focus: String = app.stream.state.unlocked_achievements.back() if not app.stream.state.unlocked_achievements.is_empty() else "followers_100"
@@ -628,6 +630,7 @@ func _achievement_selected(id: String) -> void:
 	if is_instance_valid(achievement_popup):
 		achievement_popup.queue_free()
 	achievement_popup = PopupPanel.new()
+	achievement_popup.theme = SasaUI.THEME
 	add_child(achievement_popup)
 	var card: VBoxContainer = VBoxContainer.new()
 	achievement_popup.add_child(card)

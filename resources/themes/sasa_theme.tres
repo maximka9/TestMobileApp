@@ -1,7 +1,23 @@
-[gd_resource type="Theme" load_steps=19 format=3]
+[gd_resource type="Theme" load_steps=20 format=3]
 
 [ext_resource type="FontFile" path="res://assets/fonts/NotoSans.ttf" id="ui"]
 [ext_resource type="FontFile" path="res://assets/fonts/RussoOne.ttf" id="display"]
+
+[sub_resource type="StyleBoxFlat" id="Compact"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.14, 0.07, 0.1, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.5, 0.22, 0.29, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_left = 3
+corner_radius_bottom_right = 3
 
 [sub_resource type="StyleBoxFlat" id="AvatarFrame"]
 content_margin_left = 3.0
@@ -215,10 +231,17 @@ ToggleButton/styles/normal = SubResource("Toggle")
 NavButton/base_type = &"Button"
 NavButton/styles/normal = SubResource("Ghost")
 CompactButton/base_type = &"Button"
-CompactButton/styles/normal = SubResource("Toggle")
+CompactButton/styles/normal = SubResource("Compact")
+BottomNavButton/base_type = &"Button"
+BottomNavButton/styles/normal = SubResource("Button")
+BottomNavButton/styles/hover = SubResource("AccentHover")
+BottomNavButton/styles/pressed = SubResource("Pressed")
+BottomNavButton/styles/disabled = SubResource("Disabled")
+BottomNavButton/font_sizes/font_size = 12
 CompactButton/font_sizes/font_size = 12
 NavButton/font_sizes/font_size = 12
 PanelContainer/styles/panel = SubResource("Panel")
+PopupPanel/styles/panel = SubResource("Panel")
 AvatarFrame/base_type = &"PanelContainer"
 AvatarFrame/styles/panel = SubResource("AvatarFrame")
 Label/colors/font_color = Color(0.91, 0.89, 0.89, 1)

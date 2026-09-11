@@ -50,17 +50,10 @@ func _ready() -> void:
 	$Stage/Desk/LeftMonitor.rotation_degrees = 3.0
 	$Stage/Desk/RightMonitor.position.x = 210.0
 	$Stage/Desk/RightMonitor.rotation_degrees = -4.0
-	# Flip only the peripherals, keeping the existing desk/legs in place.
-	var desk: Sprite2D = $Stage/Foreground/DesktopKeyboardMouse
-	for region: Rect2 in [Rect2(70, 5, 122, 24), Rect2(198, 6, 59, 25)]:
-		var peripheral := Sprite2D.new()
-		var crop := AtlasTexture.new()
-		crop.atlas = desk.texture
-		crop.region = region
-		peripheral.texture = crop
-		peripheral.position = region.position + region.size / 2
-		peripheral.flip_v = true
-		desk.add_child(peripheral)
+	var details := Node2D.new()
+	details.set_script(preload("res://src/features/stream/ui/workstation_details.gd"))
+	$Stage/Foreground/DesktopKeyboardMouse.add_child(details)
+	$Stage/Desk/RightMonitor.transform = Transform2D(Vector2(0.52, 0.18), Vector2(0, 1), Vector2(238, 92))
 	$Stage/Desk/RightMonitor.z_index = 1 # Foreground monitor must not lose text behind the character's arm.
 	$Stage/Desk/RightMonitor/Bezel.scale = Vector2(1.15, 1.3)
 	var screen: Control = Control.new()
@@ -77,6 +70,9 @@ func _ready() -> void:
 	_chat_status.position = Vector2(8, 6)
 	_chat_status.size = Vector2(98, 11)
 	_chat_status.clip_text = true
+	_chat_status.add_theme_font_size_override("font_size", 12)
+	_chat_status.size.y = 18
+	_chat_content.hide()
 	$Stage/Desk/RightMonitor/Scrollbar.hide()
 	for row: RichTextLabel in _chat_rows:
 		row.size = Vector2(98, 9)
@@ -130,13 +126,7 @@ func _process(delta: float) -> void:
 		sasavot_sprite.scale = _appearance_scale
 	_hype_light.modulate.a = 0.30 if live and hype >= 80.0 else 0.0
 	_refresh_live()
-	var nickname: String = chat.advance(delta, live, viewers, hype)
-	if not nickname.is_empty():
-		_push_chat(nickname)
-		_chat_slide = 0.0 if reduced_motion else 9.0
-	_chat_slide = 0.0 if reduced_motion else maxf(0.0, _chat_slide - delta * 40.0)
-	for i: int in range(_chat_rows.size()):
-		_chat_rows[i].position.y = float(i * 9) + roundf(_chat_slide)
+	_chat_content.hide()
 	if $Stage/Aquarium.visible and not reduced_motion:
 		$Stage/Aquarium/Fish.position.x = 9.0 + fposmod(_idle_clock * 8.0, 34.0)
 
@@ -223,19 +213,13 @@ func _set_category(category: String) -> void:
 	_category = category
 	$Stage/Desk/LeftMonitor/CategoryVisual/Moba.visible = category == "dota_2"
 	$Stage/Desk/LeftMonitor/CategoryVisual/Camera.visible = category == "irl"
-	match category:
-		"dota_2":
-			_main_content.text = "[color=#d9e6ee]DOTA 2 / 12 : 8[/color]"
-		"irl":
-			_main_content.text = "[color=#d9e6ee]IRL / CAMERA[/color]"
-		_:
-			_main_content.text = "[color=#d9e6ee]JUST CHATTING[/color]\n[color=#96b0c7]  ●  SASAVOT[/color]\n[color=#cbd5df]  Привет, чат!\n  Как настроение?[/color]\n[color=#e4999d]  ♥   ♥   ♥[/color]"
+	_main_content.text = ""
 
 func _refresh_live() -> void:
 	if _shown_live == live and not _chat_status.text.is_empty():
 		return
 	_shown_live = live
-	_chat_status.text = "● LIVE / CHAT" if live else "○ OFFLINE"
+	_chat_status.text = "● LIVE" if live else "○ OFFLINE"
 	_main_content.modulate.a = 1.0 if live else 0.65
 	$Stage/Desk/LeftMonitor/CategoryVisual.modulate.a = 1.0 if live else 0.65
 	_chat_content.modulate.a = 1.0 if live else 0.75

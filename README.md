@@ -1,6 +1,10 @@
 # SASAclicker
 
-Current version: **0.11.0 — Visual Identity Update**.
+Current version: **0.11.1 — UI Polish / Achievement Tree Rework**.
+
+0.11.1 adds compact achievement nodes and clean branch routing, content/move icons,
+filled bottom navigation and a status-only workstation monitor.
+See [verification and screenshots](docs/v0.11.1-verification.md).
 
 Version 0.11 adds bundled streamer avatars, illustrated events and achievements,
 distinct action-button variants, and a streamer-facing desktop composition. All

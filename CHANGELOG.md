@@ -1,5 +1,14 @@
 # Changelog
 
+## [0.11.1]
+
+- Added data-driven content/move icons with fallback.
+- Compact achievement nodes, deterministic depth layout and orthogonal shared branches without crossings.
+- Compact zoom controls; preserved 60–180% zoom, pan and pinch.
+- Filled burgundy bottom navigation and reoriented workstation peripherals.
+- Monitor now shows only OFFLINE/LIVE status.
+- Gameplay, balance and save schema 12 unchanged.
+
 ## [0.11.0]
 
 - Added 412 real Twitch channel avatars stored locally with source URLs and creator-ID mapping; missing avatars use a neutral placeholder.

@@ -5,6 +5,7 @@ extends Resource
 @export var id: String = ""
 @export var title: String = ""
 @export var description: String = ""
+@export var icon: Texture2D
 @export var viewer_multiplier: float = 1.0
 @export var income_multiplier: float = 1.0
 @export var event_multiplier: float = 1.0

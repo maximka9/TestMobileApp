@@ -78,3 +78,12 @@ static func image(texture: Texture2D, minimum: Vector2) -> TextureRect:
 	node.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
 	node.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	return node
+
+static func icon_heading(text: String, texture: Texture2D) -> HBoxContainer:
+	var row := HBoxContainer.new()
+	row.add_child(image(texture if texture != null else achievement_icon(""), Vector2(40, 40)))
+	var title := label(text, &"heading", &"AccentLabel")
+	title.custom_minimum_size = Vector2(180, 32)
+	title.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	row.add_child(title)
+	return row

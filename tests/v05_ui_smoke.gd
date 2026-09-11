@@ -51,7 +51,7 @@ func _run() -> void:
 	await process_frame
 	var fail_visible: bool = false
 	for child: Node in game.modal_body.get_children():
-		if child is Label and child.text == game.app.catalog.short_forms["fail"].display_name:
+		if child is HBoxContainer and child.get_child(1) is Label and child.get_child(1).text == game.app.catalog.short_forms["fail"].display_name:
 			game.modal_scroll.scroll_vertical = int(child.position.y)
 			fail_visible = true
 		elif fail_visible and child is Button:
