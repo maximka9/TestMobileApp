@@ -108,7 +108,7 @@ func _test_stream() -> void:
 	check(state.money >= 1 and state.hype == 97.5, "Timed income and hype decay")
 	stream.finish()
 	check(stream.phase == StreamService.Phase.SUMMARY and not state.is_streaming and state.total_streams == 1, "Finish transitions to summary")
-	check(stream.summary["clicks"] == 151 and stream.summary["xp"] == state.xp + progression.required_xp(1) and stream.summary["seconds"] == 5, "Summary counts session activity including high-hype XP")
+	check(stream.summary["clicks"] == 151 and stream.summary["xp"] == state.xp + (state.level - 1) * 100 and stream.summary["seconds"] == 5, "Summary counts session activity including high-hype XP")
 	check(stream.summary["peak"] >= stream.summary["average"] and stream.summary["average"] > 0, "Summary viewer statistics")
 	check(not stream.finish().success and not stream.start().success, "Summary state guards")
 	stream.continue_to_room()
@@ -328,7 +328,7 @@ func _test_flow() -> void:
 	stream.continue_to_room()
 	saves.save(state)
 	var loaded: PlayerState = saves.load_player()
-	check(loaded.money == state.money and loaded.total_streams == 1 and loaded.total_clicks == 1500 and loaded.click_power == 2 and loaded.level == state.level, "Full gameplay flow survives save/load")
+	check(loaded.money == state.money and loaded.total_streams == 1 and loaded.total_clicks == 1500 and loaded.click_power == 2 and loaded.level == state.level, "Full gameplay flow survives save/load: level %d/%d, money %d/%d, clicks %d" % [loaded.level, state.level, loaded.money, state.money, loaded.total_clicks])
 
 func _test_scene() -> void:
 	var scene: PackedScene = load("res://src/features/stream/scenes/main_game.tscn") as PackedScene

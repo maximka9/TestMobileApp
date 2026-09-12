@@ -6,16 +6,18 @@ var config: GameConfig
 func _init(game_config: GameConfig) -> void:
 	config = game_config
 
-func required_xp(level: int) -> int:
-	return config.xp_base * maxi(1, level)
+func required_xp(_level: int) -> int:
+	return 100
 
 func add_xp(state: PlayerState, amount: int) -> OperationResult:
-	if state == null or amount < 0 or amount > 1000000:
+	if state == null or amount < 0 or amount > PlayerState.MAX_LEVEL:
 		return OperationResult.fail(&"INVALID_ARGUMENT")
 	state.xp += amount
-	while state.xp >= required_xp(state.level):
-		state.xp -= required_xp(state.level)
-		state.level += 1
+	FollowerGrowthService.new(config).award(state, amount)
+	@warning_ignore("integer_division")
+	var levels: int = state.xp / required_xp(state.level)
+	state.level += levels
+	state.xp %= required_xp(state.level)
 	return OperationResult.new()
 
 func click_xp(level: int, click_power: float, hype: float, equipment_multiplier: float = 1.0) -> float:

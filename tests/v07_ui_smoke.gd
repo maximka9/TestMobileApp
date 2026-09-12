@@ -20,7 +20,7 @@ func _run() -> void:
 	var state: PlayerState = game.app.stream.state
 	state.followers = 100
 	await _capture("chat_offline")
-	_check(game.room.chat.generated == 0, "Offline room starts empty")
+	_check(game.room.monitor_status != null, "Offline room starts empty")
 	game._show_settings()
 	for child: Node in game.modal_body.get_children():
 		_check(not child is Button or child.text != "Локации", "No manual location UI")
@@ -37,8 +37,8 @@ func _run() -> void:
 			game.room._process(0.1)
 		game.room._process(0.3)
 		var clip: Control = game.room.get_node("Stage/Desk/RightMonitor/ScreenClip")
-		_check(clip.clip_contents and clip.get_global_rect().encloses(game.room._chat_content.get_global_rect()), "Chat content contained by physical monitor screen")
-		_check(not game.room._chat_content.visible and game.room.chat.generated == 0, "Status monitor does not generate or display random chat")
+		_check(clip.clip_contents and clip.get_global_rect().encloses(game.room.monitor_status.get_global_rect()), "Chat content contained by physical monitor screen")
+		_check(not game.room.has_node("Stage/Desk/RightMonitor/ChatClip") and game.room.monitor_status != null, "Status monitor does not generate or display random chat")
 		await _capture("chat_%d_viewers" % online)
 	game.app.monotonic_clock = func() -> int: return mono
 	game.app._last_tick_msec = mono
@@ -99,6 +99,10 @@ func _contains_label(value: String) -> bool:
 	return false
 
 func _capture(filename: String) -> void:
+	if OS.get_environment("SASA_NO_SCREENSHOTS") == "1":
+		await process_frame
+		await process_frame
+		return
 	await process_frame
 	await process_frame
 	await RenderingServer.frame_post_draw

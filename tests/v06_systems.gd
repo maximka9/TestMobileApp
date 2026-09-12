@@ -47,11 +47,11 @@ func _test_growth() -> void:
 	_fixture()
 	var original: int = state.followers
 	progression.add_xp(state, 500)
-	check(state.followers == original, "XP alone never awards followers")
+	check(state.followers == original + 500, "XP awards matching followers")
 	stream.start()
 	stream.click()
 	stream.finish()
-	check(state.followers == original, "Click and ordinary stream only create material")
+	check(state.followers == original + 500 + int(stream.summary.xp), "Click XP followers are not awarded twice at finish")
 	var growth: FollowerGrowthService = FollowerGrowthService.new(config)
 	var previous: int = -1
 	for outcome: int in range(5):

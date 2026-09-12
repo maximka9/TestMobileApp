@@ -125,6 +125,10 @@ func _check_avatars() -> void:
 	_check(count == game._shown_candidate_ids.size(), "Every candidate has an avatar")
 
 func _capture(name: String) -> void:
+	if OS.get_environment("SASA_NO_SCREENSHOTS") == "1":
+		await process_frame
+		await process_frame
+		return
 	await process_frame
 	await process_frame
 	if DisplayServer.get_name() != "headless":

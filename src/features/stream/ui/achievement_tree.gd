@@ -41,7 +41,13 @@ func setup(content: ContentCatalog, state: PlayerState) -> void:
 	custom_minimum_size = layout.bounds
 	refresh(true)
 
-func refresh(force: bool = false) -> void:
+func select_node(id: String) -> void:
+	if id == selected_id:
+		return
+	selected_id = id
+	refresh(true, false)
+
+func refresh(force: bool = false, animate: bool = true) -> void:
 	var completion: String = str(player.unlocked_achievements)
 	if not force and completion == _completion:
 		return
@@ -72,7 +78,7 @@ func refresh(force: bool = false) -> void:
 		hover.bg_color = box.bg_color.lightened(0.08)
 		button.add_theme_stylebox_override("hover", hover)
 		button.add_theme_color_override("font_color", Color.WHITE if completed else Color("9994a0"))
-		if force and available and not completed and not player.settings.get("reduced_motion", false):
+		if animate and force and available and not completed and not player.settings.get("reduced_motion", false):
 			var tween: Tween = create_tween()
 			tween.tween_property(button, "modulate", Color(1.3, 1.15, 1.15), 0.3)
 			tween.tween_property(button, "modulate", Color.WHITE, 0.5)

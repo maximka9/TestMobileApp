@@ -4,27 +4,17 @@ extends Control
 signal tapped(position: Vector2)
 
 const DESIGN_SIZE := Vector2(336, 250)
-const CHAT_LIMIT: int = 5
 const STARTER_TEXTURE: Texture2D = preload("res://assets/characters/sasavot_frames.png")
 const APPEARANCE: CharacterAppearance = preload("res://resources/characters/appearance.tres")
-const CHAT_MESSAGES: PackedStringArray = ["жми жми", "ХАХАХ", "+", "КЛИП!", "погнали", "хорош", "KEKW", "это база"]
-const HOT_CHAT_MESSAGES: PackedStringArray = ["KEKW", "КЛИП!", "ХАХАХ"]
-const CHAT_COLORS: PackedStringArray = ["#e78f91", "#b9cbed", "#edb879", "#cdadc5"]
 
 var live: bool = false
 var viewers: int = 0
-var chat: ChatActivityService = ChatActivityService.new(GameConfig.new())
 var reduced_motion: bool = false
 var hype: float = 0.0
 var pulse: float = 0.0
-var chat_clock: float = 0.0
-var chat_index: int = 0
 var floating_pool: FloatingTextPool
 var _idle_clock: float = 0.0
-var _chat_slide: float = 0.0
 var _category: String = ""
-var _chat_lines: PackedStringArray = []
-var _chat_rows: Array[RichTextLabel] = []
 var _touches: Dictionary[int, bool] = {}
 var _shown_live: bool = false
 var _appearance_tier: int = -1
@@ -34,9 +24,7 @@ var _appearance_scale: Vector2 = Vector2.ONE
 
 @onready var _stage: Control = $Stage
 @onready var sasavot_sprite: Sprite2D = $Stage/Character/SasavotSprite
-@onready var _main_content: RichTextLabel = get_node_or_null("Stage/Desk/LeftMonitor/Content")
-@onready var _chat_content: Control = get_node_or_null("Stage/Desk/RightMonitor/ChatClip")
-@onready var _chat_status: Label = get_node_or_null("Stage/Desk/RightMonitor/ChatStatus")
+@onready var monitor_status: Label = get_node_or_null("Stage/Desk/RightMonitor/ScreenClip/Status")
 @onready var _hype_light: TextureRect = get_node_or_null("Stage/AmbientLighting/HypeLight")
 
 func _ready() -> void:
@@ -44,39 +32,13 @@ func _ready() -> void:
 	mouse_default_cursor_shape = Control.CURSOR_POINTING_HAND
 	clip_contents = true
 	_ignore_child_input(self)
-	for child: Node in _chat_content.get_children():
-		_chat_rows.append(child as RichTextLabel)
-	# The ScreenClip matches the physical inner screen, with safe text padding.
 	$Stage/Desk/LeftMonitor.rotation_degrees = 3.0
-	$Stage/Desk/RightMonitor.position.x = 210.0
-	$Stage/Desk/RightMonitor.rotation_degrees = -4.0
 	var details := Node2D.new()
 	details.set_script(preload("res://src/features/stream/ui/workstation_details.gd"))
 	$Stage/Foreground/DesktopKeyboardMouse.add_child(details)
-	$Stage/Desk/RightMonitor.transform = Transform2D(Vector2(0.52, 0.18), Vector2(0, 1), Vector2(238, 92))
+	$Stage/Desk/RightMonitor.transform = Transform2D(Vector2(0.28, 0.24), Vector2(0, 1), Vector2(245, 92))
 	$Stage/Desk/RightMonitor.z_index = 1 # Foreground monitor must not lose text behind the character's arm.
 	$Stage/Desk/RightMonitor/Bezel.scale = Vector2(1.15, 1.3)
-	var screen: Control = Control.new()
-	screen.name = "ScreenClip"
-	screen.position = Vector2(5, 5)
-	screen.size = Vector2(114, 70)
-	screen.clip_contents = true
-	screen.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	$Stage/Desk/RightMonitor.add_child(screen)
-	_chat_content.reparent(screen)
-	_chat_status.reparent(screen)
-	_chat_content.position = Vector2(8, 19)
-	_chat_content.size = Vector2(98, 45)
-	_chat_status.position = Vector2(8, 6)
-	_chat_status.size = Vector2(98, 11)
-	_chat_status.clip_text = true
-	_chat_status.add_theme_font_size_override("font_size", 12)
-	_chat_status.size.y = 18
-	_chat_content.hide()
-	$Stage/Desk/RightMonitor/Scrollbar.hide()
-	for row: RichTextLabel in _chat_rows:
-		row.size = Vector2(98, 9)
-		row.autowrap_mode = TextServer.AUTOWRAP_OFF
 	floating_pool = $Effects/FloatingTextPool as FloatingTextPool
 	resized.connect(_fit_stage)
 	_fit_stage()
@@ -84,13 +46,8 @@ func _ready() -> void:
 	_refresh_live()
 
 func present(state: PlayerState) -> void:
-	if state.is_streaming and not live:
-		_chat_lines.clear()
-		for row: RichTextLabel in _chat_rows:
-			row.text = ""
 	live = state.is_streaming
 	viewers = state.viewers
-	chat.advance(0, live, viewers, state.hype)
 	reduced_motion = bool(state.settings.get("reduced_motion", false))
 	hype = state.hype
 	if not is_node_ready():
@@ -107,7 +64,6 @@ func present(state: PlayerState) -> void:
 		pulse = 0.0
 		sasavot_sprite.frame = 0
 		sasavot_sprite.scale = _appearance_scale
-		_chat_slide = 0.0
 
 func _process(delta: float) -> void:
 	if not is_node_ready():
@@ -124,14 +80,11 @@ func _process(delta: float) -> void:
 		var phase: float = fmod(_idle_clock, 4.8)
 		sasavot_sprite.frame = 2 if sasavot_sprite.hframes >= 4 and phase > 4.60 else (1 if sasavot_sprite.hframes >= 4 and phase > 2.3 else 0)
 		sasavot_sprite.scale = _appearance_scale
-	_hype_light.modulate.a = 0.30 if live and hype >= 80.0 else 0.0
+	if _hype_light != null:
+		_hype_light.modulate.a = 0.30 if live and hype >= 80.0 else 0.0
 	_refresh_live()
-	_chat_content.hide()
 	if $Stage/Aquarium.visible and not reduced_motion:
 		$Stage/Aquarium/Fish.position.x = 9.0 + fposmod(_idle_clock * 8.0, 34.0)
-
-func chat_interval() -> float:
-	return chat.interval(viewers, hype)
 
 func _gui_input(event: InputEvent) -> void:
 	if event is InputEventScreenTouch:
@@ -172,13 +125,16 @@ func react(position_clicked: Vector2, amount: float, xp: int = 0) -> void:
 func _fit_stage() -> void:
 	if not is_instance_valid(_stage) or size.x <= 0.0 or size.y <= 0.0:
 		return
-	var ratio: float = minf(size.x / DESIGN_SIZE.x, size.y / DESIGN_SIZE.y)
+	# Cover the width; crop vertically on short viewports instead of side bands.
+	var ratio: float = size.x / DESIGN_SIZE.x
 	_stage.scale = Vector2.ONE * ratio
 	_stage.position = Vector2(roundf((size.x - DESIGN_SIZE.x * ratio) * 0.5), 0.0)
 	var extra: float = maxf(0.0, size.y / ratio - DESIGN_SIZE.y)
 	var wall_extra: float = roundf(extra * 0.65)
 	var wall_height: float = 181.0 + wall_extra
 	$Stage/AdaptiveBackdrop/WallExtension.size = Vector2(336, wall_height)
+	$Stage/AdaptiveBackdrop/LeftWall.size.y = wall_height
+	$Stage/AdaptiveBackdrop/RightWall.size.y = wall_height
 	$Stage/AdaptiveBackdrop/LeftLED.size.y = wall_height
 	$Stage/AdaptiveBackdrop/RightLED.size.y = wall_height
 	$Stage/FurnitureBack/Shelf.position.y = 49.0 + wall_extra
@@ -213,28 +169,13 @@ func _set_category(category: String) -> void:
 	_category = category
 	$Stage/Desk/LeftMonitor/CategoryVisual/Moba.visible = category == "dota_2"
 	$Stage/Desk/LeftMonitor/CategoryVisual/Camera.visible = category == "irl"
-	_main_content.text = ""
 
 func _refresh_live() -> void:
-	if _shown_live == live and not _chat_status.text.is_empty():
+	if monitor_status == null or (_shown_live == live and not monitor_status.text.is_empty()):
 		return
 	_shown_live = live
-	_chat_status.text = "● LIVE" if live else "○ OFFLINE"
-	_main_content.modulate.a = 1.0 if live else 0.65
+	monitor_status.text = "● LIVE" if live else "○ OFFLINE"
 	$Stage/Desk/LeftMonitor/CategoryVisual.modulate.a = 1.0 if live else 0.65
-	_chat_content.modulate.a = 1.0 if live else 0.75
-
-func _push_chat(nickname: String = "viewer_52") -> void:
-	var message: String = CHAT_MESSAGES[chat_index % CHAT_MESSAGES.size()]
-	if hype >= 70 and chat.random.between(0, 99) < hype:
-		message = HOT_CHAT_MESSAGES[chat.random.between(0, HOT_CHAT_MESSAGES.size() - 1)]
-	var color: String = CHAT_COLORS[chat_index % CHAT_COLORS.size()]
-	_chat_lines.append("[color=%s]%s[/color] [color=#dddce3]%s[/color]" % [color, nickname, message])
-	if _chat_lines.size() > CHAT_LIMIT:
-		_chat_lines.remove_at(0)
-	chat_index += 1
-	for i: int in range(_chat_rows.size()):
-		_chat_rows[i].text = _chat_lines[i] if i < _chat_lines.size() else ""
 
 func _ignore_child_input(node: Node) -> void:
 	for child: Node in node.get_children():

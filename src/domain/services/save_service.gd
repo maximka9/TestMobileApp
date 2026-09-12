@@ -40,7 +40,7 @@ func deserialize(document: Dictionary) -> OperationResult:
 		return OperationResult.fail(&"CORRUPT_SAVE")
 	var data: Dictionary = document["player"]
 	for key: String in ["level", "xp", "money", "total_clicks", "total_streams"]:
-		if not _integer(data.get(key), 1 if key == "level" else 0, 100000 if key == "level" else MAX_COUNTER):
+		if not _integer(data.get(key), 1 if key == "level" else 0, PlayerState.MAX_LEVEL if key == "level" else MAX_COUNTER):
 			return OperationResult.fail(&"CORRUPT_SAVE")
 	var version: int = int(document["version"])
 	var legacy: bool = version == 1
@@ -116,6 +116,9 @@ func deserialize(document: Dictionary) -> OperationResult:
 		state.fatigue_recovery_seconds = 0
 	state.selected_cosplay_id = "" # Sessions never resume; costumes are transient moves.
 	state.normalize()
+	# Convert any carried XP to levels at the current threshold without awarding
+	# followers retroactively. Repeated loads are idempotent; schema stays 12.
+	ProgressionService.new(upgrades.config).add_xp(state, 0)
 	return OperationResult.new(true, &"SUCCESS", "", {"state": state, "saved_at": int(document["timestamp"]), "was_streaming": bool(data.get("was_streaming", false))})
 
 func _read_collabs(data: Dictionary, state: PlayerState) -> bool:

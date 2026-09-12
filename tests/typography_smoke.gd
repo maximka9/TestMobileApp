@@ -21,7 +21,7 @@ func _run() -> void:
 	_check(game.theme.get_font("font", "TitleLabel") != game.theme.default_font, "Display and UI fonts differ")
 	_check(root.get_texture().get_image().get_size() == Vector2i(540, 960), "Text renders at native debug resolution")
 	_check(game.room.texture_filter == CanvasItem.TEXTURE_FILTER_NEAREST, "Pixel art retains nearest filtering")
-	_check((game.room.get_node("Stage/Desk/RightMonitor/ScreenClip/ChatStatus") as Label).get_theme_font_size("font_size") == 12, "Readable status typography resolves through clipped screen")
+	_check((game.room.get_node("Stage/Desk/RightMonitor/ScreenClip/Status") as Label).get_theme_font_size("font_size") == 12, "Readable status typography resolves through clipped screen")
 	_check(game.primary.get_theme_stylebox("normal") != game.primary.get_theme_stylebox("hover"), "Hover distinct from normal")
 	_check(game.primary.get_theme_stylebox("pressed") != game.primary.get_theme_stylebox("normal"), "Pressed distinct from normal")
 	_check(game.primary.get_theme_stylebox("disabled") != game.primary.get_theme_stylebox("normal"), "Disabled distinct from normal")
@@ -93,6 +93,10 @@ func _check(ok: bool, message: String) -> void:
 		printerr("FAIL: " + message)
 
 func _capture(filename: String) -> void:
+	if OS.get_environment("SASA_NO_SCREENSHOTS") == "1":
+		await process_frame
+		await process_frame
+		return
 	await process_frame
 	await process_frame
 	await RenderingServer.frame_post_draw

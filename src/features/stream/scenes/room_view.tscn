@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3]
+[gd_scene load_steps=19 format=3]
 
 [ext_resource type="Theme" path="res://resources/themes/sasa_theme.tres" id="theme"]
 [ext_resource type="Script" path="res://src/features/stream/ui/room_view.gd" id="1_room"]
@@ -28,6 +28,14 @@ fill_to = Vector2(0.5, 0.0)
 [sub_resource type="AtlasTexture" id="Atlas_wall_extension"]
 atlas = ExtResource("3_wall")
 region = Rect2(105, 21, 126, 112)
+
+[sub_resource type="AtlasTexture" id="Atlas_left_wall"]
+atlas = ExtResource("3_wall")
+region = Rect2(0, 0, 44, 49)
+
+[sub_resource type="AtlasTexture" id="Atlas_right_wall"]
+atlas = ExtResource("3_wall")
+region = Rect2(283, 0, 53, 83)
 
 [node name="RoomView" type="Control"]
 custom_minimum_size = Vector2(0, 210)
@@ -91,6 +99,21 @@ offset_bottom = 181.0
 mouse_filter = 2
 texture = SubResource("Atlas_wall_extension")
 expand_mode = 1
+
+[node name="LeftWall" type="TextureRect" parent="Stage/AdaptiveBackdrop"]
+offset_right = 44.0
+offset_bottom = 181.0
+texture = SubResource("Atlas_left_wall")
+expand_mode = 1
+mouse_filter = 2
+
+[node name="RightWall" type="TextureRect" parent="Stage/AdaptiveBackdrop"]
+offset_left = 283.0
+offset_right = 336.0
+offset_bottom = 181.0
+texture = SubResource("Atlas_right_wall")
+expand_mode = 1
+mouse_filter = 2
 
 [node name="LeftLED" type="ColorRect" parent="Stage/AdaptiveBackdrop"]
 offset_left = 13.0
@@ -181,102 +204,23 @@ position = Vector2(0, 0)
 texture = ExtResource("9_monitor")
 centered = false
 
-[node name="Content" type="RichTextLabel" parent="Stage/Desk/LeftMonitor"]
-layout_mode = 0
-offset_left = 7.0
-offset_top = 7.0
-offset_right = 103.0
-offset_bottom = 60.0
-mouse_filter = 2
-theme_override_constants/line_separation = 0
-theme = ExtResource("theme")
-theme_type_variation = &"MonitorText"
-bbcode_enabled = true
-scroll_active = false
-
-[node name="ChatStatus" type="Label" parent="Stage/Desk/RightMonitor"]
-layout_mode = 0
-offset_left = 7.0
-offset_top = 5.0
-offset_right = 98.0
-offset_bottom = 16.0
-mouse_filter = 2
-theme_override_colors/font_color = Color(0.90, 0.32, 0.36, 1)
-theme = ExtResource("theme")
-theme_type_variation = &"MonitorLabel"
-
-[node name="ChatClip" type="Control" parent="Stage/Desk/RightMonitor"]
+[node name="ScreenClip" type="Control" parent="Stage/Desk/RightMonitor"]
 clip_contents = true
-layout_mode = 0
-offset_left = 7.0
-offset_top = 18.0
-offset_right = 151.0
-offset_bottom = 105.0
+offset_left = 5.0
+offset_top = 5.0
+offset_right = 119.0
+offset_bottom = 75.0
 mouse_filter = 2
 
-[node name="Row0" type="RichTextLabel" parent="Stage/Desk/RightMonitor/ChatClip"]
-layout_mode = 0
-offset_top = 0.0
-offset_right = 89.0
-offset_bottom = 11.0
+[node name="Status" type="Label" parent="Stage/Desk/RightMonitor/ScreenClip"]
+offset_left = 8.0
+offset_top = 6.0
+offset_right = 106.0
+offset_bottom = 24.0
+clip_text = true
 mouse_filter = 2
-theme = ExtResource("theme")
-theme_type_variation = &"MonitorText"
-bbcode_enabled = true
-scroll_active = false
-
-[node name="Row1" type="RichTextLabel" parent="Stage/Desk/RightMonitor/ChatClip"]
-layout_mode = 0
-offset_top = 11.0
-offset_right = 89.0
-offset_bottom = 22.0
-mouse_filter = 2
-theme = ExtResource("theme")
-theme_type_variation = &"MonitorText"
-bbcode_enabled = true
-scroll_active = false
-
-[node name="Row2" type="RichTextLabel" parent="Stage/Desk/RightMonitor/ChatClip"]
-layout_mode = 0
-offset_top = 22.0
-offset_right = 89.0
-offset_bottom = 33.0
-mouse_filter = 2
-theme = ExtResource("theme")
-theme_type_variation = &"MonitorText"
-bbcode_enabled = true
-scroll_active = false
-
-[node name="Row3" type="RichTextLabel" parent="Stage/Desk/RightMonitor/ChatClip"]
-layout_mode = 0
-offset_top = 33.0
-offset_right = 89.0
-offset_bottom = 44.0
-mouse_filter = 2
-theme = ExtResource("theme")
-theme_type_variation = &"MonitorText"
-bbcode_enabled = true
-scroll_active = false
-
-[node name="Row4" type="RichTextLabel" parent="Stage/Desk/RightMonitor/ChatClip"]
-layout_mode = 0
-offset_top = 36.0
-offset_right = 145.0
-offset_bottom = 45.0
-mouse_filter = 2
-theme = ExtResource("theme")
-theme_type_variation = &"MonitorText"
-bbcode_enabled = true
-scroll_active = false
-
-[node name="Scrollbar" type="ColorRect" parent="Stage/Desk/RightMonitor"]
-offset_left = 102.0
-offset_top = 18.0
-offset_right = 104.0
-offset_bottom = 59.0
-mouse_filter = 2
-color = Color(0.3, 0.36, 0.45, 0.6)
-
+theme_override_font_sizes/font_size = 12
+text = "OFFLINE"
 [node name="Character" type="Node2D" parent="Stage"]
 
 

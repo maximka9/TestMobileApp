@@ -10,7 +10,7 @@ func _run() -> void:
 	await process_frame
 	game.app.set_process(false)
 	DirAccess.make_dir_recursive_absolute(ProjectSettings.globalize_path(SHOTS))
-	_check(not game.room._chat_content.visible, "No monitor chat")
+	_check(not game.room.has_node("Stage/Desk/RightMonitor/ChatClip"), "No monitor chat")
 	await _capture("room_workstation_offline")
 	await _capture("main_bottom_nav")
 	var nav: Button = game.find_children("*", "Button", true, false).filter(func(b: Button) -> bool: return b.theme_type_variation == &"BottomNavButton")[0]
@@ -66,7 +66,7 @@ func _run() -> void:
 	_check(game.app.stream.start().success, "Stream starts")
 	game.room.present(game.app.stream.state)
 	await _capture("room_workstation_live")
-	_check(not game.room._chat_content.visible, "Live monitor remains status only")
+	_check(not game.room.has_node("Stage/Desk/RightMonitor/ChatClip"), "Live monitor remains status only")
 	game.app.queue.cancel()
 	game.queue_free()
 	await process_frame
@@ -74,6 +74,10 @@ func _run() -> void:
 	quit(0 if failures == 0 else 1)
 
 func _capture(name: String) -> void:
+	if OS.get_environment("SASA_NO_SCREENSHOTS") == "1":
+		await process_frame
+		await process_frame
+		return
 	await process_frame
 	await process_frame
 	if DisplayServer.get_name() != "headless":

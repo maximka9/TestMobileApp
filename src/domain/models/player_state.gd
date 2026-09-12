@@ -1,5 +1,6 @@
 class_name PlayerState
 extends RefCounted
+const MAX_LEVEL: int = 1000000000000
 ## Persistent player data. Only domain services mutate it; sessions are transient.
 
 var level: int = 1
@@ -65,7 +66,7 @@ var settings: Dictionary = {"reduced_motion": false}
 
 ## Energy is stored as 0..100 percent. Chair capacity makes each move cost less percent.
 func normalize() -> void:
-	level = clampi(level, 1, 100000)
+	level = clampi(level, 1, MAX_LEVEL)
 	xp = maxi(0, xp)
 	money = maxi(0, money)
 	viewers = maxi(0, viewers)

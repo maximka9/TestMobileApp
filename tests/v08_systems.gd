@@ -18,7 +18,7 @@ func _test_balance() -> void:
 			var high: float = progression.click_xp(level, power, 95)
 			var clicks: int = int(ceil(progression.required_xp(level) / xp))
 			print("BALANCE | %d | %d | %d | %.2f | %d | %d" % [level, power, progression.required_xp(level), xp, clicks, int(ceil(progression.required_xp(level) / high))])
-			check(clicks == 100 if power == 1 else clicks >= 20 and clicks < 100, "Configured clicks per level")
+			check(clicks >= 1 and clicks <= 100 and progression.required_xp(level) == 100, "Fixed 100 XP level threshold")
 			check(high <= level * config.click_xp_multiplier_cap * 1.30, "Late game XP cap")
 			var measured: int = _simulate_clicks(level, power, 0)
 			var measured_high: int = _simulate_clicks(level, power, 95)
@@ -27,13 +27,14 @@ func _test_balance() -> void:
 		_fixture()
 		state.level = level
 		stream.start()
-		for i: int in range(99):
+		var needed: int = int(ceil(100.0 / level))
+		for i: int in range(needed - 1):
 			state.hype = 0
 			stream.click()
-		check(state.level == level and state.xp == level * 99, "99 physical base clicks keep level")
+		check(state.level == level and state.xp == level * (needed - 1), "Below 100 XP stays at level")
 		state.hype = 0
 		stream.click()
-		check(state.level == level + 1 and state.xp == 0, "100th physical click levels up")
+		check(state.level == level + 1 and state.xp == needed * level - 100, "Threshold click levels up with remainder")
 	check(progression.hype_mastery(10) == progression.hype_mastery(1), "Level does not increase hype mastery")
 	check(progression.hype_mastery(1000) <= 1.0, "Mastery bounded")
 	check(progression.click_xp(5, 3, 0) > progression.click_xp(5, 1, 0), "Equipment increases XP")
@@ -52,9 +53,9 @@ func _test_click_feedback() -> void:
 	var before: int = state.xp
 	result = stream.click()
 	check(result.context["hype"] == 0 and state.hype == 100 and state.xp > before, "MAX hype has no fake gain but still awards XP")
-	check(state.followers == 30, "Clicks do not award followers")
+	check(state.followers == 30 + state.xp, "Clicks award one follower per XP")
 	state.level = 5
-	state.xp = 499
+	state.xp = 99
 	result = stream.click()
 	check(result.context["old_level"] == 5 and result.context["level"] == 6 and result.context["mastery_gain"] == 0, "Level up feedback does not increase hype mastery")
 

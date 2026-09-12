@@ -244,7 +244,7 @@ func _show_moves(collab_only: bool) -> void:
 		if id == "collab":
 			continue
 		var definition: ActionDefinition = app.catalog.moves[id]
-		modal_body.add_child(SasaUI.icon_heading(definition.title, definition.icon))
+		modal_body.add_child(SasaUI.icon_heading(definition.title, definition.icon, SasaUI.DEFAULT_MOVE))
 		modal_body.add_child(SasaUI.label(definition.description, &"body", &"MutedLabel"))
 		if not app.stream.state.is_streaming:
 			modal_body.add_child(SasaUI.label("Только во время эфира", &"small", &"MutedLabel"))
@@ -262,7 +262,7 @@ func _show_moves(collab_only: bool) -> void:
 		modal_body.add_child(move_button)
 	for id: String in app.catalog.cosplays:
 		var definition: CosplayDefinition = app.catalog.cosplays[id]
-		modal_body.add_child(SasaUI.icon_heading("Косплей · " + definition.display_name, definition.icon))
+		modal_body.add_child(SasaUI.icon_heading("Косплей · " + definition.display_name, definition.icon, SasaUI.DEFAULT_MOVE))
 		modal_body.add_child(SasaUI.label("Переодеться прямо во время эфира. +%d хайпа · +%d%% свежести · больше специальных событий\n%d монет · +%.0f%% усталости" % [app.config.cosplay_hype_gain, definition.novelty_bonus * 100, definition.money_cost, definition.fatigue_cost], &"body", &"MutedLabel"))
 		var status: Label = SasaUI.label(app.moves.cosplay_status(app.stream.state, id), &"small", &"MutedLabel")
 		status.set_meta("cooldown_id", "cosplay:" + id)
@@ -573,7 +573,8 @@ func _present_location(state: PlayerState) -> void:
 			container.add_child(room)
 			room.tapped.connect(_room_tapped)
 			_location_id = state.current_location_id
-	room.chat.config = app.config
+	if room is KitchenView:
+		room.chat.config = app.config
 	var cosplay: CosplayDefinition = app.catalog.cosplays.get(state.selected_cosplay_id)
 	room.cosplay_variant = cosplay.sprite_variant if state.is_streaming and cosplay != null else ""
 	room.present(state)
@@ -625,8 +626,7 @@ func _restore_achievement_view(focus: String) -> void:
 		achievement_pan.scroll_vertical = int(achievement_view_state["y"])
 
 func _achievement_selected(id: String) -> void:
-	achievement_tree.selected_id = id
-	achievement_tree.refresh(true)
+	achievement_tree.select_node(id)
 	if is_instance_valid(achievement_popup):
 		achievement_popup.queue_free()
 	achievement_popup = PopupPanel.new()
@@ -641,19 +641,13 @@ func _achievement_selected(id: String) -> void:
 	card.add_child(achievement_detail)
 	card.add_child(SasaUI.button("Закрыть", func() -> void: achievement_popup.hide()))
 	var item: AchievementDefinition = app.catalog.achievements[id]
-	var unlocked: bool = id in app.stream.state.unlocked_achievements
-	if item.secret and not unlocked:
+	var progress: Dictionary = app.achievements.progress(app.stream.state, id)
+	if item.secret and not progress.completed:
 		achievement_detail.text = "? — Секретное достижение"
 	else:
-		achievement_detail.text = "%s\n%s\n%s" % [item.display_name, item.description, "Выполнено ✓" if unlocked else "%d / %d" % [mini(item.threshold, app.achievements._value(app.stream.state, item.metric)), item.threshold]]
-		var missing: PackedStringArray = []
-		for parent_id: String in item.parent_ids:
-			if not parent_id in app.stream.state.unlocked_achievements:
-				missing.append(app.catalog.achievements[parent_id].display_name)
-		if not unlocked:
-			achievement_detail.text += "\nСтатус: " + ("Доступно" if missing.is_empty() else "Заблокировано")
-		if not missing.is_empty() and not unlocked:
-			achievement_detail.text += "\nСначала: " + ", ".join(missing)
+		achievement_detail.text = "%s\n%s\n%s\nСтатус: %s" % [item.display_name, item.description, "\n".join(progress.conditions), progress.status_text]
+		if progress.locked:
+			achievement_detail.text += "\nСначала: " + ", ".join(progress.missing_prerequisites)
 	achievement_detail.text += "\nНаграда: отметка достижения (без XP и монет)"
 	achievement_popup.popup_centered(Vector2i(280, 240))
 

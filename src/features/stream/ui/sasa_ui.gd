@@ -9,6 +9,10 @@ static var avatar_paths: Dictionary = {}
 static var avatars_loaded: bool = false
 const EVENT_ATLAS: Texture2D = preload("res://assets/ui/events/events_atlas.png")
 const ACHIEVEMENT_ATLAS: Texture2D = preload("res://assets/ui/achievements/achievements_atlas.png")
+const DEFAULT_CONTENT: Texture2D = preload("res://assets/ui/icons/default_content.svg")
+const DEFAULT_MOVE: Texture2D = preload("res://assets/ui/icons/default_move.svg")
+const DEFAULT_ACHIEVEMENT: Texture2D = preload("res://assets/ui/icons/default_achievement.svg")
+const DEFAULT_EVENT: Texture2D = preload("res://assets/ui/icons/default_event.svg")
 enum ButtonVariant { PRIMARY, SECONDARY, DANGER, GHOST, NAVIGATION, TOGGLE }
 
 static func color(token: StringName) -> Color:
@@ -58,16 +62,10 @@ static func avatar(key: String) -> Texture2D:
 	return DEFAULT_AVATAR
 
 static func event_image(key: String) -> Texture2D:
-	var texture := AtlasTexture.new()
-	texture.atlas = EVENT_ATLAS
-	texture.region = Rect2(945, 945, 300, 300)
-	return texture
+	return DEFAULT_EVENT
 
 static func achievement_icon(key: String) -> Texture2D:
-	var texture := AtlasTexture.new()
-	texture.atlas = ACHIEVEMENT_ATLAS
-	texture.region = Rect2(1015, 1015, 225, 225)
-	return texture
+	return DEFAULT_ACHIEVEMENT
 
 static func image(texture: Texture2D, minimum: Vector2) -> TextureRect:
 	var node := TextureRect.new()
@@ -79,9 +77,9 @@ static func image(texture: Texture2D, minimum: Vector2) -> TextureRect:
 	node.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	return node
 
-static func icon_heading(text: String, texture: Texture2D) -> HBoxContainer:
+static func icon_heading(text: String, texture: Texture2D, fallback: Texture2D = DEFAULT_CONTENT) -> HBoxContainer:
 	var row := HBoxContainer.new()
-	row.add_child(image(texture if texture != null else achievement_icon(""), Vector2(40, 40)))
+	row.add_child(image(texture if texture != null else fallback, Vector2(40, 40)))
 	var title := label(text, &"heading", &"AccentLabel")
 	title.custom_minimum_size = Vector2(180, 32)
 	title.size_flags_horizontal = Control.SIZE_EXPAND_FILL

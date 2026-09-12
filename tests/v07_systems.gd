@@ -72,7 +72,7 @@ func _test_organic() -> void:
 	stream.start()
 	for i: int in range(100):
 		stream.click()
-	check(state.followers == 100 and state.hype <= 100, "Clicks never directly award followers")
+	check(state.followers == 100 + stream._session_xp and state.hype <= 100, "Click followers match awarded XP exactly")
 	state.hype = 0
 	state.level = 10000
 	stream.click()
@@ -165,8 +165,8 @@ func _test_simulation() -> void:
 		clicks_to_growth.append(clicks if state.followers > 100 else 100000)
 	clicks_to_growth.sort()
 	var median: int = clicks_to_growth[50]
-	check(median == 100000, "Short low-hype streams do not guarantee growth")
-	print("SIMULATION: 100 seeds, 2 clicks/sec, 30 game-minute Dota sessions; median first organic growth = %d physical clicks" % median)
+	check(median == 60, "First session grants XP followers across all seeds")
+	print("SIMULATION: 100 seeds, 2 clicks/sec, 30 game-minute Dota sessions; first session growth = %d physical clicks" % median)
 	# v0.6 has no ordinary organic path; its ordinary-only first-growth median is censored.
 	_fixture()
 	config.organic_exposure_conversion = 0

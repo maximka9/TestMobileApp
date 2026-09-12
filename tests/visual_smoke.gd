@@ -150,6 +150,10 @@ func _check(condition: bool, description: String) -> void:
 		printerr("FAIL: " + description)
 
 func _capture(filename: String) -> void:
+	if OS.get_environment("SASA_NO_SCREENSHOTS") == "1":
+		await process_frame
+		await process_frame
+		return
 	await process_frame
 	await RenderingServer.frame_post_draw
 	var captured: Image = root.get_texture().get_image()

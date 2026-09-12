@@ -46,7 +46,7 @@ func _test_fatigue_and_reach() -> void:
 		stream.click()
 		stream.tick()
 	stream.finish()
-	check(state.followers < 50 and state.lifetime_peak_viewers < 100, "Three beginner minutes do not create a top streamer")
+	check(state.followers == 30 + int(stream.summary.followers) and state.lifetime_peak_viewers < 100, "Beginner stream accounts for XP followers once and retains audience bounds")
 
 func _test_history_and_novelty() -> void:
 	_fixture()

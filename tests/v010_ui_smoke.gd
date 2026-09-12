@@ -172,6 +172,10 @@ func _run() -> void:
 	quit(0 if failures == 0 else 1)
 
 func _capture(name: String) -> void:
+	if OS.get_environment("SASA_NO_SCREENSHOTS") == "1":
+		await process_frame
+		await process_frame
+		return
 	await process_frame
 	await process_frame
 	await RenderingServer.frame_post_draw

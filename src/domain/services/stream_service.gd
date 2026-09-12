@@ -192,6 +192,8 @@ func finish() -> OperationResult:
 	growth.award(state, organic)
 	summary["organic_followers"] = organic
 	summary["followers"] += organic
+	summary["xp_followers"] = _session_xp
+	summary["followers"] += _session_xp # Already granted by ProgressionService.
 	summary["game_minutes"] = session_stats.game_minutes
 	summary["average_hype"] = session_stats.average_hype()
 	career.complete(state, summary, stream_novelty * moves.novelty_multiplier(), int(clock.call()))

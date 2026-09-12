@@ -56,7 +56,7 @@ func _test_gates() -> void:
 	check(document.version == SaveService.VERSION, "Current schema written")
 	var loaded: PlayerState = saves.deserialize(document).context["state"]
 	check(loaded.upgrades.microphone == 8 and not upgrades.purchase(loaded, "microphone").success, "Over-level equipment preserved and gated")
-	check(loaded.level == 10 and loaded.xp == 552 and loaded.followers == 1234 and loaded.relationships == state.relationships and loaded.content_sources == state.content_sources and loaded.current_home_id == state.current_home_id, "v0.8 progress preserved")
+	check(loaded.level == 15 and loaded.xp == 52 and loaded.followers == 1234 and loaded.relationships == state.relationships and loaded.content_sources == state.content_sources and loaded.current_home_id == state.current_home_id, "Old XP carried into fixed-threshold levels without loss")
 	var homes: RoomCustomizationService = RoomCustomizationService.new(catalog)
 	state.career_tier = 3
 	state.level = 9

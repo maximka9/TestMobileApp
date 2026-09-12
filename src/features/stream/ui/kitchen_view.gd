@@ -1,4 +1,11 @@
+class_name KitchenView
 extends RoomView
+## Kitchen's separate on-camera chat; no monitor UI dependency.
+const CHAT_LIMIT: int = 5
+const CHAT_MESSAGES: PackedStringArray = ["жми жми", "ХАХАХ", "+", "КЛИП!", "погнали", "хорош", "KEKW", "это база"]
+var chat: ChatActivityService = ChatActivityService.new(GameConfig.new())
+var chat_index: int = 0
+var _chat_lines: PackedStringArray = []
 
 func _ready() -> void:
 	_ignore_child_input(self)
